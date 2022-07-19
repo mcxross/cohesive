@@ -1,19 +1,18 @@
 package com.mcxross.cohesive.common.view
 
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.selection.DisableSelection
-import androidx.compose.foundation.window.WindowDraggableArea
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.window.WindowScope
-import com.mcxross.cohesive.common.App
+import com.mcxross.cohesive.common.ui.MenuBar
 import com.mcxross.cohesive.common.ui.common.AppTheme
+import com.mcxross.cohesive.common.ui.common.Hr
 
 @Composable
 fun WindowScope.MainScreen() {
@@ -23,16 +22,23 @@ fun WindowScope.MainScreen() {
             Surface(
                 modifier = Modifier.fillMaxSize(),
             ) {
+                Column {
+                    MenuBar()
 
-                WindowDraggableArea {
-                    Box(Modifier.fillMaxWidth().height(30.dp)) {
+                    Hr()
 
+                    with(LocalDensity.current) {
+                        Column(modifier = Modifier.fillMaxSize().background(MaterialTheme.colors.background)) { }
                     }
+
                 }
-                App()
+
             }
 
+
         }
+
     }
+
 
 }

@@ -25,9 +25,10 @@ fun main() = application {
         Window(
             onCloseRequest = ::exitApplication,
             undecorated = true,
+            resizable = false,
             state = WindowState(
                 position = WindowPosition.Aligned(Alignment.Center),
-                size = getPreferredWindowSize(400, 300)
+                size = getPreferredWindowSize(400, 300),
             ),
         ) {
            SplashScreen()
