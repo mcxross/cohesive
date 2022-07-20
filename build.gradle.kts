@@ -5,11 +5,13 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
 
 plugins {
+    `kotlin-dsl`
     kotlin("multiplatform") apply false
     kotlin("android") apply false
     id("com.android.application") apply false

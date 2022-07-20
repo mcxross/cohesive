@@ -23,13 +23,13 @@ kotlin {
                 implementation(compose.desktop.currentOs)
             }
         }
-        val jvmTest by getting
+
     }
 }
 
 compose.desktop {
     application {
-        mainClass = "MainKt"
+        mainClass = "com.mcxross.cohesive.desktop.MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "cohesive"

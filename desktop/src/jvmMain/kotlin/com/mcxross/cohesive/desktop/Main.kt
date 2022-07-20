@@ -1,3 +1,5 @@
+package com.mcxross.cohesive.desktop
+
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.painter.BitmapPainter
