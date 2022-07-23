@@ -45,7 +45,9 @@ kotlin {
                 api(compose.preview)
             }
         }
-        val desktopTest by getting
+        val desktopTest by getting {
+
+        }
     }
 }
 
