@@ -6,8 +6,10 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -25,6 +27,12 @@ fun ClusterMenu(modifier: Modifier) {
                 contentColor = contentColorFor(MaterialTheme.colors.surface)
             ),
             onClick = { expanded = !expanded }) {
+            Icon(
+                painterResource("clusterConnectedDot_dark.svg"),
+                contentDescription = "",
+                modifier = Modifier.align(Alignment.CenterVertically),
+                tint = Color.Green
+            )
             Text(setCluster, fontSize = 11.sp)
             Icon(
                 imageVector = Icons.Filled.ArrowDropDown,
