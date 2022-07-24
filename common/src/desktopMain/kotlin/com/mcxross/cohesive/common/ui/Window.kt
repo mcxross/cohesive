@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.contentColorFor
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -29,15 +30,18 @@ fun WindowButton(
     contentDescription: String,
     onHoverColor: Color = Color(0xFF6E6E6E),
     width: Dp = 54.dp,
+    height: Dp = 30.dp,
+    background: Color = MaterialTheme.colors.surface,
+    tint: Color = contentColorFor(MaterialTheme.colors.surface),
     onClick: () -> Unit
 ) {
     var active by remember { mutableStateOf(false) }
-    Box(modifier = Modifier.size(width, 30.dp)
-        .background(color = if (active) onHoverColor else MaterialTheme.colors.surface)
+    Box(modifier = Modifier.size(width, height)
+        .background(color = if (active) onHoverColor else background)
         .clickable { onClick() }
         .onPointerEvent(PointerEventType.Enter) { active = true }
         .onPointerEvent(PointerEventType.Exit) { active = false }) {
-        Icon(painterResource(res), contentDescription, modifier = Modifier.align(alignment = Alignment.Center))
+        Icon(painterResource(res), contentDescription, modifier = Modifier.align(alignment = Alignment.Center), tint = tint)
     }
 }
 
@@ -97,5 +101,12 @@ fun SwitchView() {
             WindowStateHolder.view = View.EXPLORER
         }
 
+    }
+}
+
+@Composable
+fun DialogCloseButton() {
+    WindowButton("closeSmall_dark.svg", contentDescription = "Close Dialog", width = 54.dp, height = 25.dp, onHoverColor = Color(0xFFC75450), background = Color(0xFFDB5860), tint = Color.White) {
+        WindowStateHolder.isImportAccountOpen = false
     }
 }

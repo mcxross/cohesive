@@ -34,6 +34,9 @@ fun WindowScope.MainScreen() {
                             ExplorerView()
                         } else {
                             WalletView()
+                            if(WindowStateHolder.isImportAccountOpen) {
+                                ImportAccountDialog()
+                            }
 
                         }
                     }

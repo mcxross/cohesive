@@ -1,9 +1,7 @@
 package com.mcxross.cohesive.common.ui
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -69,5 +67,25 @@ fun CButton(text: String, modifier: Modifier = Modifier, onClick: () -> Unit) {
         onClick = onClick,
     ) {
         Text(text = text)
+    }
+}
+
+@Composable
+fun TitleBar() {
+
+    Column(modifier = Modifier.fillMaxWidth().height(25.dp)) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            Row(modifier = Modifier.fillMaxSize()) {
+                Text("Import Account", modifier = Modifier.align(Alignment.CenterVertically))
+            }
+
+            Box(
+                modifier = Modifier.fillMaxHeight().width(54.dp).align(Alignment.CenterEnd)
+            ) {
+                DialogCloseButton()
+            }
+
+        }
+        Divider()
     }
 }
