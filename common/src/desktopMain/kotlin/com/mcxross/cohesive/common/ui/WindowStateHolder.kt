@@ -9,4 +9,5 @@ import com.mcxross.cohesive.common.view.View
 object WindowStateHolder {
     var state: WindowState = WindowState()
     var view: Any? by mutableStateOf(View.EXPLORER)
+    var isWindowOpen: Boolean by mutableStateOf(true)
 }

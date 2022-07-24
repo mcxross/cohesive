@@ -66,7 +66,7 @@ fun WindowResizeButton() {
 @Composable
 fun WindowCloseButton() {
     WindowButton("close_dark.svg", "Close window", onHoverColor = Color.Red) {
-
+        WindowStateHolder.isWindowOpen = false
     }
 }
 

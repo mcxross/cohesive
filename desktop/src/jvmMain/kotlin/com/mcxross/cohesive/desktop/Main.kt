@@ -45,13 +45,16 @@ fun main() = application {
 
     } else {
 
-        Window(
-            onCloseRequest = ::exitApplication,
-            undecorated = true,
-            state = WindowStateHolder.state,
-            icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
-        ) {
-            MainScreen()
+        if(WindowStateHolder.isWindowOpen) {
+            Window(
+                onCloseRequest = ::exitApplication,
+                undecorated = true,
+                state = WindowStateHolder.state,
+                icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
+            ) {
+                MainScreen()
+            }
         }
+
     }
 }
