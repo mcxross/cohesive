@@ -16,8 +16,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.WindowPlacement
+import com.mcxross.cohesive.common.view.View
 
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -26,10 +28,11 @@ fun WindowButton(
     res: String,
     contentDescription: String,
     onHoverColor: Color = Color(0xFF6E6E6E),
+    width: Dp = 54.dp,
     onClick: () -> Unit
 ) {
     var active by remember { mutableStateOf(false) }
-    Box(modifier = Modifier.size(54.dp, 30.dp)
+    Box(modifier = Modifier.size(width, 30.dp)
         .background(color = if (active) onHoverColor else MaterialTheme.colors.surface)
         .clickable { onClick() }
         .onPointerEvent(PointerEventType.Enter) { active = true }
@@ -48,14 +51,14 @@ fun WindowMinimizeButton() {
 
 @Composable
 fun WindowResizeButton() {
-    var resized by remember { mutableStateOf(false) }
-    WindowButton("restore_dark.svg", "Restore window") {
-        if (!resized) {
-            WindowStateHolder.state.placement = WindowPlacement.Fullscreen
-            resized = true
+    var maximize by remember { mutableStateOf(true) }
+    WindowButton(if (maximize) "maximize_dark.svg" else "restore_dark.svg", "Restore Down, and Maximize window") {
+        if (maximize) {
+            WindowStateHolder.state.placement = WindowPlacement.Maximized
+            maximize = false
         } else {
             WindowStateHolder.state.placement = WindowPlacement.Floating
-            resized = false
+            maximize = true
         }
     }
 }
@@ -73,5 +76,26 @@ fun WindowButtons() {
         WindowMinimizeButton()
         WindowResizeButton()
         WindowCloseButton()
+    }
+}
+
+@Composable
+fun WindowListMenuButton() {
+    WindowButton("listMenu_dark.svg", contentDescription = "Action List", width = 40.dp) {
+
+    }
+}
+
+@Composable
+fun SwitchView() {
+
+    WindowButton("switchView_dark.svg", contentDescription = "Switch View", width = 40.dp) {
+
+        if (WindowStateHolder.view == View.EXPLORER) {
+            WindowStateHolder.view = View.WALLET
+        } else {
+            WindowStateHolder.view = View.EXPLORER
+        }
+
     }
 }

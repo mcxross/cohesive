@@ -1,7 +1,10 @@
 package com.mcxross.cohesive.common.ui
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
@@ -15,11 +18,11 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun ClusterMenu(modifier: Modifier) {
+fun ClusterMenu() {
     var expanded by remember { mutableStateOf(false) }
     val suggestions = listOf("Mainnet Beta", "Testnet", "Devnet", "Custom RPC URL")
     var setCluster by remember { mutableStateOf(suggestions[0]) }
-    Box(modifier = modifier) {
+    Box {
         Button(
             border = BorderStroke(1.dp, MaterialTheme.colors.surface),
             colors = ButtonDefaults.buttonColors(
@@ -55,5 +58,16 @@ fun ClusterMenu(modifier: Modifier) {
                 }
             }
         }
+    }
+}
+
+@Composable
+fun CButton(text: String, modifier: Modifier = Modifier, onClick: () -> Unit) {
+    Button(
+        modifier = modifier.padding(8.dp),
+        shape = RoundedCornerShape(12.dp),
+        onClick = onClick,
+    ) {
+        Text(text = text)
     }
 }

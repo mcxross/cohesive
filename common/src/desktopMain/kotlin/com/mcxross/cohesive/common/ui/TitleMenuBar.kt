@@ -10,20 +10,34 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.WindowScope
 
+
 @Composable
 fun WindowScope.TitleMenuBar() {
     WindowDraggableArea {
         Column(modifier = Modifier.fillMaxWidth().height(30.dp)) {
 
             Box(modifier = Modifier.fillMaxSize().padding(start = 10.dp)) {
-                Row(modifier = Modifier.size(30.dp, 30.dp)) {
+                Row(modifier = Modifier.fillMaxSize()) {
                     Image(
                         painterResource("ic_launcher.png"),
                         "App Icon",
-                        modifier = Modifier.size(25.dp, 25.dp).align(Alignment.CenterVertically)
+                        modifier = Modifier.size(25.dp).align(Alignment.CenterVertically)
                     )
+
+                    Box(modifier = Modifier.fillMaxSize().offset(x = 5.dp).align(Alignment.CenterVertically)) {
+
+                        WindowListMenuButton()
+
+                    }
+
                 }
-                ClusterMenu(modifier = Modifier.align(Alignment.Center))
+
+                Row(modifier = Modifier.align(Alignment.Center)) {
+
+                    ClusterMenu()
+                    SwitchView()
+                }
+
                 Box(
                     modifier = Modifier.fillMaxHeight().width(162.dp).align(Alignment.CenterEnd)
                 ) {
@@ -34,4 +48,5 @@ fun WindowScope.TitleMenuBar() {
         }
     }
 }
+
 
