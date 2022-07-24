@@ -13,6 +13,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.WindowPosition
+import androidx.compose.ui.window.rememberDialogState
 
 
 @Composable
@@ -71,12 +74,12 @@ fun CButton(text: String, modifier: Modifier = Modifier, onClick: () -> Unit) {
 }
 
 @Composable
-fun TitleBar() {
+private fun TitleBar(title: String) {
 
     Column(modifier = Modifier.fillMaxWidth().height(25.dp)) {
         Box(modifier = Modifier.fillMaxSize()) {
             Row(modifier = Modifier.fillMaxSize()) {
-                Text("Import Account", modifier = Modifier.align(Alignment.CenterVertically))
+                Text(title, modifier = Modifier.align(Alignment.CenterVertically))
             }
 
             Box(
@@ -88,4 +91,46 @@ fun TitleBar() {
         }
         Divider()
     }
+}
+
+@Composable
+fun ImportAccountDialog() {
+    var isDialogOpen by remember { mutableStateOf(false) }
+    Dialog(
+        onCloseRequest = { isDialogOpen = false },
+        undecorated = true,
+        resizable = false,
+        state = rememberDialogState(position = WindowPosition(Alignment.Center))
+    ) {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            contentColor = contentColorFor(MaterialTheme.colors.surface)
+        ) {
+            Column {
+                TitleBar("Import Account")
+            }
+        }
+    }
+}
+
+@Composable
+fun CreateAccountDialog() {
+
+    var isDialogOpen by remember { mutableStateOf(false) }
+    Dialog(
+        onCloseRequest = { isDialogOpen = false },
+        undecorated = true,
+        resizable = false,
+        state = rememberDialogState(position = WindowPosition(Alignment.Center))
+    ) {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            contentColor = contentColorFor(MaterialTheme.colors.surface)
+        ) {
+            Column {
+                TitleBar("Create Account")
+            }
+        }
+    }
+
 }

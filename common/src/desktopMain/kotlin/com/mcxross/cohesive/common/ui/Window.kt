@@ -107,6 +107,9 @@ fun SwitchView() {
 @Composable
 fun DialogCloseButton() {
     WindowButton("closeSmall_dark.svg", contentDescription = "Close Dialog", width = 54.dp, height = 25.dp, onHoverColor = Color(0xFFC75450), background = Color(0xFFDB5860), tint = Color.White) {
-        WindowStateHolder.isImportAccountOpen = false
+        if(WindowStateHolder.isImportAccountOpen)
+            WindowStateHolder.isImportAccountOpen = false
+        else
+            WindowStateHolder.isCreateAccountOpen = false
     }
 }

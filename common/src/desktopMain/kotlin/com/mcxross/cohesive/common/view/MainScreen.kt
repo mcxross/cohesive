@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.window.WindowScope
+import com.mcxross.cohesive.common.ui.CreateAccountDialog
+import com.mcxross.cohesive.common.ui.ImportAccountDialog
 import com.mcxross.cohesive.common.ui.TitleMenuBar
 import com.mcxross.cohesive.common.ui.WindowStateHolder
 import com.mcxross.cohesive.common.ui.common.AppTheme
@@ -36,6 +38,10 @@ fun WindowScope.MainScreen() {
                             WalletView()
                             if(WindowStateHolder.isImportAccountOpen) {
                                 ImportAccountDialog()
+                            }
+
+                            if(WindowStateHolder.isCreateAccountOpen) {
+                                CreateAccountDialog()
                             }
 
                         }
