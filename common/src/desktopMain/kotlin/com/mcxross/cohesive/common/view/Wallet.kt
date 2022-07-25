@@ -13,8 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.mcxross.cohesive.common.ui.CButton
-import com.mcxross.cohesive.common.ui.WindowStateHolder
+import com.mcxross.cohesive.common.utils.WindowStateHolder
+import com.mcxross.cohesive.common.ui.common.component.CButton
 
 @Composable
 fun WalletView() = Box(Modifier.fillMaxSize().background(MaterialTheme.colors.background)) {
@@ -27,11 +27,11 @@ fun WalletView() = Box(Modifier.fillMaxSize().background(MaterialTheme.colors.ba
             modifier = Modifier.padding(16.dp).align(Alignment.CenterHorizontally)
         )
 
-        CButton(text = "Import Account(s) into Wallet", Modifier.align(Alignment.CenterHorizontally)) {
+        CButton(text = "Import Account(s) into Wallet", modifier = Modifier.align(Alignment.CenterHorizontally)) {
             WindowStateHolder.isImportAccountOpen = true
         }
 
-        CButton(text = "Create Account(s) in Wallet", Modifier.align(Alignment.CenterHorizontally)) {
+        CButton(text = "Create Account(s) in Wallet", modifier = Modifier.align(Alignment.CenterHorizontally)) {
             WindowStateHolder.isCreateAccountOpen = true
         }
 

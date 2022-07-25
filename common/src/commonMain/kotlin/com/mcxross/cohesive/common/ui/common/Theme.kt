@@ -19,7 +19,7 @@ object AppTheme {
     }
 
     class Colors {
-        private val primaryDark: Color = Color(0xFF3592C4)
+        private val primaryDark: Color = Color(0xFF047ACF)
         private val backgroundDark: Color = Color(0xFF2B2B2B)
         private val onBackgroundDark: Color = Color(0xFFA9A9A9)
         val backgroundDarkLight: Color = Color(0xFF4E5254)

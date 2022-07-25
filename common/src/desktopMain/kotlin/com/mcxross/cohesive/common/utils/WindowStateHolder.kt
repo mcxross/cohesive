@@ -1,11 +1,10 @@
-package com.mcxross.cohesive.common.ui
+package com.mcxross.cohesive.common.utils
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.window.WindowState
 import com.mcxross.cohesive.common.view.View
-
 object WindowStateHolder {
     var state: WindowState = WindowState()
     var view: Any? by mutableStateOf(View.EXPLORER)
