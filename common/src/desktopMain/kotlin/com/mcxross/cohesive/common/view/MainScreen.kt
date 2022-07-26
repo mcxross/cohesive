@@ -2,6 +2,7 @@ package com.mcxross.cohesive.common.view
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.window.WindowDraggableArea
@@ -12,6 +13,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -21,6 +23,8 @@ import androidx.compose.ui.window.WindowScope
 import com.mcxross.cohesive.common.ui.CreateAccountDialog
 import com.mcxross.cohesive.common.ui.ImportAccountDialog
 import com.mcxross.cohesive.common.ui.common.AppTheme
+import com.mcxross.cohesive.common.ui.component.CMenu
+import com.mcxross.cohesive.common.ui.component.CMenuItem
 import com.mcxross.cohesive.common.ui.component.WindowButton
 import com.mcxross.cohesive.common.utils.WindowStateHolder
 
@@ -64,9 +68,17 @@ private fun WindowButtons() {
 
 @Composable
 private fun WindowListMenuButton() {
-    WindowButton("listMenu_dark.svg", contentDescription = "Action List", width = 40.dp) {
 
-    }
+    val suggestions = listOf(
+        CMenuItem(painterResource("menu-open_dark.svg"), "New"),
+        CMenuItem(icon = null, "Open"),
+        CMenuItem(icon = null, "Open Recent"),
+        CMenuItem(icon = null, "Switch Chain"),
+        CMenuItem(icon = null, "Settings"),
+        CMenuItem(icon = null, "Exit"),
+    )
+    CMenu(suggestions)
+
 }
 
 @Composable
@@ -103,7 +115,7 @@ private fun ClusterMenu() {
                 modifier = Modifier.align(Alignment.CenterVertically),
                 tint = Color.Green
             )
-            Text(setCluster, fontSize = 11.sp)
+            Text(setCluster, fontSize = 12.sp)
             Icon(
                 imageVector = Icons.Filled.ArrowDropDown,
                 contentDescription = null,
@@ -112,16 +124,17 @@ private fun ClusterMenu() {
         DropdownMenu(
             expanded = expanded,
             onDismissRequest = { expanded = false },
+            modifier = Modifier.border(border = BorderStroke(2.dp, Color(0xFF4D5051)), shape = RectangleShape)
         ) {
             suggestions.forEach { label ->
-                DropdownMenuItem(modifier = Modifier.height(20.dp), onClick = {
+                DropdownMenuItem(modifier = Modifier.height(24.dp), onClick = {
                     if (label !== setCluster) {
                         setCluster = label
                     }
                     expanded = false
 
                 }) {
-                    Text(text = label, fontSize = 11.sp)
+                    Text(text = label, fontSize = 12.sp)
                 }
             }
         }
@@ -186,11 +199,11 @@ fun WindowScope.MainScreen() {
                             ExplorerView()
                         } else {
                             WalletView()
-                            if(WindowStateHolder.isImportAccountOpen) {
+                            if (WindowStateHolder.isImportAccountOpen) {
                                 ImportAccountDialog()
                             }
 
-                            if(WindowStateHolder.isCreateAccountOpen) {
+                            if (WindowStateHolder.isCreateAccountOpen) {
                                 CreateAccountDialog()
                             }
 
