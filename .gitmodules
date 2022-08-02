@@ -1,0 +1,3 @@
+[submodule "chain/solana"]
+	path = chain/solana
+	url = https://github.com/mcxross/solana.git

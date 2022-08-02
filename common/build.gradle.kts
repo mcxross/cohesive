@@ -22,6 +22,7 @@ kotlin {
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
+                api(compose.materialIconsExtended)
             }
         }
         val commonTest by getting {
@@ -30,6 +31,7 @@ kotlin {
             }
         }
         val androidMain by getting {
+            kotlin.srcDirs("src/jvmMain/kotlin")
             dependencies {
                 api("androidx.appcompat:appcompat:1.4.2")
                 api("androidx.core:core-ktx:1.8.0")
@@ -41,6 +43,7 @@ kotlin {
             }
         }
         val desktopMain by getting {
+            kotlin.srcDirs("src/jvmMain/kotlin")
             dependencies {
                 api(compose.preview)
             }

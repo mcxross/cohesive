@@ -19,7 +19,8 @@ object AppTheme {
     }
 
     class Colors {
-        private val primaryDark: Color = Color(0xFF047ACF)
+        private val primaryDark: Color = Color(0xFF0C68BD)
+        private val primaryVariantDark: Color = Color(0xFF1277CF)
         private val backgroundDark: Color = Color(0xFF2B2B2B)
         private val onBackgroundDark: Color = Color(0xFFA9A9A9)
         val backgroundDarkLight: Color = Color(0xFF4E5254)
@@ -28,6 +29,7 @@ object AppTheme {
 
         val materialDark: androidx.compose.material.Colors = darkColors(
             primary = primaryDark,
+            primaryVariant = primaryVariantDark,
             background = backgroundDark,
             onBackground = onBackgroundDark,
             surface = surfaceDark,

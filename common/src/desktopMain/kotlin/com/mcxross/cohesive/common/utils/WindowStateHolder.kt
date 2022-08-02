@@ -11,4 +11,5 @@ object WindowStateHolder {
     var isWindowOpen: Boolean by mutableStateOf(true)
     var isImportAccountOpen: Boolean by mutableStateOf(false)
     var isCreateAccountOpen: Boolean by mutableStateOf(false)
+    var isOpenDialogOpen: Boolean by mutableStateOf(false)
 }

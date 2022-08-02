@@ -22,10 +22,9 @@ import androidx.compose.ui.window.WindowPlacement
 import androidx.compose.ui.window.WindowScope
 import com.mcxross.cohesive.common.ui.CreateAccountDialog
 import com.mcxross.cohesive.common.ui.ImportAccountDialog
+import com.mcxross.cohesive.common.ui.OpenDialog
 import com.mcxross.cohesive.common.ui.common.AppTheme
-import com.mcxross.cohesive.common.ui.component.CMenu
-import com.mcxross.cohesive.common.ui.component.CMenuItem
-import com.mcxross.cohesive.common.ui.component.WindowButton
+import com.mcxross.cohesive.common.ui.component.*
 import com.mcxross.cohesive.common.utils.WindowStateHolder
 
 @Composable
@@ -69,15 +68,41 @@ private fun WindowButtons() {
 @Composable
 private fun WindowListMenuButton() {
 
-    val suggestions = listOf(
-        CMenuItem(painterResource("menu-open_dark.svg"), "New"),
-        CMenuItem(icon = null, "Open"),
-        CMenuItem(icon = null, "Open Recent"),
-        CMenuItem(icon = null, "Switch Chain"),
-        CMenuItem(icon = null, "Settings"),
-        CMenuItem(icon = null, "Exit"),
-    )
-    CMenu(suggestions)
+    val rootMenu = CMenuItem(null, "").addMenu(
+        CMenuItem(
+            icon = null,
+            text = "New",
+            children = listOf(
+                CMenuItem(icon = null, text = "Project"),
+                CMenuItem(icon = null, text = "Wallet")
+            )
+        )
+    ).addMenu(
+        CMenuItem(
+            icon = painterResource("menu-open_dark.svg"),
+            text = "Open",
+            cMenuInterface = object : CMenuInterface {
+                override fun onClick() {
+                    WindowStateHolder.isOpenDialogOpen = true
+                }
+
+                override fun onHover(onEnter: Boolean) {
+
+                }
+
+            })
+    ).addMenu(CMenuItem(icon = null, "Open Recent"))
+        .addMenu(CMenuItem(icon = null, "Settings"))
+        .addMenu(CMenuItem(icon = null, "Exit", cMenuInterface = object : CMenuInterface {
+            override fun onClick() {
+                WindowStateHolder.isWindowOpen = false
+            }
+
+            override fun onHover(onEnter: Boolean) {
+                TODO("Not yet implemented")
+            }
+        }))
+    CMenu(MenuTree(rootMenu))
 
 }
 
@@ -163,7 +188,11 @@ private fun WindowScope.TitleMenuBar() {
                 }
 
                 Row(modifier = Modifier.align(Alignment.Center)) {
-
+                    Text(
+                        "Solana  -",
+                        fontSize = 11.sp,
+                        modifier = Modifier.padding(end = 10.dp).align(Alignment.CenterVertically)
+                    )
                     ClusterMenu()
                     SwitchView()
                 }
@@ -207,6 +236,10 @@ fun WindowScope.MainScreen() {
                                 CreateAccountDialog()
                             }
 
+                        }
+
+                        if(WindowStateHolder.isOpenDialogOpen) {
+                            OpenDialog()
                         }
                     }
 
