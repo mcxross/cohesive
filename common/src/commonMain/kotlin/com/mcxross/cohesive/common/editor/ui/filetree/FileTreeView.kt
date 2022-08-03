@@ -1,13 +1,11 @@
 package com.mcxross.cohesive.common.editor.ui.filetree
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.Icon
-import androidx.compose.material.LocalContentColor
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
@@ -24,7 +22,8 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mcxross.cohesive.common.editor.platform.VerticalScrollbar
-import com.mcxross.cohesive.common.editor.util.withoutWidthConstraints
+
+val activeIndex =  mutableStateOf(0)
 
 @Composable
 fun FileTreeViewTabView() = Surface {
@@ -42,42 +41,54 @@ fun FileTreeViewTabView() = Surface {
 }
 
 @Composable
-fun FileTreeView(model: FileTree) = Surface(
-    modifier = Modifier.fillMaxSize().padding(end = 3.dp)
-) {
-    with(LocalDensity.current) {
-        Box {
-            val scrollState = rememberLazyListState()
+fun FileTreeView(model: FileTree) {
+    Surface(modifier = Modifier.fillMaxSize().padding(end = 3.dp)) {
+        with(LocalDensity.current) {
+            Box {
+                val scrollState = rememberLazyListState()
 
-            LazyColumn(
-                modifier = Modifier.fillMaxSize().withoutWidthConstraints(),
-                state = scrollState
-            ) {
-                items(model.items.size) {
-                    FileTreeItemView(14.sp, 14.sp.toDp() * 1.5f, model.items[it])
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    state = scrollState,
+                ) {
+                    items(model.items.size) {
+
+                        FileTreeItemView(it, 14.sp, 14.sp.toDp() * 1.5f, model.items[it])
+
+                    }
                 }
-            }
 
-            VerticalScrollbar(
-                Modifier.align(Alignment.CenterEnd),
-                scrollState
-            )
+                VerticalScrollbar(
+                    Modifier.align(Alignment.CenterEnd),
+                    scrollState
+                )
+            }
         }
     }
 }
 
 @Composable
-private fun FileTreeItemView(fontSize: TextUnit, height: Dp, model: FileTree.Item) {
+private fun FileTreeItemView(i: Int, fontSize: TextUnit, height: Dp, model: FileTree.Item) {
 
-    val active = remember { mutableStateOf(false) }
-
-    Row(
-        modifier = Modifier
+    Box(
+        modifier = Modifier.fillMaxWidth()
             .wrapContentHeight()
-            .clickable { active.value = true}
-            .padding(start = 24.dp * model.level)
             .height(height)
+            .background(
+                if (activeIndex.value == 0) {
+                    MaterialTheme.colors.surface
+                } else {
+                    if (activeIndex.value == i) MaterialTheme.colors.primaryVariant else MaterialTheme.colors.surface
+                }
+            )
     ) {
+        Row(
+            modifier = Modifier.fillMaxSize()
+                .clickable {
+                    activeIndex.value = i
+                }
+                .padding(start = 24.dp * model.level)
+        ) {
 
             FileItemIcon(Modifier.align(Alignment.CenterVertically), model)
             Text(
@@ -90,7 +101,9 @@ private fun FileTreeItemView(fontSize: TextUnit, height: Dp, model: FileTree.Ite
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1
             )
+        }
     }
+
 
 }
 
@@ -100,13 +113,19 @@ private fun FileItemIcon(modifier: Modifier, model: FileTree.Item) = Box(modifie
         is FileTree.ItemType.Folder -> when {
             !type.canExpand -> Unit
             type.isExpanded -> Icon(
-                Icons.Default.KeyboardArrowDown, contentDescription = null, tint = LocalContentColor.current, modifier = Modifier.clickable {
+                Icons.Default.KeyboardArrowDown,
+                contentDescription = null,
+                tint = LocalContentColor.current,
+                modifier = Modifier.clickable {
                     model.open()
                 }
             )
 
             else -> Icon(
-                Icons.Default.KeyboardArrowRight, contentDescription = null, tint = LocalContentColor.current, modifier = Modifier.clickable {
+                Icons.Default.KeyboardArrowRight,
+                contentDescription = null,
+                tint = LocalContentColor.current,
+                modifier = Modifier.clickable {
                     model.open()
                 }
             )
