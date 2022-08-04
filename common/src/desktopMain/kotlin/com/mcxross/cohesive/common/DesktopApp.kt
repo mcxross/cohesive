@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.mcxross.cohesive.common.ui.common.component.CButton
+import com.mcxross.cohesive.common.common.component.CButton
 
 @Preview
 @Composable

@@ -7,7 +7,7 @@ import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.res.useResource
 import androidx.compose.ui.window.*
 import com.mcxross.cohesive.common.utils.WindowStateHolder
-import com.mcxross.cohesive.common.view.SplashScreen
+import com.mcxross.cohesive.common.common.SplashScreen
 import com.mcxross.cohesive.common.utils.getPreferredWindowSize
 import com.mcxross.cohesive.common.view.MainScreen
 import kotlinx.coroutines.delay

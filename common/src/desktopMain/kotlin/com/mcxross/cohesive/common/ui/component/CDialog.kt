@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.rememberDialogState
-import com.mcxross.cohesive.common.ui.common.component.CButton
+import com.mcxross.cohesive.common.common.component.CButton
 
 private var titleStr: String = ""
 private var negativeTextStr: String = ""
@@ -23,6 +23,9 @@ private var positiveTextStr: String = ""
 private var onNegativeFun: () -> Unit = {}
 private var onNeutralFun: () -> Unit = {}
 private var onPositiveFun: () -> Unit = {}
+private var negativeEnableVal: Boolean = true
+private var neutralEnableVal: Boolean = false
+private var positiveEnableVal: Boolean = false
 private var onCloseFun: () -> Unit = {}
 
 @Composable
@@ -47,7 +50,12 @@ private fun Title(modifier: Modifier) {
                     "App Icon",
                     modifier = Modifier.size(25.dp).align(Alignment.CenterVertically)
                 )
-                Text(text = titleStr, fontSize = 12.sp, maxLines = 1, modifier = Modifier.offset(x = 5.dp).align(Alignment.CenterVertically))
+                Text(
+                    text = titleStr,
+                    fontSize = 12.sp,
+                    maxLines = 1,
+                    modifier = Modifier.offset(x = 5.dp).align(Alignment.CenterVertically)
+                )
             }
 
             Box(
@@ -74,16 +82,36 @@ private fun Footer(modifier: Modifier) {
         Divider()
         Box(modifier = Modifier.fillMaxWidth().height(55.dp).padding(end = 5.dp)) {
             Row(modifier = Modifier.fillMaxHeight().align(Alignment.CenterEnd)) {
-                CButton(
-                    text = positiveTextStr,
-                    enabled = false,
-                    modifier = Modifier.height(35.dp).align(Alignment.CenterVertically)
-                ) {
-                    onPositiveFun()
+                if(positiveTextStr.isNotEmpty()) {
+                    CButton(
+                        text = positiveTextStr,
+                        enabled = positiveEnableVal,
+                        modifier = Modifier.height(35.dp).align(Alignment.CenterVertically)
+                    ) {
+                        onPositiveFun()
+                    }
                 }
-                CButton(negativeTextStr, modifier = Modifier.height(35.dp).align(Alignment.CenterVertically)) {
-                    onNegativeFun()
+
+                if(neutralTextStr.isNotEmpty()) {
+                    CButton(
+                        text = neutralTextStr,
+                        enabled = neutralEnableVal,
+                        modifier = Modifier.height(35.dp).align(Alignment.CenterVertically)
+                    ) {
+                        onNeutralFun()
+                    }
                 }
+
+                if(negativeTextStr.isNotEmpty()) {
+                    CButton(
+                        text = negativeTextStr,
+                        enabled = negativeEnableVal,
+                        modifier = Modifier.height(35.dp).align(Alignment.CenterVertically)
+                    ) {
+                        onNegativeFun()
+                    }
+                }
+
             }
         }
     }
@@ -100,8 +128,11 @@ fun CDialog(
     onNegative: () -> Unit = {},
     onNeutral: () -> Unit = {},
     onPositive: () -> Unit = {},
+    negativeEnable: Boolean = true,
+    neutralEnable: Boolean = true,
+    positiveEnable: Boolean = true,
     onClose: () -> Unit,
-    content: @Composable() () -> Unit
+    content: @Composable () -> Unit
 ) {
     titleStr = title
     negativeTextStr = negativeText
@@ -110,6 +141,9 @@ fun CDialog(
     onNegativeFun = onNegative
     onNeutralFun = onNeutral
     onPositiveFun = onPositive
+    negativeEnableVal = negativeEnable
+    neutralEnableVal = neutralEnable
+    positiveEnableVal = positiveEnable
     onCloseFun = onClose
     var isDialogOpen by remember { mutableStateOf(false) }
     Dialog(

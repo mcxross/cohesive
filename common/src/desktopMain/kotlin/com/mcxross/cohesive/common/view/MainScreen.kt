@@ -20,12 +20,21 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.WindowPlacement
 import androidx.compose.ui.window.WindowScope
+import com.mcxross.cohesive.common.common.AppTheme
+import com.mcxross.cohesive.common.common.View
+import com.mcxross.cohesive.common.common.platform.HomeFolder
+import com.mcxross.cohesive.common.editor.CodeViewer
+import com.mcxross.cohesive.common.editor.CodeViewerView
+import com.mcxross.cohesive.common.editor.Editors
+import com.mcxross.cohesive.common.editor.Settings
+import com.mcxross.cohesive.common.common.filetree.FileTree
+import com.mcxross.cohesive.common.explorer.ExplorerView
 import com.mcxross.cohesive.common.ui.CreateAccountDialog
 import com.mcxross.cohesive.common.ui.ImportAccountDialog
 import com.mcxross.cohesive.common.ui.OpenDialog
-import com.mcxross.cohesive.common.ui.common.AppTheme
 import com.mcxross.cohesive.common.ui.component.*
 import com.mcxross.cohesive.common.utils.WindowStateHolder
+import com.mcxross.cohesive.common.wallet.WalletView
 
 @Composable
 private fun WindowMinimizeButton() {
@@ -226,7 +235,7 @@ fun WindowScope.MainScreen() {
                     with(LocalDensity.current) {
                         if (WindowStateHolder.view == View.EXPLORER) {
                             ExplorerView()
-                        } else {
+                        } else if (WindowStateHolder.view == View.WALLET) {
                             WalletView()
                             if (WindowStateHolder.isImportAccountOpen) {
                                 ImportAccountDialog()
@@ -236,9 +245,22 @@ fun WindowScope.MainScreen() {
                                 CreateAccountDialog()
                             }
 
+                        } else {
+
+                            val codeViewer = remember {
+                                val editors = Editors()
+
+                                CodeViewer(
+                                    editors = editors,
+                                    fileTree = FileTree(HomeFolder),
+                                    settings = Settings()
+                                )
+                            }
+
+                            CodeViewerView(codeViewer)
                         }
 
-                        if(WindowStateHolder.isOpenDialogOpen) {
+                        if (WindowStateHolder.isOpenDialogOpen) {
                             OpenDialog()
                         }
                     }
