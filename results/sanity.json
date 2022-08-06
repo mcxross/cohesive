@@ -37,68 +37,6 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Expected function 'pointerMoveFilter' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Mouse.kt",
-      "language": "kotlin",
-      "line": 6,
-      "offset": 21,
-      "length": 17,
-      "code": {
-        "startLine": 4,
-        "length": 17,
-        "offset": 64,
-        "surroundingCode": "import androidx.compose.ui.geometry.Offset\n\nexpect fun Modifier.pointerMoveFilter(\n    onEnter: () -> Boolean = { true },\n    onExit: () -> Boolean = { true },"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "fc210c11f7b2a42144c00d33123309d0aefe80316f3643e5a3115176f0d5453d"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'cursorForHorizontalResize' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Mouse.kt",
-      "language": "kotlin",
-      "line": 12,
-      "offset": 21,
-      "length": 25,
-      "code": {
-        "startLine": 10,
-        "length": 25,
-        "offset": 33,
-        "surroundingCode": "): Modifier\n\nexpect fun Modifier.cursorForHorizontalResize(): Modifier"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "3fd9aa286b1f8292accf1d2f45f71bf236cf8b0c82a43813c0f44214cd1dffd7"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
   "comment": "Expected function 'VerticalScrollbar' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
@@ -161,6 +99,99 @@
     "Sanity"
   ],
   "severity": "Critical",
+  "comment": "Expected function 'Font' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Resources.kt",
+      "language": "kotlin",
+      "line": 9,
+      "offset": 12,
+      "length": 4,
+      "code": {
+        "startLine": 7,
+        "length": 4,
+        "offset": 24,
+        "surroundingCode": "\n@Composable\nexpect fun Font(name: String, res: String, weight: FontWeight, style: FontStyle): Font"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "3b2fc2eff586c6919fa4fe98d8d486601cd2c28fd426ffd09bafa265a4304e49"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'pointerMoveFilter' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Mouse.kt",
+      "language": "kotlin",
+      "line": 6,
+      "offset": 21,
+      "length": 17,
+      "code": {
+        "startLine": 4,
+        "length": 17,
+        "offset": 64,
+        "surroundingCode": "import androidx.compose.ui.geometry.Offset\n\nexpect fun Modifier.pointerMoveFilter(\n    onEnter: () -> Boolean = { true },\n    onExit: () -> Boolean = { true },"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "fc210c11f7b2a42144c00d33123309d0aefe80316f3643e5a3115176f0d5453d"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'cursorForHorizontalResize' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Mouse.kt",
+      "language": "kotlin",
+      "line": 12,
+      "offset": 21,
+      "length": 25,
+      "code": {
+        "startLine": 10,
+        "length": 25,
+        "offset": 33,
+        "surroundingCode": "): Modifier\n\nexpect fun Modifier.cursorForHorizontalResize(): Modifier"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "3fd9aa286b1f8292accf1d2f45f71bf236cf8b0c82a43813c0f44214cd1dffd7"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
   "comment": "Expected property 'HomeFolder' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
@@ -215,35 +246,4 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "50608ea61547a3d8457baa5b3872d2a1e3d5e8e70f8bf2aa6520b95eeaa871a5"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'Font' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Resources.kt",
-      "language": "kotlin",
-      "line": 9,
-      "offset": 12,
-      "length": 4,
-      "code": {
-        "startLine": 7,
-        "length": 4,
-        "offset": 24,
-        "surroundingCode": "\n@Composable\nexpect fun Font(name: String, res: String, weight: FontWeight, style: FontStyle): Font"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "3b2fc2eff586c6919fa4fe98d8d486601cd2c28fd426ffd09bafa265a4304e49"
 }]}
