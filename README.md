@@ -10,3 +10,14 @@
 <b>Economics</b> | <b>Ergonomics</b> | <b>Aesthetics</b>
 </p>
 
+
+## Table of contents
+
+- [Quick start](#quick-start)
+- [Status](#status)
+
+## Quick start
+
+## Status
+
+[![Qodana](https://github.com/mcxross/cohesive/actions/workflows/code_quality.yml/badge.svg)](https://github.com/mcxross/cohesive/actions/workflows/code_quality.yml)
