@@ -1,0 +1,309 @@
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Redundant 'Unit' return type",
+  "severity": "High",
+  "comment": "Redundant 'Unit' return type",
+  "detailsInfo": "Reports a redundant `Unit` return type which can be omitted.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/component/CMenu.kt",
+      "language": "kotlin",
+      "line": 131,
+      "offset": 20,
+      "length": 4,
+      "code": {
+        "startLine": 129,
+        "length": 4,
+        "offset": 21,
+        "surroundingCode": "\n\n    fun onClick(): Unit {\n        cMenuInterface?.onClick()\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "RedundantUnitReturnType"
+  },
+  "hash": "d963558d6c828ea0c66cc708d2ff665d99b00c95f91f32f098e01730ea6bd57e"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'TitleMenuBar' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/view/MainScreen.kt",
+      "language": "kotlin",
+      "line": 179,
+      "offset": 25,
+      "length": 12,
+      "code": {
+        "startLine": 177,
+        "length": 12,
+        "offset": 37,
+        "surroundingCode": "\n@Composable\nprivate fun WindowScope.TitleMenuBar() {\n    WindowDraggableArea {\n        Column(modifier = Modifier.fillMaxWidth().height(30.dp)) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "bb7e3eaa3cbb30ce362a0649e678d5752365624bfc3b96b20b228350cfcae52e"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'WindowResizeButton' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/view/MainScreen.kt",
+      "language": "kotlin",
+      "line": 48,
+      "offset": 13,
+      "length": 18,
+      "code": {
+        "startLine": 46,
+        "length": 18,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun WindowResizeButton() {\n    var maximize by remember { mutableStateOf(true) }\n    WindowButton(if (maximize) \"maximize_dark.svg\" else \"restore_dark.svg\", \"Restore Down, and Maximize window\") {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "3b29c56410de4697f4ddc5309dfeef0bce8a523a2826cbffe9cd49a528f8e878"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'ClusterMenu' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/view/MainScreen.kt",
+      "language": "kotlin",
+      "line": 134,
+      "offset": 13,
+      "length": 11,
+      "code": {
+        "startLine": 132,
+        "length": 11,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun ClusterMenu() {\n    var expanded by remember { mutableStateOf(false) }\n    val suggestions = listOf(\"Mainnet Beta\", \"Testnet\", \"Devnet\", \"Custom RPC URL\")"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "f805f94e5e4792e877a80fa269cb3e3345936c4d615a58f7b958003b50a11e39"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'SwitchView' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/view/MainScreen.kt",
+      "language": "kotlin",
+      "line": 119,
+      "offset": 13,
+      "length": 10,
+      "code": {
+        "startLine": 117,
+        "length": 10,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun SwitchView() {\n\n    WindowButton(\"switchView_dark.svg\", contentDescription = \"Switch View\", width = 40.dp) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "eaa77af4b28e7a44824af5a08b193bbbb3f077117a8a2b591fdea423173d7535"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'WindowButtons' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/view/MainScreen.kt",
+      "language": "kotlin",
+      "line": 69,
+      "offset": 13,
+      "length": 13,
+      "code": {
+        "startLine": 67,
+        "length": 13,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun WindowButtons() {\n    Row(modifier = Modifier.fillMaxSize()) {\n        WindowMinimizeButton()"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "824d34170999ff9835c1e7a1c78f0c65995587616bbd77d50ccbfaf4bedf641e"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'WindowMinimizeButton' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/view/MainScreen.kt",
+      "language": "kotlin",
+      "line": 40,
+      "offset": 13,
+      "length": 20,
+      "code": {
+        "startLine": 38,
+        "length": 20,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun WindowMinimizeButton() {\n\n    WindowButton(\"minimize_dark.svg\", \"Minimize window\") {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "dc8cecb18e318ce4e9d76a8925f9e1d49c1017d34adf6a953d25ac4bf3324834"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'WindowCloseButton' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/view/MainScreen.kt",
+      "language": "kotlin",
+      "line": 62,
+      "offset": 13,
+      "length": 17,
+      "code": {
+        "startLine": 60,
+        "length": 17,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun WindowCloseButton() {\n    WindowButton(\"close_dark.svg\", \"Close window\", onHoverColor = Color.Red) {\n        WindowStateHolder.isWindowOpen = false"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "56ab3052ccead8603369d2d326bf11a5eef633ea6c2fc808ea6b5d9a4809f95d"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'MainScreen' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/view/MainScreen.kt",
+      "language": "kotlin",
+      "line": 222,
+      "offset": 17,
+      "length": 10,
+      "code": {
+        "startLine": 220,
+        "length": 10,
+        "offset": 29,
+        "surroundingCode": "\n@Composable\nfun WindowScope.MainScreen() {\n    DisableSelection {\n        MaterialTheme(colors = AppTheme.getColors()) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "7332a33995eae08c9b362493b73cb1ceaa33c3a8d0cf607a09a56d429c17a0f1"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'WindowListMenuButton' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/view/MainScreen.kt",
+      "language": "kotlin",
+      "line": 78,
+      "offset": 13,
+      "length": 20,
+      "code": {
+        "startLine": 76,
+        "length": 20,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun WindowListMenuButton() {\n\n    val rootMenu = CMenuItem(null, \"\").addMenu("
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "40752ab490e1110fa5839f5477e53f207956736406ffa5b4bce77b4a203d245b"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Redundant SAM constructor",
+  "severity": "High",
+  "comment": "Redundant SAM-constructor",
+  "detailsInfo": "Reports SAM (Single Abstract Method) constructor usages which can be replaced with lambdas.\n\n**Example:**\n\n\n      fun main() {\n          foo(Runnable { println(\"Hi!\") })\n      }\n\n      fun foo(other: Runnable) {}\n\nAfter the quick-fix is applied:\n\n\n      fun main() {\n          foo( { println(\"Hi!\") })\n      }\n\n      fun foo(other: Runnable) {}\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/jvmMain/kotlin/com.mcxross.cohesive.common.editor.platform/JvmFile.kt",
+      "language": "kotlin",
+      "line": 23,
+      "offset": 24,
+      "length": 14,
+      "code": {
+        "startLine": 21,
+        "length": 14,
+        "offset": 96,
+        "surroundingCode": "    override val children: List<File>\n        get() = this@toProjectFile\n            .listFiles(FilenameFilter { _, name -> !name.startsWith(\".\")})\n            .orEmpty()\n            .map { it.toProjectFile() }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "RedundantSamConstructor"
+  },
+  "hash": "11473e03de4f533ccd0f2296860cee519b6cee182604a6d9ad25465fc3d26d32"
+}]}
