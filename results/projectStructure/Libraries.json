@@ -202,6 +202,12 @@
       ]
     },
     {
+      "name": "Gradle: org.pf4j:pf4j:3.7.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.pf4j/pf4j/3.7.0/b9cfa3cfc951030ff59eeb911103669f4e13a777/pf4j-3.7.0.jar!/"
+      ]
+    },
+    {
       "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.1.0",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-desktop/1.1.0/9562f3d1265ac4485d96d6a42788cecf03a0f9fd/material-desktop-1.1.0.jar!/"
@@ -229,6 +235,18 @@
       "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.1.0",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime-desktop/1.1.0/c27d7023bd5de69a0aa3410335302121f8aa60d8/runtime-desktop-1.1.0.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: org.slf4j:slf4j-api:1.7.30",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.30/b5a4b6d16ab13e34a88fae84c35cd5d68cac922c/slf4j-api-1.7.30.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: com.github.zafarkhaja:java-semver:0.9.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.github.zafarkhaja/java-semver/0.9.0/59a83ca73c72a5e25b3f0b1bb305230a11000329/java-semver-0.9.0.jar!/"
       ]
     },
     {
@@ -319,6 +337,12 @@
       "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.1.0",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.foundation/foundation-layout-desktop/1.1.0/491f6db7b259e08bef4635edb1edefb16054eb50/foundation-layout-desktop-1.1.0.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: kaptGeneratedClasses",
+      "roots": [
+        "file://$PROJECT_DIR$/desktop/build/tmp/kapt3/classes/main"
       ]
     },
     {

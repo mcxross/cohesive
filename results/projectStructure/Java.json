@@ -87,6 +87,18 @@
     {
       "name": "cohesive.web.commonTest",
       "languageLevel": 11
+    },
+    {
+      "name": "cohesive.common.androidTestFixtures",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.common.androidTestFixturesDebug",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.common.androidTestFixturesRelease",
+      "languageLevel": 11
     }
   ]
 }
