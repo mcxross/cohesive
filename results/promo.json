@@ -3,6 +3,202 @@
   "category": "Naming conventions",
   "type": "Function naming convention",
   "severity": "Moderate",
+  "comment": "Function name 'FileTreeViewTabView' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/filetree/FileTreeView.kt",
+      "language": "kotlin",
+      "line": 28,
+      "offset": 5,
+      "length": 19,
+      "code": {
+        "startLine": 26,
+        "length": 19,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun FileTreeViewTabView() = Surface {\n    Row(\n        Modifier.padding(8.dp),"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "ee3de3bc2ba4429856d160909f9878193d265b8e3951527e069311f8288388a3"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'FileTreeView' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/filetree/FileTreeView.kt",
+      "language": "kotlin",
+      "line": 43,
+      "offset": 5,
+      "length": 12,
+      "code": {
+        "startLine": 41,
+        "length": 12,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun FileTreeView(model: FileTree) {\n    Surface(modifier = Modifier.fillMaxSize().padding(end = 3.dp)) {\n        with(LocalDensity.current) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "b691ed0db537c39b89c1d31aeff1b3c345fbf7f8bee7b8d1a2b1830d5a1c3a72"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'FileTreeItemView' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/filetree/FileTreeView.kt",
+      "language": "kotlin",
+      "line": 70,
+      "offset": 13,
+      "length": 16,
+      "code": {
+        "startLine": 68,
+        "length": 16,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun FileTreeItemView(i: Int, fontSize: TextUnit, height: Dp, model: FileTree.Item) {\n\n    Box("
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "cfebb4b6dcc73398eae6a8e26166e941741f8f03fcde53f4542ae9367dab7763"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'FileItemIcon' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/filetree/FileTreeView.kt",
+      "language": "kotlin",
+      "line": 109,
+      "offset": 13,
+      "length": 12,
+      "code": {
+        "startLine": 107,
+        "length": 12,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun FileItemIcon(modifier: Modifier, model: FileTree.Item) = Box(modifier.size(24.dp).padding(4.dp)) {\n    when (val type = model.type) {\n        is FileTree.ItemType.Folder -> when {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "a2f1ee94fa6bd00ef25de9d3543504960702a538f6e650b3bfb27c84c7f0cac6"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'CodeViewerView' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/editor/EditorView.kt",
+      "language": "kotlin",
+      "line": 26,
+      "offset": 5,
+      "length": 14,
+      "code": {
+        "startLine": 24,
+        "length": 14,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun CodeViewerView(model: CodeViewer) {\n    val panelState = remember { PanelState() }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "39842e725edf044d5c768a770e2a8fe4b12e381dd37c42bc7cbed38b6680e61f"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'ResizablePanel' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/editor/EditorView.kt",
+      "language": "kotlin",
+      "line": 78,
+      "offset": 13,
+      "length": 14,
+      "code": {
+        "startLine": 76,
+        "length": 14,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun ResizablePanel(\n    modifier: Modifier,\n    state: PanelState,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "ea27539781d16f565af941fc108a022d26bb24cb80ec2816b74c5b6db017848c"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'StatusBar' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/component/StatusBar.kt",
+      "language": "kotlin",
+      "line": 19,
+      "offset": 5,
+      "length": 9,
+      "code": {
+        "startLine": 17,
+        "length": 9,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun StatusBar(settings: Settings) = Box(\n    Modifier\n        .height(32.dp)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "9ff58247b5f4013443e2e965111d6ae0c945799eb8bf328a021f0f1acd1ebcbd"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
   "comment": "Function name 'VerticalSplittable' should start with a lowercase letter",
   "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
@@ -56,58 +252,86 @@
   "hash": "8055515ab5f97799aee8ddb08cb1b854c6c2577c16ad977b9b34dcce7bc3c722"
 },{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Redundant SAM constructor",
-  "severity": "High",
-  "comment": "Redundant SAM-constructor",
-  "detailsInfo": "Reports SAM (Single Abstract Method) constructor usages which can be replaced with lambdas.\n\n**Example:**\n\n\n      fun main() {\n          foo(Runnable { println(\"Hi!\") })\n      }\n\n      fun foo(other: Runnable) {}\n\nAfter the quick-fix is applied:\n\n\n      fun main() {\n          foo( { println(\"Hi!\") })\n      }\n\n      fun foo(other: Runnable) {}\n",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'AppPreview' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/jvmMain/kotlin/com/mcxross/cohesive/common/common/platform/JvmFile.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/DesktopApp.kt",
       "language": "kotlin",
-      "line": 22,
-      "offset": 24,
-      "length": 14,
+      "line": 12,
+      "offset": 5,
+      "length": 10,
       "code": {
-        "startLine": 20,
-        "length": 14,
-        "offset": 96,
-        "surroundingCode": "    override val children: List<File>\n        get() = this@toProjectFile\n            .listFiles(FilenameFilter { _, name -> !name.startsWith(\".\")})\n            .orEmpty()\n            .map { it.toProjectFile() }"
+        "startLine": 10,
+        "length": 10,
+        "offset": 25,
+        "surroundingCode": "@Preview\n@Composable\nfun AppPreview() {\n    App()\n}"
       }
     }
   ],
   "attributes": {
     "module": "cohesive.common.desktopMain",
-    "inspectionName": "RedundantSamConstructor"
+    "inspectionName": "FunctionName"
   },
-  "hash": "87e9c7d9b5bf30380c1d2acaa6a8e8aee3bc93a54d24a5f0925313588fa56932"
+  "hash": "1aa952747f2751644887165de43ce0b1541f01b3a6a2fca392198ce0e2fdfd31"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'Button' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/DesktopApp.kt",
+      "language": "kotlin",
+      "line": 18,
+      "offset": 5,
+      "length": 6,
+      "code": {
+        "startLine": 16,
+        "length": 6,
+        "offset": 25,
+        "surroundingCode": "@Preview\n@Composable\nfun Button() {\n    CButton(\"Ok\", modifier = Modifier.height(35.dp)) {}\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "cf4f532a8d593f6fd4bfe386503fe0c0154628337e5f20f3d9545d1d3281e92d"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
   "type": "Unused symbol",
   "severity": "High",
-  "comment": "Property \"backgroundDarkLight\" is never used",
+  "comment": "Function \"pointerMoveFilter\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/Theme.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/common/platform/Mouse.kt",
       "language": "kotlin",
-      "line": 29,
-      "offset": 13,
-      "length": 19,
+      "line": 12,
+      "offset": 21,
+      "length": 17,
       "code": {
-        "startLine": 27,
-        "length": 19,
-        "offset": 138,
-        "surroundingCode": "        private val backgroundDark: Color = Color(0xFF2B2B2B)\n        private val onBackgroundDark: Color = Color(0xFFA9A9A9)\n        val backgroundDarkLight: Color = Color(0xFF4E5254)\n        private val surfaceDark: Color = Color(0xFF3C3F41)\n        private val onSurfaceDark: Color = Color(0xFFA9A9A9)"
+        "startLine": 10,
+        "length": 17,
+        "offset": 61,
+        "surroundingCode": "\n@OptIn(ExperimentalComposeUiApi::class)\nactual fun Modifier.pointerMoveFilter(\n    onEnter: () -> Boolean,\n    onExit: () -> Boolean,"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.common.commonMain",
+    "module": "cohesive.common.desktopMain",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "8e57c8f0f92d2db4e5c7b3d8afea1a29648812afaf0aad8e6296bb38b1d2873a"
+  "hash": "52de66298842f356344352a943e1a2d02658f930db973398e7ceb5ee965b91bd"
 }]}

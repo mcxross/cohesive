@@ -38,14 +38,14 @@
       "type": "file",
       "path": "desktop/src/jvmMain/java/com/mcxross/cohesive/desktop/AbstractPluginManager.java",
       "language": "JAVA",
-      "line": 810,
-      "offset": 45,
+      "line": 648,
+      "offset": 9,
       "length": 20,
       "code": {
-        "startLine": 808,
+        "startLine": 646,
         "length": 20,
-        "offset": 124,
-        "surroundingCode": "\n    protected synchronized void firePluginStateEvent(PluginStateEvent event) {\n        for (PluginStateListener listener : pluginStateListeners) {\n            log.trace(\"Fire '{}' to '{}'\", event, listener);\n            listener.pluginStateChanged(event);"
+        "offset": 106,
+        "surroundingCode": "    @Override\n    public synchronized void addPluginStateListener(PluginStateListener listener) {\n        pluginStateListeners.add(listener);\n    }\n"
       }
     }
   ],
@@ -53,7 +53,7 @@
     "module": "cohesive.desktop.jvmMain",
     "inspectionName": "PublicFieldAccessedInSynchronizedContext"
   },
-  "hash": "0326e76d1805124b8b15b6aca0365715a2528b830a8ca34cb2cc2f1f7caef756"
+  "hash": "cdb254ff3049295d53435ae4ff5af8a925bcb5e216f54f0a5c29d049a94b1294"
 },{
   "tool": "Code Inspection",
   "category": "Threading issues",
@@ -94,14 +94,14 @@
       "type": "file",
       "path": "desktop/src/jvmMain/java/com/mcxross/cohesive/desktop/AbstractPluginManager.java",
       "language": "JAVA",
-      "line": 648,
-      "offset": 9,
+      "line": 810,
+      "offset": 45,
       "length": 20,
       "code": {
-        "startLine": 646,
+        "startLine": 808,
         "length": 20,
-        "offset": 106,
-        "surroundingCode": "    @Override\n    public synchronized void addPluginStateListener(PluginStateListener listener) {\n        pluginStateListeners.add(listener);\n    }\n"
+        "offset": 124,
+        "surroundingCode": "\n    protected synchronized void firePluginStateEvent(PluginStateEvent event) {\n        for (PluginStateListener listener : pluginStateListeners) {\n            log.trace(\"Fire '{}' to '{}'\", event, listener);\n            listener.pluginStateChanged(event);"
       }
     }
   ],
@@ -109,7 +109,7 @@
     "module": "cohesive.desktop.jvmMain",
     "inspectionName": "PublicFieldAccessedInSynchronizedContext"
   },
-  "hash": "cdb254ff3049295d53435ae4ff5af8a925bcb5e216f54f0a5c29d049a94b1294"
+  "hash": "0326e76d1805124b8b15b6aca0365715a2528b830a8ca34cb2cc2f1f7caef756"
 },{
   "tool": "Code Inspection",
   "category": "Threading issues",
