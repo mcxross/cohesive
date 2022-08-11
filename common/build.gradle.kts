@@ -2,6 +2,7 @@ import org.jetbrains.compose.compose
 
 plugins {
     kotlin("multiplatform")
+    kotlin("kapt")
     id("org.jetbrains.compose")
     id("com.android.library")
 }
@@ -35,6 +36,7 @@ kotlin {
             dependencies {
                 api("androidx.appcompat:appcompat:1.4.2")
                 api("androidx.core:core-ktx:1.8.0")
+                compileOnly("androidx.activity:activity-compose:1.5.1")
             }
         }
         val androidTest by getting {
@@ -46,6 +48,8 @@ kotlin {
             kotlin.srcDirs("src/jvmMain/kotlin")
             dependencies {
                 api(compose.preview)
+                implementation("org.pf4j:pf4j:3.7.0")
+                configurations["kapt"].dependencies.add(implementation("org.pf4j:pf4j:3.7.0"))
             }
         }
         val desktopTest by getting {
@@ -54,15 +58,22 @@ kotlin {
     }
 }
 
+
 android {
-    compileSdkVersion(33)
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    compileSdk = 33
     defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(33)
+        minSdk = 24
+        targetSdk = 33
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    sourceSets {
+        named("main") {
+            manifest.srcFile("src/androidMain/AndroidManifest.xml")
+            res.srcDirs("src/androidMain/res", "src/commonMain/resources")
+        }
+    }
 }
+

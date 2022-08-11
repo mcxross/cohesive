@@ -28,13 +28,13 @@ import com.mcxross.cohesive.common.editor.CodeViewerView
 import com.mcxross.cohesive.common.editor.Editors
 import com.mcxross.cohesive.common.editor.Settings
 import com.mcxross.cohesive.common.common.filetree.FileTree
-import com.mcxross.cohesive.common.explorer.ExplorerView
+import com.mcxross.cohesive.common.explorer.Explorer
 import com.mcxross.cohesive.common.ui.CreateAccountDialog
 import com.mcxross.cohesive.common.ui.ImportAccountDialog
 import com.mcxross.cohesive.common.ui.OpenDialog
 import com.mcxross.cohesive.common.ui.component.*
 import com.mcxross.cohesive.common.utils.WindowStateHolder
-import com.mcxross.cohesive.common.wallet.WalletView
+import com.mcxross.cohesive.common.wallet.Wallet
 
 @Composable
 private fun WindowMinimizeButton() {
@@ -234,9 +234,9 @@ fun WindowScope.MainScreen() {
 
                     with(LocalDensity.current) {
                         if (WindowStateHolder.view == View.EXPLORER) {
-                            ExplorerView()
+                            Explorer()
                         } else if (WindowStateHolder.view == View.WALLET) {
-                            WalletView()
+                            Wallet()
                             if (WindowStateHolder.isImportAccountOpen) {
                                 ImportAccountDialog()
                             }

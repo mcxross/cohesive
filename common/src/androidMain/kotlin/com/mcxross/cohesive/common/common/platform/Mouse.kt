@@ -1,4 +1,4 @@
-package com.mcxross.cohesive.common.editor.platform
+package com.mcxross.cohesive.common.common.platform
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset

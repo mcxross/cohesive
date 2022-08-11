@@ -8,21 +8,21 @@ group "com.mcxross.cohesive"
 version "1.0-SNAPSHOT"
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
     implementation(project(":common"))
-    implementation("androidx.activity:activity-compose:1.5.0")
+    implementation("androidx.activity:activity-compose:1.5.1")
 
 }
 
 android {
-    compileSdkVersion(33)
+    compileSdk = 33
     defaultConfig {
         applicationId = "com.mcxross.cohesive.android"
-        minSdkVersion(24)
-        targetSdkVersion(33)
+        minSdk = 24
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0-SNAPSHOT"
     }

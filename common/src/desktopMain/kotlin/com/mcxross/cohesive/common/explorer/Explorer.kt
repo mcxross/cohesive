@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-actual fun ExplorerView() {
+actual fun Explorer() {
 
     Box(Modifier.fillMaxSize().background(MaterialTheme.colors.background)) {
         Column(Modifier.align(Alignment.Center)) {

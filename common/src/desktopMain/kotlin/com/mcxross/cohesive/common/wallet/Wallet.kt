@@ -17,7 +17,7 @@ import com.mcxross.cohesive.common.common.component.CButton
 import com.mcxross.cohesive.common.utils.WindowStateHolder
 
 @Composable
-actual fun WalletView() {
+actual fun Wallet() {
 
      Box(Modifier.fillMaxSize().background(MaterialTheme.colors.background)) {
         Column(Modifier.align(Alignment.Center)) {

@@ -44,3 +44,4 @@ bin/
 local.properties
 chain
 /common/src/androidAndroidTestRelease/
+/common/src/androidMain/kotlin/com/mcxross/cohesive/common/common/platform/common/0x0

@@ -1,9 +1,8 @@
-package com.mcxross.cohesive.common.editor.platform
+package com.mcxross.cohesive.common.common.platform
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import com.mcxross.cohesive.common.common.platform.File
 import com.mcxross.cohesive.common.editor.util.TextLines
 import kotlinx.coroutines.*
 import java.io.FileInputStream

@@ -3,6 +3,7 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("multiplatform")
+    kotlin("kapt")
     id("org.jetbrains.compose")
 }
 
@@ -21,6 +22,8 @@ kotlin {
             dependencies {
                 implementation(project(":common"))
                 implementation(compose.desktop.currentOs)
+                implementation("org.pf4j:pf4j:3.7.0")
+                configurations["kapt"].dependencies.add(implementation("org.pf4j:pf4j:3.7.0"))
             }
         }
 
