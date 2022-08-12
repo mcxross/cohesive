@@ -1,199 +1,31 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'FileTreeViewTabView' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "category": "Redundant constructs",
+  "type": "Redundant 'Unit' return type",
+  "severity": "High",
+  "comment": "Redundant 'Unit' return type",
+  "detailsInfo": "Reports a redundant `Unit` return type which can be omitted.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/filetree/FileTreeView.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/component/CMenu.kt",
       "language": "kotlin",
-      "line": 28,
-      "offset": 5,
-      "length": 19,
+      "line": 131,
+      "offset": 20,
+      "length": 4,
       "code": {
-        "startLine": 26,
-        "length": 19,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun FileTreeViewTabView() = Surface {\n    Row(\n        Modifier.padding(8.dp),"
+        "startLine": 129,
+        "length": 4,
+        "offset": 21,
+        "surroundingCode": "\n\n    fun onClick(): Unit {\n        cMenuInterface?.onClick()\n    }"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "FunctionName"
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "RedundantUnitReturnType"
   },
-  "hash": "ee3de3bc2ba4429856d160909f9878193d265b8e3951527e069311f8288388a3"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'FileTreeView' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/filetree/FileTreeView.kt",
-      "language": "kotlin",
-      "line": 43,
-      "offset": 5,
-      "length": 12,
-      "code": {
-        "startLine": 41,
-        "length": 12,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun FileTreeView(model: FileTree) {\n    Surface(modifier = Modifier.fillMaxSize().padding(end = 3.dp)) {\n        with(LocalDensity.current) {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "b691ed0db537c39b89c1d31aeff1b3c345fbf7f8bee7b8d1a2b1830d5a1c3a72"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'FileTreeItemView' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/filetree/FileTreeView.kt",
-      "language": "kotlin",
-      "line": 70,
-      "offset": 13,
-      "length": 16,
-      "code": {
-        "startLine": 68,
-        "length": 16,
-        "offset": 25,
-        "surroundingCode": "\n@Composable\nprivate fun FileTreeItemView(i: Int, fontSize: TextUnit, height: Dp, model: FileTree.Item) {\n\n    Box("
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "cfebb4b6dcc73398eae6a8e26166e941741f8f03fcde53f4542ae9367dab7763"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'FileItemIcon' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/filetree/FileTreeView.kt",
-      "language": "kotlin",
-      "line": 109,
-      "offset": 13,
-      "length": 12,
-      "code": {
-        "startLine": 107,
-        "length": 12,
-        "offset": 25,
-        "surroundingCode": "\n@Composable\nprivate fun FileItemIcon(modifier: Modifier, model: FileTree.Item) = Box(modifier.size(24.dp).padding(4.dp)) {\n    when (val type = model.type) {\n        is FileTree.ItemType.Folder -> when {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "a2f1ee94fa6bd00ef25de9d3543504960702a538f6e650b3bfb27c84c7f0cac6"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'CodeViewerView' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/editor/EditorView.kt",
-      "language": "kotlin",
-      "line": 26,
-      "offset": 5,
-      "length": 14,
-      "code": {
-        "startLine": 24,
-        "length": 14,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun CodeViewerView(model: CodeViewer) {\n    val panelState = remember { PanelState() }\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "39842e725edf044d5c768a770e2a8fe4b12e381dd37c42bc7cbed38b6680e61f"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'ResizablePanel' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/editor/EditorView.kt",
-      "language": "kotlin",
-      "line": 78,
-      "offset": 13,
-      "length": 14,
-      "code": {
-        "startLine": 76,
-        "length": 14,
-        "offset": 25,
-        "surroundingCode": "\n@Composable\nprivate fun ResizablePanel(\n    modifier: Modifier,\n    state: PanelState,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "ea27539781d16f565af941fc108a022d26bb24cb80ec2816b74c5b6db017848c"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'StatusBar' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/component/StatusBar.kt",
-      "language": "kotlin",
-      "line": 19,
-      "offset": 5,
-      "length": 9,
-      "code": {
-        "startLine": 17,
-        "length": 9,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun StatusBar(settings: Settings) = Box(\n    Modifier\n        .height(32.dp)"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "9ff58247b5f4013443e2e965111d6ae0c945799eb8bf328a021f0f1acd1ebcbd"
+  "hash": "d963558d6c828ea0c66cc708d2ff665d99b00c95f91f32f098e01730ea6bd57e"
 },{
   "tool": "Code Inspection",
   "category": "Naming conventions",
@@ -252,62 +84,6 @@
   "hash": "8055515ab5f97799aee8ddb08cb1b854c6c2577c16ad977b9b34dcce7bc3c722"
 },{
   "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'AppPreview' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/DesktopApp.kt",
-      "language": "kotlin",
-      "line": 12,
-      "offset": 5,
-      "length": 10,
-      "code": {
-        "startLine": 10,
-        "length": 10,
-        "offset": 25,
-        "surroundingCode": "@Preview\n@Composable\nfun AppPreview() {\n    App()\n}"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "1aa952747f2751644887165de43ce0b1541f01b3a6a2fca392198ce0e2fdfd31"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'Button' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/DesktopApp.kt",
-      "language": "kotlin",
-      "line": 18,
-      "offset": 5,
-      "length": 6,
-      "code": {
-        "startLine": 16,
-        "length": 6,
-        "offset": 25,
-        "surroundingCode": "@Preview\n@Composable\nfun Button() {\n    CButton(\"Ok\", modifier = Modifier.height(35.dp)) {}\n}"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "cf4f532a8d593f6fd4bfe386503fe0c0154628337e5f20f3d9545d1d3281e92d"
-},{
-  "tool": "Code Inspection",
   "category": "Redundant constructs",
   "type": "Unused symbol",
   "severity": "High",
@@ -334,4 +110,88 @@
     "inspectionName": "UnusedSymbol"
   },
   "hash": "52de66298842f356344352a943e1a2d02658f930db973398e7ceb5ee965b91bd"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"Button\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/DesktopApp.kt",
+      "language": "kotlin",
+      "line": 18,
+      "offset": 5,
+      "length": 6,
+      "code": {
+        "startLine": 16,
+        "length": 6,
+        "offset": 25,
+        "surroundingCode": "@Preview\n@Composable\nfun Button() {\n    CButton(\"Ok\", modifier = Modifier.height(35.dp)) {}\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "0c8893bf5c4790b20d407392203ff0bc84369e146a974a63722937376602dc6c"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"AppPreview\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/DesktopApp.kt",
+      "language": "kotlin",
+      "line": 12,
+      "offset": 5,
+      "length": 10,
+      "code": {
+        "startLine": 10,
+        "length": 10,
+        "offset": 25,
+        "surroundingCode": "@Preview\n@Composable\nfun AppPreview() {\n    App()\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "20eaf962857219ce47401a21491804ecc203eb5b84eb2b5bb3ca6e04849e47e1"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"VerticalScrollbar\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/common/platform/Scrollbar.kt",
+      "language": "kotlin",
+      "line": 10,
+      "offset": 12,
+      "length": 17,
+      "code": {
+        "startLine": 8,
+        "length": 17,
+        "offset": 24,
+        "surroundingCode": "\n@Composable\nactual fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: ScrollState"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "3d7641fd54a44e0ae86153716ec38f717a27864f04d836e1cb61c24fac2484dd"
 }]}
