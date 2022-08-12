@@ -7,37 +7,27 @@ import org.pf4j.ExtensionFinder
 import org.pf4j.PluginManager
 import java.util.concurrent.CompletableFuture
 
+fun loadPluginsAsync(onLoaded: () -> Unit, onStarted: (plugin: PluginManager) -> Unit) {
 
-fun loadPlugins(onLoaded: () -> Unit, onStarted: (plugin: PluginManager) -> Unit) {
-    // create the plugin manager
-    // create the plugin manager
-    val pluginManager: AsyncPluginManager = object : DefaultAsyncPluginManager() {
-        //        final PluginManager pluginManager = new DefaultPluginManager() {
+    val asyncPluginManager: AsyncPluginManager = object : DefaultAsyncPluginManager() {
+
         override fun createExtensionFinder(): ExtensionFinder {
             val extensionFinder = super.createExtensionFinder() as DefaultExtensionFinder
-            extensionFinder.addServiceProviderExtensionFinder() // to activate "HowdyGreeting" extension
+            extensionFinder.addServiceProviderExtensionFinder()
             return extensionFinder
         }
     }
 
-    // load the plugins
-//        pluginManager.loadPlugins();
-    // load the plugins
-//        pluginManager.loadPlugins();
-    val feature: CompletableFuture<Void> = pluginManager.loadPluginsAsync()
+    val feature: CompletableFuture<Void> = asyncPluginManager.loadPluginsAsync()
     feature.thenRun {
-        println("Plugins loaded")
+        println("Plugins loaded...")
         onLoaded()
     }
 
-    // start (active/resolved) the plugins
-//        pluginManager.startPlugins();
-    // start (active/resolved) the plugins
-//        pluginManager.startPlugins();
-    feature.thenCompose { v: Void? -> pluginManager.startPluginsAsync() }
+    feature.thenCompose { v: Void? -> asyncPluginManager.startPluginsAsync() }
     feature.thenRun {
-        println("Plugins started")
-        onStarted(pluginManager)
+        println("Plugins started...")
+        onStarted(asyncPluginManager)
     }
 
     feature.get()

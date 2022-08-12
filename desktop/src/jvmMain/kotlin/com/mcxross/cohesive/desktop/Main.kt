@@ -6,36 +6,40 @@ import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.res.useResource
 import androidx.compose.ui.window.*
-import com.mcxross.cohesive.common.utils.WindowStateHolder
 import com.mcxross.cohesive.common.common.SplashScreen
-import com.mcxross.cohesive.common.openapi.ISplashScreen
+import com.mcxross.cohesive.common.openapi.IMainScreen
+import com.mcxross.cohesive.common.utils.WindowStateHolder
 import com.mcxross.cohesive.common.utils.getPreferredWindowSize
-import com.mcxross.cohesive.common.view.MainScreen
-import com.mcxross.cohesive.desktop.utils.loadPlugins
+import com.mcxross.cohesive.desktop.utils.loadPluginsAsync
 import kotlinx.coroutines.delay
+import org.pf4j.PluginManager
 
 
 fun main() = application {
 
     var isPerformingTask by remember { mutableStateOf(true) }
+    //monitor this value
+    var pluginManager: PluginManager = DefaultAsyncPluginManager()
 
     val state = rememberWindowState(
         placement = WindowPlacement.Floating,
         position = WindowPosition.Aligned(Alignment.Center),
         size = getPreferredWindowSize(800, 1000)
     )
-
     WindowStateHolder.state = state
-    var splashScreens: List<ISplashScreen> = emptyList()
-    LaunchedEffect(Unit) {
-        delay(3000)
-        loadPlugins({}, { it ->
-             splashScreens = it.getExtensions(ISplashScreen::class.java)
-            splashScreens.forEach { it.show()
-            }
-            isPerformingTask = false
 
+    val currentPlugins by rememberUpdatedState {
+        loadPluginsAsync({}, {
+            it.loadPlugins()
+            it.startPlugins()
+            pluginManager = it
+            isPerformingTask = false
         })
+    }
+
+    LaunchedEffect(true) {
+        delay(3000)
+        currentPlugins()
     }
 
     if (isPerformingTask) {
@@ -54,14 +58,16 @@ fun main() = application {
 
     } else {
 
-        if(WindowStateHolder.isWindowOpen) {
+        if (WindowStateHolder.isWindowOpen) {
             Window(
                 onCloseRequest = ::exitApplication,
                 undecorated = true,
                 state = WindowStateHolder.state,
                 icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
             ) {
-                MainScreen()
+                pluginManager.getExtensions(IMainScreen::class.java).forEach {
+                    it.Show(this)
+                }
             }
         }
 
