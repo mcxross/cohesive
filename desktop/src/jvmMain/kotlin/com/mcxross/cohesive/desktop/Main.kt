@@ -6,8 +6,10 @@ import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.res.useResource
 import androidx.compose.ui.window.*
-import com.mcxross.cohesive.common.common.SplashScreen
+import com.mcxross.cohesive.common.model.onnet.Descriptor
 import com.mcxross.cohesive.common.openapi.IMainScreen
+import com.mcxross.cohesive.common.openapi.IStoreView
+import com.mcxross.cohesive.common.ui.view.splash.SplashScreen
 import com.mcxross.cohesive.common.utils.WindowStateHolder
 import com.mcxross.cohesive.common.utils.getPreferredWindowSize
 import com.mcxross.cohesive.desktop.utils.loadPluginsAsync
@@ -57,17 +59,49 @@ fun main() = application {
         }
 
     } else {
-
-        if (WindowStateHolder.isWindowOpen) {
-            Window(
-                onCloseRequest = ::exitApplication,
-                undecorated = true,
-                state = WindowStateHolder.state,
-                icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
-            ) {
-                pluginManager.getExtensions(IMainScreen::class.java).forEach {
-                    it.Show(this)
+        //TODO: check for prev state, otherwise set it
+        if (false) {
+            if (WindowStateHolder.isWindowOpen) {
+                Window(
+                    onCloseRequest = ::exitApplication,
+                    undecorated = true,
+                    state = WindowStateHolder.state,
+                    icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
+                ) {
+                    pluginManager.getExtensions(IMainScreen::class.java).forEach {
+                        it.Show(this)
+                    }
                 }
+            }
+        } else {
+
+            if (WindowStateHolder.isStoreWindowOpen) {
+
+                val content = remember {
+                    Descriptor.run()
+                }
+
+                Window(
+                    onCloseRequest = ::exitApplication,
+                    undecorated = true,
+                    resizable = false,
+                    state = WindowState(
+                        position = WindowPosition.Aligned(Alignment.Center),
+                    ),
+                    icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
+                ) {
+                    if (content.isContentReady()) {
+                        pluginManager.getExtensions(IStoreView::class.java).forEach {
+
+                            it.View(this, content.getChains())
+
+                        }
+                    } else {
+                        TODO("not implemented")
+                    }
+                }
+
+
             }
         }
 

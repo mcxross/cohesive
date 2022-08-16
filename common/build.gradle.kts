@@ -1,8 +1,12 @@
 import org.jetbrains.compose.compose
 
+val ktorVersion: String by project
+val serializationVersion: String by project
+
 plugins {
     kotlin("multiplatform")
     kotlin("kapt")
+    kotlin("plugin.serialization") version "1.6.10"
     id("org.jetbrains.compose")
     id("com.android.library")
 }
@@ -24,6 +28,8 @@ kotlin {
                 api(compose.foundation)
                 api(compose.material)
                 api(compose.materialIconsExtended)
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
             }
         }
         val commonTest by getting {
@@ -37,6 +43,7 @@ kotlin {
                 api("androidx.appcompat:appcompat:1.4.2")
                 api("androidx.core:core-ktx:1.8.0")
                 compileOnly("androidx.activity:activity-compose:1.5.1")
+                implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
             }
         }
         val androidTest by getting {
@@ -50,6 +57,7 @@ kotlin {
                 api(compose.preview)
                 implementation("org.pf4j:pf4j:3.7.0")
                 configurations["kapt"].dependencies.add(implementation("org.pf4j:pf4j:3.7.0"))
+                implementation("io.ktor:ktor-client-cio:$ktorVersion")
             }
         }
         val desktopTest by getting {
