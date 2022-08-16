@@ -1,182 +1,42 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Redundant 'Unit' return type",
-  "severity": "High",
-  "comment": "Redundant 'Unit' return type",
-  "detailsInfo": "Reports a redundant `Unit` return type which can be omitted.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/component/CMenu.kt",
-      "language": "kotlin",
-      "line": 131,
-      "offset": 20,
-      "length": 4,
-      "code": {
-        "startLine": 129,
-        "length": 4,
-        "offset": 21,
-        "surroundingCode": "\n\n    fun onClick(): Unit {\n        cMenuInterface?.onClick()\n    }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "RedundantUnitReturnType"
-  },
-  "hash": "d963558d6c828ea0c66cc708d2ff665d99b00c95f91f32f098e01730ea6bd57e"
-},{
-  "tool": "Code Inspection",
   "category": "Naming conventions",
   "type": "Function naming convention",
   "severity": "Moderate",
-  "comment": "Function name 'VerticalSplittable' should start with a lowercase letter",
+  "comment": "Function name 'VerticalScrollbar' should start with a lowercase letter",
   "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/editor/util/VerticalSplittable.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Scrollbar.kt",
       "language": "kotlin",
-      "line": 26,
-      "offset": 5,
-      "length": 18,
-      "code": {
-        "startLine": 24,
-        "length": 18,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun VerticalSplittable(\n    modifier: Modifier,\n    splitterState: SplitterState,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "4a986bffeb84f284fae30e13b8de1eb8e44c50cbb6e88b6b46282f08ad162c9f"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'VerticalSplitter' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/editor/util/VerticalSplittable.kt",
-      "language": "kotlin",
-      "line": 61,
-      "offset": 5,
-      "length": 16,
-      "code": {
-        "startLine": 59,
-        "length": 16,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun VerticalSplitter(\n    splitterState: SplitterState,\n    onResize: (delta: Dp) -> Unit,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "8055515ab5f97799aee8ddb08cb1b854c6c2577c16ad977b9b34dcce7bc3c722"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Function \"pointerMoveFilter\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/common/platform/Mouse.kt",
-      "language": "kotlin",
-      "line": 12,
-      "offset": 21,
+      "line": 19,
+      "offset": 12,
       "length": 17,
       "code": {
-        "startLine": 10,
+        "startLine": 17,
         "length": 17,
-        "offset": 61,
-        "surroundingCode": "\n@OptIn(ExperimentalComposeUiApi::class)\nactual fun Modifier.pointerMoveFilter(\n    onEnter: () -> Boolean,\n    onExit: () -> Boolean,"
+        "offset": 24,
+        "surroundingCode": "\n@Composable\nactual fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: LazyListState"
       }
     }
   ],
   "attributes": {
     "module": "cohesive.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
+    "inspectionName": "FunctionName"
   },
-  "hash": "52de66298842f356344352a943e1a2d02658f930db973398e7ceb5ee965b91bd"
+  "hash": "ae721ce7252ad457e3d7842a7ce4812c68471a64398b9abadd3cf6d3c50df491"
 },{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Function \"Button\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'VerticalScrollbar' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/DesktopApp.kt",
-      "language": "kotlin",
-      "line": 18,
-      "offset": 5,
-      "length": 6,
-      "code": {
-        "startLine": 16,
-        "length": 6,
-        "offset": 25,
-        "surroundingCode": "@Preview\n@Composable\nfun Button() {\n    CButton(\"Ok\", modifier = Modifier.height(35.dp)) {}\n}"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "0c8893bf5c4790b20d407392203ff0bc84369e146a974a63722937376602dc6c"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Function \"AppPreview\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/DesktopApp.kt",
-      "language": "kotlin",
-      "line": 12,
-      "offset": 5,
-      "length": 10,
-      "code": {
-        "startLine": 10,
-        "length": 10,
-        "offset": 25,
-        "surroundingCode": "@Preview\n@Composable\nfun AppPreview() {\n    App()\n}"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "20eaf962857219ce47401a21491804ecc203eb5b84eb2b5bb3ca6e04849e47e1"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Function \"VerticalScrollbar\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/common/platform/Scrollbar.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Scrollbar.kt",
       "language": "kotlin",
       "line": 10,
       "offset": 12,
@@ -191,7 +51,35 @@
   ],
   "attributes": {
     "module": "cohesive.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
+    "inspectionName": "FunctionName"
   },
-  "hash": "3d7641fd54a44e0ae86153716ec38f717a27864f04d836e1cb61c24fac2484dd"
+  "hash": "3aafb22fb7d7228136b08f93d06886ece9b7cace664e8c64044abb82afe7fae7"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'CreateAccountDialog' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/dialog/CreateAccount.kt",
+      "language": "kotlin",
+      "line": 14,
+      "offset": 5,
+      "length": 19,
+      "code": {
+        "startLine": 12,
+        "length": 19,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun CreateAccountDialog() {\n\n    CDialog(title = \"Create Account\", negativeText = \"Cancel\", positiveText = \"Create\", onClose = {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "20eebd5330da127f000cd025981e710e5a0b14a99d5d199bd413c3ac66d6c1cd"
 }]}

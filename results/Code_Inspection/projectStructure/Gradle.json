@@ -218,6 +218,14 @@
       "version": "1.1.0"
     },
     {
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlin",
+      "artifactId": "kotlin-stdlib-jdk8",
+      "version": "1.7.10"
+    },
+    {
       "ideaName": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.12",
       "gradleName": "org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.12",
       "unresolved": false,
@@ -226,12 +234,180 @@
       "version": "0.7.12"
     },
     {
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlin",
+      "artifactId": "kotlin-stdlib-jdk7",
+      "version": "1.7.10"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlin",
+      "artifactId": "kotlin-stdlib",
+      "version": "1.7.10"
+    },
+    {
+      "ideaName": "Gradle: org.slf4j:slf4j-api:1.7.36",
+      "gradleName": "org.slf4j:slf4j-api:1.7.36",
+      "unresolved": false,
+      "groupId": "org.slf4j",
+      "artifactId": "slf4j-api",
+      "version": "1.7.36"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-client-cio-jvm:2.1.0",
+      "gradleName": "io.ktor:ktor-client-cio-jvm:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-client-cio-jvm",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-client-core-jvm:2.1.0",
+      "gradleName": "io.ktor:ktor-client-core-jvm:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-client-core-jvm",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.4.0-RC",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.4.0-RC",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-serialization-json-jvm",
+      "version": "1.4.0-RC"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-coroutines-jdk8",
+      "version": "1.6.4"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:1.6.4",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:1.6.4",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-coroutines-slf4j",
+      "version": "1.6.4"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-http-cio-jvm:2.1.0",
+      "gradleName": "io.ktor:ktor-http-cio-jvm:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-http-cio-jvm",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-websockets-jvm:2.1.0",
+      "gradleName": "io.ktor:ktor-websockets-jvm:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-websockets-jvm",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-network-tls-jvm:2.1.0",
+      "gradleName": "io.ktor:ktor-network-tls-jvm:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-network-tls-jvm",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-coroutines-core-jvm",
+      "version": "1.6.4"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-events-jvm:2.1.0",
+      "gradleName": "io.ktor:ktor-events-jvm:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-events-jvm",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.1.0",
+      "gradleName": "io.ktor:ktor-websocket-serialization-jvm:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-websocket-serialization-jvm",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-http-jvm:2.1.0",
+      "gradleName": "io.ktor:ktor-http-jvm:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-http-jvm",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.4.0-RC",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.4.0-RC",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-serialization-core-jvm",
+      "version": "1.4.0-RC"
+    },
+    {
       "ideaName": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.1.0",
       "gradleName": "org.jetbrains.compose.ui:ui-util-desktop:1.1.0",
       "unresolved": false,
       "groupId": "org.jetbrains.compose.ui",
       "artifactId": "ui-util-desktop",
       "version": "1.1.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.6.4",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.6.4",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-coroutines-swing",
+      "version": "1.6.4"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-network-jvm:2.1.0",
+      "gradleName": "io.ktor:ktor-network-jvm:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-network-jvm",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-utils-jvm:2.1.0",
+      "gradleName": "io.ktor:ktor-utils-jvm:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-utils-jvm",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-serialization-jvm:2.1.0",
+      "gradleName": "io.ktor:ktor-serialization-jvm:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-serialization-jvm",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-io-jvm:2.1.0",
+      "gradleName": "io.ktor:ktor-io-jvm:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-io-jvm",
+      "version": "2.1.0"
     },
     {
       "ideaName": "Gradle: org.jetbrains.compose.material:material:1.1.0",
@@ -482,6 +658,102 @@
       "version": "1.5.31"
     },
     {
+      "ideaName": "Gradle: io.ktor:ktor-client-cio:2.1.0",
+      "gradleName": "io.ktor:ktor-client-cio:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-client-cio",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-client-core:2.1.0",
+      "gradleName": "io.ktor:ktor-client-core:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-client-core",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-http-cio:2.1.0",
+      "gradleName": "io.ktor:ktor-http-cio:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-http-cio",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-websockets:2.1.0",
+      "gradleName": "io.ktor:ktor-websockets:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-websockets",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-network-tls:2.1.0",
+      "gradleName": "io.ktor:ktor-network-tls:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-network-tls",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-coroutines-core",
+      "version": "1.6.4"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-websocket-serialization:2.1.0",
+      "gradleName": "io.ktor:ktor-websocket-serialization:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-websocket-serialization",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-events:2.1.0",
+      "gradleName": "io.ktor:ktor-events:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-events",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-http:2.1.0",
+      "gradleName": "io.ktor:ktor-http:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-http",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-serialization:2.1.0",
+      "gradleName": "io.ktor:ktor-serialization:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-serialization",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-utils:2.1.0",
+      "gradleName": "io.ktor:ktor-utils:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-utils",
+      "version": "2.1.0"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-io:2.1.0",
+      "gradleName": "io.ktor:ktor-io:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-io",
+      "version": "2.1.0"
+    },
+    {
       "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-test:1.6.10",
       "gradleName": "org.jetbrains.kotlin:kotlin-test:1.6.10",
       "unresolved": false,
@@ -514,6 +786,22 @@
       "version": "1.3"
     },
     {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0-RC",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0-RC",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-serialization-json",
+      "version": "1.4.0-RC"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core:1.4.0-RC",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-serialization-core:1.4.0-RC",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-serialization-core",
+      "version": "1.4.0-RC"
+    },
+    {
       "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-test-common:1.6.10",
       "gradleName": "org.jetbrains.kotlin:kotlin-test-common:1.6.10",
       "unresolved": false,
@@ -528,6 +816,14 @@
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-test-annotations-common",
       "version": "1.6.10"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlin",
+      "artifactId": "kotlin-stdlib-common",
+      "version": "1.7.10"
     }
   ]
 }

@@ -6,21 +6,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Expected function 'Wallet' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
+  "comment": "Expected function 'runBlocking' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/wallet/Wallet.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/utils/Coroutines.kt",
       "language": "kotlin",
-      "line": 6,
-      "offset": 12,
-      "length": 6,
+      "line": 7,
+      "offset": 16,
+      "length": 11,
       "code": {
-        "startLine": 4,
-        "length": 6,
-        "offset": 24,
-        "surroundingCode": "\n@Composable\nexpect fun Wallet()"
+        "startLine": 5,
+        "length": 11,
+        "offset": 63,
+        "surroundingCode": "import kotlin.coroutines.EmptyCoroutineContext\n\nexpect fun <T> runBlocking(context: CoroutineContext = EmptyCoroutineContext, block: suspend CoroutineScope.() -> T): T"
       }
     }
   ],
@@ -28,7 +28,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "a9001a05bce97dfd86450ee4158029b4a1d8f72a57fe26c7345ecfc72997a79a"
+  "hash": "929ff3845d41ef0fe35bf96ef2fcfa37d16f1f4d91b2d91bbe44f06525af22c7"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -37,21 +37,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Expected function 'Wallet' has no actual declaration in module cohesive.common.androidTestFixtures for JVM",
+  "comment": "Expected function 'runBlocking' has no actual declaration in module cohesive.common.androidTestFixtures for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/wallet/Wallet.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/utils/Coroutines.kt",
       "language": "kotlin",
-      "line": 6,
-      "offset": 12,
-      "length": 6,
+      "line": 7,
+      "offset": 16,
+      "length": 11,
       "code": {
-        "startLine": 4,
-        "length": 6,
-        "offset": 24,
-        "surroundingCode": "\n@Composable\nexpect fun Wallet()"
+        "startLine": 5,
+        "length": 11,
+        "offset": 63,
+        "surroundingCode": "import kotlin.coroutines.EmptyCoroutineContext\n\nexpect fun <T> runBlocking(context: CoroutineContext = EmptyCoroutineContext, block: suspend CoroutineScope.() -> T): T"
       }
     }
   ],
@@ -59,7 +59,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "1caf5d02769e33cc7edcd729d09217f5a043daf2de9f2e839eaa0238129fa286"
+  "hash": "04e460da8843ac7f49838d69eff48ca289abf6b0077a7a21b9fdf90d6e26abac"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -68,21 +68,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Expected function 'Wallet' has no actual declaration in module cohesive.common.androidTestFixturesDebug for JVM",
+  "comment": "Expected function 'runBlocking' has no actual declaration in module cohesive.common.androidTestFixturesDebug for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/wallet/Wallet.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/utils/Coroutines.kt",
       "language": "kotlin",
-      "line": 6,
-      "offset": 12,
-      "length": 6,
+      "line": 7,
+      "offset": 16,
+      "length": 11,
       "code": {
-        "startLine": 4,
-        "length": 6,
-        "offset": 24,
-        "surroundingCode": "\n@Composable\nexpect fun Wallet()"
+        "startLine": 5,
+        "length": 11,
+        "offset": 63,
+        "surroundingCode": "import kotlin.coroutines.EmptyCoroutineContext\n\nexpect fun <T> runBlocking(context: CoroutineContext = EmptyCoroutineContext, block: suspend CoroutineScope.() -> T): T"
       }
     }
   ],
@@ -90,7 +90,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "79d2bbd00ab5a5274bb66c7d905948fd7ffefd17fb1fb5d3c95c854fc5d6af48"
+  "hash": "ee5c694ed22b8b0b574e3bdce286d7e6d4e0c15ff6238fbc0576acd506f87fe3"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -99,21 +99,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Expected function 'Wallet' has no actual declaration in module cohesive.common.androidTestFixturesRelease for JVM",
+  "comment": "Expected function 'runBlocking' has no actual declaration in module cohesive.common.androidTestFixturesRelease for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/wallet/Wallet.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/utils/Coroutines.kt",
       "language": "kotlin",
-      "line": 6,
-      "offset": 12,
-      "length": 6,
+      "line": 7,
+      "offset": 16,
+      "length": 11,
       "code": {
-        "startLine": 4,
-        "length": 6,
-        "offset": 24,
-        "surroundingCode": "\n@Composable\nexpect fun Wallet()"
+        "startLine": 5,
+        "length": 11,
+        "offset": 63,
+        "surroundingCode": "import kotlin.coroutines.EmptyCoroutineContext\n\nexpect fun <T> runBlocking(context: CoroutineContext = EmptyCoroutineContext, block: suspend CoroutineScope.() -> T): T"
       }
     }
   ],
@@ -121,131 +121,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "71b10fd84ce40f769f92f622b9bf7bc5baf9aeb13bd2431b5c547ad8b88fa1a6"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'VerticalScrollbar' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Scrollbar.kt",
-      "language": "kotlin",
-      "line": 9,
-      "offset": 12,
-      "length": 17,
-      "code": {
-        "startLine": 7,
-        "length": 17,
-        "offset": 24,
-        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: ScrollState"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "a8045155acb325d8bf0efbd1bd2fda8a5d80ee5dd5b44fba117127109795958d"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'VerticalScrollbar' has no actual declaration in module cohesive.common.androidTestFixtures for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Scrollbar.kt",
-      "language": "kotlin",
-      "line": 9,
-      "offset": 12,
-      "length": 17,
-      "code": {
-        "startLine": 7,
-        "length": 17,
-        "offset": 24,
-        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: ScrollState"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "d9ff2a44b8d7470473dafc2a2ed66df939a1e7c2ddd4e7c4d1bd8c8387a1a849"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'VerticalScrollbar' has no actual declaration in module cohesive.common.androidTestFixturesDebug for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Scrollbar.kt",
-      "language": "kotlin",
-      "line": 9,
-      "offset": 12,
-      "length": 17,
-      "code": {
-        "startLine": 7,
-        "length": 17,
-        "offset": 24,
-        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: ScrollState"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "bfedfa773875bfc54c02f85e6f218ef10e8714bed6f5efa5688ab0fc7fed1761"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'VerticalScrollbar' has no actual declaration in module cohesive.common.androidTestFixturesRelease for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Scrollbar.kt",
-      "language": "kotlin",
-      "line": 9,
-      "offset": 12,
-      "length": 17,
-      "code": {
-        "startLine": 7,
-        "length": 17,
-        "offset": 24,
-        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: ScrollState"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "ff5967ca5d7440223b8933f5df2ab8c7e82b9b634d7f1876bab85a7ae26c1873"
+  "hash": "945d497face5f01ed948554722dcae4b47510530178a8cbc9ae456d5e613f1c4"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -259,7 +135,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Resources.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Resources.kt",
       "language": "kotlin",
       "line": 9,
       "offset": 12,
@@ -276,7 +152,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "3b2fc2eff586c6919fa4fe98d8d486601cd2c28fd426ffd09bafa265a4304e49"
+  "hash": "aff77014acaa032ee013aa06ee47bfc30ff663d7a04eb3a597a681ea72cd1b4e"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -290,7 +166,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Resources.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Resources.kt",
       "language": "kotlin",
       "line": 9,
       "offset": 12,
@@ -307,7 +183,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "e3245f39ea07503dbeff6d147bacbb931a60c0c5fb93d4ae033342f9f3ed52c0"
+  "hash": "7b180a5f37231cf44749f61a4ab77b017f555a1e03a216d0cd38947a70b5a85c"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -321,7 +197,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Resources.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Resources.kt",
       "language": "kotlin",
       "line": 9,
       "offset": 12,
@@ -338,7 +214,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "7d9c718ea385c76ba248c1f8350e5b43bf17d6e95bb2ed3991a4d04746a70ffd"
+  "hash": "8c902474a665fe3d1b2b3d1b87a654b5cdb536bc0126185d7c62319c39fc856a"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -352,7 +228,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Resources.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Resources.kt",
       "language": "kotlin",
       "line": 9,
       "offset": 12,
@@ -369,7 +245,255 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "9c0cb31789e6f00c78d1c577068ef6e62016a72bf575f20fd3f1c4d461ff9231"
+  "hash": "877d9b619a58b7dcac631850ad84afb99d87f3b6ee1af53eeab651a5064927d0"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'getDescriptor' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/model/onnet/Descriptor.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 1,
+        "length": 13,
+        "offset": 60,
+        "surroundingCode": "package com.mcxross.cohesive.common.model.onnet\n\nexpect fun getDescriptor(): String\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "ee221cac8cf7a3a8329c17846f4426d28d0794c46ee484f939562a86dc9c7718"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'getDescriptor' has no actual declaration in module cohesive.common.androidTestFixtures for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/model/onnet/Descriptor.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 1,
+        "length": 13,
+        "offset": 60,
+        "surroundingCode": "package com.mcxross.cohesive.common.model.onnet\n\nexpect fun getDescriptor(): String\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "0573a8ba6ccdc5627d03d978983b46d793ea9c184c8e750400574a7ea4c9f4d8"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'getDescriptor' has no actual declaration in module cohesive.common.androidTestFixturesDebug for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/model/onnet/Descriptor.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 1,
+        "length": 13,
+        "offset": 60,
+        "surroundingCode": "package com.mcxross.cohesive.common.model.onnet\n\nexpect fun getDescriptor(): String\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "eb055ffa662bd14f78e283e69e1cb53dedd198d37ee7320fc5931250d683730c"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'getDescriptor' has no actual declaration in module cohesive.common.androidTestFixturesRelease for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/model/onnet/Descriptor.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 1,
+        "length": 13,
+        "offset": 60,
+        "surroundingCode": "package com.mcxross.cohesive.common.model.onnet\n\nexpect fun getDescriptor(): String\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "ee233c8e1e86ceeb7507b17eaff9bcf83449c5a5e9a0aacfd25f69599cd11f34"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'VerticalScrollbar' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Scrollbar.kt",
+      "language": "kotlin",
+      "line": 9,
+      "offset": 12,
+      "length": 17,
+      "code": {
+        "startLine": 7,
+        "length": 17,
+        "offset": 24,
+        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: ScrollState"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "920d26531aac31978b8ec036c8fa9c38d69d75baf70825072849adf130563a54"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'VerticalScrollbar' has no actual declaration in module cohesive.common.androidTestFixtures for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Scrollbar.kt",
+      "language": "kotlin",
+      "line": 9,
+      "offset": 12,
+      "length": 17,
+      "code": {
+        "startLine": 7,
+        "length": 17,
+        "offset": 24,
+        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: ScrollState"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "7a4bf17e25e82d867303a8bd86cc0f55a9b38fa2aca4d72f9dea2dbad4e007b7"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'VerticalScrollbar' has no actual declaration in module cohesive.common.androidTestFixturesDebug for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Scrollbar.kt",
+      "language": "kotlin",
+      "line": 9,
+      "offset": 12,
+      "length": 17,
+      "code": {
+        "startLine": 7,
+        "length": 17,
+        "offset": 24,
+        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: ScrollState"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "d9caca5ce335c8fe48b23b2aac396fc708134f65a6ed6ac0ccecb7c176db5cfc"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'VerticalScrollbar' has no actual declaration in module cohesive.common.androidTestFixturesRelease for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Scrollbar.kt",
+      "language": "kotlin",
+      "line": 9,
+      "offset": 12,
+      "length": 17,
+      "code": {
+        "startLine": 7,
+        "length": 17,
+        "offset": 24,
+        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: ScrollState"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "ca03b38930561ff74db8d6cdf2211e3c5c23af7e94c7a5ee8a51a15c73f4e13a"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -383,7 +507,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Mouse.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Mouse.kt",
       "language": "kotlin",
       "line": 6,
       "offset": 21,
@@ -400,7 +524,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "fc210c11f7b2a42144c00d33123309d0aefe80316f3643e5a3115176f0d5453d"
+  "hash": "88aad2f74ab194733804119e749fcec156f8de57768661546020484d306ed5d5"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -414,7 +538,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Mouse.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Mouse.kt",
       "language": "kotlin",
       "line": 6,
       "offset": 21,
@@ -431,7 +555,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "1f309a7e91e82c89a04bf72a2706e1a0c7b7687524d8a8eaac197df0db7558c0"
+  "hash": "4b844f8cb9ced74ac9e739ef14a6f50eaf58a7dce4ab22a08b95e76663d81f4d"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -445,7 +569,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Mouse.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Mouse.kt",
       "language": "kotlin",
       "line": 6,
       "offset": 21,
@@ -462,7 +586,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "84974032d88092c09285187b482def9a469d41e823cfe6e5a9a3761d3014a65f"
+  "hash": "5ef93086e49698a0ddec536237faa610020df7db16f6eaaa4b41f9df8a2b8f51"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -476,7 +600,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/common/platform/Mouse.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Mouse.kt",
       "language": "kotlin",
       "line": 6,
       "offset": 21,
@@ -493,5 +617,5 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "6d81115e2d15334e74b84220911c4e77dff1e062b77b2e8739d32bb0a1105fec"
+  "hash": "3eabe4c11a759c84cba1bcdef76fe0fe6cff5dd7db7a5dada1c993a9e177c35b"
 }]}
