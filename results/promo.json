@@ -3,21 +3,21 @@
   "category": "Naming conventions",
   "type": "Function naming convention",
   "severity": "Moderate",
-  "comment": "Function name 'VerticalScrollbar' should start with a lowercase letter",
+  "comment": "Function name 'TitleBar' should start with a lowercase letter",
   "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/platform/Scrollbar.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/component/CTitleBarMin.kt",
       "language": "kotlin",
-      "line": 19,
-      "offset": 12,
-      "length": 17,
+      "line": 28,
+      "offset": 5,
+      "length": 8,
       "code": {
-        "startLine": 17,
-        "length": 17,
-        "offset": 24,
-        "surroundingCode": "\n@Composable\nactual fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: LazyListState"
+        "startLine": 26,
+        "length": 8,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun TitleBar(title: String, modifier: Modifier, onClose: () -> Unit) {\n    Column(modifier = modifier.fillMaxWidth().height(30.dp)) {\n        Box(modifier = Modifier.fillMaxWidth().height(29.5.dp).padding(start = 8.dp)) {"
       }
     }
   ],
@@ -25,14 +25,210 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "FunctionName"
   },
-  "hash": "ae721ce7252ad457e3d7842a7ce4812c68471a64398b9abadd3cf6d3c50df491"
+  "hash": "647431b9229f42468997b9ecb27a82a0f401b3775775040fcccfc2838f5fd6f5"
 },{
   "tool": "Code Inspection",
   "category": "Naming conventions",
   "type": "Function naming convention",
   "severity": "Moderate",
-  "comment": "Function name 'VerticalScrollbar' should start with a lowercase letter",
+  "comment": "Function name 'CloseButton' should start with a lowercase letter",
   "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/component/CTitleBarMin.kt",
+      "language": "kotlin",
+      "line": 16,
+      "offset": 13,
+      "length": 11,
+      "code": {
+        "startLine": 14,
+        "length": 11,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun CloseButton(onClose: () -> Unit) {\n    WindowButton(\n        \"close_dark.svg\","
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "0b69571cecabcfb6b0f5c85f59f37ede026cb0f8c2ff0298328524bc6478974c"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'EditorEmptyView' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/EditorEmptyView.kt",
+      "language": "kotlin",
+      "line": 19,
+      "offset": 5,
+      "length": 15,
+      "code": {
+        "startLine": 17,
+        "length": 15,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun EditorEmptyView() = Box(Modifier.fillMaxSize()) {\n    Column(Modifier.align(Alignment.Center)) {\n        Icon("
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "f339a06b88b28f80d87a32a44b159cbd404caf2da4d1d29b70ca7ac9dc7cae2b"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'StoreView' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/openapi/IStoreViewContainer.kt",
+      "language": "kotlin",
+      "line": 10,
+      "offset": 9,
+      "length": 9,
+      "code": {
+        "startLine": 8,
+        "length": 9,
+        "offset": 72,
+        "surroundingCode": "interface IStoreViewContainer: ExtensionPoint {\n    @Composable\n    fun StoreView(windowScope: WindowScope, plugins: List<Plugin>)\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "3f07a2c97fec161ba9cb26711a76c53b043fbff114662de8aee4b571b4c4e008"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'App' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/App.kt",
+      "language": "kotlin",
+      "line": 7,
+      "offset": 5,
+      "length": 3,
+      "code": {
+        "startLine": 5,
+        "length": 3,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun App() {\n\n    Text(\"Cohesive\")"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "3528f681809305f3a546297c6db94e78e7c02cb4080fdfc71b5326990a836a67"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Redundant 'Unit' return type",
+  "severity": "High",
+  "comment": "Redundant 'Unit' return type",
+  "detailsInfo": "Reports a redundant `Unit` return type which can be omitted.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/component/CMenu.kt",
+      "language": "kotlin",
+      "line": 131,
+      "offset": 20,
+      "length": 4,
+      "code": {
+        "startLine": 129,
+        "length": 4,
+        "offset": 21,
+        "surroundingCode": "\n\n    fun onClick(): Unit {\n        cMenuInterface?.onClick()\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "RedundantUnitReturnType"
+  },
+  "hash": "d963558d6c828ea0c66cc708d2ff665d99b00c95f91f32f098e01730ea6bd57e"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Redundant empty primary constructor",
+  "severity": "Moderate",
+  "comment": "Remove empty primary constructor",
+  "detailsInfo": "Reports empty primary constructors when they are implicitly available anyway.\n\n\nA primary constructor is redundant and can be safely omitted when it does not have any annotations or visibility modifiers.\nUse the 'Remove empty primary constructor' quick-fix to clean up the code.\n\n**Examples:**\n\n\n      class MyClassA constructor() //  redundant, can be replaced with 'class MyClassA'\n\n      annotation class MyAnnotation\n      class MyClassB @MyAnnotation constructor() //  required because of annotation\n\n      class MyClassC private constructor() // required because of visibility modifier\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/component/CMenu.kt",
+      "language": "kotlin",
+      "line": 79,
+      "offset": 20,
+      "length": 2,
+      "code": {
+        "startLine": 77,
+        "length": 2,
+        "offset": 128,
+        "surroundingCode": "    sealed class ItemType {\n        class Nest(val isExpanded: Boolean, val canExpand: Boolean) : ItemType()\n        class Plain() : ItemType()\n    }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "RemoveEmptyPrimaryConstructor"
+  },
+  "hash": "fab0ccdd58ae5a343096fc7f6a89807abde0924ae99214ad760cbb2dd36e40a9"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Redundant SAM constructor",
+  "severity": "High",
+  "comment": "Redundant SAM-constructor",
+  "detailsInfo": "Reports SAM (Single Abstract Method) constructor usages which can be replaced with lambdas.\n\n**Example:**\n\n\n      fun main() {\n          foo(Runnable { println(\"Hi!\") })\n      }\n\n      fun foo(other: Runnable) {}\n\nAfter the quick-fix is applied:\n\n\n      fun main() {\n          foo( { println(\"Hi!\") })\n      }\n\n      fun foo(other: Runnable) {}\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/jvmMain/kotlin/com/mcxross/cohesive/common/common/platform/JvmFile.kt",
+      "language": "kotlin",
+      "line": 23,
+      "offset": 24,
+      "length": 14,
+      "code": {
+        "startLine": 21,
+        "length": 14,
+        "offset": 96,
+        "surroundingCode": "    override val children: List<File>\n        get() = this@toProjectFile\n            .listFiles(FilenameFilter { _, name -> !name.startsWith(\".\")})\n            .orEmpty()\n            .map { it.toProjectFile() }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "RedundantSamConstructor"
+  },
+  "hash": "e99a5fa997238957dfb843e355f8b78c72ff2e3624f66726353c8e829056e2f5"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"VerticalScrollbar\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
@@ -51,35 +247,63 @@
   ],
   "attributes": {
     "module": "cohesive.common.desktopMain",
-    "inspectionName": "FunctionName"
+    "inspectionName": "UnusedSymbol"
   },
-  "hash": "3aafb22fb7d7228136b08f93d06886ece9b7cace664e8c64044abb82afe7fae7"
+  "hash": "9c3640b03b79054b00092ffc94737ba720f227ffdd244ada07b0704d985e6c35"
 },{
   "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'CreateAccountDialog' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"open\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/dialog/CreateAccount.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/Editors.kt",
       "language": "kotlin",
-      "line": 14,
-      "offset": 5,
-      "length": 19,
+      "line": 15,
+      "offset": 9,
+      "length": 4,
       "code": {
-        "startLine": 12,
-        "length": 19,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun CreateAccountDialog() {\n\n    CDialog(title = \"Create Account\", negativeText = \"Cancel\", positiveText = \"Create\", onClose = {"
+        "startLine": 13,
+        "length": 4,
+        "offset": 71,
+        "surroundingCode": "    val active: Editor? get() = selection.selected as Editor?\n\n    fun open(file: File) {\n        val editor = Editor(file)\n        editor.selection = selection"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "31fb1554a9fb23670949acbdc280a74c28f37e0793c191729b79a8972d0571e0"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Class \"Main\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/view/main/Main.kt",
+      "language": "kotlin",
+      "line": 42,
+      "offset": 12,
+      "length": 4,
+      "code": {
+        "startLine": 40,
+        "length": 4,
+        "offset": 23,
+        "surroundingCode": "\n@Extension\nopen class Main : IMainScreen {\n    @Composable\n    override fun WindowButtons() {"
       }
     }
   ],
   "attributes": {
     "module": "cohesive.common.desktopMain",
-    "inspectionName": "FunctionName"
+    "inspectionName": "UnusedSymbol"
   },
-  "hash": "20eebd5330da127f000cd025981e710e5a0b14a99d5d199bd413c3ac66d6c1cd"
+  "hash": "2cc080427564e5d8bd18de3b2ce10acc2d1f5c33f04f71bc401d979538c6b151"
 }]}
