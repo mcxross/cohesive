@@ -8,7 +8,7 @@ import androidx.compose.ui.res.useResource
 import androidx.compose.ui.window.*
 import com.mcxross.cohesive.common.model.onnet.Descriptor
 import com.mcxross.cohesive.common.openapi.IMainScreen
-import com.mcxross.cohesive.common.openapi.IStoreView
+import com.mcxross.cohesive.common.openapi.IStoreViewContainer
 import com.mcxross.cohesive.common.ui.view.splash.SplashScreen
 import com.mcxross.cohesive.common.utils.WindowStateHolder
 import com.mcxross.cohesive.common.utils.getPreferredWindowSize
@@ -90,14 +90,13 @@ fun main() = application {
                     ),
                     icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
                 ) {
+                    val iStoreViewContainer = pluginManager.getExtensions(IStoreViewContainer::class.java)[0]
                     if (content.isContentReady()) {
-                        pluginManager.getExtensions(IStoreView::class.java).forEach {
 
-                            it.View(this, content.getChains())
+                        iStoreViewContainer.StoreView(windowScope = this, plugins = content.getPlugins())
 
-                        }
                     } else {
-                        TODO("not implemented")
+                        iStoreViewContainer.StoreView(windowScope = this, plugins = emptyList())
                     }
                 }
 
