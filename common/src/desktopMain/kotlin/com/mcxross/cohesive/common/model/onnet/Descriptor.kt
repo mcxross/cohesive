@@ -2,6 +2,7 @@ package com.mcxross.cohesive.common.model.onnet
 
 import androidx.compose.runtime.mutableStateOf
 import com.mcxross.cohesive.common.model.Plugin
+import com.mcxross.cohesive.common.utils.getHTTPClient
 import com.mcxross.cohesive.common.utils.runBlocking
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
@@ -46,9 +47,8 @@ object Descriptor {
     }
 
     fun getValue(jsonElement: JsonElement, key: String): String {
-        return parse(jsonElement.toString()).jsonObject[key].toString()
+        return parse(jsonElement.toString()).jsonObject[key].toString().replace("\"", "")
     }
-
 
     private suspend fun chainFlow(): Flow<Plugin> = flow {
         var jsonResp = ""
@@ -57,7 +57,7 @@ object Descriptor {
         }
         desCo.join()
 
-        parse(jsonResp).jsonObject["chain"]?.jsonArray?.forEach {
+        parse(jsonResp).jsonObject["chain"]?.jsonArray?.shuffled()?.forEach {
             emit(
                 Plugin(
                     id = getValue(jsonElement = it, key = "id"),
@@ -81,21 +81,7 @@ object Descriptor {
 actual fun getDescriptor(): String {
 
     return runBlocking {
-        HttpClient(CIO) {
-            install(UserAgent) {
-                agent = "Cohesive"
-            }
-            install(HttpRequestRetry) {
-                maxRetries = 5
-                retryIf { _, response ->
-                    !response.status.isSuccess()
-                }
-                retryOnExceptionIf { _, cause ->
-                    cause is ConnectTimeoutException
-                }
-                exponentialDelay()
-            }
-        }.use { client ->
+       getHTTPClient().use { client ->
             client.get("https://raw.githubusercontent.com/mcxross/cohesives/main/src/descriptor.json").bodyAsText()
         }
     }

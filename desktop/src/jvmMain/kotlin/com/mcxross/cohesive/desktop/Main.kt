@@ -16,7 +16,6 @@ import com.mcxross.cohesive.desktop.utils.loadPluginsAsync
 import kotlinx.coroutines.delay
 import org.pf4j.PluginManager
 
-
 fun main() = application {
 
     var isPerformingTask by remember { mutableStateOf(true) }
