@@ -762,6 +762,14 @@
       "version": "1.6.10"
     },
     {
+      "ideaName": "Gradle: io.ktor:ktor-client-mock-jvm:2.1.0",
+      "gradleName": "io.ktor:ktor-client-mock-jvm:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-client-mock-jvm",
+      "version": "2.1.0"
+    },
+    {
       "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-test-junit:1.6.10",
       "gradleName": "org.jetbrains.kotlin:kotlin-test-junit:1.6.10",
       "unresolved": false,
@@ -784,6 +792,14 @@
       "groupId": "org.hamcrest",
       "artifactId": "hamcrest-core",
       "version": "1.3"
+    },
+    {
+      "ideaName": "Gradle: io.ktor:ktor-client-mock:2.1.0",
+      "gradleName": "io.ktor:ktor-client-mock:2.1.0",
+      "unresolved": false,
+      "groupId": "io.ktor",
+      "artifactId": "ktor-client-mock",
+      "version": "2.1.0"
     },
     {
       "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0-RC",
@@ -824,6 +840,14 @@
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-stdlib-common",
       "version": "1.7.10"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.6.21",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-common:1.6.21",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlin",
+      "artifactId": "kotlin-stdlib-common",
+      "version": "1.6.21"
     }
   ]
 }

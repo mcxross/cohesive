@@ -256,6 +256,12 @@
       ]
     },
     {
+      "name": "Gradle: io.ktor:ktor-client-mock:2.1.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-mock/2.1.0/f78436c383ae654249452a005458243a8fcf2af5/ktor-client-mock-2.1.0.jar!/"
+      ]
+    },
+    {
       "name": "Gradle: org.jetbrains.kotlin:kotlin-test-common:1.6.10",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-common/1.6.10/76cd822dc49f45edd67d950275ef43e63e841f76/kotlin-test-common-1.6.10.jar!/"
@@ -266,6 +272,13 @@
       "name": "Gradle: org.jetbrains.kotlin:kotlin-test-annotations-common:1.6.10",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-annotations-common/1.6.10/aae238f02a670cf4c645549c7fa30787e15fc33c/kotlin-test-annotations-common-1.6.10.jar!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.6.21",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.6.21/5e5b55c26dbc80372a920aef60eb774b714559b8/kotlin-stdlib-common-1.6.21.jar!/"
       ],
       "properties": {}
     },
@@ -591,6 +604,12 @@
       "name": "Gradle: org.jetbrains.kotlin:kotlin-test:1.6.10",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.6.10/59bace81228ddb06ac0dc81bd3a554bb19799715/kotlin-test-1.6.10.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: io.ktor:ktor-client-mock-jvm:2.1.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-mock-jvm/2.1.0/2551a222aedbf066aa92582240ae26e4921b2b27/ktor-client-mock-jvm-2.1.0.jar!/"
       ]
     },
     {
