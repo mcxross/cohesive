@@ -2,6 +2,8 @@ import org.jetbrains.compose.compose
 
 val ktorVersion: String by project
 val serializationVersion: String by project
+val okioVersion: String by project
+val napierVersion: String by project
 
 plugins {
     kotlin("multiplatform")
@@ -30,12 +32,17 @@ kotlin {
                 api(compose.materialIconsExtended)
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+                implementation("com.squareup.okio:okio:$okioVersion")
+                implementation("com.akuleshov7:ktoml-core:0.2.11")
+                implementation("io.github.aakira:napier:$napierVersion")
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
                 implementation("io.ktor:ktor-client-mock:$ktorVersion")
+                implementation("com.squareup.okio:okio-fakefilesystem:$okioVersion")
             }
         }
         val androidMain by getting {

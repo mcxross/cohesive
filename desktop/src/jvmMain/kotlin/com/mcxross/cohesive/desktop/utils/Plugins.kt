@@ -20,13 +20,11 @@ fun loadPluginsAsync(onLoaded: () -> Unit, onStarted: (plugin: PluginManager) ->
 
     val feature: CompletableFuture<Void> = asyncPluginManager.loadPluginsAsync()
     feature.thenRun {
-        println("Plugins loaded...")
         onLoaded()
     }
 
     feature.thenCompose { v: Void? -> asyncPluginManager.startPluginsAsync() }
     feature.thenRun {
-        println("Plugins started...")
         onStarted(asyncPluginManager)
     }
 

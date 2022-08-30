@@ -4,36 +4,44 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.TooltipArea
 import androidx.compose.foundation.TooltipPlacement
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.window.WindowDraggableArea
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.painter.BitmapPainter
+import androidx.compose.ui.input.pointer.PointerEventType
+import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.WindowScope
 import com.mcxross.cohesive.common.model.Plugin
-import com.mcxross.cohesive.common.openapi.IStoreViewContainer
+import com.mcxross.cohesive.common.openapi.ui.view.IStore
 import com.mcxross.cohesive.common.ui.component.CImage
 import com.mcxross.cohesive.common.ui.component.TitleBar
 import com.mcxross.cohesive.common.ui.theme.AppTheme
 import com.mcxross.cohesive.common.utils.WindowStateHolder
 import com.mcxross.cohesive.common.utils.loadImageBitmap
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.pf4j.Extension
 
 @Extension
-open class StoreViewContainer : IStoreViewContainer {
+open class Store : IStore {
 
     @Composable
-    override fun StoreView(windowScope: WindowScope, plugins: List<Plugin>) {
+    override fun Emit(windowScope: WindowScope, plugins: List<Plugin>) {
+
+        val scope = rememberCoroutineScope()
 
         DisableSelection {
             MaterialTheme(colors = AppTheme.getColors()) {
@@ -57,6 +65,22 @@ open class StoreViewContainer : IStoreViewContainer {
                                 WindowStateHolder.isStoreWindowOpen = false
                             }
                         }
+                        OutlinedButton(
+                            onClick = {
+
+                                WindowStateHolder.isPreAvail = true
+
+                                scope.launch {
+                                    delay(3000)
+                                    WindowStateHolder.isDelayClose = false
+                                }
+
+                            },
+                            modifier = Modifier.padding(8.dp).align(Alignment.BottomEnd),
+                            shape = RoundedCornerShape(12.dp)
+                        ) {
+                            Text(text = "Skip")
+                        }
                     }
 
                 }
@@ -65,20 +89,27 @@ open class StoreViewContainer : IStoreViewContainer {
 
     }
 
+
+    @OptIn(ExperimentalFoundationApi::class)
     @Composable
     protected fun StoreViewChains(windowScope: WindowScope, modifier: Modifier, plugins: List<Plugin>) {
-        Row(
-            modifier = modifier, horizontalArrangement = Arrangement.spacedBy(5.dp)
+
+        LazyVerticalGrid(
+            cells = GridCells.Adaptive(minSize = 128.dp),
+            modifier = modifier,
+            verticalArrangement = Arrangement.spacedBy(26.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            plugins.forEach { chain ->
-                PluginItem(plugin = chain)
+            items(plugins.size) { plugin ->
+                PluginItem(plugin = plugins[plugin])
             }
         }
     }
 
-    @OptIn(ExperimentalFoundationApi::class)
+    @OptIn(ExperimentalFoundationApi::class, ExperimentalComposeUiApi::class)
     @Composable
     protected fun PluginItem(plugin: Plugin) {
+        var hovered by remember { mutableStateOf(false) }
         TooltipArea(
             tooltip = {
                 Surface(
@@ -98,7 +129,12 @@ open class StoreViewContainer : IStoreViewContainer {
             )
         ) {
             Column(modifier = Modifier.size(120.dp), verticalArrangement = Arrangement.spacedBy(1.dp)) {
-                Card(modifier = Modifier.size(100.dp), shape = RoundedCornerShape(15.dp)) {
+                Card(
+                    modifier = Modifier.size(100.dp)
+                        .onPointerEvent(PointerEventType.Enter) { hovered = true }
+                        .onPointerEvent(PointerEventType.Exit) { hovered = false },
+                    shape = RoundedCornerShape(15.dp),
+                ) {
                     CImage(
                         load = {
                             loadImageBitmap(

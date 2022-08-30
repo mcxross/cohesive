@@ -20,26 +20,28 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.WindowPlacement
 import androidx.compose.ui.window.WindowScope
-import com.mcxross.cohesive.common.ui.theme.AppTheme
-import com.mcxross.cohesive.common.ui.view.View
-import com.mcxross.cohesive.common.ui.view.editor.filetree.FileTree
-import com.mcxross.cohesive.common.ui.view.editor.platform.HomeFolder
-import com.mcxross.cohesive.common.openapi.IMainScreen
+import com.mcxross.cohesive.common.ds.tree.tree
+import com.mcxross.cohesive.common.openapi.ui.view.IMain
 import com.mcxross.cohesive.common.ui.component.*
 import com.mcxross.cohesive.common.ui.dialog.CreateAccountDialog
 import com.mcxross.cohesive.common.ui.dialog.ImportAccountDialog
 import com.mcxross.cohesive.common.ui.dialog.OpenDialog
+import com.mcxross.cohesive.common.ui.theme.AppTheme
+import com.mcxross.cohesive.common.ui.view.View
 import com.mcxross.cohesive.common.ui.view.editor.CodeViewer
 import com.mcxross.cohesive.common.ui.view.editor.CodeViewerView
 import com.mcxross.cohesive.common.ui.view.editor.Editors
 import com.mcxross.cohesive.common.ui.view.editor.Settings
+import com.mcxross.cohesive.common.ui.view.editor.filetree.FileTree
+import com.mcxross.cohesive.common.ui.view.editor.platform.HomeFolder
 import com.mcxross.cohesive.common.ui.view.explorer.Explorer
 import com.mcxross.cohesive.common.ui.view.wallet.Wallet
 import com.mcxross.cohesive.common.utils.WindowStateHolder
 import org.pf4j.Extension
 
 @Extension
-open class Main : IMainScreen {
+open class Main : IMain {
+
     @Composable
     override fun WindowButtons() {
         var maximize by remember { mutableStateOf(true) }
@@ -60,7 +62,7 @@ open class Main : IMainScreen {
                 }
             }
             WindowButton("close_dark.svg", "Close window", onHoverColor = Color.Red) {
-                WindowStateHolder.isWindowOpen = false
+                WindowStateHolder.isMainWindowOpen = false
             }
         }
     }
@@ -68,41 +70,61 @@ open class Main : IMainScreen {
     @Composable
     override fun WindowListMenuButton() {
 
-        val rootMenu = CMenuItem(null, "").addMenu(
-            CMenuItem(
-                icon = null,
-                text = "New",
-                children = listOf(
-                    CMenuItem(icon = null, text = "Project"),
-                    CMenuItem(icon = null, text = "Wallet")
-                )
+        val root = tree(CMenuItem(null, "")) {
+
+            child(CMenuItem(text = "New")) {
+                child(CMenuItem(text = "Project"))
+                child(CMenuItem(text = "Wallet"))
+            }
+
+            child(
+                CMenuItem(
+                    icon = painterResource("menu-open_dark.svg"),
+                    text = "Open",
+                    cMenuInterface = object : CMenuInterface {
+                        override fun onClick() {
+                            WindowStateHolder.isOpenDialogOpen = true
+                        }
+
+                        override fun onHover(onEnter: Boolean) {
+
+                        }
+
+                    })
             )
-        ).addMenu(
-            CMenuItem(
-                icon = painterResource("menu-open_dark.svg"),
-                text = "Open",
+
+            child(CMenuItem(
+                text = "Switch Chain",
                 cMenuInterface = object : CMenuInterface {
                     override fun onClick() {
-                        WindowStateHolder.isOpenDialogOpen = true
+                        WindowStateHolder.isPreAvail = false
+                        WindowStateHolder.isStoreWindowOpen = true
                     }
 
                     override fun onHover(onEnter: Boolean) {
 
                     }
 
-                })
-        ).addMenu(CMenuItem(icon = null, "Open Recent"))
-            .addMenu(CMenuItem(icon = null, "Settings"))
-            .addMenu(CMenuItem(icon = null, "Exit", cMenuInterface = object : CMenuInterface {
+                }
+            ))
+
+            child(CMenuItem(text = "Open Recent"))
+            child(CMenuItem(text = "Settings"))
+            child(CMenuItem(text = "Exit", cMenuInterface = object : CMenuInterface {
                 override fun onClick() {
-                    WindowStateHolder.isWindowOpen = false
+                    WindowStateHolder.isMainWindowOpen = false
                 }
 
                 override fun onHover(onEnter: Boolean) {
                     TODO("Not yet implemented")
                 }
             }))
-        CMenu(MenuTree(rootMenu))
+
+        }
+
+        CMenu(MenuTree(root)) {
+
+        }
 
     }
 
@@ -188,7 +210,7 @@ open class Main : IMainScreen {
 
                     Row(modifier = Modifier.align(Alignment.Center)) {
                         Text(
-                            "Solana  -",
+                            "Cohesive  -",
                             fontSize = 11.sp,
                             modifier = Modifier.padding(end = 10.dp).align(Alignment.CenterVertically)
                         )

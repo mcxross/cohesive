@@ -1,10 +1,10 @@
-package com.mcxross.cohesive.common.openapi
+package com.mcxross.cohesive.common.openapi.ui.view
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.WindowScope
 import org.pf4j.ExtensionPoint
 
-interface IMainScreen: ExtensionPoint {
+interface IMain : IView {
     @Composable
     fun WindowButtons()
 
