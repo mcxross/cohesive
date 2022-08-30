@@ -282,6 +282,38 @@
       "version": "1.4.0-RC"
     },
     {
+      "ideaName": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
+      "gradleName": "com.squareup.okio:okio-jvm:3.2.0",
+      "unresolved": false,
+      "groupId": "com.squareup.okio",
+      "artifactId": "okio-jvm",
+      "version": "3.2.0"
+    },
+    {
+      "ideaName": "Gradle: com.akuleshov7:ktoml-core-jvm:0.2.11",
+      "gradleName": "com.akuleshov7:ktoml-core-jvm:0.2.11",
+      "unresolved": false,
+      "groupId": "com.akuleshov7",
+      "artifactId": "ktoml-core-jvm",
+      "version": "0.2.11"
+    },
+    {
+      "ideaName": "Gradle: io.github.aakira:napier-jvm:2.6.1",
+      "gradleName": "io.github.aakira:napier-jvm:2.6.1",
+      "unresolved": false,
+      "groupId": "io.github.aakira",
+      "artifactId": "napier-jvm",
+      "version": "2.6.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-datetime-jvm",
+      "version": "0.4.0"
+    },
+    {
       "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4",
       "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4",
       "unresolved": false,
@@ -770,6 +802,14 @@
       "version": "2.1.0"
     },
     {
+      "ideaName": "Gradle: com.squareup.okio:okio-fakefilesystem-jvm:3.2.0",
+      "gradleName": "com.squareup.okio:okio-fakefilesystem-jvm:3.2.0",
+      "unresolved": false,
+      "groupId": "com.squareup.okio",
+      "artifactId": "okio-fakefilesystem-jvm",
+      "version": "3.2.0"
+    },
+    {
       "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-test-junit:1.6.10",
       "gradleName": "org.jetbrains.kotlin:kotlin-test-junit:1.6.10",
       "unresolved": false,
@@ -810,6 +850,46 @@
       "version": "1.4.0-RC"
     },
     {
+      "ideaName": "Gradle: com.squareup.okio:okio-fakefilesystem:3.2.0",
+      "gradleName": "com.squareup.okio:okio-fakefilesystem:3.2.0",
+      "unresolved": false,
+      "groupId": "com.squareup.okio",
+      "artifactId": "okio-fakefilesystem",
+      "version": "3.2.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime:0.4.0",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-datetime:0.4.0",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-datetime",
+      "version": "0.4.0"
+    },
+    {
+      "ideaName": "Gradle: com.squareup.okio:okio:3.2.0",
+      "gradleName": "com.squareup.okio:okio:3.2.0",
+      "unresolved": false,
+      "groupId": "com.squareup.okio",
+      "artifactId": "okio",
+      "version": "3.2.0"
+    },
+    {
+      "ideaName": "Gradle: com.akuleshov7:ktoml-core:0.2.11",
+      "gradleName": "com.akuleshov7:ktoml-core:0.2.11",
+      "unresolved": false,
+      "groupId": "com.akuleshov7",
+      "artifactId": "ktoml-core",
+      "version": "0.2.11"
+    },
+    {
+      "ideaName": "Gradle: io.github.aakira:napier:2.6.1",
+      "gradleName": "io.github.aakira:napier:2.6.1",
+      "unresolved": false,
+      "groupId": "io.github.aakira",
+      "artifactId": "napier",
+      "version": "2.6.1"
+    },
+    {
       "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core:1.4.0-RC",
       "gradleName": "org.jetbrains.kotlinx:kotlinx-serialization-core:1.4.0-RC",
       "unresolved": false,
@@ -848,6 +928,14 @@
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-stdlib-common",
       "version": "1.6.21"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime:0.3.2",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-datetime:0.3.2",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-datetime",
+      "version": "0.3.2"
     }
   ]
 }

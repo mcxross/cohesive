@@ -10,11 +10,11 @@
       "type": "file",
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/component/CMenu.kt",
       "language": "kotlin",
-      "line": 79,
+      "line": 78,
       "offset": 9,
       "length": 5,
       "code": {
-        "startLine": 77,
+        "startLine": 76,
         "length": 5,
         "offset": 117,
         "surroundingCode": "    sealed class ItemType {\n        class Nest(val isExpanded: Boolean, val canExpand: Boolean) : ItemType()\n        class Plain() : ItemType()\n    }\n"
@@ -25,35 +25,7 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "CanSealedSubClassBeObject"
   },
-  "hash": "edfa72560bffd71b3871ecb114ce31e6619c2d41fe0a91a6babb787ebc891f54"
-},{
-  "tool": "Code Inspection",
-  "category": "Threading issues",
-  "type": "Non-private field accessed in 'synchronized' context",
-  "severity": "High",
-  "comment": "Non-private field 'pluginStateListeners' accessed in synchronized context",
-  "detailsInfo": "Reports non-`final`, non-`private` fields that are accessed in a synchronized context.\n\n\nA non-`private` field cannot be guaranteed to always be accessed in a synchronized manner, and such \"partially synchronized\"\naccess may result in unexpectedly inconsistent data structures.\n\n**Example:**\n\n\n      class Bar {\n        public String field1;\n      }\n      public Bar myBar;\n\n      synchronized public void sample() {\n       myBar.field1 = \"bar\";\n      }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "desktop/src/jvmMain/java/com/mcxross/cohesive/desktop/AbstractPluginManager.java",
-      "language": "JAVA",
-      "line": 648,
-      "offset": 9,
-      "length": 20,
-      "code": {
-        "startLine": 646,
-        "length": 20,
-        "offset": 106,
-        "surroundingCode": "    @Override\n    public synchronized void addPluginStateListener(PluginStateListener listener) {\n        pluginStateListeners.add(listener);\n    }\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.desktop.jvmMain",
-    "inspectionName": "PublicFieldAccessedInSynchronizedContext"
-  },
-  "hash": "cdb254ff3049295d53435ae4ff5af8a925bcb5e216f54f0a5c29d049a94b1294"
+  "hash": "9abbce9a9f47adcde760b415e3bb60e8e2e49a6cd0228230165b5e9388fd9e34"
 },{
   "tool": "Code Inspection",
   "category": "Threading issues",
@@ -110,6 +82,34 @@
     "inspectionName": "PublicFieldAccessedInSynchronizedContext"
   },
   "hash": "ba194c9bd1121d5961a1ac92233f299362246cd2d3417e59a0c20548c0a1331d"
+},{
+  "tool": "Code Inspection",
+  "category": "Threading issues",
+  "type": "Non-private field accessed in 'synchronized' context",
+  "severity": "High",
+  "comment": "Non-private field 'pluginStateListeners' accessed in synchronized context",
+  "detailsInfo": "Reports non-`final`, non-`private` fields that are accessed in a synchronized context.\n\n\nA non-`private` field cannot be guaranteed to always be accessed in a synchronized manner, and such \"partially synchronized\"\naccess may result in unexpectedly inconsistent data structures.\n\n**Example:**\n\n\n      class Bar {\n        public String field1;\n      }\n      public Bar myBar;\n\n      synchronized public void sample() {\n       myBar.field1 = \"bar\";\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "desktop/src/jvmMain/java/com/mcxross/cohesive/desktop/AbstractPluginManager.java",
+      "language": "JAVA",
+      "line": 648,
+      "offset": 9,
+      "length": 20,
+      "code": {
+        "startLine": 646,
+        "length": 20,
+        "offset": 106,
+        "surroundingCode": "    @Override\n    public synchronized void addPluginStateListener(PluginStateListener listener) {\n        pluginStateListeners.add(listener);\n    }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.desktop.jvmMain",
+    "inspectionName": "PublicFieldAccessedInSynchronizedContext"
+  },
+  "hash": "cdb254ff3049295d53435ae4ff5af8a925bcb5e216f54f0a5c29d049a94b1294"
 },{
   "tool": "Code Inspection",
   "category": "Threading issues",
@@ -374,11 +374,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 74,
+      "line": 81,
       "offset": 9,
       "length": 6,
       "code": {
-        "startLine": 72,
+        "startLine": 79,
         "length": 6,
         "offset": 48,
         "surroundingCode": "    compileSdk = 33\n    defaultConfig {\n        minSdk = 24\n        targetSdk = 33\n    }"
@@ -389,7 +389,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "076d773581eba6073fe1ccd15aac2c5bdf63e59a0a04ab9e120ca5cc260ea3c5"
+  "hash": "67675d0fac8cc4335caa4146f7e10079427048145c27b5f02a0e77f458a91c55"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -402,11 +402,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 75,
+      "line": 82,
       "offset": 9,
       "length": 9,
       "code": {
-        "startLine": 73,
+        "startLine": 80,
         "length": 9,
         "offset": 48,
         "surroundingCode": "    defaultConfig {\n        minSdk = 24\n        targetSdk = 33\n    }\n    compileOptions {"
@@ -417,7 +417,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "899de5d8cd5a5be81d75dd10fde977bb15f92ef68ee6692b30d380c78c39e7c3"
+  "hash": "54a92b5faec690ba646ef42bf3a6e570c6f9ead386315c19aa9872b8d44e4e53"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -430,11 +430,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 78,
+      "line": 85,
       "offset": 9,
       "length": 19,
       "code": {
-        "startLine": 76,
+        "startLine": 83,
         "length": 19,
         "offset": 35,
         "surroundingCode": "    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }"
@@ -445,7 +445,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "c93f6fcaf657f18ba97e18ef912c1cd49de55d08f05c26f27ed6fda255b92692"
+  "hash": "61f3573d9e6e751f67fa969385daed419c685f8d0747c86181454731bbb7f816"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -458,11 +458,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 79,
+      "line": 86,
       "offset": 9,
       "length": 19,
       "code": {
-        "startLine": 77,
+        "startLine": 84,
         "length": 19,
         "offset": 83,
         "surroundingCode": "    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    sourceSets {"
@@ -473,7 +473,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "3a9faa9badcf70a505eec085354e9cbad06861f4b340e83c86a4a4f436f42d0e"
+  "hash": "87d5fc23587f0bde9a5c346f78ae852da88848f326af8c32f5bc7f681efb971c"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -486,11 +486,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 81,
+      "line": 88,
       "offset": 5,
       "length": 10,
       "code": {
-        "startLine": 79,
+        "startLine": 86,
         "length": 10,
         "offset": 64,
         "surroundingCode": "        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")"
@@ -501,7 +501,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "4c2e7b1fe2790bc0cfedcb1e732270c8935bb91dc3a18d26154ea0ee672b9638"
+  "hash": "d426de6602122ebaec910eeeed0e599d2d83e508c3a6600f8ea94f3ac795610c"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -514,11 +514,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 83,
+      "line": 90,
       "offset": 13,
       "length": 8,
       "code": {
-        "startLine": 81,
+        "startLine": 88,
         "length": 8,
         "offset": 53,
         "surroundingCode": "    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }"
@@ -529,7 +529,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "e71bfe6b3b89affccbf65f8e71791a9f950f36480984c0159cf2a7a15d8361d4"
+  "hash": "cc5a98a0409cc89bd6627fcc846afb7d817bde050b84379870abc177864e4f9f"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -542,11 +542,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 83,
+      "line": 90,
       "offset": 22,
       "length": 7,
       "code": {
-        "startLine": 81,
+        "startLine": 88,
         "length": 7,
         "offset": 62,
         "surroundingCode": "    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }"
@@ -557,7 +557,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "1bed7d5c9e737e88a48207a77bf07f9ed389ea48b2c5307e057c3a03086932be"
+  "hash": "5eb8e4bc1deda09c01cadccb39322de30eb28be1275f769cd4796b04804bf4e2"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -570,11 +570,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 84,
+      "line": 91,
       "offset": 13,
       "length": 3,
       "code": {
-        "startLine": 82,
+        "startLine": 89,
         "length": 3,
         "offset": 104,
         "surroundingCode": "        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }\n    }"
@@ -585,7 +585,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "64ad0b643d4d6990a4daab436b6b8bc2b758f8493bedf08f36dd2ec049baecce"
+  "hash": "c5735b633978b52a3dce40b0cc46c6a3b57eeeda50e7b4646572a53e6491d350"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -598,11 +598,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 84,
+      "line": 91,
       "offset": 17,
       "length": 7,
       "code": {
-        "startLine": 82,
+        "startLine": 89,
         "length": 7,
         "offset": 108,
         "surroundingCode": "        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }\n    }"
@@ -613,5 +613,5 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "05df74a8d008ce0bc89fae6833aae5f25b5487c9228186a5affc5c09f98f80f9"
+  "hash": "00fc95761842e91ecde858b90a99976b1c09f450b3c4276f248dce990d920ebf"
 }]}

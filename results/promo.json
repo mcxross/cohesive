@@ -3,21 +3,77 @@
   "category": "Naming conventions",
   "type": "Function naming convention",
   "severity": "Moderate",
-  "comment": "Function name 'EditorEmptyView' should start with a lowercase letter",
+  "comment": "Function name 'WindowButton' should start with a lowercase letter",
   "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/EditorEmptyView.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/component/CWindowButton.kt",
       "language": "kotlin",
-      "line": 19,
+      "line": 23,
       "offset": 5,
-      "length": 15,
+      "length": 12,
       "code": {
-        "startLine": 17,
-        "length": 15,
+        "startLine": 21,
+        "length": 12,
+        "offset": 56,
+        "surroundingCode": "@OptIn(ExperimentalComposeUiApi::class)\n@Composable\nfun WindowButton(\n    res: String,\n    contentDescription: String,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "57203e01d67729d8feea29210b64edd3c3216dfe4d193d5b409a571fc25adc64"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'CreateAccountDialog' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/dialog/CreateAccount.kt",
+      "language": "kotlin",
+      "line": 14,
+      "offset": 5,
+      "length": 19,
+      "code": {
+        "startLine": 12,
+        "length": 19,
         "offset": 17,
-        "surroundingCode": "\n@Composable\nfun EditorEmptyView() = Box(Modifier.fillMaxSize()) {\n    Column(Modifier.align(Alignment.Center)) {\n        Icon("
+        "surroundingCode": "\n@Composable\nfun CreateAccountDialog() {\n\n    CDialog(title = \"Create Account\", negativeText = \"Cancel\", positiveText = \"Create\", onClose = {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "20eebd5330da127f000cd025981e710e5a0b14a99d5d199bd413c3ac66d6c1cd"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'CButton' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/component/CButton.kt",
+      "language": "kotlin",
+      "line": 15,
+      "offset": 5,
+      "length": 7,
+      "code": {
+        "startLine": 13,
+        "length": 7,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun CButton(text: String, enabled: Boolean = true, modifier: Modifier = Modifier, onClick: () -> Unit) {\n    Button(\n        modifier = modifier.padding(2.dp),"
       }
     }
   ],
@@ -25,5 +81,33 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "FunctionName"
   },
-  "hash": "f339a06b88b28f80d87a32a44b159cbd404caf2da4d1d29b70ca7ac9dc7cae2b"
+  "hash": "33f9191274f317c34711c9f1af569a4cedd2c04496967af2c1599b773803f5f6"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Class \"Store\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/view/store/Store.kt",
+      "language": "kotlin",
+      "line": 39,
+      "offset": 12,
+      "length": 5,
+      "code": {
+        "startLine": 37,
+        "length": 5,
+        "offset": 23,
+        "surroundingCode": "\n@Extension\nopen class Store : IStore {\n\n    @Composable"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "0f61c9a38315593f2ad4544d55ad9af0890cbde41c2505348296062f4115d734"
 }]}
