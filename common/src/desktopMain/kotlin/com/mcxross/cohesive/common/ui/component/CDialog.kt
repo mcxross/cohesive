@@ -10,7 +10,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.rememberDialogState
-import com.mcxross.cohesive.common.ui.component.CButton
 
 @Composable
 private fun Body(modifier: Modifier, content: @Composable () -> Unit) {

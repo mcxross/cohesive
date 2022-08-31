@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.jetbrains.skia.FontWeight
 
 @Composable
 private fun CloseButton(onClose: () -> Unit) {
@@ -36,7 +37,7 @@ fun TitleBar(title: String, modifier: Modifier, onClose: () -> Unit) {
                 )
                 Text(
                     text = title,
-                    fontSize = 12.sp,
+                    fontSize = 12.sp,z
                     maxLines = 1,
                     modifier = Modifier.offset(x = 5.dp).align(Alignment.CenterVertically)
                 )

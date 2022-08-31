@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.WindowPlacement
@@ -161,7 +162,7 @@ open class Main : IMain {
                     modifier = Modifier.align(Alignment.CenterVertically),
                     tint = Color.Green
                 )
-                Text(setCluster, fontSize = 12.sp)
+                Text(setCluster, fontSize = 11.sp)
                 Icon(
                     imageVector = Icons.Filled.ArrowDropDown,
                     contentDescription = null,
@@ -232,7 +233,7 @@ open class Main : IMain {
     @Composable
     override fun Show(windowScope: WindowScope) {
         DisableSelection {
-            MaterialTheme(colors = AppTheme.getColors()) {
+            AppTheme.Theme {
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),

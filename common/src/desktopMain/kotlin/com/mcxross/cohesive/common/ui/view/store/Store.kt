@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -44,9 +45,8 @@ open class Store : IStore {
         val scope = rememberCoroutineScope()
 
         DisableSelection {
-            MaterialTheme(colors = AppTheme.getColors()) {
+            AppTheme.Theme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-
                     Box(modifier = Modifier.fillMaxSize()) {
                         if (plugins.isNotEmpty()) {
                             StoreViewChains(
@@ -79,7 +79,7 @@ open class Store : IStore {
                             modifier = Modifier.padding(8.dp).align(Alignment.BottomEnd),
                             shape = RoundedCornerShape(12.dp)
                         ) {
-                            Text(text = "Skip")
+                            Text(text = "Skip", fontWeight = FontWeight.W300)
                         }
                     }
 
@@ -118,7 +118,8 @@ open class Store : IStore {
                 ) {
                     Text(
                         text = plugin.description,
-                        fontSize = 12.sp,
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.W300,
                         modifier = Modifier.padding(10.dp)
                     )
                 }
@@ -152,7 +153,7 @@ open class Store : IStore {
                     )
 
                 }
-                Text(text = plugin.name, maxLines = 2, fontSize = 12.sp, overflow = TextOverflow.Ellipsis)
+                Text(text = plugin.name, maxLines = 2, fontSize = 12.sp, fontWeight = FontWeight.W300, overflow = TextOverflow.Ellipsis)
             }
         }
     }

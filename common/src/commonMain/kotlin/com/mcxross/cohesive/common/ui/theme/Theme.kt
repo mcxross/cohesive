@@ -1,6 +1,7 @@
 package com.mcxross.cohesive.common.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material.Typography
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
@@ -58,4 +59,11 @@ object AppTheme {
         val annotation: SpanStyle = SpanStyle(Color(0xFFBBB529)),
         val comment: SpanStyle = SpanStyle(Color(0xFF808080))
     )
+
+    @Composable
+    fun Theme(content: @Composable () -> Unit) {
+        androidx.compose.material.MaterialTheme(colors = getColors(), typography = Typography(defaultFontFamily = Fonts.rubikFont())) {
+            content()
+        }
+    }
 }
