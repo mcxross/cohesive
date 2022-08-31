@@ -618,4 +618,66 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "3eabe4c11a759c84cba1bcdef76fe0fe6cff5dd7db7a5dada1c993a9e177c35b"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "None of the following functions can be called with the arguments supplied: public fun Text(text: AnnotatedString, modifier: Modifier = ..., color: Color = ..., fontSize: TextUnit = ..., fontStyle: FontStyle? = ..., fontWeight: FontWeight? = ..., fontFamily: FontFamily? = ..., letterSpacing: TextUnit = ..., textDecoration: TextDecoration? = ..., textAlign: TextAlign? = ..., lineHeight: TextUnit = ..., overflow: TextOverflow = ..., softWrap: Boolean = ..., maxLines: Int = ..., inlineContent: Map = ..., onTextLayout: (TextLayoutResult) -> Unit = ..., style: TextStyle = ...): Unit defined in androidx.compose.material public fun Text(text: String, modifier: Modifier = ..., color: Color = ..., fontSize: TextUnit = ..., fontStyle: FontStyle? = ..., fontWeight: FontWeight? = ..., fontFamily: FontFamily? = ..., letterSpacing: TextUnit = ..., textDecoration: TextDecoration? = ..., textAlign: TextAlign? = ..., lineHeight: TextUnit = ..., overflow: TextOverflow = ..., softWrap: Boolean = ..., maxLines: Int = ..., onTextLayout: (TextLayoutResult) -> Unit = ..., style: TextStyle = ...): Unit defined in androidx.compose.material",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/component/CTitleBarMin.kt",
+      "language": "kotlin",
+      "line": 38,
+      "offset": 17,
+      "length": 4,
+      "code": {
+        "startLine": 36,
+        "length": 4,
+        "offset": 120,
+        "surroundingCode": "                    modifier = Modifier.size(25.dp).align(Alignment.CenterVertically)\n                )\n                Text(\n                    text = title,\n                    fontSize = 12.sp,z"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "cc65c941c914b4bd14cc6f4249c540267aad893233e257a32bbb3c84e666d8b7"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: z",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/component/CTitleBarMin.kt",
+      "language": "kotlin",
+      "line": 40,
+      "offset": 38,
+      "length": 1,
+      "code": {
+        "startLine": 38,
+        "length": 1,
+        "offset": 93,
+        "surroundingCode": "                Text(\n                    text = title,\n                    fontSize = 12.sp,z\n                    maxLines = 1,\n                    modifier = Modifier.offset(x = 5.dp).align(Alignment.CenterVertically)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "479af034d5b737ae3c64a2c8b9adddd655420148ff3e217708fcc763bbe17ee9"
 }]}

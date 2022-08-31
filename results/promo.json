@@ -3,21 +3,21 @@
   "category": "Naming conventions",
   "type": "Function naming convention",
   "severity": "Moderate",
-  "comment": "Function name 'WindowButton' should start with a lowercase letter",
+  "comment": "Function name 'Wallet' should start with a lowercase letter",
   "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/component/CWindowButton.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/view/wallet/Wallet.kt",
       "language": "kotlin",
-      "line": 23,
-      "offset": 5,
-      "length": 12,
+      "line": 20,
+      "offset": 12,
+      "length": 6,
       "code": {
-        "startLine": 21,
-        "length": 12,
-        "offset": 56,
-        "surroundingCode": "@OptIn(ExperimentalComposeUiApi::class)\n@Composable\nfun WindowButton(\n    res: String,\n    contentDescription: String,"
+        "startLine": 18,
+        "length": 6,
+        "offset": 24,
+        "surroundingCode": "\n@Composable\nactual fun Wallet() {\n\n     Box(Modifier.fillMaxSize().background(MaterialTheme.colors.background)) {"
       }
     }
   ],
@@ -25,83 +25,27 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "FunctionName"
   },
-  "hash": "57203e01d67729d8feea29210b64edd3c3216dfe4d193d5b409a571fc25adc64"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'CreateAccountDialog' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/dialog/CreateAccount.kt",
-      "language": "kotlin",
-      "line": 14,
-      "offset": 5,
-      "length": 19,
-      "code": {
-        "startLine": 12,
-        "length": 19,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun CreateAccountDialog() {\n\n    CDialog(title = \"Create Account\", negativeText = \"Cancel\", positiveText = \"Create\", onClose = {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "20eebd5330da127f000cd025981e710e5a0b14a99d5d199bd413c3ac66d6c1cd"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'CButton' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/component/CButton.kt",
-      "language": "kotlin",
-      "line": 15,
-      "offset": 5,
-      "length": 7,
-      "code": {
-        "startLine": 13,
-        "length": 7,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun CButton(text: String, enabled: Boolean = true, modifier: Modifier = Modifier, onClick: () -> Unit) {\n    Button(\n        modifier = modifier.padding(2.dp),"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "33f9191274f317c34711c9f1af569a4cedd2c04496967af2c1599b773803f5f6"
+  "hash": "ef4222a32e53a9d9f66cfa50321e4b46b54dceda7ecf2ca5ebf19ca08224174d"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
   "type": "Unused symbol",
   "severity": "High",
-  "comment": "Class \"Store\" is never used",
+  "comment": "Function \"isInternetAvailable\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/view/store/Store.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/utils/Network.kt",
       "language": "kotlin",
-      "line": 39,
+      "line": 22,
       "offset": 12,
-      "length": 5,
+      "length": 19,
       "code": {
-        "startLine": 37,
-        "length": 5,
-        "offset": 23,
-        "surroundingCode": "\n@Extension\nopen class Store : IStore {\n\n    @Composable"
+        "startLine": 20,
+        "length": 19,
+        "offset": 47,
+        "surroundingCode": "val ktorHttpClient = HttpClient {}\n\nactual fun isInternetAvailable(): Boolean {\n    return runBlocking {\n        try {"
       }
     }
   ],
@@ -109,5 +53,89 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "0f61c9a38315593f2ad4544d55ad9af0890cbde41c2505348296062f4115d734"
+  "hash": "28f176847acfbe3e4234f81791e4466cd62e0002fc07da264a8022a0f1b6753a"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"loadXmlImageVector\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/utils/Network.kt",
+      "language": "kotlin",
+      "line": 57,
+      "offset": 13,
+      "length": 18,
+      "code": {
+        "startLine": 55,
+        "length": 18,
+        "offset": 68,
+        "surroundingCode": "    urlStream(url).use { loadSvgPainter(it, density) }\n\nsuspend fun loadXmlImageVector(url: String, density: Density): ImageVector =\n    urlStream(url).use { loadXmlImageVector(InputSource(it), density) }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "1bafe11aa82e036204d86a0bffb35458466eefe84682b9a837110098bdd63dc1"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"loadSvgPainter\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/utils/Network.kt",
+      "language": "kotlin",
+      "line": 54,
+      "offset": 13,
+      "length": 14,
+      "code": {
+        "startLine": 52,
+        "length": 14,
+        "offset": 55,
+        "surroundingCode": "    urlStream(url).use(::loadImageBitmap)\n\nsuspend fun loadSvgPainter(url: String, density: Density): Painter =\n    urlStream(url).use { loadSvgPainter(it, density) }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "1d6a5486f6f9c07b0ec50d569ef615cb8a7e5c51808fd872eeca34b286f0e46b"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Property \"backgroundDarkLight\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/theme/Theme.kt",
+      "language": "kotlin",
+      "line": 30,
+      "offset": 13,
+      "length": 19,
+      "code": {
+        "startLine": 28,
+        "length": 19,
+        "offset": 138,
+        "surroundingCode": "        private val backgroundDark: Color = Color(0xFF2B2B2B)\n        private val onBackgroundDark: Color = Color(0xFFA9A9A9)\n        val backgroundDarkLight: Color = Color(0xFF4E5254)\n        private val surfaceDark: Color = Color(0xFF3C3F41)\n        private val onSurfaceDark: Color = Color(0xFFA9A9A9)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "7e39a0cae2b8a35104b8e41818e90dee3ecd637a853145c31ea46dc07f2e08e1"
 }]}
