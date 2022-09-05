@@ -1,7 +1,7 @@
 package com.mcxross.cohesive.common.ui.view.editor
 
 import androidx.compose.runtime.mutableStateListOf
-import com.mcxross.cohesive.common.ui.view.editor.platform.File
+import com.mcxross.cohesive.mellow.File
 import com.mcxross.cohesive.common.ui.view.editor.util.SingleSelection
 
 class Editors {

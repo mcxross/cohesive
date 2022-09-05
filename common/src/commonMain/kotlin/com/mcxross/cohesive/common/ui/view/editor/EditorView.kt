@@ -16,11 +16,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
-import com.mcxross.cohesive.common.ui.component.StatusBar
-import com.mcxross.cohesive.common.ui.view.editor.filetree.FileTreeView
-import com.mcxross.cohesive.common.ui.view.editor.filetree.FileTreeViewTabView
-import com.mcxross.cohesive.common.ui.view.editor.util.SplitterState
-import com.mcxross.cohesive.common.ui.view.editor.util.VerticalSplittable
+import com.mcxross.cohesive.mellow.StatusBar
+import com.mcxross.cohesive.mellow.FileTree
+import com.mcxross.cohesive.mellow.FileTreeTab
+import com.mcxross.cohesive.mellow.SplitterState
+import com.mcxross.cohesive.mellow.VerticalSplittable
 
 @Composable
 fun CodeViewerView(model: CodeViewer) {
@@ -45,8 +45,8 @@ fun CodeViewerView(model: CodeViewer) {
     ) {
         ResizablePanel(Modifier.width(animatedSize).fillMaxHeight(), panelState) {
             Column {
-                FileTreeViewTabView()
-                FileTreeView(model.fileTree)
+                FileTreeTab()
+                FileTree(model.fileTree)
             }
         }
 

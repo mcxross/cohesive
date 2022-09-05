@@ -21,7 +21,7 @@ actual fun Explorer() {
         Column(Modifier.align(Alignment.Center)) {
 
             Text(
-                "Explorer",
+                "ExplorerView",
                 color = LocalContentColor.current.copy(alpha = 0.60f),
                 fontSize = 20.sp,
                 modifier = Modifier.align(Alignment.CenterHorizontally).padding(16.dp)

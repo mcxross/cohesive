@@ -7,14 +7,21 @@ val napierVersion: String by project
 
 plugins {
     kotlin("multiplatform")
+    id("org.jetbrains.kotlinx.benchmark") version "0.4.4"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.6.10"
     kotlin("kapt")
     kotlin("plugin.serialization") version "1.6.10"
     id("org.jetbrains.compose")
     id("com.android.library")
+    id("org.jetbrains.dokka")
 }
 
 group = "com.mcxross.cohesive"
 version = "1.0-SNAPSHOT"
+
+allOpen {
+    annotation("org.openjdk.jmh.annotations.State")
+}
 
 kotlin {
     android()
@@ -36,6 +43,8 @@ kotlin {
                 implementation("com.squareup.okio:okio:$okioVersion")
                 implementation("com.akuleshov7:ktoml-core:0.2.11")
                 implementation("io.github.aakira:napier:$napierVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.5")
+                implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.5")
             }
         }
         val commonTest by getting {
@@ -44,6 +53,9 @@ kotlin {
                 implementation("io.ktor:ktor-client-mock:$ktorVersion")
                 implementation("com.squareup.okio:okio-fakefilesystem:$okioVersion")
             }
+        }
+        val commonBenchmark by creating {
+            dependsOn(commonMain)
         }
         val androidMain by getting {
             kotlin.srcDirs("src/jvmMain/kotlin")
@@ -59,6 +71,9 @@ kotlin {
                 implementation("junit:junit:4.13.2")
             }
         }
+        val androidBenchmark by creating {
+            dependsOn(androidMain)
+        }
         val desktopMain by getting {
             kotlin.srcDirs("src/jvmMain/kotlin")
             dependencies {
@@ -66,10 +81,14 @@ kotlin {
                 implementation("org.pf4j:pf4j:3.7.0")
                 configurations["kapt"].dependencies.add(implementation("org.pf4j:pf4j:3.7.0"))
                 implementation("io.ktor:ktor-client-cio:$ktorVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.5")
             }
         }
         val desktopTest by getting {
 
+        }
+        val desktopBenchmark by creating {
+            dependsOn(desktopMain)
         }
     }
 }
@@ -93,3 +112,8 @@ android {
     }
 }
 
+benchmark {
+    targets {
+        register("commonBenchmark")
+    }
+}

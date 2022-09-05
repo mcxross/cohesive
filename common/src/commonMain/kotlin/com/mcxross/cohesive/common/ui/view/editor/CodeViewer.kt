@@ -1,6 +1,6 @@
 package com.mcxross.cohesive.common.ui.view.editor
 
-import com.mcxross.cohesive.common.ui.view.editor.filetree.FileTree
+import com.mcxross.cohesive.mellow.FileTree
 
 class CodeViewer(
     val editors: Editors,

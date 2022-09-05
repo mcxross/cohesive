@@ -20,9 +20,9 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import com.mcxross.cohesive.common.ui.theme.AppTheme
-import com.mcxross.cohesive.common.ui.theme.Fonts
-import com.mcxross.cohesive.common.ui.view.editor.platform.VerticalScrollbar
+import com.mcxross.cohesive.mellow.MellowTheme
+import com.mcxross.cohesive.mellow.Fonts
+import com.mcxross.cohesive.mellow.VerticalScrollbar
 import com.mcxross.cohesive.common.ui.view.editor.util.loadableScoped
 import com.mcxross.cohesive.common.ui.view.editor.util.withoutWidthConstraints
 import kotlin.text.Regex.Companion.fromLiteral
@@ -127,7 +127,7 @@ private fun LineContent(content: Editor.Content, modifier: Modifier, settings: S
         codeString(content.value.value)
     } else {
         buildAnnotatedString {
-            withStyle(AppTheme.code.simple) {
+            withStyle(MellowTheme.code.simple) {
                 append(content.value.value)
             }
         }
@@ -139,34 +139,34 @@ private fun LineContent(content: Editor.Content, modifier: Modifier, settings: S
 )
 
 private fun codeString(str: String) = buildAnnotatedString {
-    withStyle(AppTheme.code.simple) {
+    withStyle(MellowTheme.code.simple) {
         val strFormatted = str.replace("\t", "    ")
         append(strFormatted)
-        addStyle(AppTheme.code.punctuation, strFormatted, ":")
-        addStyle(AppTheme.code.punctuation, strFormatted, "=")
-        addStyle(AppTheme.code.punctuation, strFormatted, "\"")
-        addStyle(AppTheme.code.punctuation, strFormatted, "[")
-        addStyle(AppTheme.code.punctuation, strFormatted, "]")
-        addStyle(AppTheme.code.punctuation, strFormatted, "{")
-        addStyle(AppTheme.code.punctuation, strFormatted, "}")
-        addStyle(AppTheme.code.punctuation, strFormatted, "(")
-        addStyle(AppTheme.code.punctuation, strFormatted, ")")
-        addStyle(AppTheme.code.punctuation, strFormatted, ",")
-        addStyle(AppTheme.code.keyword, strFormatted, "fun ")
-        addStyle(AppTheme.code.keyword, strFormatted, "val ")
-        addStyle(AppTheme.code.keyword, strFormatted, "var ")
-        addStyle(AppTheme.code.keyword, strFormatted, "private ")
-        addStyle(AppTheme.code.keyword, strFormatted, "internal ")
-        addStyle(AppTheme.code.keyword, strFormatted, "for ")
-        addStyle(AppTheme.code.keyword, strFormatted, "expect ")
-        addStyle(AppTheme.code.keyword, strFormatted, "actual ")
-        addStyle(AppTheme.code.keyword, strFormatted, "import ")
-        addStyle(AppTheme.code.keyword, strFormatted, "package ")
-        addStyle(AppTheme.code.value, strFormatted, "true")
-        addStyle(AppTheme.code.value, strFormatted, "false")
-        addStyle(AppTheme.code.value, strFormatted, Regex("[0-9]*"))
-        addStyle(AppTheme.code.annotation, strFormatted, Regex("^@[a-zA-Z_]*"))
-        addStyle(AppTheme.code.comment, strFormatted, Regex("^\\s*//.*"))
+        addStyle(MellowTheme.code.punctuation, strFormatted, ":")
+        addStyle(MellowTheme.code.punctuation, strFormatted, "=")
+        addStyle(MellowTheme.code.punctuation, strFormatted, "\"")
+        addStyle(MellowTheme.code.punctuation, strFormatted, "[")
+        addStyle(MellowTheme.code.punctuation, strFormatted, "]")
+        addStyle(MellowTheme.code.punctuation, strFormatted, "{")
+        addStyle(MellowTheme.code.punctuation, strFormatted, "}")
+        addStyle(MellowTheme.code.punctuation, strFormatted, "(")
+        addStyle(MellowTheme.code.punctuation, strFormatted, ")")
+        addStyle(MellowTheme.code.punctuation, strFormatted, ",")
+        addStyle(MellowTheme.code.keyword, strFormatted, "fun ")
+        addStyle(MellowTheme.code.keyword, strFormatted, "val ")
+        addStyle(MellowTheme.code.keyword, strFormatted, "var ")
+        addStyle(MellowTheme.code.keyword, strFormatted, "private ")
+        addStyle(MellowTheme.code.keyword, strFormatted, "internal ")
+        addStyle(MellowTheme.code.keyword, strFormatted, "for ")
+        addStyle(MellowTheme.code.keyword, strFormatted, "expect ")
+        addStyle(MellowTheme.code.keyword, strFormatted, "actual ")
+        addStyle(MellowTheme.code.keyword, strFormatted, "import ")
+        addStyle(MellowTheme.code.keyword, strFormatted, "package ")
+        addStyle(MellowTheme.code.value, strFormatted, "true")
+        addStyle(MellowTheme.code.value, strFormatted, "false")
+        addStyle(MellowTheme.code.value, strFormatted, Regex("[0-9]*"))
+        addStyle(MellowTheme.code.annotation, strFormatted, Regex("^@[a-zA-Z_]*"))
+        addStyle(MellowTheme.code.comment, strFormatted, Regex("^\\s*//.*"))
     }
 }
 

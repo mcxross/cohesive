@@ -7,8 +7,8 @@ import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.res.useResource
 import androidx.compose.ui.window.*
 import com.mcxross.cohesive.common.model.onnet.Descriptor
-import com.mcxross.cohesive.common.openapi.ui.view.IMain
-import com.mcxross.cohesive.common.openapi.ui.view.IStore
+import com.mcxross.cohesive.common.openapi.ui.screen.IMain
+import com.mcxross.cohesive.common.openapi.ui.screen.IStore
 import com.mcxross.cohesive.common.ui.view.splash.SplashScreen
 import com.mcxross.cohesive.common.utils.*
 import com.mcxross.cohesive.desktop.utils.loadPluginsAsync
@@ -115,7 +115,6 @@ fun main() = application {
                     onCloseRequest = ::exitApplication,
                     undecorated = true,
                     state = WindowStateHolder.state,
-                    alwaysOnTop = true,
                     icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
                 ) {
                     pluginManager.getExtensions(IMain::class.java).forEach {

@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.mcxross.cohesive.common.ui.component.CButton
+import com.mcxross.cohesive.mellow.Button
 
 @Preview
 @Composable
@@ -16,7 +16,7 @@ fun AppPreview() {
 @Preview
 @Composable
 fun Button() {
-    CButton("Ok", modifier = Modifier.height(35.dp)) {}
+    Button({}, modifier = Modifier.height(35.dp),text = "Ok",) {}
 }
 
 
