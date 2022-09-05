@@ -1,23 +1,163 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused import directive",
+  "severity": "High",
+  "comment": "Unused import directive",
+  "detailsInfo": "Reports redundant `import` statements.\n\nDefault and unused imports can be safely removed.\n\n**Example:**\n\n\n      import kotlin.*\n      import kotlin.collections.*\n      import kotlin.comparisons.*\n      import kotlin.io.*\n      import kotlin.ranges.*\n      import kotlin.sequences.*\n      import kotlin.text.*\n\n      // jvm specific\n      import java.lang.*\n      import kotlin.jvm.*\n\n      // js specific\n      import kotlin.js.*\n\n      import java.io.* // this import is unused and could be removed\n      import java.util.*\n\n      fun foo(list: ArrayList<String>) {\n          list.add(\"\")\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/model/onnet/Descriptor.kt",
+      "language": "kotlin",
+      "line": 7,
+      "offset": 1,
+      "length": 23,
+      "code": {
+        "startLine": 5,
+        "length": 23,
+        "offset": 108,
+        "surroundingCode": "import com.mcxross.cohesive.common.utils.getHTTPClient\nimport com.mcxross.cohesive.common.utils.runBlocking\nimport io.ktor.client.*\nimport io.ktor.client.engine.cio.*\nimport io.ktor.client.network.sockets.*"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinUnusedImport"
+  },
+  "hash": "08b6f0adce7c354ad7d445388f681a4e8ae53103d45c6ae6ac469255c1e78269"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused import directive",
+  "severity": "High",
+  "comment": "Unused import directive",
+  "detailsInfo": "Reports redundant `import` statements.\n\nDefault and unused imports can be safely removed.\n\n**Example:**\n\n\n      import kotlin.*\n      import kotlin.collections.*\n      import kotlin.comparisons.*\n      import kotlin.io.*\n      import kotlin.ranges.*\n      import kotlin.sequences.*\n      import kotlin.text.*\n\n      // jvm specific\n      import java.lang.*\n      import kotlin.jvm.*\n\n      // js specific\n      import kotlin.js.*\n\n      import java.io.* // this import is unused and could be removed\n      import java.util.*\n\n      fun foo(list: ArrayList<String>) {\n          list.add(\"\")\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/model/onnet/Descriptor.kt",
+      "language": "kotlin",
+      "line": 8,
+      "offset": 1,
+      "length": 34,
+      "code": {
+        "startLine": 6,
+        "length": 34,
+        "offset": 77,
+        "surroundingCode": "import com.mcxross.cohesive.common.utils.runBlocking\nimport io.ktor.client.*\nimport io.ktor.client.engine.cio.*\nimport io.ktor.client.network.sockets.*\nimport io.ktor.client.plugins.*"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinUnusedImport"
+  },
+  "hash": "090879ed9ae4d753626d9ab38bc3b2def2e4eabc19509b9cc077e50880d77b9b"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused import directive",
+  "severity": "High",
+  "comment": "Unused import directive",
+  "detailsInfo": "Reports redundant `import` statements.\n\nDefault and unused imports can be safely removed.\n\n**Example:**\n\n\n      import kotlin.*\n      import kotlin.collections.*\n      import kotlin.comparisons.*\n      import kotlin.io.*\n      import kotlin.ranges.*\n      import kotlin.sequences.*\n      import kotlin.text.*\n\n      // jvm specific\n      import java.lang.*\n      import kotlin.jvm.*\n\n      // js specific\n      import kotlin.js.*\n\n      import java.io.* // this import is unused and could be removed\n      import java.util.*\n\n      fun foo(list: ArrayList<String>) {\n          list.add(\"\")\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/model/onnet/Descriptor.kt",
+      "language": "kotlin",
+      "line": 9,
+      "offset": 1,
+      "length": 39,
+      "code": {
+        "startLine": 7,
+        "length": 39,
+        "offset": 59,
+        "surroundingCode": "import io.ktor.client.*\nimport io.ktor.client.engine.cio.*\nimport io.ktor.client.network.sockets.*\nimport io.ktor.client.plugins.*\nimport io.ktor.client.request.*"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinUnusedImport"
+  },
+  "hash": "be3179c3acd6f832a06a1ef28c084a9f64f51890adaa2c31f24575698aa0b7f6"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused import directive",
+  "severity": "High",
+  "comment": "Unused import directive",
+  "detailsInfo": "Reports redundant `import` statements.\n\nDefault and unused imports can be safely removed.\n\n**Example:**\n\n\n      import kotlin.*\n      import kotlin.collections.*\n      import kotlin.comparisons.*\n      import kotlin.io.*\n      import kotlin.ranges.*\n      import kotlin.sequences.*\n      import kotlin.text.*\n\n      // jvm specific\n      import java.lang.*\n      import kotlin.jvm.*\n\n      // js specific\n      import kotlin.js.*\n\n      import java.io.* // this import is unused and could be removed\n      import java.util.*\n\n      fun foo(list: ArrayList<String>) {\n          list.add(\"\")\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/model/onnet/Descriptor.kt",
+      "language": "kotlin",
+      "line": 10,
+      "offset": 1,
+      "length": 31,
+      "code": {
+        "startLine": 8,
+        "length": 31,
+        "offset": 75,
+        "surroundingCode": "import io.ktor.client.engine.cio.*\nimport io.ktor.client.network.sockets.*\nimport io.ktor.client.plugins.*\nimport io.ktor.client.request.*\nimport io.ktor.client.statement.*"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinUnusedImport"
+  },
+  "hash": "c20398ff62ba646955645933057a6f79f98aae917d604587a7dc0e6f82c4a2ad"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused import directive",
+  "severity": "High",
+  "comment": "Unused import directive",
+  "detailsInfo": "Reports redundant `import` statements.\n\nDefault and unused imports can be safely removed.\n\n**Example:**\n\n\n      import kotlin.*\n      import kotlin.collections.*\n      import kotlin.comparisons.*\n      import kotlin.io.*\n      import kotlin.ranges.*\n      import kotlin.sequences.*\n      import kotlin.text.*\n\n      // jvm specific\n      import java.lang.*\n      import kotlin.jvm.*\n\n      // js specific\n      import kotlin.js.*\n\n      import java.io.* // this import is unused and could be removed\n      import java.util.*\n\n      fun foo(list: ArrayList<String>) {\n          list.add(\"\")\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/model/onnet/Descriptor.kt",
+      "language": "kotlin",
+      "line": 13,
+      "offset": 1,
+      "length": 21,
+      "code": {
+        "startLine": 11,
+        "length": 21,
+        "offset": 66,
+        "surroundingCode": "import io.ktor.client.request.*\nimport io.ktor.client.statement.*\nimport io.ktor.http.*\nimport kotlinx.coroutines.CoroutineScope\nimport kotlinx.coroutines.Dispatchers"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinUnusedImport"
+  },
+  "hash": "f9f99632f4a0fc6aed19f81d763e70f4a6e3839d3f83c7a098b478413cad910f"
+},{
+  "tool": "Code Inspection",
   "category": "Naming conventions",
   "type": "Function naming convention",
   "severity": "Moderate",
-  "comment": "Function name 'Wallet' should start with a lowercase letter",
+  "comment": "Function name 'Explorer' should start with a lowercase letter",
   "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/view/wallet/Wallet.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ui/view/explorer/Explorer.kt",
       "language": "kotlin",
-      "line": 20,
+      "line": 18,
       "offset": 12,
-      "length": 6,
+      "length": 8,
       "code": {
-        "startLine": 18,
-        "length": 6,
+        "startLine": 16,
+        "length": 8,
         "offset": 24,
-        "surroundingCode": "\n@Composable\nactual fun Wallet() {\n\n     Box(Modifier.fillMaxSize().background(MaterialTheme.colors.background)) {"
+        "surroundingCode": "\n@Composable\nactual fun Explorer() {\n\n    Box(Modifier.fillMaxSize().background(MaterialTheme.colors.background)) {"
       }
     }
   ],
@@ -25,117 +165,173 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "FunctionName"
   },
-  "hash": "ef4222a32e53a9d9f66cfa50321e4b46b54dceda7ecf2ca5ebf19ca08224174d"
+  "hash": "d295aba42b2220e12c34ce101aab21061fad4a97973cc76b4e9eb74681868ca5"
 },{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Function \"isInternetAvailable\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'EditorEmptyView' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/utils/Network.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/view/editor/EditorEmptyView.kt",
       "language": "kotlin",
-      "line": 22,
-      "offset": 12,
-      "length": 19,
+      "line": 19,
+      "offset": 5,
+      "length": 15,
       "code": {
-        "startLine": 20,
-        "length": 19,
-        "offset": 47,
-        "surroundingCode": "val ktorHttpClient = HttpClient {}\n\nactual fun isInternetAvailable(): Boolean {\n    return runBlocking {\n        try {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "28f176847acfbe3e4234f81791e4466cd62e0002fc07da264a8022a0f1b6753a"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Function \"loadXmlImageVector\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/utils/Network.kt",
-      "language": "kotlin",
-      "line": 57,
-      "offset": 13,
-      "length": 18,
-      "code": {
-        "startLine": 55,
-        "length": 18,
-        "offset": 68,
-        "surroundingCode": "    urlStream(url).use { loadSvgPainter(it, density) }\n\nsuspend fun loadXmlImageVector(url: String, density: Density): ImageVector =\n    urlStream(url).use { loadXmlImageVector(InputSource(it), density) }\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "1bafe11aa82e036204d86a0bffb35458466eefe84682b9a837110098bdd63dc1"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Function \"loadSvgPainter\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/utils/Network.kt",
-      "language": "kotlin",
-      "line": 54,
-      "offset": 13,
-      "length": 14,
-      "code": {
-        "startLine": 52,
-        "length": 14,
-        "offset": 55,
-        "surroundingCode": "    urlStream(url).use(::loadImageBitmap)\n\nsuspend fun loadSvgPainter(url: String, density: Density): Painter =\n    urlStream(url).use { loadSvgPainter(it, density) }\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "1d6a5486f6f9c07b0ec50d569ef615cb8a7e5c51808fd872eeca34b286f0e46b"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Property \"backgroundDarkLight\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/ui/theme/Theme.kt",
-      "language": "kotlin",
-      "line": 30,
-      "offset": 13,
-      "length": 19,
-      "code": {
-        "startLine": 28,
-        "length": 19,
-        "offset": 138,
-        "surroundingCode": "        private val backgroundDark: Color = Color(0xFF2B2B2B)\n        private val onBackgroundDark: Color = Color(0xFFA9A9A9)\n        val backgroundDarkLight: Color = Color(0xFF4E5254)\n        private val surfaceDark: Color = Color(0xFF3C3F41)\n        private val onSurfaceDark: Color = Color(0xFFA9A9A9)"
+        "startLine": 17,
+        "length": 15,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun EditorEmptyView() = Box(Modifier.fillMaxSize()) {\n    Column(Modifier.align(Alignment.Center)) {\n        Icon("
       }
     }
   ],
   "attributes": {
     "module": "cohesive.common.commonMain",
-    "inspectionName": "UnusedSymbol"
+    "inspectionName": "FunctionName"
   },
-  "hash": "7e39a0cae2b8a35104b8e41818e90dee3ecd637a853145c31ea46dc07f2e08e1"
+  "hash": "f339a06b88b28f80d87a32a44b159cbd404caf2da4d1d29b70ca7ac9dc7cae2b"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'MenuItemView' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
+      "language": "kotlin",
+      "line": 154,
+      "offset": 13,
+      "length": 12,
+      "code": {
+        "startLine": 152,
+        "length": 12,
+        "offset": 64,
+        "surroundingCode": "@OptIn(ExperimentalComposeUiApi::class)\n@Composable\nprivate fun MenuItemView(index: Int, item: MenuTree.Item) {\n    var isPerformingOnEnterTask by remember { mutableStateOf(true) }\n    var isPerformingOnExitTask by remember { mutableStateOf(true) }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "3c15e71d85b0f1287021b0ce056a5c42cf3a2205f83fbc2cad988c2e7051f59b"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'DropDown' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
+      "language": "kotlin",
+      "line": 125,
+      "offset": 13,
+      "length": 8,
+      "code": {
+        "startLine": 123,
+        "length": 8,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun DropDown(model: MenuTree, width: Dp = 200.dp) {\n\n    var offSetX = 0.dp"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "8354021bcedda2b528e54d3641d1cef6d43c71cc968a249fdd109f63030e8d33"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'Menu' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
+      "language": "kotlin",
+      "line": 108,
+      "offset": 5,
+      "length": 4,
+      "code": {
+        "startLine": 106,
+        "length": 4,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun Menu(model: MenuTree, onClicked: () -> Unit) {\n    fun onClick() {\n        onClicked()"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "7f5e6979820ca66238c487ed29ee496ec45607d0793e016fb6150cb5abd85f88"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'Button' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Button.kt",
+      "language": "kotlin",
+      "line": 21,
+      "offset": 5,
+      "length": 6,
+      "code": {
+        "startLine": 19,
+        "length": 6,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun Button(\n    onClick: () -> Unit,\n    modifier: Modifier = Modifier,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "bed73133263bfbec6293f0cfa5d70fbaa4f98b5fa03307746bbf9feec3332443"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'OutlinedButton' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Button.kt",
+      "language": "kotlin",
+      "line": 72,
+      "offset": 5,
+      "length": 14,
+      "code": {
+        "startLine": 70,
+        "length": 14,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun OutlinedButton(\n    onClick: () -> Unit,\n    modifier: Modifier = Modifier,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "e701b59dabeaa0b9e47547c5ec62507004fabb00a4e330f9725b3e87d21a68a6"
 }]}

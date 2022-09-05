@@ -21,14 +21,6 @@
       "languageLevel": 11
     },
     {
-      "name": "cohesive.test",
-      "languageLevel": 11
-    },
-    {
-      "name": "cohesive.main",
-      "languageLevel": 11
-    },
-    {
       "name": "cohesive.common.desktopMain",
       "languageLevel": 11
     },
@@ -98,6 +90,18 @@
     },
     {
       "name": "cohesive.common.androidTestFixturesRelease",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.common.androidBenchmark",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.common.commonBenchmark",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.common.desktopBenchmark",
       "languageLevel": 11
     }
   ]
