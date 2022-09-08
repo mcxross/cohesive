@@ -33,7 +33,6 @@ import org.pf4j.Extension
 
 @Extension
 open class Main : IMain {
-
     @Composable
     override fun WindowListMenuButton() {
 
@@ -329,7 +328,7 @@ open class Main : IMain {
                         neutralText = "",
                         onNeutral = {},
                         positiveText = "Ok",
-                        onPositive = {},
+                        onPositive = { Toast.message(title = "Create Account", message = "Failed...") },
                         negativeEnable = true,
                         neutralEnable = false,
                         positiveEnable = true,

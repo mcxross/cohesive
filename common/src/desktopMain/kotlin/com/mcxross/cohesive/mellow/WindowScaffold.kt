@@ -8,7 +8,17 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.contentColorFor
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+
+object Toast {
+    var model: ToastModel by mutableStateOf(ToastModel())
+    fun message(title: String = "", message: String) {
+        model.toast(title = title, message = message)
+    }
+}
 
 @Composable
 fun WindowScaffold(
@@ -26,6 +36,8 @@ fun WindowScaffold(
                     topBar()
                     content()
                 }
+
+                Toast(model = Toast.model)
             }
         }
     }

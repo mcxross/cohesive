@@ -18,12 +18,15 @@
 - [Documentation](#documentation)
 - [Features](#features)
 - [Roadmap](#roadmap)
+- [Design Philosophy](#design-philosophy)
 - [Contribution](#contribution)
 
-## Quick start
-> Convention: We'll use "Chain", and "Blockchain" interchangeably herein
+**Note:** This project is in its early stages of development. The project is not yet ready for production use.
 
-Cohesive is a modular meta-tool, i.e., a tool for tools specifically for Blockchain technology. It's Multiplatform, and Blockchain-neutral with a base implementation of/and, core functionality including but not limited to UI framework, Plugin Store, Simple Editor, and IDE. Specific Blockchain implementation can be built and installed as a primary plugin acting as a wrapper, i.e., consuming Cohesive, and thus bending its gears for that specific Chain
+## Quick start
+> Convention: We'll use "Platform" and "Blockchain" interchangeably herein - and rarely, "Chain"
+
+Cohesive is a modular meta-tool, i.e., a tool for tools specifically for Blockchain technology. It's Multiplatform, and Blockchain-neutral with a base implementation of/and, core functionality including but not limited to UI framework, Plugin Store, Simple Editor, and IDE. Specific Platform implementation can be built and installed as a _primary_ plugin acting as the Platform wrapper, i.e., consuming Cohesive, and thus bending its gears for that specific Platform.
 
 ### Running Base desktop application
 ```
@@ -40,11 +43,26 @@ Cohesive is a modular meta-tool, i.e., a tool for tools specifically for Blockch
 [![Qodana](https://github.com/mcxross/cohesive/actions/workflows/code_quality.yml/badge.svg)](https://github.com/mcxross/cohesive/actions/workflows/code_quality.yml)
 
 ## What's included
+Above everything, this repo is a Kotlin Multiplatform project containing apps and libraries for the following platforms:
+
+* Web Application
+* Desktop Application
+* Android Application
+* iOS Application (WIP)
 
 ## Documentation
 
 ## Features
+- [x] Multiplatform
+- [x] Multi-Blockchain
+- [x] Platform Plugin Store (primary and secondary)
+- [x] Simple Editor
+- [x] IDE
+- [x] UI Framework(s)
 
 ## Roadmap
 
+## Design Philosophy
+Simple, intuitive, and powerful.
+ 
 ## Contribution

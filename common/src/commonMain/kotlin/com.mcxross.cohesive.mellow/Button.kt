@@ -102,5 +102,3 @@ fun OutlinedButton(
     contentPadding = contentPadding,
     content = content
 )
-
-
