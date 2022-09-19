@@ -15,7 +15,5 @@ actual fun Modifier.pointerMoveFilter(
     onMove: (Offset) -> Boolean
 ): Modifier = this.pointerMoveFilter(onEnter = onEnter, onExit = onExit, onMove = onMove)
 
-
-@OptIn(ExperimentalComposeUiApi::class)
 actual fun Modifier.cursorForHorizontalResize(): Modifier =
     this.pointerHoverIcon(PointerIcon(Cursor(Cursor.E_RESIZE_CURSOR)))

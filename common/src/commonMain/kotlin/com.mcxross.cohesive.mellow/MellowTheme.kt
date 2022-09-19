@@ -57,12 +57,15 @@ object MellowTheme {
         val keyword: SpanStyle = SpanStyle(Color(0xFFCC7832)),
         val punctuation: SpanStyle = SpanStyle(Color(0xFFA1C17E)),
         val annotation: SpanStyle = SpanStyle(Color(0xFFBBB529)),
-        val comment: SpanStyle = SpanStyle(Color(0xFF808080))
+        val comment: SpanStyle = SpanStyle(Color(0xFF808080)),
     )
 
     @Composable
     fun Theme(content: @Composable () -> Unit) {
-        androidx.compose.material.MaterialTheme(colors = getColors(), typography = Typography(defaultFontFamily = Fonts.rubikFont())) {
+        androidx.compose.material.MaterialTheme(
+            colors = getColors(),
+            typography = Typography(defaultFontFamily = Fonts.rubikFont())
+        ) {
             content()
         }
     }

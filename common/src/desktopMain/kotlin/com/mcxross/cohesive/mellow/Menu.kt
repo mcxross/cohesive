@@ -32,7 +32,6 @@ var depth: Int by mutableStateOf(1)
 class ExpandableMenu(val treeNode: TreeNode<CMenuItem>, val level: Int) {
     var children: List<ExpandableMenu> by mutableStateOf(emptyList())
     val canExpand: Boolean get() = treeNode.children.isNotEmpty()
-
     fun toggleExpanded() {
         children = if (children.isEmpty()) {
             treeNode.children.map { ExpandableMenu(it, level + 1) }

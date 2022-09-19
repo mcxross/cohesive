@@ -16,7 +16,7 @@ fun AppPreview() {
 @Preview
 @Composable
 fun Button() {
-    Button({}, modifier = Modifier.height(35.dp),text = "Ok",) {}
+    Button({}, modifier = Modifier.height(35.dp), text = "Ok") {}
 }
 
 

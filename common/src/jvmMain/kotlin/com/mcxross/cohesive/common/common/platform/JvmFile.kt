@@ -4,7 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import com.mcxross.cohesive.mellow.File
-import com.mcxross.cohesive.common.ui.view.editor.util.TextLines
+import com.mcxross.cohesive.mellow.TextLines
 import kotlinx.coroutines.*
 import java.io.FileInputStream
 import java.io.FilenameFilter

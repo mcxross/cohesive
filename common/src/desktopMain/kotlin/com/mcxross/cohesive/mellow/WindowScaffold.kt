@@ -1,7 +1,8 @@
 package com.mcxross.cohesive.mellow
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.material.MaterialTheme
@@ -24,7 +25,7 @@ object Toast {
 fun WindowScaffold(
     modifier: Modifier = Modifier,
     topBar: @Composable () -> Unit = {},
-    content: @Composable() (ColumnScope.() -> Unit) = {},
+    content: @Composable (BoxScope.() -> Unit) = {},
 ) {
     DisableSelection {
         MellowTheme.Theme {
@@ -34,7 +35,10 @@ fun WindowScaffold(
             ) {
                 Column {
                     topBar()
-                    content()
+                    Box(modifier = Modifier.weight(1f)) {
+                        content()
+                    }
+                    StatusBar {  }
                 }
 
                 Toast(model = Toast.model)

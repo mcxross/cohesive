@@ -33,7 +33,7 @@ fun Button(
     border: BorderStroke? = null,
     colors: ButtonColors = ButtonDefaults.buttonColors(),
     contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
-    content: @Composable() (RowScope.() -> Unit)? = null,
+    content: @Composable (RowScope.() -> Unit)? = null,
 ) = Button(
     onClick = onClick,
     modifier = modifier.padding(2.dp),
@@ -84,7 +84,7 @@ fun OutlinedButton(
     border: BorderStroke? = ButtonDefaults.outlinedBorder,
     colors: ButtonColors = ButtonDefaults.outlinedButtonColors(),
     contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
-    content: @Composable() (RowScope.() -> Unit)? = null,
+    content: @Composable (RowScope.() -> Unit)? = null,
 ) = Button(
     onClick = onClick,
     modifier = modifier,
@@ -100,5 +100,5 @@ fun OutlinedButton(
     border = border,
     colors = colors,
     contentPadding = contentPadding,
-    content = content
+    content = content,
 )

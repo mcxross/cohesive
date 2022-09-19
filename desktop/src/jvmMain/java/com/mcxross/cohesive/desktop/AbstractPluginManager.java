@@ -340,7 +340,7 @@ public abstract class AbstractPluginManager implements PluginManager {
     }
 
     /**
-     * Start all active plugins.
+     * Compose all active plugins.
      */
     @Override
     public void startPlugins() {
@@ -348,7 +348,7 @@ public abstract class AbstractPluginManager implements PluginManager {
             PluginState pluginState = pluginWrapper.getPluginState();
             if ((PluginState.DISABLED != pluginState) && (PluginState.STARTED != pluginState)) {
                 try {
-                    log.info("Start plugin '{}'", getPluginLabel(pluginWrapper.getDescriptor()));
+                    log.info("Compose plugin '{}'", getPluginLabel(pluginWrapper.getDescriptor()));
                     pluginWrapper.getPlugin().start();
                     pluginWrapper.setPluginState(PluginState.STARTED);
                     pluginWrapper.setFailedException(null);
@@ -365,7 +365,7 @@ public abstract class AbstractPluginManager implements PluginManager {
     }
 
     /**
-     * Start the specified plugin and its dependencies.
+     * Compose the specified plugin and its dependencies.
      */
     @Override
     public PluginState startPlugin(String pluginId) {
@@ -398,7 +398,7 @@ public abstract class AbstractPluginManager implements PluginManager {
             }
         }
 
-        log.info("Start plugin '{}'", getPluginLabel(pluginDescriptor));
+        log.info("Compose plugin '{}'", getPluginLabel(pluginDescriptor));
         pluginWrapper.getPlugin().start();
         pluginWrapper.setPluginState(PluginState.STARTED);
         startedPlugins.add(pluginWrapper);

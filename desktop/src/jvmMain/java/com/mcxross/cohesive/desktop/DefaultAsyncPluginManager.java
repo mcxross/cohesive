@@ -110,7 +110,7 @@ public class DefaultAsyncPluginManager extends DefaultPluginManager implements A
             PluginState pluginState = pluginWrapper.getPluginState();
             if ((PluginState.DISABLED != pluginState) && (PluginState.STARTED != pluginState)) {
                 try {
-                    log.info("Start plugin '{}'", getPluginLabel(pluginWrapper.getDescriptor()));
+                    log.info("Compose plugin '{}'", getPluginLabel(pluginWrapper.getDescriptor()));
                     pluginWrapper.getPlugin().start();
                     pluginWrapper.setPluginState(PluginState.STARTED);
                     getStartedPlugins().add(pluginWrapper);

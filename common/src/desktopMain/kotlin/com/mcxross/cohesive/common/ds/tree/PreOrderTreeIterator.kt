@@ -22,8 +22,9 @@ import java.util.*
  * Output: 1 2 5 10 6 11 12 13 3 4 7 8 9
  * ```
  */
-class PreOrderTreeIterator<T>(root: TreeNode<T>) : Iterator<TreeNode<T>> {
 
+actual class PreOrderTreeIterator<T> actual constructor(root: TreeNode<T>) :
+    Iterator<TreeNode<T>> {
     private val stack = Stack<TreeNode<T>>()
 
     init {
@@ -39,4 +40,5 @@ class PreOrderTreeIterator<T>(root: TreeNode<T>) : Iterator<TreeNode<T>> {
             .forEach { stack.push(it) }
         return node
     }
+
 }

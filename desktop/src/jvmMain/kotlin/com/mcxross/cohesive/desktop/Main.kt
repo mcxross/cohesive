@@ -6,26 +6,35 @@ import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.res.useResource
 import androidx.compose.ui.window.*
-import com.mcxross.cohesive.common.model.onnet.Descriptor
-import com.mcxross.cohesive.common.openapi.ui.screen.IMain
-import com.mcxross.cohesive.common.openapi.ui.screen.IStore
-import com.mcxross.cohesive.common.ui.view.splash.SplashScreen
-import com.mcxross.cohesive.common.utils.*
+import com.mcxross.cohesive.common.frontend.model.Local.LocalContext
+import com.mcxross.cohesive.common.frontend.model.onnet.Descriptor
+import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IMain
+import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IStore
+import com.mcxross.cohesive.common.frontend.ui.view.splash.SplashScreen
+import com.mcxross.cohesive.common.frontend.utils.*
+import com.mcxross.cohesive.common.utils.Log
 import com.mcxross.cohesive.desktop.utils.loadPluginsAsync
 import kotlinx.coroutines.delay
 import org.pf4j.PluginManager
 import kotlin.system.measureTimeMillis
 
-fun loadConfig(onLoaded: () -> Unit) {
+inline fun loadConfig(onLoaded: (environment: com.mcxross.cohesive.common.frontend.model.Environment) -> Unit) {
     Log.i { "Loading config" }
+    var configuration: com.mcxross.cohesive.common.frontend.model.Configuration
     val timeInMillis = measureTimeMillis {
-        Log.d { load(readFileToStr("config.toml")).chain.clusterKey.toString() }
+        configuration = load(readFileToStr("config.toml"))
+    }
+    val chains = ArrayList<String>()
+    val chainPaths = ArrayList<String>()
+    configuration.chain.clusterKey.forEachIndexed { index, clusterKey ->
+        chains.add(clusterKey.toString())
+        chainPaths.add(configuration.chain.clusterValue[index])
     }
     Log.i { "Config loaded in $timeInMillis ms" }
-    onLoaded()
+    onLoaded(com.mcxross.cohesive.common.frontend.model.Environment.create(chains = chains, chainPaths = chainPaths))
 }
 
-fun loadStartPlugins(onLoaded: () -> Unit, onStarted: (it: PluginManager) -> Unit) {
+inline fun loadStartPlugins(crossinline onLoaded: () -> Unit, crossinline onStarted: (it: PluginManager) -> Unit) {
     Log.i { "Loading plugins" }
     val timeLoadingPlugins = measureTimeMillis {
         loadPluginsAsync({
@@ -44,8 +53,24 @@ fun loadStartPlugins(onLoaded: () -> Unit, onStarted: (it: PluginManager) -> Uni
     Log.i { "Plugins loaded, and started in $timeLoadingPlugins ms" }
 }
 
+@Composable
+fun BrewContextCompositionLocal(
+    windowScope: WindowScope,
+    environment: com.mcxross.cohesive.common.frontend.model.Environment,
+    content: @Composable () -> Unit,
+) {
+    val context = com.mcxross.cohesive.common.frontend.model.Context()
+    context.windowScope = windowScope
+    context.environment = environment
+    LocalContext = compositionLocalOf { context }
+    CompositionLocalProvider(LocalContext provides context) {
+        content()
+    }
+}
+
 fun main() = application {
 
+    /*Must initialize logging*/
     Log.init()
 
     var isLoadingPlugins by remember { mutableStateOf(true) }
@@ -54,14 +79,13 @@ fun main() = application {
 
     //monitor this value
     var pluginManager: PluginManager = DefaultAsyncPluginManager()
+    var environment by remember { mutableStateOf(com.mcxross.cohesive.common.frontend.model.Environment) }
 
-    val state = rememberWindowState(
+    WindowStateHolder.state = rememberWindowState(
         placement = WindowPlacement.Floating,
         position = WindowPosition.Aligned(Alignment.Center),
         size = getPreferredWindowSize(800, 1000)
     )
-
-    WindowStateHolder.state = state
 
     val loadResources by rememberUpdatedState {
 
@@ -70,6 +94,7 @@ fun main() = application {
         val timeLoadingResources = measureTimeMillis {
 
             loadConfig {
+                environment = it
                 isLoadingConfig = false
             }
 
@@ -90,7 +115,6 @@ fun main() = application {
     }
 
     isLoadingResources = isLoadingPlugins && isLoadingConfig
-
     if (isLoadingResources) {
 
         Window(
@@ -118,7 +142,13 @@ fun main() = application {
                     icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
                 ) {
                     pluginManager.getExtensions(IMain::class.java).forEach {
-                        it.Show(this)
+                        BrewContextCompositionLocal(
+                                windowScope = this,
+                                environment = environment,
+                            ) {
+                                it.Compose()
+                            }
+
                     }
                 }
 
@@ -144,11 +174,21 @@ fun main() = application {
                 ) {
                     val iStore = pluginManager.getExtensions(IStore::class.java)[0]
                     if (content.isContentReady()) {
-
-                        iStore.Emit(windowScope = this, plugins = content.getPlugins())
+                        environment.plugins = content.getPlugins()
+                        BrewContextCompositionLocal(
+                            windowScope = this,
+                            environment = environment,
+                        ) {
+                            iStore.Compose()
+                        }
 
                     } else {
-                        iStore.Emit(windowScope = this, plugins = emptyList())
+                        BrewContextCompositionLocal(
+                            windowScope = this,
+                            environment = environment,
+                        ) {
+                            iStore.Compose()
+                        }
                     }
                 }
 
