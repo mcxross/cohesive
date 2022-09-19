@@ -33,11 +33,35 @@
       "languageLevel": 11
     },
     {
+      "name": "cohesive.common.androidBenchmark",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.common.androidTestFixtures",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.common.androidTestFixturesDebug",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.common.androidTestFixturesRelease",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.common.commonBenchmark",
+      "languageLevel": 11
+    },
+    {
       "name": "cohesive.common.commonMain",
       "languageLevel": 11
     },
     {
       "name": "cohesive.common.commonTest",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.common.desktopBenchmark",
       "languageLevel": 11
     },
     {
@@ -78,30 +102,6 @@
     },
     {
       "name": "cohesive.web.commonTest",
-      "languageLevel": 11
-    },
-    {
-      "name": "cohesive.common.androidTestFixtures",
-      "languageLevel": 11
-    },
-    {
-      "name": "cohesive.common.androidTestFixturesDebug",
-      "languageLevel": 11
-    },
-    {
-      "name": "cohesive.common.androidTestFixturesRelease",
-      "languageLevel": 11
-    },
-    {
-      "name": "cohesive.common.androidBenchmark",
-      "languageLevel": 11
-    },
-    {
-      "name": "cohesive.common.commonBenchmark",
-      "languageLevel": 11
-    },
-    {
-      "name": "cohesive.common.desktopBenchmark",
       "languageLevel": 11
     }
   ]

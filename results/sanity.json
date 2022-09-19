@@ -6,130 +6,6 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Expected property 'HomeFolder' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/File.kt",
-      "language": "kotlin",
-      "line": 6,
-      "offset": 12,
-      "length": 10,
-      "code": {
-        "startLine": 4,
-        "length": 10,
-        "offset": 53,
-        "surroundingCode": "import kotlinx.coroutines.CoroutineScope\n\nexpect val HomeFolder: File\n\ninterface File {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "04ceeb316d4b2dc588c6e4ca11460a2e00136137db592a0bc61742b04cc73f35"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected property 'HomeFolder' has no actual declaration in module cohesive.common.androidBenchmark for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/File.kt",
-      "language": "kotlin",
-      "line": 6,
-      "offset": 12,
-      "length": 10,
-      "code": {
-        "startLine": 4,
-        "length": 10,
-        "offset": 53,
-        "surroundingCode": "import kotlinx.coroutines.CoroutineScope\n\nexpect val HomeFolder: File\n\ninterface File {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "834b489138171c20a77bf0119d422d19d2ffbb59ed7ba9a5a82160fa0ad8c415"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected property 'HomeFolder' has no actual declaration in module cohesive.common.androidTestFixtures for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/File.kt",
-      "language": "kotlin",
-      "line": 6,
-      "offset": 12,
-      "length": 10,
-      "code": {
-        "startLine": 4,
-        "length": 10,
-        "offset": 53,
-        "surroundingCode": "import kotlinx.coroutines.CoroutineScope\n\nexpect val HomeFolder: File\n\ninterface File {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "373dfff1065e12753d98eb21f6fce97baab246a663de4861635697b46652f912"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected property 'HomeFolder' has no actual declaration in module cohesive.common.androidTestFixturesDebug for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/File.kt",
-      "language": "kotlin",
-      "line": 6,
-      "offset": 12,
-      "length": 10,
-      "code": {
-        "startLine": 4,
-        "length": 10,
-        "offset": 53,
-        "surroundingCode": "import kotlinx.coroutines.CoroutineScope\n\nexpect val HomeFolder: File\n\ninterface File {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "a3d81a67dbe358df06bc312ac23681d2c0cb5729f1cae7e96378f4dc655a3e6c"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
   "comment": "Expected function 'VerticalScrollbar' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
@@ -254,21 +130,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Expected function 'runBlocking' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
+  "comment": "Expected function 'pointerMoveFilter' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/utils/Coroutines.kt",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Mouse.kt",
       "language": "kotlin",
-      "line": 7,
-      "offset": 16,
-      "length": 11,
+      "line": 6,
+      "offset": 21,
+      "length": 17,
       "code": {
-        "startLine": 5,
-        "length": 11,
-        "offset": 63,
-        "surroundingCode": "import kotlin.coroutines.EmptyCoroutineContext\n\nexpect fun <T> runBlocking(context: CoroutineContext = EmptyCoroutineContext, block: suspend CoroutineScope.() -> T): T"
+        "startLine": 4,
+        "length": 17,
+        "offset": 64,
+        "surroundingCode": "import androidx.compose.ui.geometry.Offset\n\nexpect fun Modifier.pointerMoveFilter(\n    onEnter: () -> Boolean = { true },\n    onExit: () -> Boolean = { true },"
       }
     }
   ],
@@ -276,7 +152,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "929ff3845d41ef0fe35bf96ef2fcfa37d16f1f4d91b2d91bbe44f06525af22c7"
+  "hash": "e5dbbb3092ed80bd0900ed9600a52f80490ca708ec62736b9f49347d147abfcd"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -285,21 +161,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Expected function 'runBlocking' has no actual declaration in module cohesive.common.androidBenchmark for JVM",
+  "comment": "Expected function 'pointerMoveFilter' has no actual declaration in module cohesive.common.androidBenchmark for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/utils/Coroutines.kt",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Mouse.kt",
       "language": "kotlin",
-      "line": 7,
-      "offset": 16,
-      "length": 11,
+      "line": 6,
+      "offset": 21,
+      "length": 17,
       "code": {
-        "startLine": 5,
-        "length": 11,
-        "offset": 63,
-        "surroundingCode": "import kotlin.coroutines.EmptyCoroutineContext\n\nexpect fun <T> runBlocking(context: CoroutineContext = EmptyCoroutineContext, block: suspend CoroutineScope.() -> T): T"
+        "startLine": 4,
+        "length": 17,
+        "offset": 64,
+        "surroundingCode": "import androidx.compose.ui.geometry.Offset\n\nexpect fun Modifier.pointerMoveFilter(\n    onEnter: () -> Boolean = { true },\n    onExit: () -> Boolean = { true },"
       }
     }
   ],
@@ -307,7 +183,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "f192a60fe73d59cde7b90bf1dff3af459a1ed90e5af947d43e487b194d63cfbc"
+  "hash": "54752d25a756cffba3897b512a98d991acd399d9c2d40624524fdb912e1eebb6"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -316,21 +192,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Expected function 'runBlocking' has no actual declaration in module cohesive.common.androidTestFixtures for JVM",
+  "comment": "Expected function 'pointerMoveFilter' has no actual declaration in module cohesive.common.androidTestFixtures for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/utils/Coroutines.kt",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Mouse.kt",
       "language": "kotlin",
-      "line": 7,
-      "offset": 16,
-      "length": 11,
+      "line": 6,
+      "offset": 21,
+      "length": 17,
       "code": {
-        "startLine": 5,
-        "length": 11,
-        "offset": 63,
-        "surroundingCode": "import kotlin.coroutines.EmptyCoroutineContext\n\nexpect fun <T> runBlocking(context: CoroutineContext = EmptyCoroutineContext, block: suspend CoroutineScope.() -> T): T"
+        "startLine": 4,
+        "length": 17,
+        "offset": 64,
+        "surroundingCode": "import androidx.compose.ui.geometry.Offset\n\nexpect fun Modifier.pointerMoveFilter(\n    onEnter: () -> Boolean = { true },\n    onExit: () -> Boolean = { true },"
       }
     }
   ],
@@ -338,5 +214,36 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "04e460da8843ac7f49838d69eff48ca289abf6b0077a7a21b9fdf90d6e26abac"
+  "hash": "dd68633c4041483e7ba5889fb83a7c9e05c4f9257f1b1a8b4fd95ccbe052afa6"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'pointerMoveFilter' has no actual declaration in module cohesive.common.androidTestFixturesDebug for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Mouse.kt",
+      "language": "kotlin",
+      "line": 6,
+      "offset": 21,
+      "length": 17,
+      "code": {
+        "startLine": 4,
+        "length": 17,
+        "offset": 64,
+        "surroundingCode": "import androidx.compose.ui.geometry.Offset\n\nexpect fun Modifier.pointerMoveFilter(\n    onEnter: () -> Boolean = { true },\n    onExit: () -> Boolean = { true },"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "afa17319548cddd2dc32d81be071cbe6c612d58c0f38faa6439680421bf646b0"
 }]}
