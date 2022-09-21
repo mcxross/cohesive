@@ -2,10 +2,10 @@
   "languages": [
     "Kotlin",
     "HTML",
-    "XML",
     "Plain text",
+    "XML",
+    ".gitignore (GitIgnore)",
     "Properties",
-    "Java",
-    ".gitignore (GitIgnore)"
+    "Java"
   ]
 }
