@@ -10,3 +10,7 @@ actual fun readFileToStr(
     val file = FileSystem.SYSTEM.source(path.toPath())
     return file.buffer().readUtf8()
 }
+
+fun isDirectory(path: String): Boolean {
+    return FileSystem.SYSTEM.metadata(path.toPath()).isDirectory
+}

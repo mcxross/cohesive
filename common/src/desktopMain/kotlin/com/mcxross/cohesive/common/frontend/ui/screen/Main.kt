@@ -24,6 +24,8 @@ import com.mcxross.cohesive.common.frontend.ui.view.View
 import com.mcxross.cohesive.common.frontend.ui.view.explorer.Explorer
 import com.mcxross.cohesive.common.frontend.ui.view.wallet.Wallet
 import com.mcxross.cohesive.common.frontend.utils.WindowStateHolder
+import com.mcxross.cohesive.common.frontend.utils.isDirectory
+import com.mcxross.cohesive.common.utils.Log
 import com.mcxross.cohesive.mellow.*
 import org.pf4j.Extension
 
@@ -245,6 +247,12 @@ open class Main : IMain {
     override fun Compose() {
         WindowScaffold(
             topBar = { TitleMenuBar() },
+            onDragStarted = { _, _ ->
+                true
+            },
+            onDropped = { uris, _ ->
+                uris.size == 1
+            },
         ) {
             Content()
         }

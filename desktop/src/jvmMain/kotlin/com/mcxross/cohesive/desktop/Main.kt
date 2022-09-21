@@ -3,6 +3,7 @@ package com.mcxross.cohesive.desktop
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.painter.BitmapPainter
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.res.useResource
 import androidx.compose.ui.window.*
@@ -11,9 +12,13 @@ import com.mcxross.cohesive.common.frontend.model.onnet.Descriptor
 import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IMain
 import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IStore
 import com.mcxross.cohesive.common.frontend.ui.view.splash.SplashScreen
-import com.mcxross.cohesive.common.frontend.utils.*
+import com.mcxross.cohesive.common.frontend.utils.WindowStateHolder
+import com.mcxross.cohesive.common.frontend.utils.getPreferredWindowSize
+import com.mcxross.cohesive.common.frontend.utils.load
+import com.mcxross.cohesive.common.frontend.utils.readFileToStr
 import com.mcxross.cohesive.common.utils.Log
 import com.mcxross.cohesive.desktop.utils.loadPluginsAsync
+import com.mcxross.cohesive.mellow.PlatformDropTargetModifier
 import kotlinx.coroutines.delay
 import org.pf4j.PluginManager
 import kotlin.system.measureTimeMillis
@@ -57,11 +62,13 @@ inline fun loadStartPlugins(crossinline onLoaded: () -> Unit, crossinline onStar
 fun BrewContextCompositionLocal(
     windowScope: WindowScope,
     environment: com.mcxross.cohesive.common.frontend.model.Environment,
+    platformDropTargetModifier: PlatformDropTargetModifier,
     content: @Composable () -> Unit,
 ) {
     val context = com.mcxross.cohesive.common.frontend.model.Context()
     context.windowScope = windowScope
     context.environment = environment
+    context.platformDropTargetModifier = platformDropTargetModifier
     LocalContext = compositionLocalOf { context }
     CompositionLocalProvider(LocalContext provides context) {
         content()
@@ -141,13 +148,22 @@ fun main() = application {
                     state = WindowStateHolder.state,
                     icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
                 ) {
+                    val density = LocalDensity.current.density
+                    val dropParent = remember(density) {
+                        PlatformDropTargetModifier(
+                            density = density,
+                            window = window,
+                        )
+                    }
+
                     pluginManager.getExtensions(IMain::class.java).forEach {
                         BrewContextCompositionLocal(
-                                windowScope = this,
-                                environment = environment,
-                            ) {
-                                it.Compose()
-                            }
+                            windowScope = this,
+                            environment = environment,
+                            platformDropTargetModifier = dropParent,
+                        ) {
+                            it.Compose()
+                        }
 
                     }
                 }
@@ -172,12 +188,20 @@ fun main() = application {
                     ),
                     icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
                 ) {
+                    val density = LocalDensity.current.density
+                    val dropParent = remember(density) {
+                        PlatformDropTargetModifier(
+                            density = density,
+                            window = window,
+                        )
+                    }
                     val iStore = pluginManager.getExtensions(IStore::class.java)[0]
                     if (content.isContentReady()) {
                         environment.plugins = content.getPlugins()
                         BrewContextCompositionLocal(
                             windowScope = this,
                             environment = environment,
+                            platformDropTargetModifier = dropParent,
                         ) {
                             iStore.Compose()
                         }
@@ -186,6 +210,7 @@ fun main() = application {
                         BrewContextCompositionLocal(
                             windowScope = this,
                             environment = environment,
+                            platformDropTargetModifier = dropParent,
                         ) {
                             iStore.Compose()
                         }
