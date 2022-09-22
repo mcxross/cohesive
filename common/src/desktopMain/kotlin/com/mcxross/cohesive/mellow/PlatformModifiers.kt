@@ -83,7 +83,7 @@ private fun dropTargetListener(
     override fun dragEnter(dtde: DropTargetDragEvent?) {
         if (dtde == null) return
         dropTargetModifier.onDragStarted(
-            listOf(),
+            dtde.fileUris(),
             Offset(
                 dtde.location.x * density,
                 dtde.location.y * density
@@ -125,6 +125,12 @@ private fun dropTargetListener(
         dropTargetModifier.onDragEnded()
     }
 }
+
+private fun DropTargetDragEvent.fileUris(): List<Uri> = transferable
+.getTransferData(DataFlavor.javaFileListFlavor)
+.let { it as? List<*> ?: listOf<File>() }
+.filterIsInstance<File>()
+.map(::FileUri)
 
 private fun DropTargetDropEvent.fileUris(): List<Uri> = transferable
     .getTransferData(DataFlavor.javaFileListFlavor)

@@ -43,11 +43,12 @@ fun FileTreeTab(
 
 @Composable
 fun FileTree(
-    model: FileTree,
+    model: FileTreeModel,
+    onItemClick: (File) -> Unit = {},
 ) = Surface(
     modifier = Modifier.fillMaxSize().padding(end = 3.dp)
 ) {
-    val activeIndex = remember { mutableStateOf(0) }
+    val activePath = remember { mutableStateOf("") }
     with(LocalDensity.current) {
         Box {
             val scrollState = rememberLazyListState()
@@ -59,13 +60,14 @@ fun FileTree(
                 items(count = model.items.size) { it ->
 
                     FileTreeItem(
-                        index = it,
-                        activeIndex = activeIndex,
+                        path = model.items[it].file.absolutePath,
+                        activePath = activePath,
                         fontSize = 14.sp,
                         height = 14.sp.toDp() * 1.5f,
                         model = model.items[it]
                     ) {
-                        activeIndex.value = it
+                        activePath.value = it.absolutePath
+                        onItemClick(it)
                     }
 
                 }
@@ -82,12 +84,12 @@ fun FileTree(
 
 @Composable
 private fun FileTreeItem(
-    index: Int,
-    activeIndex: MutableState<Int>,
+    path: String,
+    activePath: MutableState<String>,
     fontSize: TextUnit,
     height: Dp,
-    model: FileTree.Item,
-    onClick: (Int) -> Unit = {},
+    model: FileTreeModel.Item,
+    onClick: (File) -> Unit,
 ) {
 
     val interactionSource = remember { MutableInteractionSource() }
@@ -96,10 +98,10 @@ private fun FileTreeItem(
             .wrapContentHeight()
             .height(height = height)
             .background(
-                if (activeIndex.value == 0) {
+                if (activePath.value == "") {
                     MaterialTheme.colors.surface
                 } else {
-                    if (activeIndex.value == index) MaterialTheme.colors.primaryVariant else MaterialTheme.colors.surface
+                    if (activePath.value == path) MaterialTheme.colors.primaryVariant else MaterialTheme.colors.surface
                 }
             )
     ) {
@@ -110,8 +112,7 @@ private fun FileTreeItem(
                 onDoubleClick = {
                     model.open()
                 }
-            ) { onClick(index) }
-                .padding(start = 24.dp * model.level)
+            ) { onClick(model.file) }.padding(start = 24.dp * model.level)
         ) {
 
             FileItemIcon(Modifier.align(Alignment.CenterVertically), model)
@@ -133,10 +134,10 @@ private fun FileTreeItem(
 @Composable
 private fun FileItemIcon(
     modifier: Modifier,
-    model: FileTree.Item,
+    model: FileTreeModel.Item,
 ) = Box(modifier.size(24.dp).padding(4.dp)) {
     when (val type = model.type) {
-        is FileTree.ItemType.Folder -> when {
+        is FileTreeModel.ItemType.Folder -> when {
             !type.canExpand -> Unit
             type.isExpanded -> Icon(
                 Icons.Default.KeyboardArrowDown,
@@ -157,7 +158,7 @@ private fun FileItemIcon(
             )
         }
 
-        is FileTree.ItemType.File -> when (type.ext) {
+        is FileTreeModel.ItemType.File -> when (type.ext) {
             "kt" -> Icon(imageVector = Icons.Default.Code, contentDescription = null, tint = Color(0xFF3E86A0))
             "xml" -> Icon(imageVector = Icons.Default.Code, contentDescription = null, tint = Color(0xFFC19C5F))
             "txt" -> Icon(imageVector = Icons.Default.Description, contentDescription = null, tint = Color(0xFF87939A))

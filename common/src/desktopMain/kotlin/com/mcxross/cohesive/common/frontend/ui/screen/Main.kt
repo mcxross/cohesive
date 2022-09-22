@@ -25,7 +25,6 @@ import com.mcxross.cohesive.common.frontend.ui.view.explorer.Explorer
 import com.mcxross.cohesive.common.frontend.ui.view.wallet.Wallet
 import com.mcxross.cohesive.common.frontend.utils.WindowStateHolder
 import com.mcxross.cohesive.common.frontend.utils.isDirectory
-import com.mcxross.cohesive.common.utils.Log
 import com.mcxross.cohesive.mellow.*
 import org.pf4j.Extension
 
@@ -204,11 +203,16 @@ open class Main : IMain {
 
     @Composable
     override fun EditorView() {
-        EditorComposite()
+        EditorComposite(
+            file = getFileFromPath(
+                path = WindowStateHolder.currentProjectPath as String,
+            )
+        )
     }
 
     @Composable
     fun FileExplorerDialog() {
+        var file by remember { mutableStateOf(HomeFolder) }
         Dialog(
             onClose = { WindowStateHolder.isOpenDialogOpen = !WindowStateHolder.isOpenDialogOpen },
             text = "Open File or Project",
@@ -216,13 +220,16 @@ open class Main : IMain {
             onNegative = { WindowStateHolder.isOpenDialogOpen = !WindowStateHolder.isOpenDialogOpen },
             positiveText = "Ok",
             onPositive = {
+                WindowStateHolder.currentProjectPath = file.absolutePath
                 WindowStateHolder.view = View.EDITOR
                 WindowStateHolder.isOpenDialogOpen = !WindowStateHolder.isOpenDialogOpen
             },
             width = 450.dp,
             height = 450.dp,
         ) {
-            FileTree(FileTree(HomeFolder))
+            FileTree(FileTreeModel(root = HomeFolder)) {
+                file = it
+            }
         }
     }
 
@@ -247,11 +254,16 @@ open class Main : IMain {
     override fun Compose() {
         WindowScaffold(
             topBar = { TitleMenuBar() },
-            onDragStarted = { _, _ ->
-                true
+            onDragStarted = { uris, _ ->
+                uris.isNotEmpty()
             },
+            onDragEntered = { },
             onDropped = { uris, _ ->
-                uris.size == 1
+                if (isDirectory(uris[0].path)) {
+                    WindowStateHolder.currentProjectPath = uris[0].path
+                    WindowStateHolder.view = View.EDITOR
+                }
+                true
             },
         ) {
             Content()

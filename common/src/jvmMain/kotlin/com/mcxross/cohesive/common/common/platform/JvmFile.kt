@@ -5,7 +5,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import com.mcxross.cohesive.mellow.File
 import com.mcxross.cohesive.mellow.TextLines
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.io.FileInputStream
 import java.io.FilenameFilter
 import java.io.IOException
@@ -15,25 +18,24 @@ import java.nio.charset.StandardCharsets
 
 fun java.io.File.toProjectFile(): File = object : File {
     override val name: String get() = this@toProjectFile.name
-
+    override val path: String get() = this@toProjectFile.path
+    override val absolutePath: String get() = this@toProjectFile.absolutePath
+    override val canonicalPath: String get() = this@toProjectFile.canonicalPath
     override val isDirectory: Boolean get() = this@toProjectFile.isDirectory
 
     override val children: List<File>
         get() = this@toProjectFile
-            .listFiles(FilenameFilter { _, name -> !name.startsWith(".")})
+            .listFiles(FilenameFilter { _, name -> !name.startsWith(".") })
             .orEmpty()
             .map { it.toProjectFile() }
 
-    override val hasChildren: Boolean
-        get() = isDirectory && listFiles()?.size ?: 0 > 0
-
+    override val hasChildren: Boolean get() = isDirectory && (listFiles()?.size ?: 0) > 0
 
     override fun readLines(scope: CoroutineScope): TextLines {
         var byteBufferSize: Int
         val byteBuffer = RandomAccessFile(this@toProjectFile, "r").use { file ->
             byteBufferSize = file.length().toInt()
-            file.channel
-                .map(FileChannel.MapMode.READ_ONLY, 0, file.length())
+            file.channel.map(FileChannel.MapMode.READ_ONLY, 0, file.length())
         }
 
         val lineStartPositions = IntList()
@@ -73,7 +75,7 @@ fun java.io.File.toProjectFile(): File = object : File {
 }
 
 private fun java.io.File.readLinePositions(
-    starts: IntList
+    starts: IntList,
 ) {
     require(length() <= Int.MAX_VALUE) {
         "Files with size over ${Int.MAX_VALUE} aren't supported"

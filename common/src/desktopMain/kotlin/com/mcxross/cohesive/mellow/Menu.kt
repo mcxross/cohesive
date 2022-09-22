@@ -213,7 +213,7 @@ private fun MenuItemView(index: Int, item: MenuTree.Item) {
 
                 if (item.icon !== null) {
                     Icon(
-                        item.icon!!,
+                        painter = item.icon!!,
                         contentDescription = null,
                         modifier = Modifier.height(13.dp).align(Alignment.CenterVertically)
                     )

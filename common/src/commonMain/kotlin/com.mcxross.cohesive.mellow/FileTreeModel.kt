@@ -23,30 +23,37 @@ class ExpandableFile(
     }
 }
 
-class FileTree(root: File, private val onItemClick: (file: File) -> Unit = {}) {
+class FileTreeModel(
+    root: File,
+    private val onFolderClicked: (file: File) -> Unit = {},
+    private val onFileClicked: (file: File) -> Unit = {},
+) {
     private val expandableRoot = ExpandableFile(root, 0).apply {
         toggleExpanded()
     }
-
     val items: List<Item> get() = expandableRoot.toItems()
 
     inner class Item constructor(
-        private val file: ExpandableFile,
+        private val expandableFile: ExpandableFile,
     ) {
-        val name: String get() = file.file.name
-
-        val level: Int get() = file.level
+        val name: String get() = expandableFile.file.name
+        val file: File get() = expandableFile.file
+        val level: Int get() = expandableFile.level
 
         val type: ItemType
-            get() = if (file.file.isDirectory) {
-                ItemType.Folder(isExpanded = file.children.isNotEmpty(), canExpand = file.canExpand)
+            get() = if (expandableFile.file.isDirectory) {
+                ItemType.Folder(isExpanded = expandableFile.children.isNotEmpty(), canExpand = expandableFile.canExpand)
             } else {
-                ItemType.File(ext = file.file.name.substringAfterLast(".").lowercase())
+                ItemType.File(ext = expandableFile.file.name.substringAfterLast(".").lowercase())
             }
 
         fun open() = when (type) {
-            is ItemType.Folder -> file.toggleExpanded()
-            is ItemType.File -> onItemClick(file.file)
+            is ItemType.Folder -> {
+                onFolderClicked(expandableFile.file)
+                expandableFile.toggleExpanded()
+            }
+
+            is ItemType.File -> onFileClicked(expandableFile.file)
         }
     }
 

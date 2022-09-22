@@ -18,6 +18,12 @@ class Editor(
         selection.selected = this
     }
 
+    //Note: This check isn't safe, but it's good enough for now
+    //May break on different OSes
+    fun isSame(file: String): Boolean {
+        return this.fileName.equals(file, ignoreCase = true)
+    }
+
     class Line(val number: Int, val content: Content)
 
     interface Lines {

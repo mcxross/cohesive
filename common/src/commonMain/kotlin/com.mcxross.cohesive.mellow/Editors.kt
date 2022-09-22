@@ -13,13 +13,24 @@ class Editors {
     fun open(
         file: File,
     ) {
-        val editor = Editor(file)
-        editor.selection = selection
-        editor.close = {
-            close(editor)
+        var activeEditor: Editor? = null
+
+        editors.forEach {
+            if (it.isSame(file.name)) {
+                activeEditor = it
+                activeEditor!!.selection = selection
+            }
         }
-        editors.add(editor)
-        editor.activate()
+        if(activeEditor == null) {
+            activeEditor = Editor(file)
+            activeEditor!!.selection = selection
+            activeEditor!!.close = {
+                close(activeEditor!!)
+            }
+            editors.add(activeEditor!!)
+        }
+
+        activeEditor!!.activate()
     }
 
     private fun close(

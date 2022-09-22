@@ -8,31 +8,26 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
-
-private val MinFontSize = 6.sp
-private val MaxFontSize = 40.sp
 
 private operator fun TextUnit.minus(other: TextUnit) = (value - other.value).sp
 private operator fun TextUnit.div(other: TextUnit) = value / other.value
 
-private fun Density.scale(scale: Float) = Density(density * scale, fontScale * scale)
-
-
 @Composable
 fun EditorComposite(
-    text: String = "Files",
-    dirPath: String = "",
+    text: String = "Project",
+    file: File,
 ) {
 
     val model = remember {
         val editors = Editors()
 
-        CodeViewer(
+        EditorCompositeContainer(
             editors = editors,
-            fileTree = FileTree(HomeFolder) { editors.open(it) },
+            fileTreeModel = FileTreeModel(file) {
+                editors.open(it)
+            },
         )
     }
 
@@ -60,7 +55,7 @@ fun EditorComposite(
         ) {
             Column {
                 FileTreeTab(text = text)
-                FileTree(model = model.fileTree)
+                FileTree(model = model.fileTreeModel)
             }
         }
 
@@ -73,36 +68,10 @@ fun EditorComposite(
                     Box(
                         modifier = Modifier.weight(1f)
                     ) {
-                        Crossfade(model.editors.active) {
+                        Crossfade(targetState = model.editors.active) {
                             it?.let { it1 -> Editor(model = it1) }
                         }
                     }
-                    /*StatusBar {
-                        Text(
-                            text = "Text size",
-                            modifier = Modifier.align(Alignment.CenterVertically),
-                            color = LocalContentColor.current.copy(alpha = 0.60f),
-                            fontSize = 12.sp
-                        )
-
-                        Spacer(Modifier.width(8.dp))
-
-                        CompositionLocalProvider(LocalDensity provides LocalDensity.current.scale(0.5f)) {
-                            Slider(
-                                value = (model.settings.fontSize - com.mcxross.cohesive.common.frontend.ui.view.editor.MinFontSize) / (com.mcxross.cohesive.common.frontend.ui.view.editor.MaxFontSize - com.mcxross.cohesive.common.frontend.ui.view.editor.MinFontSize),
-                                onValueChange = {
-                                    model.settings.fontSize =
-                                        androidx.compose.ui.unit.lerp(
-                                            MinFontSize,
-                                            MaxFontSize,
-                                            it
-                                        )
-                                },
-                                modifier = Modifier.width(240.dp).align(Alignment.CenterVertically)
-                            )
-                        }
-
-                    }*/
                 }
             } else {
                 EditorEmpty(
