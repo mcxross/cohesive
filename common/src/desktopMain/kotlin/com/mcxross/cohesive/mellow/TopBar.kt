@@ -39,7 +39,7 @@ fun WindowScope.TopBar(
     content: @Composable() (RowScope.() -> Unit)? = null,
 ) = WindowDraggableArea {
         Column(
-            modifier = modifier.fillMaxWidth().height(31.dp)
+            modifier = modifier.fillMaxWidth().height(30.dp)
         ) {
             Row(
                 modifier = Modifier.fillMaxSize().padding(start = 10.dp),
@@ -92,7 +92,6 @@ fun WindowScope.TopBar(
                     }
                 }
             }
-            Divider()
         }
     }
 

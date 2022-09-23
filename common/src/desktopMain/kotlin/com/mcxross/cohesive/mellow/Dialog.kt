@@ -15,14 +15,17 @@ import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.rememberDialogState
 
 @Composable
-private fun Body(modifier: Modifier, content: @Composable () -> Unit) {
+private fun Content(
+    modifier: Modifier,
+    content: @Composable () -> Unit,
+) {
     Box(modifier = modifier) {
         content()
     }
 }
 
 @Composable
-private fun Footer(
+private fun BottomBar(
     modifier: Modifier,
     negativeText: String,
     neutralText: String,
@@ -36,8 +39,12 @@ private fun Footer(
 ) {
     Column(modifier = modifier) {
         Divider()
-        Box(modifier = Modifier.fillMaxWidth().height(55.dp).padding(end = 5.dp)) {
-            Row(modifier = Modifier.fillMaxHeight().align(Alignment.CenterEnd)) {
+        Box(
+            modifier = Modifier.fillMaxWidth().height(55.dp).padding(end = 5.dp)
+        ) {
+            Row(
+                modifier = Modifier.fillMaxHeight().align(Alignment.CenterEnd)
+            ) {
                 if (positiveText.isNotEmpty()) {
                     Button(
                         onClick = onPositive,
@@ -85,7 +92,7 @@ fun Dialog(
     positiveEnable: Boolean = true,
     width: Dp = 400.dp,
     height: Dp = 300.dp,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
 
     var isDialogOpen by remember { mutableStateOf(false) }
@@ -101,9 +108,12 @@ fun Dialog(
         ) {
 
             Box(modifier = Modifier.fillMaxSize()) {
-                Body(Modifier.matchParentSize().align(Alignment.Center).padding(top = 30.dp, bottom = 57.dp), content)
+                Content(
+                    Modifier.matchParentSize().align(Alignment.Center).padding(top = 30.dp, bottom = 57.dp),
+                    content
+                )
                 TopMinBar(onClose = onClose, text = text, modifier = Modifier.align(Alignment.TopStart))
-                Footer(
+                BottomBar(
                     modifier = Modifier.fillMaxWidth().align(Alignment.BottomStart),
                     negativeText,
                     neutralText,

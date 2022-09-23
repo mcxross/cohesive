@@ -158,37 +158,47 @@ open class Main : IMain {
 
     @Composable
     override fun TitleMenuBar() {
-        var restore by remember { mutableStateOf(true) }
-        Local.LocalContext.current.windowScope?.TopBar(
-            onClose = { WindowStateHolder.isMainWindowOpen = false },
-            onRestore = {
-                if (restore) {
-                    WindowStateHolder.state.placement = WindowPlacement.Maximized
-                    restore = false
-                } else {
-                    WindowStateHolder.state.placement = WindowPlacement.Floating
-                    restore = true
-                }
-            },
-            onMinimize = { WindowStateHolder.state.isMinimized = !WindowStateHolder.state.isMinimized },
-            icon = painterResource("ic_launcher.png"),
-            menuContent = {
-                Box(
-                    modifier = Modifier.offset(x = 5.dp).align(Alignment.CenterVertically)
-                ) {
-                    WindowListMenuButton()
-                }
-            },
-            restoreIcon = if (restore) painterResource("maximize_dark.svg") else painterResource("restore_dark.svg"),
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
         ) {
-            Text(
-                "Cohesive  -",
-                fontSize = 11.sp,
-                modifier = Modifier.padding(end = 10.dp).align(Alignment.CenterVertically)
-            )
-            ClusterMenu()
-            SwitchView()
+
+            var restore by remember { mutableStateOf(true) }
+            Local.LocalContext.current.windowScope?.TopBar(
+                onClose = { WindowStateHolder.isMainWindowOpen = false },
+                onRestore = {
+                    if (restore) {
+                        WindowStateHolder.state.placement = WindowPlacement.Maximized
+                        restore = false
+                    } else {
+                        WindowStateHolder.state.placement = WindowPlacement.Floating
+                        restore = true
+                    }
+                },
+                onMinimize = { WindowStateHolder.state.isMinimized = !WindowStateHolder.state.isMinimized },
+                icon = painterResource("ic_launcher.png"),
+                menuContent = {
+                    Box(
+                        modifier = Modifier.offset(x = 5.dp).align(Alignment.CenterVertically)
+                    ) {
+                        WindowListMenuButton()
+                    }
+                },
+                restoreIcon = if (restore) painterResource("maximize_dark.svg") else painterResource("restore_dark.svg"),
+            ) {
+                Text(
+                    "Cohesive  -",
+                    fontSize = 11.sp,
+                    modifier = Modifier.padding(end = 10.dp).align(Alignment.CenterVertically)
+                )
+                ClusterMenu()
+                SwitchView()
+            }
+
+            Divider()
         }
+
     }
 
     @Composable

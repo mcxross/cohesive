@@ -109,8 +109,8 @@ private fun Lines(
         }
 
         VerticalScrollbar(
-            modifier = Modifier.align(Alignment.CenterEnd),
-            scrollState = scrollState
+            modifier = Modifier.padding(end = 5.dp).align(Alignment.CenterEnd),
+            scrollState = scrollState,
         )
     }
 }

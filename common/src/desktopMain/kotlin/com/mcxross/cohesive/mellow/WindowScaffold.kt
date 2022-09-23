@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.text.selection.DisableSelection
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.contentColorFor
@@ -27,6 +28,7 @@ object Toast {
 fun WindowScaffold(
     modifier: Modifier = Modifier,
     topBar: @Composable () -> Unit = {},
+    bottomBar: @Composable () -> Unit = {},
     enableDnD: Boolean = true,
     onDragStarted: (uris: List<Uri>, Offset) -> Boolean,
     onDragEntered: () -> Unit = { },
@@ -60,7 +62,8 @@ fun WindowScaffold(
                         }
 
                     }
-                    StatusBar { }
+                    Divider()
+                    StatusBar { bottomBar() }
                 }
 
                 Toast(model = Toast.model)
