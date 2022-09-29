@@ -1,5 +1,33 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'mouseEvent: MouseEvent?' is deprecated. Use androidx.compose.ui.awt.awtEvent",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/selection/TextFieldSelectionManager.desktop.kt",
+      "language": "kotlin",
+      "line": 22,
+      "offset": 13,
+      "length": 10,
+      "code": {
+        "startLine": 20,
+        "length": 10,
+        "offset": 63,
+        "surroundingCode": "\ninternal val PointerEvent.isShiftPressed: Boolean\n    get() = mouseEvent?.isShiftDown ?: false\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "ae4df0ffb59b7ce4295ddcbd0905a090c9a703d7a06d1d34940ad7347543b3b1"
+},{
+  "tool": "Code Inspection",
   "category": "Probable bugs",
   "type": "Sealed sub-class without state and overridden equals",
   "severity": "Moderate",
@@ -38,14 +66,14 @@
       "type": "file",
       "path": "desktop/src/jvmMain/java/com/mcxross/cohesive/desktop/AbstractPluginManager.java",
       "language": "JAVA",
-      "line": 648,
-      "offset": 9,
+      "line": 810,
+      "offset": 45,
       "length": 20,
       "code": {
-        "startLine": 646,
+        "startLine": 808,
         "length": 20,
-        "offset": 106,
-        "surroundingCode": "    @Override\n    public synchronized void addPluginStateListener(PluginStateListener listener) {\n        pluginStateListeners.add(listener);\n    }\n"
+        "offset": 124,
+        "surroundingCode": "\n    protected synchronized void firePluginStateEvent(PluginStateEvent event) {\n        for (PluginStateListener listener : pluginStateListeners) {\n            log.trace(\"Fire '{}' to '{}'\", event, listener);\n            listener.pluginStateChanged(event);"
       }
     }
   ],
@@ -53,7 +81,7 @@
     "module": "cohesive.desktop.jvmMain",
     "inspectionName": "PublicFieldAccessedInSynchronizedContext"
   },
-  "hash": "6d0a685dafd0ad57d30ae2e1424ba9e90e0f867685231b84a9232a775e4933a0"
+  "hash": "ebc05befaa102e39d0aed9d12a3bf09bf8cccfe56ab39aba247baa2d0858fbb0"
 },{
   "tool": "Code Inspection",
   "category": "Threading issues",
@@ -94,14 +122,14 @@
       "type": "file",
       "path": "desktop/src/jvmMain/java/com/mcxross/cohesive/desktop/AbstractPluginManager.java",
       "language": "JAVA",
-      "line": 810,
-      "offset": 45,
+      "line": 648,
+      "offset": 9,
       "length": 20,
       "code": {
-        "startLine": 808,
+        "startLine": 646,
         "length": 20,
-        "offset": 124,
-        "surroundingCode": "\n    protected synchronized void firePluginStateEvent(PluginStateEvent event) {\n        for (PluginStateListener listener : pluginStateListeners) {\n            log.trace(\"Fire '{}' to '{}'\", event, listener);\n            listener.pluginStateChanged(event);"
+        "offset": 106,
+        "surroundingCode": "    @Override\n    public synchronized void addPluginStateListener(PluginStateListener listener) {\n        pluginStateListeners.add(listener);\n    }\n"
       }
     }
   ],
@@ -109,7 +137,7 @@
     "module": "cohesive.desktop.jvmMain",
     "inspectionName": "PublicFieldAccessedInSynchronizedContext"
   },
-  "hash": "ebc05befaa102e39d0aed9d12a3bf09bf8cccfe56ab39aba247baa2d0858fbb0"
+  "hash": "6d0a685dafd0ad57d30ae2e1424ba9e90e0f867685231b84a9232a775e4933a0"
 },{
   "tool": "Code Inspection",
   "category": "Threading issues",
