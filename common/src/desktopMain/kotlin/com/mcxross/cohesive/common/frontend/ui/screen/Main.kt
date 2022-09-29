@@ -213,11 +213,15 @@ open class Main : IMain {
 
     @Composable
     override fun EditorView() {
-        EditorComposite(
-            file = getFileFromPath(
-                path = WindowStateHolder.currentProjectPath as String,
+        if ((WindowStateHolder.currentProjectFile as File).isDirectory) {
+            EditorComposite(
+                file = WindowStateHolder.currentProjectFile as File,
             )
-        )
+        } else {
+            EditorSimple(
+                file = WindowStateHolder.currentProjectFile as File,
+            )
+        }
     }
 
     @Composable
@@ -230,14 +234,14 @@ open class Main : IMain {
             onNegative = { WindowStateHolder.isOpenDialogOpen = !WindowStateHolder.isOpenDialogOpen },
             positiveText = "Ok",
             onPositive = {
-                WindowStateHolder.currentProjectPath = file.absolutePath
+                WindowStateHolder.currentProjectFile = file
                 WindowStateHolder.view = View.EDITOR
                 WindowStateHolder.isOpenDialogOpen = !WindowStateHolder.isOpenDialogOpen
             },
             width = 450.dp,
             height = 450.dp,
         ) {
-            FileTree(FileTreeModel(root = HomeFolder)) {
+            FileTree(model = FileTreeModel(root = HomeFolder)) {
                 file = it
             }
         }
@@ -270,7 +274,7 @@ open class Main : IMain {
             onDragEntered = { },
             onDropped = { uris, _ ->
                 if (isDirectory(uris[0].path)) {
-                    WindowStateHolder.currentProjectPath = uris[0].path
+                    WindowStateHolder.currentProjectFile = uris[0].path
                     WindowStateHolder.view = View.EDITOR
                 }
                 true

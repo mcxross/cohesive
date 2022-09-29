@@ -20,13 +20,13 @@ fun EditorComposite(
     file: File,
 ) {
 
-    val model = remember {
-        val editors = Editors()
+    val editorCompositeContainer = remember {
+        val editorManager = EditorManager()
 
         EditorCompositeContainer(
-            editors = editors,
+            editorManager = editorManager,
             fileTreeModel = FileTreeModel(file) {
-                editors.open(it)
+                editorManager.open(it)
             },
         )
     }
@@ -55,20 +55,20 @@ fun EditorComposite(
         ) {
             Column {
                 FileTreeTab(text = text)
-                FileTree(model = model.fileTreeModel)
+                FileTree(model = editorCompositeContainer.fileTreeModel)
             }
         }
 
         Box {
-            if (model.editors.active != null) {
+            if (editorCompositeContainer.editorManager.isActiveNonNull()) {
                 Column(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    EditorTabs(model = model.editors)
+                    EditorTabs(editorManager = editorCompositeContainer.editorManager)
                     Box(
                         modifier = Modifier.weight(1f)
                     ) {
-                        Crossfade(targetState = model.editors.active) {
+                        Crossfade(targetState = editorCompositeContainer.editorManager.active) {
                             it?.let { it1 -> Editor(model = it1) }
                         }
                     }
