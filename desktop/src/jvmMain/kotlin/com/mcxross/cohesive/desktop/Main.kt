@@ -223,4 +223,19 @@ fun main() = application {
 
     }
 
+<<<<<<< HEAD
+=======
+   /*val state = rememberWindowState(
+        placement = WindowPlacement.Floating,
+        position = WindowPosition.Aligned(Alignment.Center),
+        size = getPreferredWindowSize(800, 300)
+    )
+    Window(
+        onCloseRequest = ::exitApplication,
+        state = state
+    ) {
+        Grid()
+    }*/
+
+>>>>>>> 076b528fa8b8f4ff117452299dcc1b54279569ee
 }
