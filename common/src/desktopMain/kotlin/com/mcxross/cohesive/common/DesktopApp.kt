@@ -27,8 +27,6 @@ fun AppPreview() {
 @Composable
 fun Button() {
     Button({}, modifier = Modifier.height(35.dp), text = "Ok") {}
-<<<<<<< HEAD
-=======
 }
 
 
@@ -193,10 +191,4 @@ fun Grid(
         )
 
     }
-}
-
-@Composable
-fun ScrollColumn() {
-
->>>>>>> 076b528fa8b8f4ff117452299dcc1b54279569ee
 }

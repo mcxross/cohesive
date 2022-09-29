@@ -7,7 +7,6 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.res.useResource
 import androidx.compose.ui.window.*
-import com.mcxross.cohesive.common.Grid
 import com.mcxross.cohesive.common.frontend.model.Local.LocalContext
 import com.mcxross.cohesive.common.frontend.model.onnet.Descriptor
 import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IMain
@@ -222,20 +221,4 @@ fun main() = application {
         }
 
     }
-
-<<<<<<< HEAD
-=======
-   /*val state = rememberWindowState(
-        placement = WindowPlacement.Floating,
-        position = WindowPosition.Aligned(Alignment.Center),
-        size = getPreferredWindowSize(800, 300)
-    )
-    Window(
-        onCloseRequest = ::exitApplication,
-        state = state
-    ) {
-        Grid()
-    }*/
-
->>>>>>> 076b528fa8b8f4ff117452299dcc1b54279569ee
 }
