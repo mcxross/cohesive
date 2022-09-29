@@ -7,6 +7,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.res.useResource
 import androidx.compose.ui.window.*
+import com.mcxross.cohesive.common.Grid
 import com.mcxross.cohesive.common.frontend.model.Local.LocalContext
 import com.mcxross.cohesive.common.frontend.model.onnet.Descriptor
 import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IMain
@@ -77,7 +78,7 @@ fun BrewContextCompositionLocal(
 
 fun main() = application {
 
-    /*Must initialize logging*/
+    //Must initialize logging*//*
     Log.init()
 
     var isLoadingPlugins by remember { mutableStateOf(true) }
@@ -221,4 +222,5 @@ fun main() = application {
         }
 
     }
+
 }

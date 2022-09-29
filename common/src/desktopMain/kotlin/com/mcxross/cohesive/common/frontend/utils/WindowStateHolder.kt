@@ -17,5 +17,5 @@ object WindowStateHolder {
     var isStoreWindowOpen: Boolean by mutableStateOf(true)
     var isPreAvail: Boolean by mutableStateOf(false)
     var isDelayClose: Boolean by mutableStateOf(true)
-    var currentProjectPath: Any? by mutableStateOf(HomeFolder.absolutePath)
+    var currentProjectFile: Any? by mutableStateOf(HomeFolder.absolutePath)
 }

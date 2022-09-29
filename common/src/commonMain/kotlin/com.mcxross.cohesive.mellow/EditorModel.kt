@@ -4,8 +4,8 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import kotlinx.coroutines.CoroutineScope
 
-class Editor(
-    val fileName: String,
+class EditorModel(
+    val file: File,
     val lines: (backgroundScope: CoroutineScope) -> Lines,
 ) {
     var close: (() -> Unit)? = null
@@ -20,9 +20,7 @@ class Editor(
 
     //Note: This check isn't safe, but it's good enough for now
     //May break on different OSes
-    fun isSame(file: String): Boolean {
-        return this.fileName.equals(file, ignoreCase = true)
-    }
+    fun isSame(file: String): Boolean = this.file.absolutePath.equals(file, ignoreCase = true)
 
     class Line(val number: Int, val content: Content)
 
@@ -35,8 +33,8 @@ class Editor(
     class Content(val value: State<String>, val isCode: Boolean)
 }
 
-internal fun Editor(file: File) = Editor(
-    fileName = file.name
+internal fun createEditorModel(file: File) = EditorModel(
+    file = file
 ) { backgroundScope ->
     val textLines = try {
         file.readLines(backgroundScope)
@@ -44,22 +42,23 @@ internal fun Editor(file: File) = Editor(
         e.printStackTrace()
         EmptyTextLines
     }
+    println(textLines)
     val isCode = file.name.endsWith(".kt", ignoreCase = true)
 
     fun content(
         index: Int,
-    ): Editor.Content {
+    ): EditorModel.Content {
         val text = textLines.get(index)
         val state = mutableStateOf(text)
-        return Editor.Content(state, isCode)
+        return EditorModel.Content(state, isCode)
     }
 
-    object : Editor.Lines {
+    object : EditorModel.Lines {
         override val size get() = textLines.size
 
         override fun get(
             index: Int,
-        ) = Editor.Line(
+        ) = EditorModel.Line(
             number = index + 1,
             content = content(index)
         )

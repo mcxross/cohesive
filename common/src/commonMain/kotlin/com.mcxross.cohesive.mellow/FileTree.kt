@@ -2,10 +2,12 @@ package com.mcxross.cohesive.mellow
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -19,7 +21,6 @@ import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -46,24 +47,25 @@ fun FileTree(
     model: FileTreeModel,
     onItemClick: (File) -> Unit = {},
 ) = Surface(
-    modifier = Modifier.fillMaxSize().padding(end = 3.dp)
+    modifier = Modifier.fillMaxSize().padding(end = 5.dp)
 ) {
     val activePath = remember { mutableStateOf("") }
     with(LocalDensity.current) {
         Box {
-            val scrollState = rememberLazyListState()
-
+            val horizontalScrollState = rememberScrollState(0)
+            val verticalScrollState = rememberLazyListState()
             LazyColumn(
-                modifier = Modifier.fillMaxSize(),
-                state = scrollState,
+                modifier = Modifier.matchParentSize().horizontalScroll(horizontalScrollState),
+                state = verticalScrollState,
+                contentPadding = PaddingValues(bottom = 8.dp),
             ) {
                 items(count = model.items.size) { it ->
 
                     FileTreeItem(
-                        path = model.items[it].file.absolutePath,
+                        text = model.items[it].file.absolutePath,
+                        modifier = Modifier.height(height = 14.sp.toDp() * 1.5f),
                         activePath = activePath,
                         fontSize = 14.sp,
-                        height = 14.sp.toDp() * 1.5f,
                         model = model.items[it]
                     ) {
                         activePath.value = it.absolutePath
@@ -73,9 +75,14 @@ fun FileTree(
                 }
             }
 
+            HorizontalScrollbar(
+                modifier = Modifier.align(Alignment.BottomCenter),
+                scrollState = horizontalScrollState
+            )
+
             VerticalScrollbar(
                 modifier = Modifier.align(Alignment.CenterEnd),
-                scrollState = scrollState
+                scrollState = verticalScrollState
             )
         }
     }
@@ -84,49 +91,45 @@ fun FileTree(
 
 @Composable
 private fun FileTreeItem(
-    path: String,
+    text: String,
+    modifier: Modifier,
     activePath: MutableState<String>,
     fontSize: TextUnit,
-    height: Dp,
     model: FileTreeModel.Item,
     onClick: (File) -> Unit,
 ) {
 
     val interactionSource = remember { MutableInteractionSource() }
-    Box(
-        modifier = Modifier.fillMaxWidth()
-            .wrapContentHeight()
-            .height(height = height)
+
+    Row(
+        modifier = modifier.combinedClickableNoInteraction(
+            interactionSource = interactionSource,
+            indication = null,
+            onDoubleClick = {
+                model.open()
+            }
+        ) { onClick(model.file) }
+            .padding(start = 24.dp * model.level)
             .background(
                 if (activePath.value == "") {
                     MaterialTheme.colors.surface
                 } else {
-                    if (activePath.value == path) MaterialTheme.colors.primaryVariant else MaterialTheme.colors.surface
+                    if (activePath.value == text) MaterialTheme.colors.primaryVariant else MaterialTheme.colors.surface
                 }
             )
     ) {
-        Row(
-            modifier = Modifier.fillMaxSize().combinedClickableNoInteraction(
-                interactionSource = interactionSource,
-                indication = null,
-                onDoubleClick = {
-                    model.open()
-                }
-            ) { onClick(model.file) }.padding(start = 24.dp * model.level)
-        ) {
 
-            FileItemIcon(Modifier.align(Alignment.CenterVertically), model)
-            Text(
-                text = model.name,
-                modifier = Modifier
-                    .align(Alignment.CenterVertically)
-                    .clipToBounds(),
-                softWrap = true,
-                fontSize = fontSize,
-                overflow = TextOverflow.Ellipsis,
-                maxLines = 1
-            )
-        }
+        FileItemIcon(Modifier.align(Alignment.CenterVertically), model)
+        Text(
+            text = model.name,
+            modifier = Modifier
+                .align(Alignment.CenterVertically)
+                .clipToBounds(),
+            softWrap = true,
+            fontSize = fontSize,
+            overflow = TextOverflow.Ellipsis,
+            maxLines = 1
+        )
     }
 
 }

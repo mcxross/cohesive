@@ -3,8 +3,6 @@ package com.mcxross.cohesive.mellow
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
@@ -14,7 +12,6 @@ import androidx.compose.material.icons.filled.Code
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -29,13 +26,13 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun EditorTabs(
-    model: Editors,
+    editorManager: EditorManager,
 ) = Row(
     modifier = Modifier.horizontalScroll(state = rememberScrollState())
 ) {
-    for (editor in model.editors) {
+    for (editor in editorManager.editorModels) {
         RectTab(
-            text = editor.fileName,
+            text = editor.file.name,
             active = editor.isActive,
             onActivate = { editor.activate() },
             onClose = { editor.close?.let { it() } }
@@ -45,7 +42,7 @@ fun EditorTabs(
 
 @Composable
 fun Editor(
-    model: Editor,
+    model: EditorModel,
     modifier: Modifier = Modifier,
     fontSize: TextUnit = 13.sp,
     maxLineSymbols: Int = 120,
@@ -57,7 +54,6 @@ fun Editor(
                 color = MaterialTheme.colors.background,
             ) {
                 val lines by loadableScoped(model.lines)
-
                 if (lines != null) {
                     Box {
                         Lines(lines = lines!!, fontSize = fontSize)
@@ -70,11 +66,9 @@ fun Editor(
                         )
                     }
                 } else {
-                    CircularProgressIndicator(
-                        modifier = Modifier
-                            .size(36.dp)
-                            .padding(4.dp)
-                    )
+                    Box {
+                        Progress(modifier = Modifier.align(Alignment.Center))
+                    }
                 }
             }
         }
@@ -82,75 +76,39 @@ fun Editor(
 }
 
 @Composable
-private fun Lines(
-    lines: Editor.Lines,
+internal expect fun Lines(
+    lines: EditorModel.Lines,
     fontSize: TextUnit,
-) = with(LocalDensity.current) {
-    val maxNum = remember(lines.lineNumberDigitCount) {
-        (1..lines.lineNumberDigitCount).joinToString(separator = "") { "9" }
-    }
-
-    Box(
-        modifier = Modifier.fillMaxSize(),
-    ) {
-        val scrollState = rememberLazyListState()
-
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            state = scrollState,
-        ) {
-            items(lines.size) { index ->
-                Box(
-                    modifier = Modifier.height(fontSize.toDp() * 1.6f),
-                ) {
-                    Line(Modifier.align(Alignment.CenterStart), maxNum, lines[index], fontSize = fontSize)
-                }
-            }
-        }
-
-        VerticalScrollbar(
-            modifier = Modifier.padding(end = 5.dp).align(Alignment.CenterEnd),
-            scrollState = scrollState,
-        )
-    }
-}
+)
 
 @Composable
-private fun Line(
+internal fun LineNumber(
     modifier: Modifier,
     maxNum: String,
-    line: Editor.Line,
+    line: EditorModel.Line,
     fontSize: TextUnit,
-) = Row(
-    modifier = modifier
-) {
-    DisableSelection {
-        Box {
-            LineNumber(
-                number = maxNum,
-                modifier = Modifier.alpha(0f),
-                fontSize = fontSize,
-            )
-            LineNumber(
-                number = line.number.toString(),
-                modifier = Modifier.align(Alignment.CenterEnd),
-                fontSize = fontSize,
-            )
-        }
+) = DisableSelection {
+
+    Box(
+        modifier = modifier.padding(end = 28.dp)
+    ) {
+        Number(
+            number = maxNum,
+            modifier = Modifier.alpha(0f),
+            fontSize = fontSize,
+        )
+        Number(
+            number = line.number.toString(),
+            modifier = Modifier.align(Alignment.Center),
+            fontSize = fontSize,
+        )
+
     }
-    LineContent(
-        content = line.content,
-        modifier = Modifier
-            .weight(1f)
-            .withoutWidthConstraints()
-            .padding(start = 28.dp, end = 12.dp),
-        fontSize = fontSize
-    )
 }
 
 
 @Composable
-private fun LineNumber(
+private fun Number(
     number: String,
     modifier: Modifier,
     fontSize: TextUnit,
@@ -163,27 +121,26 @@ private fun LineNumber(
 )
 
 @Composable
-private fun LineContent(
-    content: Editor.Content,
+expect fun TextField(
+    text: String,
     modifier: Modifier,
     fontSize: TextUnit,
-) = Text(
-    text = if (content.isCode) {
-        codeString(content.value.value)
+)
+
+//content: EditorModel.TextField
+fun highlight(text: String, isCode: Boolean): AnnotatedString {
+    return if (isCode) {
+        codeString(text)
     } else {
         buildAnnotatedString {
             withStyle(MellowTheme.code.simple) {
-                append(content.value.value)
+                append(text)
             }
         }
-    },
-    fontSize = fontSize,
-    fontFamily = Fonts.jetbrainsMono(),
-    modifier = modifier,
-    softWrap = false
-)
+    }
+}
 
-private fun codeString(
+fun codeString(
     str: String,
 ) = buildAnnotatedString {
     withStyle(MellowTheme.code.simple) {

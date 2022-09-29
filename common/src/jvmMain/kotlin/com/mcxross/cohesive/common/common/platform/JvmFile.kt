@@ -10,7 +10,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.FileInputStream
-import java.io.FilenameFilter
 import java.io.IOException
 import java.io.RandomAccessFile
 import java.nio.channels.FileChannel
@@ -25,7 +24,7 @@ fun java.io.File.toProjectFile(): File = object : File {
 
     override val children: List<File>
         get() = this@toProjectFile
-            .listFiles(FilenameFilter { _, name -> !name.startsWith(".") })
+            .listFiles { _, name -> !name.startsWith(".") }
             .orEmpty()
             .map { it.toProjectFile() }
 

@@ -1,6 +1,6 @@
 package com.mcxross.cohesive.mellow
 
 class EditorCompositeContainer(
-    val editors: Editors,
+    val editorManager: EditorManager,
     val fileTreeModel: FileTreeModel,
 )
