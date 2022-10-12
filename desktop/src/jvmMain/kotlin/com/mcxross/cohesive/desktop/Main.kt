@@ -12,10 +12,8 @@ import com.mcxross.cohesive.common.frontend.model.onnet.Descriptor
 import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IMain
 import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IStore
 import com.mcxross.cohesive.common.frontend.ui.view.splash.SplashScreen
-import com.mcxross.cohesive.common.frontend.utils.WindowStateHolder
-import com.mcxross.cohesive.common.frontend.utils.getPreferredWindowSize
-import com.mcxross.cohesive.common.frontend.utils.load
-import com.mcxross.cohesive.common.frontend.utils.readFileToStr
+import com.mcxross.cohesive.common.frontend.utils.*
+import com.mcxross.cohesive.common.frontend.utils.WindowState
 import com.mcxross.cohesive.common.utils.Log
 import com.mcxross.cohesive.desktop.utils.loadPluginsAsync
 import com.mcxross.cohesive.mellow.PlatformDropTargetModifier
@@ -76,9 +74,19 @@ fun BrewContextCompositionLocal(
 }
 
 fun main() = application {
-
     //Must initialize logging*//*
     Log.init()
+   val init by rememberUpdatedState {
+        runBlocking {
+            StatesHolder.init {
+                println("Scheduler initialized")
+            }
+        }
+    }
+
+    //init()
+
+    //println("Done Blocking")
 
     var isLoadingPlugins by remember { mutableStateOf(true) }
     var isLoadingConfig by remember { mutableStateOf(true) }
@@ -88,7 +96,7 @@ fun main() = application {
     var pluginManager: PluginManager = DefaultAsyncPluginManager()
     var environment by remember { mutableStateOf(com.mcxross.cohesive.common.frontend.model.Environment) }
 
-    WindowStateHolder.state = rememberWindowState(
+    WindowState.state = rememberWindowState(
         placement = WindowPlacement.Floating,
         position = WindowPosition.Aligned(Alignment.Center),
         size = getPreferredWindowSize(800, 1000)
@@ -138,14 +146,14 @@ fun main() = application {
 
     } else {
 
-        if (WindowStateHolder.isPreAvail) {
+        if (WindowState.isPreAvail) {
 
-            if (WindowStateHolder.isMainWindowOpen) {
+            if (WindowState.isMainWindowOpen) {
 
                 Window(
                     onCloseRequest = ::exitApplication,
                     undecorated = true,
-                    state = WindowStateHolder.state,
+                    state = WindowState.state,
                     icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
                 ) {
                     val density = LocalDensity.current.density
@@ -171,9 +179,9 @@ fun main() = application {
             }
         }
 
-        if (WindowStateHolder.isDelayClose) {
+        if (WindowState.isDelayClose) {
 
-            if (WindowStateHolder.isStoreWindowOpen) {
+            if (WindowState.isStoreWindowOpen) {
 
                 val content = remember {
                     Descriptor.run()

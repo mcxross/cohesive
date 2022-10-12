@@ -9,7 +9,7 @@ plugins {
     kotlin("multiplatform")
     id("org.jetbrains.kotlinx.benchmark") version "0.4.4"
     id("org.jetbrains.kotlin.plugin.allopen") version "1.6.10"
-    kotlin("kapt")
+    id("com.google.devtools.ksp") version "1.6.10-1.0.4"
     kotlin("plugin.serialization") version "1.6.10"
     id("org.jetbrains.compose")
     id("com.android.library")
@@ -45,6 +45,9 @@ kotlin {
                 implementation("io.github.aakira:napier:$napierVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.5")
                 implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.5")
+                implementation("io.github.xxfast:kstore:0.1")
+                implementation("org.jetbrains:markdown:0.3.1")
+                implementation("org.kodein.di:kodein-di:7.15.0")
             }
         }
         val commonTest by getting {
@@ -78,8 +81,7 @@ kotlin {
             kotlin.srcDirs("src/jvmMain/kotlin")
             dependencies {
                 api(compose.preview)
-                implementation("org.pf4j:pf4j:3.7.0")
-                configurations["kapt"].dependencies.add(implementation("org.pf4j:pf4j:3.7.0"))
+                implementation(project(":cps"))
                 implementation("io.ktor:ktor-client-cio:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.5")
             }
@@ -93,6 +95,9 @@ kotlin {
     }
 }
 
+dependencies {
+    add("kspDesktop", project(":cps"))
+}
 
 android {
     compileSdk = 33

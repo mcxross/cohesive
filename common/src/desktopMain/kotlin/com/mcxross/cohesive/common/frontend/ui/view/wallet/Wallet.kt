@@ -13,7 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.mcxross.cohesive.common.frontend.utils.WindowStateHolder
+import com.mcxross.cohesive.common.frontend.utils.WindowState
 import com.mcxross.cohesive.mellow.Button
 import com.mcxross.cohesive.mellow.Toast
 
@@ -31,13 +31,13 @@ actual fun Wallet() {
             )
 
             Button(
-                onClick = { WindowStateHolder.isImportAccountOpen = true },
+                onClick = { WindowState.isImportAccountOpen = true },
                 modifier = Modifier.align(Alignment.CenterHorizontally),
                 text = "Import Account(s) into Wallet",
             )
 
             Button(
-                onClick = { WindowStateHolder.isCreateAccountOpen = true },
+                onClick = { WindowState.isCreateAccountOpen = true },
                 modifier = Modifier.align(Alignment.CenterHorizontally),
                 text = "Create Account(s) in Wallet",
             )
@@ -45,12 +45,12 @@ actual fun Wallet() {
         }
     }
 
-    if (WindowStateHolder.isImportAccountOpen) {
+    if (WindowState.isImportAccountOpen) {
         walle.ImportAccountDialog(
-            onClose = { WindowStateHolder.isImportAccountOpen = !WindowStateHolder.isImportAccountOpen },
+            onClose = { WindowState.isImportAccountOpen = !WindowState.isImportAccountOpen },
             text = "Import Account",
             negativeText = "Cancel",
-            onNegative = { WindowStateHolder.isImportAccountOpen = !WindowStateHolder.isImportAccountOpen },
+            onNegative = { WindowState.isImportAccountOpen = !WindowState.isImportAccountOpen },
             neutralText = "",
             onNeutral = {},
             positiveText = "Import",
@@ -65,12 +65,12 @@ actual fun Wallet() {
         }
     }
 
-    if (WindowStateHolder.isCreateAccountOpen) {
+    if (WindowState.isCreateAccountOpen) {
         walle.CreateAccountDialog(
-            onClose = { WindowStateHolder.isCreateAccountOpen = !WindowStateHolder.isCreateAccountOpen },
+            onClose = { WindowState.isCreateAccountOpen = !WindowState.isCreateAccountOpen },
             text = "Create Account",
             negativeText = "Cancel",
-            onNegative = { WindowStateHolder.isCreateAccountOpen = !WindowStateHolder.isCreateAccountOpen },
+            onNegative = { WindowState.isCreateAccountOpen = !WindowState.isCreateAccountOpen },
             neutralText = "",
             onNeutral = {},
             positiveText = "Ok",

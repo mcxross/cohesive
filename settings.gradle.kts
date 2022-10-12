@@ -19,4 +19,4 @@ pluginManagement {
 
 rootProject.name = "cohesive"
 
-include(":android", ":desktop", ":common", ":web")
+include(":android", ":desktop", ":common", ":web", ":cps")

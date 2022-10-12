@@ -21,12 +21,13 @@ import com.mcxross.cohesive.common.ds.tree.tree
 import com.mcxross.cohesive.common.frontend.model.Local
 import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IMain
 import com.mcxross.cohesive.common.frontend.ui.view.View
-import com.mcxross.cohesive.common.frontend.ui.view.explorer.Explorer
 import com.mcxross.cohesive.common.frontend.ui.view.wallet.Wallet
-import com.mcxross.cohesive.common.frontend.utils.WindowStateHolder
+import com.mcxross.cohesive.common.frontend.ui.widget.Markdown
+import com.mcxross.cohesive.common.frontend.ui.widget.MarkdownConfig
+import com.mcxross.cohesive.common.frontend.utils.WindowState
 import com.mcxross.cohesive.common.frontend.utils.isDirectory
+import com.mcxross.cohesive.cps.Extension
 import com.mcxross.cohesive.mellow.*
-import org.pf4j.Extension
 
 @Extension
 open class Main : IMain {
@@ -46,7 +47,7 @@ open class Main : IMain {
                     text = "Open",
                     menuInterface = object : MenuInterface {
                         override fun onClick() {
-                            WindowStateHolder.isOpenDialogOpen = true
+                            WindowState.isOpenDialogOpen = true
                         }
 
                         override fun onHover(onEnter: Boolean) {
@@ -60,8 +61,8 @@ open class Main : IMain {
                 text = "Switch Chain",
                 menuInterface = object : MenuInterface {
                     override fun onClick() {
-                        WindowStateHolder.isPreAvail = false
-                        WindowStateHolder.isStoreWindowOpen = true
+                        WindowState.isPreAvail = false
+                        WindowState.isStoreWindowOpen = true
                     }
 
                     override fun onHover(onEnter: Boolean) {
@@ -75,7 +76,7 @@ open class Main : IMain {
             child(CMenuItem(text = "Settings"))
             child(CMenuItem(text = "Exit", menuInterface = object : MenuInterface {
                 override fun onClick() {
-                    WindowStateHolder.isMainWindowOpen = false
+                    WindowState.isMainWindowOpen = false
                 }
 
                 override fun onHover(onEnter: Boolean) {
@@ -95,10 +96,10 @@ open class Main : IMain {
     override fun SwitchView() {
 
         fun onClick() {
-            if (WindowStateHolder.view == View.EXPLORER) {
-                WindowStateHolder.view = View.WALLET
+            if (WindowState.view == View.EXPLORER) {
+                WindowState.view = View.WALLET
             } else {
-                WindowStateHolder.view = View.EXPLORER
+                WindowState.view = View.EXPLORER
             }
         }
 
@@ -166,17 +167,17 @@ open class Main : IMain {
 
             var restore by remember { mutableStateOf(true) }
             Local.LocalContext.current.windowScope?.TopBar(
-                onClose = { WindowStateHolder.isMainWindowOpen = false },
+                onClose = { WindowState.isMainWindowOpen = false },
                 onRestore = {
                     if (restore) {
-                        WindowStateHolder.state.placement = WindowPlacement.Maximized
+                        WindowState.state.placement = WindowPlacement.Maximized
                         restore = false
                     } else {
-                        WindowStateHolder.state.placement = WindowPlacement.Floating
+                        WindowState.state.placement = WindowPlacement.Floating
                         restore = true
                     }
                 },
-                onMinimize = { WindowStateHolder.state.isMinimized = !WindowStateHolder.state.isMinimized },
+                onMinimize = { WindowState.state.isMinimized = !WindowState.state.isMinimized },
                 icon = painterResource("ic_launcher.png"),
                 menuContent = {
                     Box(
@@ -203,7 +204,35 @@ open class Main : IMain {
 
     @Composable
     override fun ExplorerView() {
-        Explorer()
+        //Explorer()
+        Markdown(
+            modifier = Modifier.fillMaxWidth().padding(10.dp),
+            content = "## Table of contents\n" +
+                    "- [Quick start](#quick-start)\n" +
+                    "- [Status](#status)\n" +
+                    "- [What's included](#whats-included)\n" +
+                    "- [Documentation](#documentation)\n" +
+                    "- [Features](#features)\n" +
+                    "- [Roadmap](#roadmap)\n" +
+                    "- [Design Philosophy](#design-philosophy)\n" +
+                    "- [Contribution](#contribution)\n" +
+                    "\n" +
+                    "**Note:** This project is in its early stages of development. The project is not yet ready for production use.\n" +
+                    "\n" +
+                    "## Quick start\n" +
+                    "> Convention: We'll use \"Platform\" and \"Blockchain\" interchangeably herein - and rarely, \"Chain\"\n" +
+                    "\n" +
+                    "Cohesive is a modular meta-tool, i.e., a tool for tools specifically for Blockchain technology. It's Multiplatform, and Blockchain-neutral with a base implementation of/and, core functionality including but not limited to UI framework, Plugin Store, Simple Editor, and IDE. Specific Platform implementation can be built and installed as a _primary_ plugin acting as the Platform wrapper, i.e., consuming Cohesive, and thus bending its gears for that specific Platform.\n" +
+                    "\n" +
+                    "### Running Base desktop application",
+            config = MarkdownConfig(
+                isLinksClickable = true,
+                isImagesClickable = true,
+                isScrollEnabled = true
+            )
+        ) { link, type ->
+
+        }
     }
 
     @Composable
@@ -213,13 +242,13 @@ open class Main : IMain {
 
     @Composable
     override fun EditorView() {
-        if ((WindowStateHolder.currentProjectFile as File).isDirectory) {
+        if ((WindowState.currentProjectFile as File).isDirectory) {
             EditorComposite(
-                file = WindowStateHolder.currentProjectFile as File,
+                file = WindowState.currentProjectFile as File,
             )
         } else {
             EditorSimple(
-                file = WindowStateHolder.currentProjectFile as File,
+                file = WindowState.currentProjectFile as File,
             )
         }
     }
@@ -228,15 +257,15 @@ open class Main : IMain {
     fun FileExplorerDialog() {
         var file by remember { mutableStateOf(HomeFolder) }
         Dialog(
-            onClose = { WindowStateHolder.isOpenDialogOpen = !WindowStateHolder.isOpenDialogOpen },
+            onClose = { WindowState.isOpenDialogOpen = !WindowState.isOpenDialogOpen },
             text = "Open File or Project",
             negativeText = "Cancel",
-            onNegative = { WindowStateHolder.isOpenDialogOpen = !WindowStateHolder.isOpenDialogOpen },
+            onNegative = { WindowState.isOpenDialogOpen = !WindowState.isOpenDialogOpen },
             positiveText = "Ok",
             onPositive = {
-                WindowStateHolder.currentProjectFile = file
-                WindowStateHolder.view = View.EDITOR
-                WindowStateHolder.isOpenDialogOpen = !WindowStateHolder.isOpenDialogOpen
+                WindowState.currentProjectFile = file
+                WindowState.view = View.EDITOR
+                WindowState.isOpenDialogOpen = !WindowState.isOpenDialogOpen
             },
             width = 450.dp,
             height = 450.dp,
@@ -250,7 +279,7 @@ open class Main : IMain {
     @Composable
     fun Content() {
         with(LocalDensity.current) {
-            Crossfade(WindowStateHolder.view) { view ->
+            Crossfade(WindowState.view) { view ->
                 when (view) {
                     View.EXPLORER -> ExplorerView()
                     View.WALLET -> WalletView()
@@ -258,7 +287,7 @@ open class Main : IMain {
                 }
             }
 
-            if (WindowStateHolder.isOpenDialogOpen) {
+            if (WindowState.isOpenDialogOpen) {
                 FileExplorerDialog()
             }
         }
@@ -274,8 +303,8 @@ open class Main : IMain {
             onDragEntered = { },
             onDropped = { uris, _ ->
                 if (isDirectory(uris[0].path)) {
-                    WindowStateHolder.currentProjectFile = uris[0].path
-                    WindowStateHolder.view = View.EDITOR
+                    WindowState.currentProjectFile = uris[0].path
+                    WindowState.view = View.EDITOR
                 }
                 true
             },

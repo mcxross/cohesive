@@ -14,3 +14,7 @@ actual fun readFileToStr(
 fun isDirectory(path: String): Boolean {
     return FileSystem.SYSTEM.metadata(path.toPath()).isDirectory
 }
+
+fun isFile(path: String): Boolean {
+    return FileSystem.SYSTEM.metadata(path.toPath()).isRegularFile
+}
