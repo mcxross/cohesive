@@ -1,5 +1,61 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Covariant 'equals()'",
+  "severity": "High",
+  "comment": "'equals' should take 'Any?' as its argument",
+  "detailsInfo": "Reports `equals()` that takes an argument type other than `Any?` if the class does not have another `equals()` that takes `Any?` as its argument type.\n\n**Example:**\n\n\n      class Foo {\n          fun equals(other: Foo?): Boolean {\n              return true\n          }\n      }\n\nTo fix the problem create `equals()` method that takes an argument of type `Any?`.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/PluginState.kt",
+      "language": "kotlin",
+      "line": 35,
+      "offset": 9,
+      "length": 6,
+      "code": {
+        "startLine": 33,
+        "length": 6,
+        "offset": 31,
+        "surroundingCode": "    FAILED(\"FAILED\");\n\n    fun equals(status: String?): Boolean {\n        return if (status == null) false else this.status.equals(status, ignoreCase = true)\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "KotlinCovariantEquals"
+  },
+  "hash": "bd9549804a15c93ac5c7250c10c7fc8315974ad23ce963a7c1c04f640940b2fb"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "Elvis operator (?:) always returns the left operand of non-nullable type Path",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/PropertiesPluginDescriptorFinder.kt",
+      "language": "kotlin",
+      "line": 31,
+      "offset": 30,
+      "length": 128,
+      "code": {
+        "startLine": 29,
+        "length": 128,
+        "offset": 95,
+        "surroundingCode": "\n    protected fun readProperties(pluginPath: Path): Properties {\n        val propertiesPath = getPropertiesPath(pluginPath, propertiesFileName)\n            ?: throw PluginRuntimeException(\"Cannot find the properties path\")\n        val properties = Properties()\n        try {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "a787861e789f0d30c0761ff3a5915f7849754e1f3fd3555ed01273db917b344d"
+},{
+  "tool": "Code Inspection",
   "category": "Migration",
   "type": "Usage of redundant or deprecated syntax or deprecated symbols",
   "severity": "High",
@@ -26,6 +82,62 @@
     "inspectionName": "KotlinDeprecation"
   },
   "hash": "ae4df0ffb59b7ce4295ddcbd0905a090c9a703d7a06d1d34940ad7347543b3b1"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "Unnecessary non-null assertion (!!) on a non-null receiver of type MutableMap",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/AbstractPluginManager.kt",
+      "language": "kotlin",
+      "line": 247,
+      "offset": 23,
+      "length": 2,
+      "code": {
+        "startLine": 245,
+        "length": 2,
+        "offset": 56,
+        "surroundingCode": "\n            // remove the plugin\n            pluginsMap!!.remove(pluginId)\n            resolvedPlugins.remove(pluginWrapper)\n            firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "88a1a466712ec76d1fe23ae735b3d262eac1afbbd6dedfc5d2f9afff0facff84"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "Unnecessary non-null assertion (!!) on a non-null receiver of type String",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/AbstractExtensionFinder.kt",
+      "language": "kotlin",
+      "line": 80,
+      "offset": 82,
+      "length": 2,
+      "code": {
+        "startLine": 78,
+        "length": 2,
+        "offset": 236,
+        "surroundingCode": "                    // plugins are currently available and started, the corresponding\n                    // extension is loaded through the class loader.\n                    val extensionInfo: ExtensionInfo = getExtensionInfo(className!!, classLoader)\n\n                    // Make sure, that all plugins required by this extension are available."
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "6bb40218f2e348f97441df8be6911f10e87a41b11c9fcf8bb1e97703842dee33"
 },{
   "tool": "Code Inspection",
   "category": "Probable bugs",
@@ -56,6 +168,314 @@
   "hash": "34f4207878062d5b9b95c060df4685ce12aa23e137efd2395c52dd9110892729"
 },{
   "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Leaking 'this' in constructor",
+  "severity": "High",
+  "comment": "Accessing non-final property dependencies in constructor",
+  "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/DefaultPluginDescriptor.kt",
+      "language": "kotlin",
+      "line": 26,
+      "offset": 9,
+      "length": 12,
+      "code": {
+        "startLine": 24,
+        "length": 12,
+        "offset": 20,
+        "surroundingCode": "\n    init {\n        dependencies = ArrayList<PluginDependency>()\n    }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "LeakingThis"
+  },
+  "hash": "28d49bac4538c8320cc9f111a87f718884c6da944d6bab1ec9daa8bb8997d676"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Leaking 'this' in constructor",
+  "severity": "High",
+  "comment": "Accessing non-final property pluginId in constructor",
+  "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/DefaultPluginDescriptor.kt",
+      "language": "kotlin",
+      "line": 38,
+      "offset": 14,
+      "length": 8,
+      "code": {
+        "startLine": 36,
+        "length": 8,
+        "offset": 55,
+        "surroundingCode": "        license: String,\n    ) : this() {\n        this.pluginId = pluginId\n        this.pluginDescription = pluginDescription\n        this.pluginClass = pluginClass"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "LeakingThis"
+  },
+  "hash": "ebeb035147ee0fd3294ad287b4f7a0d15c2f35705fa695bd720aa81676108d7a"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Leaking 'this' in constructor",
+  "severity": "High",
+  "comment": "Accessing non-final property pluginDescription in constructor",
+  "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/DefaultPluginDescriptor.kt",
+      "language": "kotlin",
+      "line": 39,
+      "offset": 14,
+      "length": 17,
+      "code": {
+        "startLine": 37,
+        "length": 17,
+        "offset": 63,
+        "surroundingCode": "    ) : this() {\n        this.pluginId = pluginId\n        this.pluginDescription = pluginDescription\n        this.pluginClass = pluginClass\n        this.version = version"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "LeakingThis"
+  },
+  "hash": "68201029671b8c8a9b0d201d74cac0f9340da47dbf2d4fc76accfc8b9a104e7c"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Leaking 'this' in constructor",
+  "severity": "High",
+  "comment": "Accessing non-final property pluginClass in constructor",
+  "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/DefaultPluginDescriptor.kt",
+      "language": "kotlin",
+      "line": 40,
+      "offset": 14,
+      "length": 11,
+      "code": {
+        "startLine": 38,
+        "length": 11,
+        "offset": 97,
+        "surroundingCode": "        this.pluginId = pluginId\n        this.pluginDescription = pluginDescription\n        this.pluginClass = pluginClass\n        this.version = version\n        this.requires = requires"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "LeakingThis"
+  },
+  "hash": "92a1e54d61e6444572d098e8dc0402d9d66a8fb70bac8bec00a956a97861c558"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Leaking 'this' in constructor",
+  "severity": "High",
+  "comment": "Accessing non-final property version in constructor",
+  "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/DefaultPluginDescriptor.kt",
+      "language": "kotlin",
+      "line": 41,
+      "offset": 14,
+      "length": 7,
+      "code": {
+        "startLine": 39,
+        "length": 7,
+        "offset": 103,
+        "surroundingCode": "        this.pluginDescription = pluginDescription\n        this.pluginClass = pluginClass\n        this.version = version\n        this.requires = requires\n        this.provider = provider"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "LeakingThis"
+  },
+  "hash": "b87bf95fbbb794bbd8a095621ca854afe76cbb53f3a0daabce6c5e9e65cb0ba3"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Leaking 'this' in constructor",
+  "severity": "High",
+  "comment": "Accessing non-final property requires in constructor",
+  "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/DefaultPluginDescriptor.kt",
+      "language": "kotlin",
+      "line": 42,
+      "offset": 14,
+      "length": 8,
+      "code": {
+        "startLine": 40,
+        "length": 8,
+        "offset": 83,
+        "surroundingCode": "        this.pluginClass = pluginClass\n        this.version = version\n        this.requires = requires\n        this.provider = provider\n        this.license = license"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "LeakingThis"
+  },
+  "hash": "d7b428927be1d386abc14ea1fdb11b6726649356f3f8557e275d349cdd47ef98"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Leaking 'this' in constructor",
+  "severity": "High",
+  "comment": "Accessing non-final property provider in constructor",
+  "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/DefaultPluginDescriptor.kt",
+      "language": "kotlin",
+      "line": 43,
+      "offset": 14,
+      "length": 8,
+      "code": {
+        "startLine": 41,
+        "length": 8,
+        "offset": 77,
+        "surroundingCode": "        this.version = version\n        this.requires = requires\n        this.provider = provider\n        this.license = license\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "LeakingThis"
+  },
+  "hash": "d83a459c6630e2489730126afc8313d7093c768d56d245fe17d38c8756a47c6b"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Leaking 'this' in constructor",
+  "severity": "High",
+  "comment": "Accessing non-final property license in constructor",
+  "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/DefaultPluginDescriptor.kt",
+      "language": "kotlin",
+      "line": 44,
+      "offset": 14,
+      "length": 7,
+      "code": {
+        "startLine": 42,
+        "length": 7,
+        "offset": 79,
+        "surroundingCode": "        this.requires = requires\n        this.provider = provider\n        this.license = license\n    }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "LeakingThis"
+  },
+  "hash": "f59e27f9bfe19984b01620646b2f41deabe57e7a214e8bcf04ffc56f63a68293"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Leaking 'this' in constructor",
+  "severity": "High",
+  "comment": "Calling non-final function initialize in constructor",
+  "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/AbstractPluginManager.kt",
+      "language": "kotlin",
+      "line": 118,
+      "offset": 9,
+      "length": 10,
+      "code": {
+        "startLine": 116,
+        "length": 10,
+        "offset": 36,
+        "surroundingCode": "     */\n    constructor() {\n        initialize()\n    }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "LeakingThis"
+  },
+  "hash": "1e5ace61b25a69b25c38697e9aa55a62785874c76a49442bc363822d0b2bf8d3"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Leaking 'this' in constructor",
+  "severity": "High",
+  "comment": "Accessing non-final property pluginsRoots in constructor",
+  "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/AbstractPluginManager.kt",
+      "language": "kotlin",
+      "line": 134,
+      "offset": 14,
+      "length": 12,
+      "code": {
+        "startLine": 132,
+        "length": 12,
+        "offset": 65,
+        "surroundingCode": "     */\n    constructor(pluginsRoots: List<Path>) {\n        this.pluginsRoots.plus((pluginsRoots))\n        initialize()\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "LeakingThis"
+  },
+  "hash": "853d686cb42df64827ec4205648e21c24b58a2ed4120770385a8d5bb66883ac2"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Leaking 'this' in constructor",
+  "severity": "High",
+  "comment": "Calling non-final function initialize in constructor",
+  "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/AbstractPluginManager.kt",
+      "language": "kotlin",
+      "line": 135,
+      "offset": 9,
+      "length": 10,
+      "code": {
+        "startLine": 133,
+        "length": 10,
+        "offset": 99,
+        "surroundingCode": "    constructor(pluginsRoots: List<Path>) {\n        this.pluginsRoots.plus((pluginsRoots))\n        initialize()\n    }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "LeakingThis"
+  },
+  "hash": "33a8e71a122940b3e5160e483e857e17f46f0ec4080f90091f9d2e07d367d6b5"
+},{
+  "tool": "Code Inspection",
   "category": "Threading issues",
   "type": "Non-private field accessed in 'synchronized' context",
   "severity": "High",
@@ -66,14 +486,14 @@
       "type": "file",
       "path": "desktop/src/jvmMain/java/com/mcxross/cohesive/desktop/AbstractPluginManager.java",
       "language": "JAVA",
-      "line": 653,
+      "line": 648,
       "offset": 9,
       "length": 20,
       "code": {
-        "startLine": 651,
+        "startLine": 646,
         "length": 20,
-        "offset": 109,
-        "surroundingCode": "    @Override\n    public synchronized void removePluginStateListener(PluginStateListener listener) {\n        pluginStateListeners.remove(listener);\n    }\n"
+        "offset": 106,
+        "surroundingCode": "    @Override\n    public synchronized void addPluginStateListener(PluginStateListener listener) {\n        pluginStateListeners.add(listener);\n    }\n"
       }
     }
   ],
@@ -81,7 +501,7 @@
     "module": "cohesive.desktop.jvmMain",
     "inspectionName": "PublicFieldAccessedInSynchronizedContext"
   },
-  "hash": "de0f8817fe1d1bb69794c536f661bd72e1a478672f09057194934f62af6eaabc"
+  "hash": "6d0a685dafd0ad57d30ae2e1424ba9e90e0f867685231b84a9232a775e4933a0"
 },{
   "tool": "Code Inspection",
   "category": "Threading issues",
@@ -122,14 +542,14 @@
       "type": "file",
       "path": "desktop/src/jvmMain/java/com/mcxross/cohesive/desktop/AbstractPluginManager.java",
       "language": "JAVA",
-      "line": 648,
+      "line": 653,
       "offset": 9,
       "length": 20,
       "code": {
-        "startLine": 646,
+        "startLine": 651,
         "length": 20,
-        "offset": 106,
-        "surroundingCode": "    @Override\n    public synchronized void addPluginStateListener(PluginStateListener listener) {\n        pluginStateListeners.add(listener);\n    }\n"
+        "offset": 109,
+        "surroundingCode": "    @Override\n    public synchronized void removePluginStateListener(PluginStateListener listener) {\n        pluginStateListeners.remove(listener);\n    }\n"
       }
     }
   ],
@@ -137,7 +557,7 @@
     "module": "cohesive.desktop.jvmMain",
     "inspectionName": "PublicFieldAccessedInSynchronizedContext"
   },
-  "hash": "6d0a685dafd0ad57d30ae2e1424ba9e90e0f867685231b84a9232a775e4933a0"
+  "hash": "de0f8817fe1d1bb69794c536f661bd72e1a478672f09057194934f62af6eaabc"
 },{
   "tool": "Code Inspection",
   "category": "Threading issues",
@@ -166,258 +586,6 @@
     "inspectionName": "FieldAccessedSynchronizedAndUnsynchronized"
   },
   "hash": "9daabe04e2510126a25e94939e67e39ed3a33f43421640ef5faf6a613690d601"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'setMinSdk(java.lang.Integer)' is marked unstable with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 100,
-      "offset": 9,
-      "length": 6,
-      "code": {
-        "startLine": 98,
-        "length": 6,
-        "offset": 48,
-        "surroundingCode": "    compileSdk = 33\n    defaultConfig {\n        minSdk = 24\n        targetSdk = 33\n    }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "7f59f239ba45336eed0ba600e6095a2c0c23624958a6bec2344f5f94e7e94339"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'setTargetSdk(java.lang.Integer)' is marked unstable with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 101,
-      "offset": 9,
-      "length": 9,
-      "code": {
-        "startLine": 99,
-        "length": 9,
-        "offset": 48,
-        "surroundingCode": "    defaultConfig {\n        minSdk = 24\n        targetSdk = 33\n    }\n    compileOptions {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "9c24544d318696c2be74172d4a64806bc45eea9baddbf3beff01de744de27b20"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'setSourceCompatibility(org.gradle.api.JavaVersion)' is marked unstable with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 104,
-      "offset": 9,
-      "length": 19,
-      "code": {
-        "startLine": 102,
-        "length": 19,
-        "offset": 35,
-        "surroundingCode": "    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "2b89bce9d4cef1e4b82aa03c832043067636ce65a4dcf18d12eee9b4434fd35a"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'setTargetCompatibility(org.gradle.api.JavaVersion)' is marked unstable with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 105,
-      "offset": 9,
-      "length": 19,
-      "code": {
-        "startLine": 103,
-        "length": 19,
-        "offset": 83,
-        "surroundingCode": "    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    sourceSets {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "3e807541717d2a48cce4371bc20a7db908c8c76c299cf393257ba7f9dba1bcdd"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'sourceSets(kotlin.jvm.functions.Function1,kotlin.Unit>)' is marked unstable with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 107,
-      "offset": 5,
-      "length": 10,
-      "code": {
-        "startLine": 105,
-        "length": 10,
-        "offset": 64,
-        "surroundingCode": "        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "deea245cbe7bfc7cebd96c272c300e54f9f3089be685e0d829f1110cc7fdfffd"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'getManifest()' is declared in unstable 'com.android.build.api.dsl.AndroidSourceSet' marked with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 109,
-      "offset": 13,
-      "length": 8,
-      "code": {
-        "startLine": 107,
-        "length": 8,
-        "offset": 53,
-        "surroundingCode": "    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "820ba262946ab032c7ac4dbc93ab69e80bb6795cd741fb3b615c8082db34e5a1"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'srcFile(java.lang.Object)' is declared in unstable 'com.android.build.api.dsl.AndroidSourceFile' marked with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 109,
-      "offset": 22,
-      "length": 7,
-      "code": {
-        "startLine": 107,
-        "length": 7,
-        "offset": 62,
-        "surroundingCode": "    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "d3d03f99eb7c98ac3682fedbb9ba4813e64f25fdc81f563eed47f00f9a95749c"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'getRes()' is declared in unstable 'com.android.build.api.dsl.AndroidSourceSet' marked with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 110,
-      "offset": 13,
-      "length": 3,
-      "code": {
-        "startLine": 108,
-        "length": 3,
-        "offset": 104,
-        "surroundingCode": "        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }\n    }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "ea7f16382013573732c5ffe99b993cebacabac92c372eba8fb42ea54dbe8c121"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'srcDirs(java.lang.Object...)' is declared in unstable 'com.android.build.api.dsl.AndroidSourceDirectorySet' marked with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 110,
-      "offset": 17,
-      "length": 7,
-      "code": {
-        "startLine": 108,
-        "length": 7,
-        "offset": 108,
-        "surroundingCode": "        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }\n    }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "88dcc1e28e5030c58c0b711e02cbb5a1c7e68339c960c2836e28246c792c21fc"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -642,4 +810,256 @@
     "inspectionName": "UnstableApiUsage"
   },
   "hash": "a8d240d2ca2c2faf65a2d47fe9840c97eea8db8b8f6ace3059e7e14ea96c0d00"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'setMinSdk(java.lang.Integer)' is marked unstable with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 105,
+      "offset": 9,
+      "length": 6,
+      "code": {
+        "startLine": 103,
+        "length": 6,
+        "offset": 48,
+        "surroundingCode": "    compileSdk = 33\n    defaultConfig {\n        minSdk = 24\n        targetSdk = 33\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "03e43d84ce790dc7f421f14d9f020d9a7927fdbd2b484ad40a5672b398afd837"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'setTargetSdk(java.lang.Integer)' is marked unstable with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 106,
+      "offset": 9,
+      "length": 9,
+      "code": {
+        "startLine": 104,
+        "length": 9,
+        "offset": 48,
+        "surroundingCode": "    defaultConfig {\n        minSdk = 24\n        targetSdk = 33\n    }\n    compileOptions {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "493ce725387ba770aed07d8f6ac407498b3435f335ffbe51dbff32d1f7867cf6"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'setSourceCompatibility(org.gradle.api.JavaVersion)' is marked unstable with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 109,
+      "offset": 9,
+      "length": 19,
+      "code": {
+        "startLine": 107,
+        "length": 19,
+        "offset": 35,
+        "surroundingCode": "    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "b264b2c696f2e8d6501eb5d6cd899d48a57a954bd040d7fc53ab0c57033554d2"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'setTargetCompatibility(org.gradle.api.JavaVersion)' is marked unstable with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 110,
+      "offset": 9,
+      "length": 19,
+      "code": {
+        "startLine": 108,
+        "length": 19,
+        "offset": 83,
+        "surroundingCode": "    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    sourceSets {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "bf7b3fc8fa94591f8f7d3b9177e9c5aac01cb12f9a584c1ea919793008a540a4"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'sourceSets(kotlin.jvm.functions.Function1,kotlin.Unit>)' is marked unstable with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 112,
+      "offset": 5,
+      "length": 10,
+      "code": {
+        "startLine": 110,
+        "length": 10,
+        "offset": 64,
+        "surroundingCode": "        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "685334294e4262bda89764e5d35149b979682074abca41836c34a721147b827f"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'getManifest()' is declared in unstable 'com.android.build.api.dsl.AndroidSourceSet' marked with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 114,
+      "offset": 13,
+      "length": 8,
+      "code": {
+        "startLine": 112,
+        "length": 8,
+        "offset": 53,
+        "surroundingCode": "    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "3c3728bfbd2d5868840a63c3c76627e6432f9fdb2b2a57f28c8c66d9cc02c853"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'srcFile(java.lang.Object)' is declared in unstable 'com.android.build.api.dsl.AndroidSourceFile' marked with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 114,
+      "offset": 22,
+      "length": 7,
+      "code": {
+        "startLine": 112,
+        "length": 7,
+        "offset": 62,
+        "surroundingCode": "    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "98eae90d11f66371bfcceffa3948c95d0f93a44a646ef6ade69e5460d822bf6b"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'getRes()' is declared in unstable 'com.android.build.api.dsl.AndroidSourceSet' marked with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 115,
+      "offset": 13,
+      "length": 3,
+      "code": {
+        "startLine": 113,
+        "length": 3,
+        "offset": 104,
+        "surroundingCode": "        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "2e2acb0a479a6582f3db0fe4f8312d89149a0964bf9d97ae95209b1966632d5b"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'srcDirs(java.lang.Object...)' is declared in unstable 'com.android.build.api.dsl.AndroidSourceDirectorySet' marked with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 115,
+      "offset": 17,
+      "length": 7,
+      "code": {
+        "startLine": 113,
+        "length": 7,
+        "offset": 108,
+        "surroundingCode": "        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "bbb025886cf6a407a08080c152078d8f7f391e48d245420ac98a8783eaa5c94b"
 }]}

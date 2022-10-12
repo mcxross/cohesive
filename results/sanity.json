@@ -6,6 +6,378 @@
     "Sanity"
   ],
   "severity": "Critical",
+  "comment": "Expected function 'parseMarkdownContent' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/ui/widget/md/parser/Parser.kt",
+      "language": "kotlin",
+      "line": 7,
+      "offset": 12,
+      "length": 20,
+      "code": {
+        "startLine": 5,
+        "length": 20,
+        "offset": 48,
+        "surroundingCode": "import kotlinx.coroutines.flow.Flow\n\nexpect fun parseMarkdownContent(string: String): Flow<Element>\n\nopen class Parser : AbstractParser {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "5b476c92e6d1d0d05b393e923ca2fbe0221fbf79f1395409d5a24821c5fdaddb"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'parseMarkdownContent' has no actual declaration in module cohesive.common.androidBenchmark for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/ui/widget/md/parser/Parser.kt",
+      "language": "kotlin",
+      "line": 7,
+      "offset": 12,
+      "length": 20,
+      "code": {
+        "startLine": 5,
+        "length": 20,
+        "offset": 48,
+        "surroundingCode": "import kotlinx.coroutines.flow.Flow\n\nexpect fun parseMarkdownContent(string: String): Flow<Element>\n\nopen class Parser : AbstractParser {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "a2eaf0821939f68242274cf6a448ec5c1cc40836498265caa0b94c41edf0ea51"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'parseMarkdownContent' has no actual declaration in module cohesive.common.androidTestFixtures for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/ui/widget/md/parser/Parser.kt",
+      "language": "kotlin",
+      "line": 7,
+      "offset": 12,
+      "length": 20,
+      "code": {
+        "startLine": 5,
+        "length": 20,
+        "offset": 48,
+        "surroundingCode": "import kotlinx.coroutines.flow.Flow\n\nexpect fun parseMarkdownContent(string: String): Flow<Element>\n\nopen class Parser : AbstractParser {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "70bde0c27f820c17bc1abdb50d06d7b1b8a853dc42757b94ee270d66b8ab505a"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'parseMarkdownContent' has no actual declaration in module cohesive.common.androidTestFixturesDebug for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/ui/widget/md/parser/Parser.kt",
+      "language": "kotlin",
+      "line": 7,
+      "offset": 12,
+      "length": 20,
+      "code": {
+        "startLine": 5,
+        "length": 20,
+        "offset": 48,
+        "surroundingCode": "import kotlinx.coroutines.flow.Flow\n\nexpect fun parseMarkdownContent(string: String): Flow<Element>\n\nopen class Parser : AbstractParser {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "e87785b09fe6656ca49809f001f671964cbbc6439d3dd557b1ff69f61e03abfc"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected class 'Context' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/model/Context.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 14,
+      "length": 7,
+      "code": {
+        "startLine": 1,
+        "length": 7,
+        "offset": 65,
+        "surroundingCode": "package com.mcxross.cohesive.common.frontend.model\n\nexpect class Context {\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "b0b6c02d419c079b98b3c6009345aab798938455d8135e2a21e88ae5ad1a77d0"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected class 'Context' has no actual declaration in module cohesive.common.androidBenchmark for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/model/Context.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 14,
+      "length": 7,
+      "code": {
+        "startLine": 1,
+        "length": 7,
+        "offset": 65,
+        "surroundingCode": "package com.mcxross.cohesive.common.frontend.model\n\nexpect class Context {\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "54abdbb361036c717802e734996d3015e0709e769bc4b26528ee9163aa53f5fb"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected class 'Context' has no actual declaration in module cohesive.common.androidTestFixtures for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/model/Context.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 14,
+      "length": 7,
+      "code": {
+        "startLine": 1,
+        "length": 7,
+        "offset": 65,
+        "surroundingCode": "package com.mcxross.cohesive.common.frontend.model\n\nexpect class Context {\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "7d116247653abca8795448fbb81b2721efc5aed683887fbfa08004b64df8c833"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected class 'Context' has no actual declaration in module cohesive.common.androidTestFixturesDebug for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/model/Context.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 14,
+      "length": 7,
+      "code": {
+        "startLine": 1,
+        "length": 7,
+        "offset": 65,
+        "surroundingCode": "package com.mcxross.cohesive.common.frontend.model\n\nexpect class Context {\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "3d5989f1cf83397412829f49ccecc4894501d63178d3789dfd89f60bb9003649"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'readFileToStr' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 1,
+        "length": 13,
+        "offset": 63,
+        "surroundingCode": "package com.mcxross.cohesive.common.frontend.utils\n\nexpect fun readFileToStr(path: String): String"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "00ca27a29db7249f57f117f262bbb352cfdd769cb258fc5f94870c2118e5814d"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'readFileToStr' has no actual declaration in module cohesive.common.androidBenchmark for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 1,
+        "length": 13,
+        "offset": 63,
+        "surroundingCode": "package com.mcxross.cohesive.common.frontend.utils\n\nexpect fun readFileToStr(path: String): String"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "0063aaf1cff0efd846d4803959caf251f932378c3705d6a945e609c167adf114"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'readFileToStr' has no actual declaration in module cohesive.common.androidTestFixtures for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 1,
+        "length": 13,
+        "offset": 63,
+        "surroundingCode": "package com.mcxross.cohesive.common.frontend.utils\n\nexpect fun readFileToStr(path: String): String"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "7a1bd4c1fce3d365705397e2a0b6feba5d17fadc0a779f544f4ad6ba47971617"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'readFileToStr' has no actual declaration in module cohesive.common.androidTestFixturesDebug for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 1,
+        "length": 13,
+        "offset": 63,
+        "surroundingCode": "package com.mcxross.cohesive.common.frontend.utils\n\nexpect fun readFileToStr(path: String): String"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "81a6b2657bd9a659ad648c218d791e99f345d715bebab9b785a70d84a90a9718"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
   "comment": "Expected function 'VerticalScrollbar' has no actual declaration in module cohesive.common.androidAndroidTestRelease for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
@@ -91,35 +463,4 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "575e344d84a7ba952891a6e868d8a7a30aa5023c3350316b0e3874eb5eb91968"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'VerticalScrollbar' has no actual declaration in module cohesive.common.androidTestFixturesDebug for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Scrollbar.kt",
-      "language": "kotlin",
-      "line": 9,
-      "offset": 12,
-      "length": 17,
-      "code": {
-        "startLine": 7,
-        "length": 17,
-        "offset": 24,
-        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: ScrollState,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "6cc814e463732d6d6f1bf1996e0f30639a6e2d0e3bb874a4e610b85cfba393b9"
 }]}

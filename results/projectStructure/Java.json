@@ -13,6 +13,10 @@
       "languageLevel": 11
     },
     {
+      "name": "cohesive.cps",
+      "languageLevel": 11
+    },
+    {
       "name": "cohesive.desktop",
       "languageLevel": 11
     },
@@ -62,6 +66,14 @@
     },
     {
       "name": "cohesive.common.desktopBenchmark",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.cps.test",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.cps.main",
       "languageLevel": 11
     },
     {
