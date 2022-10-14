@@ -55,13 +55,13 @@ Above everything, this repo is a Kotlin Multiplatform project containing apps an
 ## Features
 - [x] Multiplatform
 - [x] Multi-Blockchain
-- [x] Platform Plugin Store (primary and secondary)
+- [x] Platform Plugin Store (primary, secondary and tertiary)
 - [x] Simple Editor
 - [x] IDE
 - [x] UI Framework(s)
 
 ## Roadmap
-
+_Always building, always improving._
 ## Design Philosophy
 Simple, intuitive, and powerful.
  
