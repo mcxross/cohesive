@@ -4,9 +4,6 @@ import com.mcxross.cohesive.cps.utils.FileUtils
 import com.mcxross.cohesive.cps.utils.Log
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.util.function.BooleanSupplier
-import java.util.function.Supplier
-
 
 /**
  * Default implementation of the [PluginManager] interface.
@@ -14,66 +11,60 @@ import java.util.function.Supplier
  * So, it can load plugins from jar and zip, simultaneous.
  */
 open class DefaultPluginManager : AbstractPluginManager {
-    constructor() : super() {}
-    constructor(vararg pluginsRoots: Path) : super(*pluginsRoots) {}
-    constructor(pluginsRoots: List<Path>) : super(pluginsRoots) {}
 
-    override fun createPluginDescriptorFinder(): PluginDescriptorFinder {
-        return CompoundPluginDescriptorFinder()
-            .add(PropertiesPluginDescriptorFinder())
-            .add(ManifestPluginDescriptorFinder())
+    override var pluginRepository: PluginRepository = compositePluginRepository {
+        plus(DevelopmentPluginRepository(pluginsRoots)) { isDevelopment }
+        plus(JarPluginRepository(pluginsRoots)) { isDevelopment }
+        plus(DefaultPluginRepository(pluginsRoots)) { isDevelopment }
+    }
+    override var pluginFactory: PluginFactory = DefaultPluginFactory()
+    override var extensionFactory: ExtensionFactory = DefaultExtensionFactory()
+    override var pluginDescriptorFinder: PluginDescriptorFinder = compositePluginDescriptorFinder {
+        plus(PropertiesPluginDescriptorFinder())
+        plus(ManifestPluginDescriptorFinder())
+    }
+    override var extensionFinder: ExtensionFinder = extensionFinder()
+    override var pluginStatusProvider: PluginStatusProvider = statusProvider()
+    override var pluginLoader: PluginLoader = compositePluginLoader {
+        plus(DevelopmentPluginLoader(getPluginManager())) { isDevelopment }
+        plus(JarPluginLoader(getPluginManager())) { isNotDevelopment }
+        plus(DefaultPluginLoader(getPluginManager())) { isNotDevelopment }
+    }
+    override var versionManager: VersionManager? = DefaultVersionManager()
+    override var dependencyResolver: DependencyResolver = dependencyResolver()
+
+    init {
+        if (isDevelopment) {
+            addPluginStateListener(LoggingPluginStateListener())
+        }
+        Log.i { "CPS version $version in $runtimeMode mode" }
+    }
+    constructor()
+    constructor(vararg pluginsRoots: Path) : super(*pluginsRoots)
+    constructor(pluginsRoots: List<Path>) : super(pluginsRoots)
+
+    private fun getPluginManager(): PluginManager {
+        return this
     }
 
-    override fun createExtensionFinder(): ExtensionFinder {
+    private fun extensionFinder(): ExtensionFinder {
         val extensionFinder = DefaultExtensionFinder(this)
         addPluginStateListener(extensionFinder)
         return extensionFinder
     }
 
-    override fun createPluginFactory(): PluginFactory {
-        return DefaultPluginFactory()
-    }
+    private fun dependencyResolver(): DependencyResolver = versionManager?.let { DependencyResolver(it) }!!
 
-    override fun createExtensionFactory(): ExtensionFactory {
-        return DefaultExtensionFactory()
-    }
-
-    override fun createPluginStatusProvider(): PluginStatusProvider {
+    private fun statusProvider(): PluginStatusProvider {
         val configDir = System.getProperty(PLUGINS_DIR_CONFIG_PROPERTY_NAME)
         val configPath = if (configDir != null) Paths.get(configDir) else pluginsRoots.stream()
             .findFirst()
-            .orElseThrow<IllegalArgumentException>(Supplier {
+            .orElseThrow {
                 IllegalArgumentException(
                     "No pluginsRoot configured"
                 )
-            })
+            }
         return DefaultPluginStatusProvider(configPath)
-    }
-
-    override fun createPluginRepository(): PluginRepository {
-        return CompoundPluginRepository()
-            .add(DevelopmentPluginRepository(pluginsRoots)) { this.isDevelopment }
-            .add(JarPluginRepository(pluginsRoots)) { this.isDevelopment }
-            .add(DefaultPluginRepository(pluginsRoots)) { this.isDevelopment }
-    }
-
-    protected override fun createPluginLoader(): PluginLoader {
-        return CompoundPluginLoader()
-            .add(DevelopmentPluginLoader(this)) { this.isDevelopment }
-            .add(JarPluginLoader(this)) { this.isNotDevelopment }
-            .add(DefaultPluginLoader(this)) { this.isNotDevelopment }
-    }
-
-    override fun createVersionManager(): VersionManager {
-        return DefaultVersionManager()
-    }
-
-    override fun initialize() {
-        super.initialize()
-        if (isDevelopment) {
-            addPluginStateListener(LoggingPluginStateListener())
-        }
-        Log.i { "CPS version $version in $runtimeMode mode" }
     }
 
     /**

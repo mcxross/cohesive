@@ -23,7 +23,7 @@ internal val SNAPSHOTS_INTERVAL_MILLIS = 5000
 /**
  * It keeps last snapshots of [TextFieldValue]. The total number of kept snapshots is limited but
  * total number of characters in them and should not be more than [maxStoredCharacters]
- * We add a new [TextFieldValue] to the chain in one of three conditions:
+ * We plus a new [TextFieldValue] to the chain in one of three conditions:
  * 1. Keyboard command was executed (something was pasted, word was deleted etc.)
  * 2. Before undo
  * 3. If the last "snapshot" is older than [SNAPSHOTS_INTERVAL_MILLIS]

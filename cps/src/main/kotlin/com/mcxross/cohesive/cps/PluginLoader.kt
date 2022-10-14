@@ -8,7 +8,7 @@ import java.nio.file.Path
  */
 interface PluginLoader {
     /**
-     * Returns true if this loader is applicable to the given [Path].
+     * Returns true if this pluginLoader is applicable to the given [Path].
      *
      * @param pluginPath
      * @return

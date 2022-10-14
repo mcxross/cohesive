@@ -4,11 +4,17 @@ import com.mcxross.cohesive.cps.utils.Log
 import java.nio.file.Path
 import java.util.function.BooleanSupplier
 
+fun compositePluginLoader(
+    loader: CompositePluginLoader.() -> Unit,
+): PluginLoader {
+    val compositePluginLoader = CompositePluginLoader()
+    loader(compositePluginLoader)
+    return compositePluginLoader
+}
 
-class CompoundPluginLoader : PluginLoader {
+class CompositePluginLoader : PluginLoader {
     private val loaders: MutableList<PluginLoader> = ArrayList()
-    fun add(loader: PluginLoader?): CompoundPluginLoader {
-        requireNotNull(loader) { "null not allowed" }
+    fun plus(loader: PluginLoader): CompositePluginLoader {
         loaders.add(loader)
         return this
     }
@@ -20,9 +26,9 @@ class CompoundPluginLoader : PluginLoader {
      * @param condition
      * @return
      */
-    fun add(loader: PluginLoader?, condition: BooleanSupplier): CompoundPluginLoader {
+    fun plus(loader: PluginLoader, condition: BooleanSupplier): CompositePluginLoader {
         return if (condition.asBoolean) {
-            add(loader)
+            plus(loader)
         } else this
     }
 
@@ -46,7 +52,7 @@ class CompoundPluginLoader : PluginLoader {
                 try {
                     return loader.loadPlugin(pluginPath, pluginDescriptor)!!
                 } catch (e: Exception) {
-                    // log the exception and continue with the next loader
+                    // log the exception and continue with the next pluginLoader
                     Log.e { e.message.toString() }
                 }
             } else {
@@ -56,5 +62,5 @@ class CompoundPluginLoader : PluginLoader {
         }
         throw RuntimeException("No PluginLoader for plugin '$pluginPath' and descriptor '$pluginDescriptor'")
     }
-    
+
 }

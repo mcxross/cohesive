@@ -23,7 +23,6 @@ kotlin {
                 implementation(project(":common"))
                 implementation(project(":cps"))
                 implementation(compose.desktop.currentOs)
-                implementation("org.pf4j:pf4j:3.7.0")
             }
         }
 

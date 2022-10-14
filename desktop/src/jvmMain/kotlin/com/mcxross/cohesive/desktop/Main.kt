@@ -7,18 +7,15 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.res.useResource
 import androidx.compose.ui.window.*
+import com.mcxross.cohesive.common.Cohesive
 import com.mcxross.cohesive.common.frontend.model.Local.LocalContext
 import com.mcxross.cohesive.common.frontend.model.onnet.Descriptor
-import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IMain
-import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IStore
 import com.mcxross.cohesive.common.frontend.ui.view.splash.SplashScreen
 import com.mcxross.cohesive.common.frontend.utils.*
 import com.mcxross.cohesive.common.frontend.utils.WindowState
 import com.mcxross.cohesive.common.utils.Log
-import com.mcxross.cohesive.desktop.utils.loadPluginsAsync
 import com.mcxross.cohesive.mellow.PlatformDropTargetModifier
 import kotlinx.coroutines.delay
-import org.pf4j.PluginManager
 import kotlin.system.measureTimeMillis
 
 inline fun loadConfig(onLoaded: (environment: com.mcxross.cohesive.common.frontend.model.Environment) -> Unit) {
@@ -35,25 +32,6 @@ inline fun loadConfig(onLoaded: (environment: com.mcxross.cohesive.common.fronte
     }
     Log.i { "Config loaded in $timeInMillis ms" }
     onLoaded(com.mcxross.cohesive.common.frontend.model.Environment.create(chains = chains, chainPaths = chainPaths))
-}
-
-inline fun loadStartPlugins(crossinline onLoaded: () -> Unit, crossinline onStarted: (it: PluginManager) -> Unit) {
-    Log.i { "Loading plugins" }
-    val timeLoadingPlugins = measureTimeMillis {
-        loadPluginsAsync({
-            Log.i { "Plugins Loaded" }
-            onLoaded()
-        }) {
-            it.loadPlugins()
-            Log.i { "Start plugins" }
-            val timeStartingPlugins = measureTimeMillis {
-                it.startPlugins()
-                onStarted(it)
-            }
-            Log.i { "Plugins Started in $timeStartingPlugins ms" }
-        }
-    }
-    Log.i { "Plugins loaded, and started in $timeLoadingPlugins ms" }
 }
 
 @Composable
@@ -74,9 +52,8 @@ fun BrewContextCompositionLocal(
 }
 
 fun main() = application {
-    //Must initialize logging*//*
-    Log.init()
-   val init by rememberUpdatedState {
+    Cohesive.bootstrap()
+    /*val init by rememberUpdatedState {
         runBlocking {
             StatesHolder.init {
                 println("Scheduler initialized")
@@ -84,16 +61,10 @@ fun main() = application {
         }
     }
 
-    //init()
-
-    //println("Done Blocking")
-
     var isLoadingPlugins by remember { mutableStateOf(true) }
     var isLoadingConfig by remember { mutableStateOf(true) }
     var isLoadingResources by remember { mutableStateOf(true) }
 
-    //monitor this value
-    var pluginManager: PluginManager = DefaultAsyncPluginManager()
     var environment by remember { mutableStateOf(com.mcxross.cohesive.common.frontend.model.Environment) }
 
     WindowState.state = rememberWindowState(
@@ -113,10 +84,10 @@ fun main() = application {
                 isLoadingConfig = false
             }
 
-            loadStartPlugins({}) {
+            *//*loadStartPlugins({}) {
                 pluginManager = it
                 isLoadingPlugins = false
-            }
+            }*//*
 
         }
 
@@ -129,7 +100,7 @@ fun main() = application {
         loadResources()
     }
 
-    isLoadingResources = isLoadingPlugins && isLoadingConfig
+    isLoadingResources = isLoadingConfig//isLoadingPlugins &&
     if (isLoadingResources) {
 
         Window(
@@ -164,7 +135,7 @@ fun main() = application {
                         )
                     }
 
-                    pluginManager.getExtensions(IMain::class.java).forEach {
+                    *//*pluginManager.getExtensions(IMain::class.java).forEach {
                         BrewContextCompositionLocal(
                             windowScope = this,
                             environment = environment,
@@ -173,7 +144,7 @@ fun main() = application {
                             it.Compose()
                         }
 
-                    }
+                    }*//*
                 }
 
             }
@@ -203,7 +174,7 @@ fun main() = application {
                             window = window,
                         )
                     }
-                    val iStore = pluginManager.getExtensions(IStore::class.java)[0]
+                    //val iStore = pluginManager.getExtensions(IStore::class.java)[0]
                     if (content.isContentReady()) {
                         environment.plugins = content.getPlugins()
                         BrewContextCompositionLocal(
@@ -211,7 +182,7 @@ fun main() = application {
                             environment = environment,
                             platformDropTargetModifier = dropParent,
                         ) {
-                            iStore.Compose()
+                            // iStore.Compose()
                         }
 
                     } else {
@@ -220,7 +191,7 @@ fun main() = application {
                             environment = environment,
                             platformDropTargetModifier = dropParent,
                         ) {
-                            iStore.Compose()
+                            //iStore.Compose()
                         }
                     }
                 }
@@ -228,5 +199,5 @@ fun main() = application {
             }
         }
 
-    }
+    }*/
 }

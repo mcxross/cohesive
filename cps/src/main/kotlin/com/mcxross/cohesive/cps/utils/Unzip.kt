@@ -43,7 +43,7 @@ class Unzip(
             while (zipInputStream.nextEntry.also { zipEntry = it } != null) {
                 val file = File(destination, zipEntry.name)
 
-                // create intermediary directories - sometimes zip don't add them
+                // create intermediary directories - sometimes zip don't plus them
                 val dir = File(file.parent)
                 mkdirsOrThrow(dir)
                 if (zipEntry.isDirectory) {

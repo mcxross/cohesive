@@ -1,6 +1,5 @@
 package com.mcxross.cohesive.cps
 
-import com.mcxross.cohesive.cps.processor.ExtensionStorage
 import com.mcxross.cohesive.cps.utils.Log
 import java.io.IOException
 import java.io.InputStream
@@ -36,8 +35,8 @@ class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFin
     override fun readPluginsStorages(): Map<String, Set<String>> {
         Log.d { "Reading extensions storages from plugins" }
         val result: MutableMap<String, Set<String>> = LinkedHashMap()
-        val plugins: List<Any?>? = pluginManager.plugins
-        for (plugin in plugins!!) {
+        val plugins: List<Any?> = pluginManager.plugins
+        for (plugin in plugins) {
             val pluginId: String = (plugin as PluginWrapper).pluginId
             Log.d { "Reading extensions storages from plugin $pluginId" }
             val bucket: Set<String> = HashSet()
@@ -72,10 +71,10 @@ class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFin
     @Throws(IOException::class)
     private fun collectExtensions(inputStream: InputStream, bucket: Set<String>) {
         InputStreamReader(inputStream, StandardCharsets.UTF_8).use { reader ->
-            ExtensionStorage.read(
+            /*ExtensionStorage.read(
                 reader,
                 bucket.toMutableSet()
-            )
+            )*/
         }
     }
 

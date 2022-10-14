@@ -3,11 +3,21 @@ package com.mcxross.cohesive.cps
 import com.mcxross.cohesive.cps.utils.Log
 import java.nio.file.Path
 
+fun compositePluginDescriptorFinder(
+    descriptor: CompositePluginDescriptorFinder.() -> Unit,
+) : PluginDescriptorFinder {
+    val finder = CompositePluginDescriptorFinder()
+    descriptor(finder)
+    return finder
+}
 
-class CompoundPluginDescriptorFinder : PluginDescriptorFinder {
+/**
+ * A [PluginDescriptorFinder] that delegates to a list of other [PluginDescriptorFinder]s.
+ * */
+class CompositePluginDescriptorFinder : PluginDescriptorFinder {
+
     private val finders: MutableList<PluginDescriptorFinder> = ArrayList()
-    fun add(finder: PluginDescriptorFinder?): CompoundPluginDescriptorFinder {
-        requireNotNull(finder) { "null not allowed" }
+    fun plus(finder: PluginDescriptorFinder): CompositePluginDescriptorFinder {
         finders.add(finder)
         return this
     }
@@ -47,6 +57,4 @@ class CompoundPluginDescriptorFinder : PluginDescriptorFinder {
         }
         throw PluginRuntimeException("No PluginDescriptorFinder for plugin '{}'", pluginPath)
     }
-
-    
 }

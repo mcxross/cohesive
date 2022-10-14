@@ -35,7 +35,7 @@ object StringUtils {
     </pre> *
      *
      * @param str the source String to search, may be null
-     * @param add the String to search for and add, may be null
+     * @param add the String to search for and plus, may be null
      * @return the substring with the string added if required
      */
     fun addStart(str: String, add: String): String {

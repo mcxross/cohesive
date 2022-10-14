@@ -9,7 +9,7 @@ import java.lang.reflect.Modifier
  */
 class DefaultPluginFactory : PluginFactory {
     /**
-     * Creates a plugin instance. If an error occurs than that error is logged and the method returns null.
+     * Creates a plugin instance. If an e occurs than that e is logged and the method returns null.
      * @param pluginWrapper
      * @return
      */

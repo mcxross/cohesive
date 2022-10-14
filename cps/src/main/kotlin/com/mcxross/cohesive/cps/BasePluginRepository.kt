@@ -12,20 +12,13 @@ import java.util.stream.Stream
 
 open class BasePluginRepository @JvmOverloads constructor(
     protected val pluginsRoots: List<Path>,
-    filter: FileFilter? = null,
+    protected open var filter: FileFilter? = null,
 ) :
     PluginRepository {
-    var filter: FileFilter? = null
-     var comparator: Comparator<File>? = null
+
+     var comparator: Comparator<File>? = Comparator.comparingLong { obj: File -> obj.lastModified() }
 
     constructor(vararg pluginsRoots: Path) : this(listOf<Path>(*pluginsRoots)) {}
-
-    init {
-        this.filter = filter
-
-        // last modified file is first
-        comparator = Comparator.comparingLong { obj: File -> obj.lastModified() }
-    }
 
     override val pluginPaths: List<Path>
         get() = pluginsRoots.stream()

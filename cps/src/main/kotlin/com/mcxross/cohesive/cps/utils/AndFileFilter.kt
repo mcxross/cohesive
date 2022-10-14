@@ -14,21 +14,10 @@ import java.util.*
 class AndFileFilter @JvmOverloads constructor(fileFilters: List<FileFilter> = ArrayList()) : FileFilter {
 
     /** The list of file filters.  */
-     var fileFilters: MutableList<FileFilter>
-        get() {
-            return Collections.unmodifiableList(field)
-        }
-
-    init {
-        this.fileFilters = ArrayList(fileFilters)
-    }
+     var fileFilters = ArrayList(fileFilters)
 
     constructor(vararg fileFilters: FileFilter) : this(listOf<FileFilter>(*fileFilters)) {}
 
-    fun addFileFilter(fileFilter: FileFilter): AndFileFilter {
-        fileFilters.add(fileFilter)
-        return this
-    }
 
     fun removeFileFilter(fileFilter: FileFilter): Boolean {
         return fileFilters.remove(fileFilter)

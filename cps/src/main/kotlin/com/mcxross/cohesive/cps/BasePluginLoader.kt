@@ -7,7 +7,7 @@ import java.nio.file.Path
 
 /**
  * Load all information needed by a plugin.
- * This means add to the plugin's [ClassLoader] all the jar files and
+ * This means plus to the plugin's [ClassLoader] all the jar files and
  * all the class files specified in the [PluginClasspath].
  */
 open class BasePluginLoader(pluginManager: PluginManager, pluginClasspath: PluginClasspath) :

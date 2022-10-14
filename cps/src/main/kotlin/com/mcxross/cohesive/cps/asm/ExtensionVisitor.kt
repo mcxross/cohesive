@@ -15,7 +15,7 @@ import org.objectweb.asm.Type
  * The annotation parameters are extracted from byte code by using the
  * [ASM library](https://asm.ow2.io/). This makes it possible to
  * access the [Extension] parameters without loading the class into
- * the class loader. This avoids possible [NoClassDefFoundError]'s
+ * the class pluginLoader. This avoids possible [NoClassDefFoundError]'s
  * for extensions, that can't be loaded due to missing dependencies.
  */
 internal class ExtensionVisitor(

@@ -9,8 +9,8 @@ import java.util.*
 
 /**
  * One instance of this class should be created by plugin manager for every available plug-in.
- * By default, this class loader is a Parent Last ClassLoader - it loads the classes from the plugin's jars
- * before delegating to the parent class loader.
+ * By default, this class pluginLoader is a Parent Last ClassLoader - it loads the classes from the plugin's jars
+ * before delegating to the parent class pluginLoader.
  * Use [.classLoadingStrategy] to change the loading strategy.
  */
 class PluginClassLoader @JvmOverloads constructor(
@@ -27,7 +27,7 @@ class PluginClassLoader @JvmOverloads constructor(
     @Deprecated(
         """Replaced by {@link #PluginClassLoader(PluginManager, PluginDescriptor, ClassLoader, ClassLoadingStrategy)}.
       If {@code parentFirst} is {@code true}, indicates that the parent {@link ClassLoader} should be consulted
-      before trying to load the a class through this loader."""
+      before trying to load the a class through this pluginLoader."""
     )
     constructor(
         pluginManager: PluginManager,
@@ -67,7 +67,7 @@ class PluginClassLoader @JvmOverloads constructor(
 
     /**
      * By default, it uses a child first delegation model rather than the standard parent first.
-     * If the requested class cannot be found in this class loader, the parent class loader will be consulted
+     * If the requested class cannot be found in this class pluginLoader, the parent class pluginLoader will be consulted
      * via the standard [ClassLoader.loadClass] mechanism.
      * Use [.classLoadingStrategy] to change the loading strategy.
      */
@@ -75,12 +75,12 @@ class PluginClassLoader @JvmOverloads constructor(
     override fun loadClass(className: String): Class<*> {
         synchronized(getClassLoadingLock(className)) {
 
-            // first check whether it's a system class, delegate to the system loader
+            // first check whether it's a system class, delegate to the system pluginLoader
             if (className.startsWith(JAVA_PACKAGE_PREFIX)) {
                 return findSystemClass(className)
             }
 
-            // if the class is part of the plugin engine use parent class loader
+            // if the class is part of the plugin engine use parent class pluginLoader
             if (className.startsWith(PLUGIN_PACKAGE_PREFIX) && !className.startsWith("demo") && !className.startsWith(
                     "test"
                 )
@@ -166,7 +166,7 @@ class PluginClassLoader @JvmOverloads constructor(
         for (dependency in dependencies) {
             val classLoader: ClassLoader = pluginManager.getPluginClassLoader(dependency.pluginId!!)
 
-            // If the dependency is marked as optional, its class loader might not be available.
+            // If the dependency is marked as optional, its class pluginLoader might not be available.
             if (classLoader == null && dependency.isOptional) {
                 continue
             }
@@ -185,7 +185,7 @@ class PluginClassLoader @JvmOverloads constructor(
         for (dependency in dependencies) {
             val classLoader = dependency.pluginId?.let { pluginManager.getPluginClassLoader(it) } as PluginClassLoader
 
-            // If the dependency is marked as optional, its class loader might not be available.
+            // If the dependency is marked as optional, its class pluginLoader might not be available.
             if (classLoader == null && dependency.isOptional) {
                 continue
             }
@@ -205,7 +205,7 @@ class PluginClassLoader @JvmOverloads constructor(
         for (dependency in dependencies) {
             val classLoader = dependency.pluginId?.let { pluginManager.getPluginClassLoader(it) } as PluginClassLoader
 
-            // If the dependency is marked as optional, its class loader might not be available.
+            // If the dependency is marked as optional, its class pluginLoader might not be available.
             if (classLoader == null && dependency.isOptional) {
                 continue
             }

@@ -33,7 +33,7 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
         val entries = entries
         val result: MutableList<ExtensionWrapper<T>> = ArrayList()
 
-        // add extensions found in classpath and plugins
+        // plus extensions found in classpath and plugins
         for (pluginId in entries!!.keys) {
             // classpath's extensions <=> pluginId = null
             val pluginExtensions: List<ExtensionWrapper<T>> = find(type, pluginId!!)
@@ -70,14 +70,14 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
                 if (isCheckForExtensionDependencies()) {
                     // Load extension annotation without initializing the class itself.
                     //
-                    // If optional dependencies are used, the class loader might not be able
+                    // If optional dependencies are used, the class pluginLoader might not be able
                     // to load the extension class because of missing optional dependencies.
                     //
                     // Therefore we're extracting the extension annotation via asm, in order
                     // to extract the required plugins for an extension. Only if all required
                     // plugins are currently available and started, the corresponding
-                    // extension is loaded through the class loader.
-                    val extensionInfo: ExtensionInfo = getExtensionInfo(className!!, classLoader)
+                    // extension is loaded through the class pluginLoader.
+                    val extensionInfo: ExtensionInfo = getExtensionInfo(className, classLoader)
 
                     // Make sure, that all plugins required by this extension are available.
                     val missingPluginIds: MutableList<String> = ArrayList()
@@ -97,7 +97,7 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
                         continue
                     }
                 }
-                Log.d { "Loading class $className using class loader $classLoader" }
+                Log.d { "Loading class $className using class pluginLoader $classLoader" }
                 val extensionClass = classLoader.loadClass(className)
                 Log.d { "Checking extension type $className" }
 
@@ -143,7 +143,7 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
         val classLoader = pluginManager.getPluginClassLoader(pluginId)
         for (className in classNames) {
             try {
-                Log.d { "Loading class $className using class loader $classLoader" }
+                Log.d { "Loading class $className using class pluginLoader $classLoader" }
                 val extensionClass = classLoader.loadClass(className)
                 val extensionWrapper: ExtensionWrapper<T> = createExtensionWrapper(extensionClass)
                 result.add(extensionWrapper)
@@ -257,10 +257,10 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
 
     /**
      * Returns the parameters of an [Extension] annotation without loading
-     * the corresponding class into the class loader.
+     * the corresponding class into the class pluginLoader.
      *
      * @param className name of the class, that holds the requested [Extension] annotation
-     * @param classLoader class loader to access the class
+     * @param classLoader class pluginLoader to access the class
      * @return the contents of the [Extension] annotation or null, if the class does not
      * have an [Extension] annotation
      */
@@ -286,7 +286,7 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
     }
 
     private fun checkDifferentClassLoaders(type: Class<*>, extensionClass: Class<*>) {
-        val typeClassLoader = type.classLoader // class loader of extension point
+        val typeClassLoader = type.classLoader // class pluginLoader of extension point
         val extensionClassLoader = extensionClass.classLoader
         val match: Boolean = ClassUtils.getAllInterfacesNames(extensionClass).contains(type.simpleName)
         if (match && extensionClassLoader != typeClassLoader) {

@@ -20,8 +20,8 @@ class PluginWrapper(
     val pluginPath: Path
 
     /**
-     * Returns the plugin class loader used to load classes and resources
-     * for this plug-in. The class loader can be used to directly access
+     * Returns the plugin class pluginLoader used to load classes and resources
+     * for this plug-in. The class pluginLoader can be used to directly access
      * plug-in resources and classes.
      */
     val pluginClassLoader: ClassLoader

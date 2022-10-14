@@ -10,11 +10,12 @@ import java.nio.file.Path
 class DefaultPluginRepository(pluginsRoots: List<Path>) : BasePluginRepository(pluginsRoots) {
     constructor(vararg pluginsRoots: Path) : this(mutableListOf<Path>(*pluginsRoots)) {}
 
-    init {
+    override var filter: FileFilter? = filter()
+    fun filter(): AndFileFilter {
         val pluginsFilter =
             AndFileFilter(DirectoryFileFilter())
-        pluginsFilter.addFileFilter(NotFileFilter(createHiddenPluginFilter()))
-        super.filter = pluginsFilter
+        pluginsFilter.fileFilters.add(NotFileFilter(createHiddenPluginFilter()))
+        return pluginsFilter
     }
 
     override val pluginPaths: List<Path>

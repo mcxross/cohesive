@@ -139,7 +139,7 @@ import kotlin.math.roundToInt
  * representation of the input. By default no visual transformation is applied.
  * @param onTextLayout Callback that is executed when a new text layout is calculated. A
  * [TextLayoutResult] object that callback provides contains paragraph information, size of the
- * text, baselines and other details. The callback can be used to add additional decoration or
+ * text, baselines and other details. The callback can be used to plus additional decoration or
  * functionality to the text. For example, to draw a cursor or selection around the text.
  * @param interactionSource the [MutableInteractionSource] representing the stream of
  * [Interaction]s for this CoreTextField. You can create and pass in your own remembered
@@ -160,7 +160,7 @@ import kotlin.math.roundToInt
  * @param readOnly controls the editable state of the [CoreTextField]. When `true`, the text
  * field can not be modified, however, a user can focus it and copy text from it. Read-only text
  * fields are usually used to display pre-filled forms that user can not edit
- * @param decorationBox Composable lambda that allows to add decorations around text field, such
+ * @param decorationBox Composable lambda that allows to plus decorations around text field, such
  * as icon, placeholder, helper messages or similar, and automatically increase the hit target area
  * of the text field. To allow you to control the placement of the inner text field relative to your
  * decorations, the text field implementation will pass in a framework-controlled composable
@@ -650,7 +650,7 @@ internal class TextFieldState(
 
     /**
      * You should be using proxy type [TextLayoutResultProxy] if you need to translate touch
-     * offset into text's coordinate system. For example, if you add a gesture on top of the
+     * offset into text's coordinate system. For example, if you plus a gesture on top of the
      * decoration box and want to know the character in text for the given touch offset on
      * decoration box.
      * When you don't need to shift the touch offset, you should be using `layoutResult.value`

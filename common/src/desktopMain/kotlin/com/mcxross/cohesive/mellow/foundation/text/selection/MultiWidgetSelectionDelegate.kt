@@ -220,7 +220,7 @@ internal fun getOffsetForPosition(
  * calculated
  * @param textLayoutResult a result of the text layout.
  *
- * @return an assembled object of [Selection] using the offered selection info.
+ * @return an assembled object of [Selection] using the offered selection i.
  */
 private fun getAssembledSelectionInfo(
     newSelectionRange: TextRange,

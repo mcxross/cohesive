@@ -19,18 +19,21 @@ import java.util.stream.Collectors
  */
 abstract class AbstractPluginManager : PluginManager {
 
+    /**
+     * Gets the a read-only list of all paths of the folders where plugins are installed.
+     *
+     * @return Paths of plugins roots
+     */
+    final override val pluginsRoots = ArrayList<Path>()
 
-    override val pluginsRoots: MutableList<Path> = ArrayList()
-        get() {
-            return Collections.unmodifiableList(field)
-        }
-    protected var extensionFinder: ExtensionFinder? = null
-    protected var pluginDescriptorFinder: PluginDescriptorFinder? = null
+    protected open lateinit var extensionFinder: ExtensionFinder
+
+    protected open lateinit var pluginDescriptorFinder: PluginDescriptorFinder
 
     /**
      * A map of plugins this manager is responsible for (the key is the 'pluginId').
      */
-    protected var pluginsMap: MutableMap<String?, PluginWrapper> = mutableMapOf()
+    protected var pluginsMap: MutableMap<String?, PluginWrapper> = HashMap<String?, PluginWrapper>()
 
 
     /**
@@ -42,27 +45,27 @@ abstract class AbstractPluginManager : PluginManager {
     /**
      * A map of plugin class loaders (the key is the 'pluginId').
      */
-    protected var pluginClassLoaders: MutableMap<String?, ClassLoader> = mutableMapOf()
+    protected var pluginClassLoaders: MutableMap<String?, ClassLoader> = HashMap()
 
     /**
      * A list with unresolved plugins (unresolved dependency).
      */
-    override var unresolvedPlugins: MutableList<PluginWrapper> = mutableListOf()
+    override var unresolvedPlugins: MutableList<PluginWrapper> = ArrayList<PluginWrapper>()
 
     /**
      * A list with all resolved plugins (resolved dependency).
      */
-    override var resolvedPlugins: MutableList<PluginWrapper> = mutableListOf()
+    override var resolvedPlugins: MutableList<PluginWrapper> = ArrayList<PluginWrapper>()
 
     /**
      * A list with started plugins.
      */
-    override var startedPlugins: MutableList<PluginWrapper> = mutableListOf()
+    override var startedPlugins: MutableList<PluginWrapper> = ArrayList<PluginWrapper>()
 
     /**
      * The registered [PluginStateListener]s.
      */
-    protected var pluginStateListeners: MutableList<PluginStateListener> = mutableListOf()
+    protected var pluginStateListeners: MutableList<PluginStateListener> = ArrayList<PluginStateListener>()
 
     /**
      * Cache value for the runtime mode.
@@ -81,13 +84,15 @@ abstract class AbstractPluginManager : PluginManager {
     /**
      * The system version used for comparisons to the plugin requires attribute.
      */
-    override var systemVersion: String = "0.0.0"
-    protected var pluginRepository: PluginRepository? = null
-    protected var pluginFactory: PluginFactory? = null
-    override var extensionFactory: ExtensionFactory? = null
-    protected var pluginStatusProvider: PluginStatusProvider? = null
-    protected var dependencyResolver: DependencyResolver? = null
-    protected var pluginLoader: PluginLoader? = null
+    final override var systemVersion: String = "0.0.0"
+    protected open lateinit var pluginRepository: PluginRepository
+    protected open lateinit var pluginFactory: PluginFactory
+    override lateinit var extensionFactory: ExtensionFactory
+    protected open lateinit var pluginStatusProvider: PluginStatusProvider
+    protected open lateinit var dependencyResolver: DependencyResolver
+    protected open lateinit var pluginLoader: PluginLoader
+    final override val isDevelopment: Boolean
+        get() = super.isDevelopment
 
     /**
      * Set to true to allow requires expression to be exactly x.y.z.
@@ -111,11 +116,16 @@ abstract class AbstractPluginManager : PluginManager {
             return "Cohesive.VERSION"
         }
 
+    init {
+        if (pluginsRoots.isEmpty()) {
+            pluginsRoots.addAll(createPluginsRoot())
+        }
+    }
     /**
      * The plugins roots are supplied as comma-separated list by `System.getProperty("pf4j.pluginsDir", "plugins")`.
      */
     constructor() {
-        initialize()
+        //initialize()
     }
 
     /**
@@ -133,6 +143,11 @@ abstract class AbstractPluginManager : PluginManager {
     constructor(pluginsRoots: List<Path>) {
         this.pluginsRoots.plus((pluginsRoots))
         initialize()
+    }
+
+     private fun initialize() {
+
+
     }
 
     /**
@@ -183,7 +198,7 @@ abstract class AbstractPluginManager : PluginManager {
         })
 
         // get all plugin paths from repository
-        val pluginPaths: List<Path> = pluginRepository!!.pluginPaths
+        val pluginPaths: List<Path> = pluginRepository.pluginPaths
 
         // check for no plugins
         if (pluginPaths.isEmpty()) {
@@ -229,11 +244,11 @@ abstract class AbstractPluginManager : PluginManager {
     protected fun unloadPlugin(pluginId: String, unloadDependents: Boolean): Boolean {
         try {
             if (unloadDependents) {
-                val dependents: MutableList<String> = dependencyResolver!!.getDependents(pluginId)
+                val dependents: MutableList<String> = dependencyResolver.getDependents(pluginId)
                 while (dependents.isNotEmpty()) {
                     val dependent: String = dependents.removeAt(0)
                     unloadPlugin(dependent, false)
-                    dependents.addAll(0, dependencyResolver!!.getDependents(dependent))
+                    dependents.addAll(0, dependencyResolver.getDependents(dependent))
                 }
             }
             val pluginState: PluginState = stopPlugin(pluginId, false)
@@ -244,7 +259,7 @@ abstract class AbstractPluginManager : PluginManager {
             Log.i { "Unload plugin ${getPluginLabel(pluginWrapper.getDescriptor())}" }
 
             // remove the plugin
-            pluginsMap!!.remove(pluginId)
+            pluginsMap.remove(pluginId)
             resolvedPlugins.remove(pluginWrapper)
             firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
 
@@ -289,7 +304,7 @@ abstract class AbstractPluginManager : PluginManager {
         // notify the plugin as it's deleted
         plugin!!.delete()
         val pluginPath: Path = pluginWrapper.pluginPath
-        return pluginRepository!!.deletePluginPath(pluginPath)
+        return pluginRepository.deletePluginPath(pluginPath)
     }
 
     /**
@@ -404,11 +419,11 @@ abstract class AbstractPluginManager : PluginManager {
             return pluginState
         }
         if (stopDependents) {
-            val dependents: MutableList<String> = dependencyResolver!!.getDependents(pluginId)
+            val dependents: MutableList<String> = dependencyResolver.getDependents(pluginId)
             while (dependents.isNotEmpty()) {
                 val dependent: String = dependents.removeAt(0)
                 stopPlugin(dependent, false)
-                dependents.addAll(0, dependencyResolver!!.getDependents(dependent))
+                dependents.addAll(0, dependencyResolver.getDependents(dependent))
             }
         }
         Log.i { "Stop plugin ${getPluginLabel(pluginDescriptor)}" }
@@ -437,7 +452,7 @@ abstract class AbstractPluginManager : PluginManager {
         if (PluginState.STOPPED == stopPlugin(pluginId)) {
             pluginWrapper.setPluginState(PluginState.DISABLED)
             firePluginStateEvent(PluginStateEvent(this, pluginWrapper, PluginState.STOPPED))
-            pluginStatusProvider?.disablePlugin(pluginId)
+            pluginStatusProvider.disablePlugin(pluginId)
             Log.i { "Disabled plugin ${getPluginLabel(pluginDescriptor)}" }
             return true
         }
@@ -457,7 +472,7 @@ abstract class AbstractPluginManager : PluginManager {
             Log.d { "Plugin ${getPluginLabel(pluginDescriptor)} is not disabled" }
             return true
         }
-        pluginStatusProvider?.enablePlugin(pluginId)
+        pluginStatusProvider.enablePlugin(pluginId)
         pluginWrapper.setPluginState(PluginState.CREATED)
         firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
         Log.i { "Enabled plugin ${getPluginLabel(pluginDescriptor)}" }
@@ -472,7 +487,7 @@ abstract class AbstractPluginManager : PluginManager {
     }
 
     override fun getExtensionClasses(pluginId: String): List<Class<*>> {
-        val extensionsWrapper: List<ExtensionWrapper<Any>?> = extensionFinder!!.find(pluginId)
+        val extensionsWrapper: List<ExtensionWrapper<Any>?> = extensionFinder.find(pluginId)
         val extensionClasses: MutableList<Class<*>> = ArrayList(extensionsWrapper.size)
         for (extensionWrapper: ExtensionWrapper<Any>? in extensionsWrapper) {
             val c: Class<*> = extensionWrapper!!.descriptor.extensionClass
@@ -482,23 +497,23 @@ abstract class AbstractPluginManager : PluginManager {
     }
 
     override fun <T> getExtensionClasses(type: Class<T>): List<Class<out T>> {
-        return getExtensionClasses(extensionFinder!!.find(type))
+        return getExtensionClasses(extensionFinder.find(type))
     }
 
     override fun <T> getExtensionClasses(type: Class<T>, pluginId: String): List<Class<out T>> {
-        return getExtensionClasses(extensionFinder!!.find(type, pluginId))
+        return getExtensionClasses(extensionFinder.find(type, pluginId))
     }
 
     override fun <T> getExtensions(type: Class<T>): List<T> {
-        return getExtensions(extensionFinder!!.find(type))
+        return getExtensions(extensionFinder.find(type))
     }
 
     override fun <T> getExtensions(type: Class<T>, pluginId: String): List<T> {
-        return getExtensions(extensionFinder!!.find(type, pluginId))
+        return getExtensions(extensionFinder.find(type, pluginId))
     }
 
     override fun <T> getExtensions(pluginId: String): List<T> {
-        val extensionsWrapper: List<ExtensionWrapper<T>> = extensionFinder!!.find(pluginId)
+        val extensionsWrapper: List<ExtensionWrapper<T>> = extensionFinder.find(pluginId)
         val extensions: MutableList<T> = ArrayList<T>(extensionsWrapper.size)
         for (extensionWrapper: ExtensionWrapper<T> in extensionsWrapper) {
             try {
@@ -511,7 +526,7 @@ abstract class AbstractPluginManager : PluginManager {
     }
 
     override fun getExtensionClassNames(pluginId: String): Set<String> {
-        return extensionFinder!!.findClassNames(pluginId)
+        return extensionFinder.findClassNames(pluginId)
     }
 
     override fun whichPlugin(clazz: Class<*>): PluginWrapper? {
@@ -525,7 +540,7 @@ abstract class AbstractPluginManager : PluginManager {
     }
 
     @Synchronized
-    override fun addPluginStateListener(listener: PluginStateListener) {
+    final override fun addPluginStateListener(listener: PluginStateListener) {
         pluginStateListeners.add(listener)
     }
 
@@ -534,34 +549,6 @@ abstract class AbstractPluginManager : PluginManager {
         pluginStateListeners.remove(listener)
     }
 
-    protected abstract fun createPluginRepository(): PluginRepository?
-    protected abstract fun createPluginFactory(): PluginFactory?
-    protected abstract fun createExtensionFactory(): ExtensionFactory?
-    protected abstract fun createPluginDescriptorFinder(): PluginDescriptorFinder?
-    protected abstract fun createExtensionFinder(): ExtensionFinder?
-    protected abstract fun createPluginStatusProvider(): PluginStatusProvider?
-    protected abstract fun createPluginLoader(): PluginLoader?
-    protected abstract fun createVersionManager(): VersionManager?
-    protected open fun initialize() {
-        pluginsMap = HashMap<String?, PluginWrapper>()
-        pluginClassLoaders = HashMap()
-        unresolvedPlugins = ArrayList<PluginWrapper>()
-        resolvedPlugins = ArrayList<PluginWrapper>()
-        startedPlugins = ArrayList<PluginWrapper>()
-        pluginStateListeners = ArrayList<PluginStateListener>()
-        if (pluginsRoots.isEmpty()) {
-            pluginsRoots.addAll(createPluginsRoot())
-        }
-        pluginRepository = createPluginRepository()
-        pluginFactory = createPluginFactory()
-        extensionFactory = createExtensionFactory()
-        pluginDescriptorFinder = createPluginDescriptorFinder()
-        extensionFinder = createExtensionFinder()
-        pluginStatusProvider = createPluginStatusProvider()
-        pluginLoader = createPluginLoader()
-        versionManager = createVersionManager()
-        dependencyResolver = versionManager?.let { DependencyResolver(it) }
-    }
 
     /**
      * Add the possibility to override the plugins roots.
@@ -596,7 +583,7 @@ abstract class AbstractPluginManager : PluginManager {
      */
     protected fun isPluginValid(pluginWrapper: PluginWrapper): Boolean {
         var requires: String = pluginWrapper.getDescriptor().requires!!.trim { it <= ' ' }
-        if (!isExactVersionAllowed && requires.matches(Regex("^\\d+\\.\\d+\\.\\d+$"))) {
+        if (!isExactVersionAllowed && requires.matches(Regex("^\\init+\\.\\init+\\.\\init+$"))) {
             // If exact versions are not allowed in requires, rewrite to >= expression
             requires = ">=$requires"
         }
@@ -609,7 +596,7 @@ abstract class AbstractPluginManager : PluginManager {
     }
 
     protected fun isPluginDisabled(pluginId: String): Boolean {
-        return pluginStatusProvider!!.isPluginDisabled(pluginId)
+        return pluginStatusProvider.isPluginDisabled(pluginId)
     }
 
     protected fun resolvePlugins() {
@@ -618,7 +605,7 @@ abstract class AbstractPluginManager : PluginManager {
         for (plugin: PluginWrapper in pluginsMap.values) {
             descriptors.add(plugin.getDescriptor())
         }
-        val result: DependencyResolver.Result = dependencyResolver!!.resolve(descriptors)
+        val result: DependencyResolver.Result = dependencyResolver.resolve(descriptors)
         if (result.hasCyclicDependency()) {
             throw DependencyResolver.CyclicDependencyException()
         }
@@ -664,7 +651,7 @@ abstract class AbstractPluginManager : PluginManager {
         }
 
         // Retrieve and validate the plugin descriptor
-        val pluginDescriptorFinder: PluginDescriptorFinder = pluginDescriptorFinder!!
+        val pluginDescriptorFinder: PluginDescriptorFinder = pluginDescriptorFinder
         Log.d { "Use $pluginDescriptorFinder to find plugins descriptors" }
         Log.d { "Finding plugin descriptor for plugin $pluginPath" }
         val pluginDescriptor: PluginDescriptor = pluginDescriptorFinder.find(pluginPath)!!
@@ -689,8 +676,8 @@ abstract class AbstractPluginManager : PluginManager {
 
         // load plugin
         Log.d { "Loading plugin $pluginPath" }
-        val pluginClassLoader: ClassLoader = pluginLoader?.loadPlugin(pluginPath, pluginDescriptor)!!
-        Log.d { "Loaded plugin $pluginPath with class loader $pluginClassLoader" }
+        val pluginClassLoader: ClassLoader = pluginLoader.loadPlugin(pluginPath, pluginDescriptor)!!
+        Log.d { "Loaded plugin $pluginPath with class pluginLoader $pluginClassLoader" }
         val pluginWrapper: PluginWrapper = createPluginWrapper(pluginDescriptor, pluginPath, pluginClassLoader)
 
         // test for disabled plugin
@@ -707,11 +694,11 @@ abstract class AbstractPluginManager : PluginManager {
         Log.d { "Created wrapper $pluginWrapper for plugin $pluginPath" }
         pluginId = pluginDescriptor.pluginId
 
-        // add plugin to the list with plugins
+        // plus plugin to the list with plugins
         pluginsMap[pluginId] = pluginWrapper
         unresolvedPlugins.add(pluginWrapper)
 
-        // add plugin class loader to the list with class loaders
+        // plus plugin class pluginLoader to the list with class loaders
         pluginClassLoaders[pluginId] = pluginClassLoader
         return pluginWrapper
     }

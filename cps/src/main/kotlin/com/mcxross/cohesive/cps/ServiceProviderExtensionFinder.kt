@@ -1,6 +1,5 @@
 package com.mcxross.cohesive.cps
 
-import com.mcxross.cohesive.cps.processor.ExtensionStorage
 import com.mcxross.cohesive.cps.utils.FileUtils
 import com.mcxross.cohesive.cps.utils.Log
 import java.io.IOException
@@ -98,10 +97,10 @@ class ServiceProviderExtensionFinder(pluginManager: PluginManager) :
             override fun visitFile(file: Path?, attrs: BasicFileAttributes?): FileVisitResult? {
                 Log.d { "Read extension file $file" }
                 Files.newBufferedReader(file!!, StandardCharsets.UTF_8).use { reader ->
-                    ExtensionStorage.read(
+                    /*ExtensionStorage.read(
                         reader,
                         result.toMutableSet(),
-                    )
+                    )*/
                 }
                 return FileVisitResult.CONTINUE
             }

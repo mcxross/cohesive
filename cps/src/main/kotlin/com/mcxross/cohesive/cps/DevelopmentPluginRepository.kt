@@ -6,22 +6,24 @@ import java.nio.file.Path
 
 
 class DevelopmentPluginRepository(pluginsRoots: List<Path>) : BasePluginRepository(pluginsRoots) {
+
+    override var filter: FileFilter? = filter()
+
     constructor(vararg pluginsRoots: Path) : this(mutableListOf<Path>(*pluginsRoots)) {}
 
-    init {
-        val pluginsFilter =
-            AndFileFilter(DirectoryFileFilter())
-        pluginsFilter.addFileFilter(NotFileFilter(createHiddenPluginFilter()))
-        super.filter = pluginsFilter
+    fun filter(): AndFileFilter {
+        val pluginsFilter = AndFileFilter(DirectoryFileFilter())
+        pluginsFilter.fileFilters.add(NotFileFilter(createHiddenPluginFilter()))
+        return pluginsFilter
     }
 
     protected fun createHiddenPluginFilter(): FileFilter {
-        val hiddenPluginFilter: OrFileFilter = OrFileFilter(HiddenFilter())
+        val hiddenPluginFilter = OrFileFilter(HiddenFilter())
 
         // skip default build output folders since these will cause errors in the logs
-        hiddenPluginFilter
-            .addFileFilter(NameFileFilter(MAVEN_BUILD_DIR))
-            .addFileFilter(NameFileFilter(GRADLE_BUILD_DIR))
+        hiddenPluginFilter.fileFilters.add(NameFileFilter(MAVEN_BUILD_DIR))
+        hiddenPluginFilter.fileFilters.add(NameFileFilter(GRADLE_BUILD_DIR))
+
         return hiddenPluginFilter
     }
 

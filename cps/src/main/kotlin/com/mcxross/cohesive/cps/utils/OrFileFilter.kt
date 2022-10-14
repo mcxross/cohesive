@@ -13,14 +13,7 @@ class OrFileFilter @JvmOverloads constructor(fileFilters: List<FileFilter> = Arr
     FileFilter {
 
     /** The list of file filters.  */
-    var fileFilters: MutableList<FileFilter>
-        get() {
-            return Collections.unmodifiableList(field)
-        }
-
-    init {
-        this.fileFilters = ArrayList(fileFilters)
-    }
+    var fileFilters = ArrayList(fileFilters)
 
     constructor(vararg fileFilters: FileFilter) : this(listOf<FileFilter>(*fileFilters)) {}
 

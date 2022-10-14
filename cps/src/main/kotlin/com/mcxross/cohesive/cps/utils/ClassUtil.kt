@@ -41,7 +41,7 @@ object ClassUtils {
         Class<?> superclass = aClass.getSuperclass();
         while (superclass != null) {
             if (Modifier.isAbstract(superclass.getModifiers())) {
-                list.add(superclass);
+                list.plus(superclass);
             }
             superclass = superclass.getSuperclass();
         }

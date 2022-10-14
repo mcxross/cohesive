@@ -98,7 +98,7 @@ private typealias InlineContentRange = AnnotatedString.Range<@Composable (String
  * used to insert composables into text layout. Check [InlineTextContent] for more information.
  * @param onTextLayout Callback that is executed when a new text layout is calculated. A
  * [TextLayoutResult] object that callback provides contains paragraph information, size of the
- * text, baselines and other details. The callback can be used to add additional decoration or
+ * text, baselines and other details. The callback can be used to plus additional decoration or
  * functionality to the text. For example, to draw selection around the text.
  */
 @Composable

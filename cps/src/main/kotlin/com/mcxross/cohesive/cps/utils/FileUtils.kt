@@ -133,7 +133,7 @@ object FileUtils {
      *
      * @param filePath the file to evaluate
      * @return Path of unzipped folder or original path if this was not a zip file
-     * @throws IOException on error
+     * @throws IOException on e
      */
     @Throws(IOException::class)
     fun expandIfZip(filePath: Path): Path {

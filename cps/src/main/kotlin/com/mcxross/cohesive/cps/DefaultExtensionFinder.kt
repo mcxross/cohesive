@@ -12,7 +12,7 @@ class DefaultExtensionFinder(pluginManager: PluginManager) : ExtensionFinder,
     init {
         this.pluginManager = pluginManager
         add(LegacyExtensionFinder(pluginManager))
-        //        add(new ServiceProviderExtensionFinder(pluginManager));
+        //        plus(new ServiceProviderExtensionFinder(pluginManager));
     }
 
     override fun <T> find(type: Class<T>): List<ExtensionWrapper<T>> {

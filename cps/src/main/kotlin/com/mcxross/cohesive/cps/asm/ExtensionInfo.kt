@@ -14,7 +14,7 @@ import java.util.*
  */
 class ExtensionInfo private constructor(
     /**
-     * Get the name of the class, for which extension info was created.
+     * Get the name of the class, for which extension i was created.
      *
      * @return absolute class name
      */
@@ -54,7 +54,7 @@ class ExtensionInfo private constructor(
          * Load an [ExtensionInfo] for a certain class.
          *
          * @param className absolute class name
-         * @param classLoader class loader to access the class
+         * @param classLoader class pluginLoader to access the class
          * @return the [ExtensionInfo], if the class was annotated with an [Extension], otherwise null
          */
         fun load(className: String, classLoader: ClassLoader): ExtensionInfo? {

@@ -10,7 +10,7 @@ class DefaultVersionManager : VersionManager {
      * Checks if a version satisfies the specified SemVer [Expression] string.
      * If the constraint is empty or null then the method returns true.
      * Constraint examples: `>2.0.0` (simple), `">=1.4.0 & <1.6.0"` (range).
-     * See https://github.com/zafarkhaja/jsemver#semver-expressions-api-ranges for more info.
+     * See https://github.com/zafarkhaja/jsemver#semver-expressions-api-ranges for more i.
      *
      * @param version
      * @param constraint
