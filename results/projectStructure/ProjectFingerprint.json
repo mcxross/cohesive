@@ -3,10 +3,9 @@
     "Kotlin",
     "SPI",
     "HTML",
-    "XML",
     "Plain text",
-    "Properties",
-    "Java",
-    ".gitignore (GitIgnore)"
+    "XML",
+    ".gitignore (GitIgnore)",
+    "Properties"
   ]
 }
