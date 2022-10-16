@@ -6,8 +6,8 @@ import java.nio.file.Files
 import java.nio.file.Path
 
 /**
- * Load all information needed by a plugin.
- * This means plus to the plugin's [ClassLoader] all the jar files and
+ * Load all information needed by a holder.
+ * This means plus to the holder's [ClassLoader] all the jar files and
  * all the class files specified in the [PluginClasspath].
  */
 open class BasePluginLoader(pluginManager: PluginManager, pluginClasspath: PluginClasspath) :
@@ -40,7 +40,7 @@ open class BasePluginLoader(pluginManager: PluginManager, pluginClasspath: Plugi
 
     /**
      * Add all `*.class` files from [PluginClasspath.getClassesDirectories]
-     * to the plugin's [ClassLoader].
+     * to the holder's [ClassLoader].
      */
     protected fun loadClasses(pluginPath: Path, pluginClassLoader: PluginClassLoader) {
         for (directory in pluginClasspath.getClassesDirectories()) {
@@ -53,7 +53,7 @@ open class BasePluginLoader(pluginManager: PluginManager, pluginClasspath: Plugi
 
     /**
      * Add all `*.jar` files from [PluginClasspath.getJarsDirectories]
-     * to the plugin's [ClassLoader].
+     * to the holder's [ClassLoader].
      */
     protected fun loadJars(pluginPath: Path, pluginClassLoader: PluginClassLoader) {
         for (jarsDirectory in pluginClasspath.getJarsDirectories()) {

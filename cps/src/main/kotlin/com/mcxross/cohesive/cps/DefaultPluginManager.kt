@@ -50,8 +50,7 @@ open class DefaultPluginManager : AbstractPluginManager {
         }
         Log.i { "CPS version $version in $runtimeMode mode" }
     }
-
-    constructor()
+    constructor() : super()
     constructor(vararg pluginsRoots: Path) : super(*pluginsRoots)
     constructor(pluginsRoots: List<Path>) : super(pluginsRoots)
 
@@ -80,10 +79,10 @@ open class DefaultPluginManager : AbstractPluginManager {
     }
 
     /**
-     * Load a plugin from disk. If the path is a zip file, first unpack.
+     * Load a holder from disk. If the path is a zip file, first unpack.
      *
-     * @param pluginPath plugin location on disk
-     * @return PluginWrapper for the loaded plugin or null if not loaded
+     * @param pluginPath holder location on disk
+     * @return PluginWrapper for the loaded holder or null if not loaded
      * @throws PluginRuntimeException if problems during load
      */
     override fun loadPluginFromPath(pluginPath: Path): PluginWrapper? {

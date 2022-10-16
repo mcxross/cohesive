@@ -3,7 +3,7 @@ package com.mcxross.cohesive.cps
 import java.nio.file.Path
 
 /**
- * A wrapper over plugin instance.
+ * A wrapper over holder instance.
  */
 class PluginWrapper(
     pluginManager: PluginManager,
@@ -15,12 +15,12 @@ class PluginWrapper(
     private val descriptor: PluginDescriptor
 
     /**
-     * Returns the path of this plugin.
+     * Returns the path of this holder.
      */
     val pluginPath: Path
 
     /**
-     * Returns the plugin class pluginLoader used to load classes and resources
+     * Returns the holder class pluginLoader used to load classes and resources
      * for this plug-in. The class pluginLoader can be used to directly access
      * plug-in resources and classes.
      */
@@ -30,7 +30,7 @@ class PluginWrapper(
     private val runtimeMode: RuntimeMode
 
     /**
-     * Returns the exception with which the plugin fails to start.
+     * Returns the exception with which the holder fails to start.
      * See @{link PluginStatus#FAILED}.
      */
     var failedException: Throwable? = null
@@ -53,14 +53,14 @@ class PluginWrapper(
     }
 
     /**
-     * Returns the plugin manager.
+     * Returns the holder manager.
      */
     fun getPluginManager(): PluginManager {
         return pluginManager
     }
 
     /**
-     * Returns the plugin descriptor.
+     * Returns the holder descriptor.
      */
     fun getDescriptor(): PluginDescriptor {
         return descriptor

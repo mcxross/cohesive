@@ -2,23 +2,23 @@ package com.mcxross.cohesive.cps
 
 enum class PluginState(private val status: String) {
     /**
-     * The runtime knows the plugin is there. It knows about the plugin path, the plugin descriptor.
+     * The runtime knows the holder is there. It knows about the holder path, the holder descriptor.
      */
     CREATED("CREATED"),
 
     /**
-     * The plugin cannot be used.
+     * The holder cannot be used.
      */
     DISABLED("DISABLED"),
 
     /**
-     * The plugin is created. All the dependencies are created and resolved.
-     * The plugin is ready to be started.
+     * The holder is created. All the dependencies are created and resolved.
+     * The holder is ready to be started.
      */
     RESOLVED("RESOLVED"),
 
     /**
-     * The [Plugin.start] has executed. A started plugin may contribute extensions.
+     * The [Plugin.start] has executed. A started holder may contribute extensions.
      */
     STARTED("STARTED"),
 

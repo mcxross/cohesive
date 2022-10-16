@@ -12,7 +12,7 @@ import java.util.*
 
 
 /**
- * Find a plugin descriptor in a properties file (in plugin repository).
+ * Find a holder descriptor in a properties file (in holder repository).
  */
 class PropertiesPluginDescriptorFinder @JvmOverloads constructor(protected var propertiesFileName: String = DEFAULT_PROPERTIES_FILE_NAME) :
     PluginDescriptorFinder {
@@ -96,14 +96,14 @@ class PropertiesPluginDescriptorFinder @JvmOverloads constructor(protected var p
     }
 
     companion object {
-        const val DEFAULT_PROPERTIES_FILE_NAME = "plugin.properties"
-        const val PLUGIN_ID = "plugin.id"
-        const val PLUGIN_DESCRIPTION = "plugin.description"
-        const val PLUGIN_CLASS = "plugin.class"
-        const val PLUGIN_VERSION = "plugin.version"
-        const val PLUGIN_PROVIDER = "plugin.provider"
-        const val PLUGIN_DEPENDENCIES = "plugin.dependencies"
-        const val PLUGIN_REQUIRES = "plugin.requires"
-        const val PLUGIN_LICENSE = "plugin.license"
+        const val DEFAULT_PROPERTIES_FILE_NAME = "holder.properties"
+        const val PLUGIN_ID = "holder.id"
+        const val PLUGIN_DESCRIPTION = "holder.description"
+        const val PLUGIN_CLASS = "holder.class"
+        const val PLUGIN_VERSION = "holder.version"
+        const val PLUGIN_PROVIDER = "holder.provider"
+        const val PLUGIN_DEPENDENCIES = "holder.dependencies"
+        const val PLUGIN_REQUIRES = "holder.requires"
+        const val PLUGIN_LICENSE = "holder.license"
     }
 }

@@ -222,7 +222,7 @@ open class Main : IMain {
                     "## Quick start\n" +
                     "> Convention: We'll use \"Platform\" and \"Blockchain\" interchangeably herein - and rarely, \"Chain\"\n" +
                     "\n" +
-                    "Cohesive is a modular meta-tool, i.e., a tool for tools specifically for Blockchain technology. It's Multiplatform, and Blockchain-neutral with a base implementation of/and, core functionality including but not limited to UI framework, Plugin Store, Simple Editor, and IDE. Specific Platform implementation can be built and installed as a _primary_ plugin acting as the Platform wrapper, i.e., consuming Cohesive, and thus bending its gears for that specific Platform.\n" +
+                    "Cohesive is a modular meta-tool, i.e., a tool for tools specifically for Blockchain technology. It's Multiplatform, and Blockchain-neutral with a base implementation of/and, core functionality including but not limited to UI framework, Plugin Store, Simple Editor, and IDE. Specific Platform implementation can be built and installed as a _primary_ holder acting as the Platform wrapper, i.e., consuming Cohesive, and thus bending its gears for that specific Platform.\n" +
                     "\n" +
                     "### Running Base desktop application",
             config = MarkdownConfig(

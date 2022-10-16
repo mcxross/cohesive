@@ -3,8 +3,8 @@ package com.mcxross.cohesive.cps
 import com.mcxross.cohesive.cps.utils.StringUtils
 
 /**
- * An exception used to indicate that a plugin problem occurred.
- * It's a generic plugin exception class to be thrown when no more specific class is applicable.
+ * An exception used to indicate that a holder problem occurred.
+ * It's a generic holder exception class to be thrown when no more specific class is applicable.
  */
 open class PluginRuntimeException : RuntimeException {
     constructor() : super() {}
