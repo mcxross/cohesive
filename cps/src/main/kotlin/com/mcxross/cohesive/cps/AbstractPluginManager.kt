@@ -85,7 +85,7 @@ abstract class AbstractPluginManager : PluginManager {
      * The system version used for comparisons to the plugin requires attribute.
      */
     final override var systemVersion: String = "0.0.0"
-    protected open lateinit var pluginRepository: PluginRepository
+    protected open lateinit var pluginRepo: PluginRepository
     protected open lateinit var pluginFactory: PluginFactory
     override lateinit var extensionFactory: ExtensionFactory
     protected open lateinit var pluginStatusProvider: PluginStatusProvider
@@ -198,7 +198,7 @@ abstract class AbstractPluginManager : PluginManager {
         })
 
         // get all plugin paths from repository
-        val pluginPaths: List<Path> = pluginRepository.pluginPaths
+        val pluginPaths: List<Path> = pluginRepo.pluginPaths
 
         // check for no plugins
         if (pluginPaths.isEmpty()) {
@@ -304,7 +304,7 @@ abstract class AbstractPluginManager : PluginManager {
         // notify the plugin as it's deleted
         plugin!!.delete()
         val pluginPath: Path = pluginWrapper.pluginPath
-        return pluginRepository.deletePluginPath(pluginPath)
+        return pluginRepo.deletePluginPath(pluginPath)
     }
 
     /**

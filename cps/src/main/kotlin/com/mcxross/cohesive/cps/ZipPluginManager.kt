@@ -11,14 +11,23 @@ package com.mcxross.cohesive.cps
 class ZipPluginManager : DefaultPluginManager() {
 
     override var pluginDescriptorFinder: PluginDescriptorFinder = PropertiesPluginDescriptorFinder()
+    val pluginManager = this
+    override var pluginLoader: PluginLoader = compositePluginLoader {
+        this + PluginLoaderContainer(
+            loader = DevelopmentPluginLoader(pluginManager),
+            condition = { isDevelopment })
+        this + PluginLoaderContainer(
+            loader = DefaultPluginLoader(pluginManager),
+            condition = { isDevelopment })
+    }
 
-    override var pluginLoader: PluginLoader = CompositePluginLoader()
-        .plus(DevelopmentPluginLoader(this)) { this.isDevelopment }
-        .plus(DefaultPluginLoader(this)) { this.isDevelopment }
-
-    override var pluginRepository: PluginRepository = compositePluginRepository {
-        plus(DevelopmentPluginRepository(pluginsRoots)) { isDevelopment }
-        plus(DefaultPluginRepository(pluginsRoots)) { isDevelopment }
+    override var pluginRepo: PluginRepository = compositePluginRepository {
+        this + PluginRepositoryContainer(
+            repo = DevelopmentPluginRepository(pluginsRoots),
+            condition = { isDevelopment })
+        this + PluginRepositoryContainer(
+            repo = DefaultPluginRepository(pluginsRoots),
+            condition = { isDevelopment })
     }
 
 }

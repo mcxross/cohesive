@@ -17,9 +17,9 @@ fun compositePluginDescriptorFinder(
 class CompositePluginDescriptorFinder : PluginDescriptorFinder {
 
     private val finders: MutableList<PluginDescriptorFinder> = ArrayList()
-    fun plus(finder: PluginDescriptorFinder): CompositePluginDescriptorFinder {
+
+    operator fun plus(finder: PluginDescriptorFinder) {
         finders.add(finder)
-        return this
     }
 
     fun size(): Int {

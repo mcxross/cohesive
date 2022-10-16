@@ -1,7 +1,6 @@
 package com.mcxross.cohesive.cps
 
 import java.nio.file.Path
-import java.util.function.BooleanSupplier
 
 fun compositePluginRepository(
     repo: CompositePluginRepository.() -> Unit,
@@ -30,24 +29,13 @@ class CompositePluginRepository : PluginRepository {
         }
 
     /**
-     * Adds a [PluginRepository] to this [CompositePluginRepository] repository.
-     * @param repository The [PluginRepository] to add.
-     * @return [Unit]
+     * Add a [PluginRepository] to this [CompositePluginRepository] only if `condition` in container is true.
+     * @param container The [PluginRepositoryContainer] to add.
      */
-    fun plus(repository: PluginRepository) = repositories.add(repository)
-
-    /**
-     * Add a [PluginRepository] to this [CompositePluginRepository] only if `condition` is true.
-     * @param repository The [PluginRepository] to add.
-     * @param condition The condition to check.
-     * @return [Unit]
-     */
-    fun plus(repository: PluginRepository, condition: BooleanSupplier) {
-        if (condition.asBoolean)
-            plus(repository)
-
+    operator fun plus(container: PluginRepositoryContainer) {
+        if (container.condition.asBoolean)
+            repositories.add(container.repo)
     }
-
 
     /**
      * Clear given pluginPath from repository.

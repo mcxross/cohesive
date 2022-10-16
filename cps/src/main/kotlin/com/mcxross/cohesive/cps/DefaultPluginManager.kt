@@ -12,23 +12,34 @@ import java.nio.file.Paths
  */
 open class DefaultPluginManager : AbstractPluginManager {
 
-    override var pluginRepository: PluginRepository = compositePluginRepository {
-        plus(DevelopmentPluginRepository(pluginsRoots)) { isDevelopment }
-        plus(JarPluginRepository(pluginsRoots)) { isDevelopment }
-        plus(DefaultPluginRepository(pluginsRoots)) { isDevelopment }
+    override var pluginRepo: PluginRepository = compositePluginRepository {
+        this + PluginRepositoryContainer(
+            repo = DevelopmentPluginRepository(pluginsRoots),
+            condition = { isDevelopment })
+        this + PluginRepositoryContainer(repo = JarPluginRepository(pluginsRoots),
+            condition = { isDevelopment })
+        this + PluginRepositoryContainer(
+            repo = DevelopmentPluginRepository(pluginsRoots),
+            condition = { isDevelopment })
     }
     override var pluginFactory: PluginFactory = DefaultPluginFactory()
     override var extensionFactory: ExtensionFactory = DefaultExtensionFactory()
     override var pluginDescriptorFinder: PluginDescriptorFinder = compositePluginDescriptorFinder {
-        plus(PropertiesPluginDescriptorFinder())
-        plus(ManifestPluginDescriptorFinder())
+        this + PropertiesPluginDescriptorFinder()
+        this + ManifestPluginDescriptorFinder()
     }
     override var extensionFinder: ExtensionFinder = extensionFinder()
     override var pluginStatusProvider: PluginStatusProvider = statusProvider()
     override var pluginLoader: PluginLoader = compositePluginLoader {
-        plus(DevelopmentPluginLoader(getPluginManager())) { isDevelopment }
-        plus(JarPluginLoader(getPluginManager())) { isNotDevelopment }
-        plus(DefaultPluginLoader(getPluginManager())) { isNotDevelopment }
+        this + PluginLoaderContainer(
+            loader = DevelopmentPluginLoader(getPluginManager()),
+            condition = { isDevelopment })
+        this + PluginLoaderContainer(
+            loader = JarPluginLoader(getPluginManager()),
+            condition = { isNotDevelopment })
+        this + PluginLoaderContainer(
+            loader = DefaultPluginLoader(getPluginManager()),
+            condition = { isNotDevelopment })
     }
     override var versionManager: VersionManager? = DefaultVersionManager()
     override var dependencyResolver: DependencyResolver = dependencyResolver()
@@ -39,6 +50,7 @@ open class DefaultPluginManager : AbstractPluginManager {
         }
         Log.i { "CPS version $version in $runtimeMode mode" }
     }
+
     constructor()
     constructor(vararg pluginsRoots: Path) : super(*pluginsRoots)
     constructor(pluginsRoots: List<Path>) : super(pluginsRoots)

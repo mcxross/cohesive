@@ -2,7 +2,6 @@ package com.mcxross.cohesive.cps
 
 import com.mcxross.cohesive.cps.utils.Log
 import java.nio.file.Path
-import java.util.function.BooleanSupplier
 
 fun compositePluginLoader(
     loader: CompositePluginLoader.() -> Unit,
@@ -14,22 +13,14 @@ fun compositePluginLoader(
 
 class CompositePluginLoader : PluginLoader {
     private val loaders: MutableList<PluginLoader> = ArrayList()
-    fun plus(loader: PluginLoader): CompositePluginLoader {
-        loaders.add(loader)
-        return this
-    }
 
     /**
      * Add a [PluginLoader] only if the `condition` is satisfied.
-     *
-     * @param loader
-     * @param condition
-     * @return
+     * @param container [PluginLoaderContainer]
      */
-    fun plus(loader: PluginLoader, condition: BooleanSupplier): CompositePluginLoader {
-        return if (condition.asBoolean) {
-            plus(loader)
-        } else this
+    operator fun plus(container: PluginLoaderContainer) {
+        if (container.condition.asBoolean)
+            loaders.add(container.loader)
     }
 
     fun size(): Int {
