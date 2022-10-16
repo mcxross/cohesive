@@ -115,6 +115,34 @@
   "category": "Probable bugs",
   "type": "Leaking 'this' in constructor",
   "severity": "High",
+  "comment": "Accessing non-final property dependencies in constructor",
+  "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/DefaultPluginDescriptor.kt",
+      "language": "kotlin",
+      "line": 26,
+      "offset": 9,
+      "length": 12,
+      "code": {
+        "startLine": 24,
+        "length": 12,
+        "offset": 20,
+        "surroundingCode": "\n    init {\n        dependencies = ArrayList<PluginDependency>()\n    }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cps.main",
+    "inspectionName": "LeakingThis"
+  },
+  "hash": "28d49bac4538c8320cc9f111a87f718884c6da944d6bab1ec9daa8bb8997d676"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Leaking 'this' in constructor",
+  "severity": "High",
   "comment": "Accessing non-final property pluginId in constructor",
   "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
   "sources": [
@@ -306,34 +334,6 @@
     "inspectionName": "LeakingThis"
   },
   "hash": "f59e27f9bfe19984b01620646b2f41deabe57e7a214e8bcf04ffc56f63a68293"
-},{
-  "tool": "Code Inspection",
-  "category": "Probable bugs",
-  "type": "Leaking 'this' in constructor",
-  "severity": "High",
-  "comment": "Accessing non-final property dependencies in constructor",
-  "detailsInfo": "Reports unsafe operations with `this` during object construction including:\n\n* Accessing a non-final property during class initialization: from a constructor or property initialization\n* Calling a non-final function during class initialization\n* Using `this` as a function argument in a constructor of a non-final class\n\n\nIf other classes inherit from the given class,\nthey may not be fully initialized at the moment when an unsafe operation is carried out.\n\n**Example:**\n\n\n      abstract class Base {\n          val code = calculate()\n          abstract fun calculate(): Int\n      }\n\n      class Derived(private val x: Int) : Base() {\n          override fun calculate() = x\n      }\n\n      fun testIt() {\n          println(Derived(42).code) // Expected: 42, actual: 0\n      }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/DefaultPluginDescriptor.kt",
-      "language": "kotlin",
-      "line": 26,
-      "offset": 9,
-      "length": 12,
-      "code": {
-        "startLine": 24,
-        "length": 12,
-        "offset": 20,
-        "surroundingCode": "\n    init {\n        dependencies = ArrayList<PluginDependency>()\n    }\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cps.main",
-    "inspectionName": "LeakingThis"
-  },
-  "hash": "28d49bac4538c8320cc9f111a87f718884c6da944d6bab1ec9daa8bb8997d676"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",

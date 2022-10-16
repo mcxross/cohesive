@@ -92,15 +92,58 @@
       ]
     },
     {
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.6.20",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.6.20/6cedc143badbb4f1c6b7f5a340b04edff1743208/kotlin-stdlib-1.6.20.jar!/"
+      ]
+    },
+    {
       "name": "Gradle: org.ow2.asm:asm:9.4",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/9.4/b4e0e2d2e023aa317b7cfcfc916377ea348e07d1/asm-9.4.jar!/"
       ]
     },
     {
+      "name": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.okio/okio-jvm/3.2.0/332d1c5dc82b0241cb1d35bb0901d28470cc89ca/okio-jvm-3.2.0.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: com.akuleshov7:ktoml-core-jvm:0.2.11",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.akuleshov7/ktoml-core-jvm/0.2.11/600b302ccd0ba05632b82dd223d29c604062a5d0/ktoml-core-jvm-0.2.11.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.6.20",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.6.20/27b4562b6713d70f458c6d7ea39aadacb8e6a92b/kotlin-stdlib-common-1.6.20.jar!/"
+      ],
+      "properties": {}
+    },
+    {
       "name": "Gradle: io.github.aakira:napier-jvm:2.6.1",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.github.aakira/napier-jvm/2.6.1/6029a7c248d4965dfc6d7426659a4b2b755f8ed0/napier-jvm-2.6.1.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.20",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.6.20/dab8089bca6ac0e394c37281ea8cff2f99acd421/kotlin-stdlib-jdk8-1.6.20.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.20",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.6.20/f8629f336bad4001c89e9cffa5ef3d4b5d0f5e22/kotlin-stdlib-jdk7-1.6.20.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.3.2",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm/1.3.2/e25f48b4e070f969aa7ac3374d467f9c7f088766/kotlinx-serialization-core-jvm-1.3.2.jar!/"
       ]
     },
     {
@@ -791,18 +834,6 @@
       ]
     },
     {
-      "name": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.okio/okio-jvm/3.2.0/332d1c5dc82b0241cb1d35bb0901d28470cc89ca/okio-jvm-3.2.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: com.akuleshov7:ktoml-core-jvm:0.2.11",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.akuleshov7/ktoml-core-jvm/0.2.11/600b302ccd0ba05632b82dd223d29c604062a5d0/ktoml-core-jvm-0.2.11.jar!/"
-      ]
-    },
-    {
       "name": "Gradle: org.jetbrains.kotlinx:kotlinx-benchmark-runtime-jvm:0.4.5",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-benchmark-runtime-jvm/0.4.5/b7fba44b6f5487686926f1353e8514c925954ff1/kotlinx-benchmark-runtime-jvm-0.4.5.jar!/"
@@ -1079,24 +1110,6 @@
       ]
     },
     {
-      "name": "Gradle: junit:junit:4.12",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-test:1.6.10",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.6.10/59bace81228ddb06ac0dc81bd3a554bb19799715/kotlin-test-1.6.10.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.hamcrest:hamcrest-core:1.3",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar!/"
-      ]
-    },
-    {
       "name": "Gradle: com.squareup.okio:okio-fakefilesystem-jvm:3.2.0",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.okio/okio-fakefilesystem-jvm/3.2.0/a595353ce47e9000d40392ec9d127ef695dc4793/okio-fakefilesystem-jvm-3.2.0.jar!/"
@@ -1112,6 +1125,24 @@
       "name": "Gradle: org.jetbrains.kotlin:kotlin-test-junit:1.6.10",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-junit/1.6.10/7723f4362f824bf5fabef0ad213d188d2be8d937/kotlin-test-junit-1.6.10.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: org.hamcrest:hamcrest-core:1.3",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: junit:junit:4.12",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-test:1.6.10",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.6.10/59bace81228ddb06ac0dc81bd3a554bb19799715/kotlin-test-1.6.10.jar!/"
       ]
     }
   ]
