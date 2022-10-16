@@ -4,7 +4,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 
 /**
- * Load all information needed by a plugin from [DefaultPluginClasspath].
+ * Load all information needed by a holder from [DefaultPluginClasspath].
  */
 class DefaultPluginLoader(pluginManager: PluginManager) :
     BasePluginLoader(pluginManager, DefaultPluginClasspath()) {

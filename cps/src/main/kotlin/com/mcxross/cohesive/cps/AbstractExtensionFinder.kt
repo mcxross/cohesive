@@ -51,7 +51,7 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
     }
 
     override fun <T> find(type: Class<T>, pluginId: String): List<ExtensionWrapper<T>> {
-        Log.d { "Finding extensions of extension point ${type.name} for plugin $pluginId" }
+        Log.d { "Finding extensions of extension point ${type.name} for holder $pluginId" }
         val result = ArrayList<ExtensionWrapper<T>>()
 
         // classpath's extensions <=> pluginId = null
@@ -63,7 +63,7 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
         if (PluginState.STARTED != pluginWrapper.getPluginState()) {
             return result
         }
-        Log.i { "Checking extensions from plugin $pluginId" }
+        Log.i { "Checking extensions from holder $pluginId" }
         val classLoader = pluginManager.getPluginClassLoader(pluginId)
         for (className in classNames) {
             try {
@@ -129,7 +129,7 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
     }
 
     override fun <T> find(pluginId: String): List<ExtensionWrapper<T>> {
-        Log.d { "Finding extensions from plugin $pluginId" }
+        Log.d { "Finding extensions from holder $pluginId" }
         val result: MutableList<ExtensionWrapper<T>> = ArrayList()
         val classNames = findClassNames(pluginId)
         if (classNames.isEmpty()) {
@@ -139,7 +139,7 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
         if (PluginState.STARTED != pluginWrapper.getPluginState()) {
             return result
         }
-        Log.wtf { "Checking extensions from plugin $pluginId" }
+        Log.wtf { "Checking extensions from holder $pluginId" }
         val classLoader = pluginManager.getPluginClassLoader(pluginId)
         for (className in classNames) {
             try {
@@ -155,9 +155,9 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
             }
         }
         if (result.isEmpty()) {
-            Log.d { "No extensions found for plugin $pluginId" }
+            Log.d { "No extensions found for holder $pluginId" }
         } else {
-            Log.d { "Found ${result.size} extensions for plugin $pluginId" }
+            Log.d { "Found ${result.size} extensions for holder $pluginId" }
         }
 
         // sort by "ordinal" property
@@ -176,10 +176,10 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
 
         // By default we're assuming, that no checks for extension dependencies are necessary.
         //
-        // A plugin, that has an optional dependency to other plugins, might lead to unloadable
+        // A holder, that has an optional dependency to other plugins, might lead to unloadable
         // Java classes (NoClassDefFoundError) at application runtime due to possibly missing
         // dependencies. Therefore we're enabling the check for optional extensions, if the
-        // started plugin contains at least one optional plugin dependency.
+        // started holder contains at least one optional holder dependency.
         if (checkForExtensionDependencies == null && PluginState.STARTED == event.pluginState) {
             for (dependency in event.plugin.getDescriptor().dependencies!!) {
                 if (dependency.isOptional) {
@@ -197,8 +197,8 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
      * [Extension.plugins] configured by an extension.
      *
      *
-     * This feature is enabled by default, if at least one available plugin makes use of
-     * optional plugin dependencies. Those optional plugins might not be available at runtime.
+     * This feature is enabled by default, if at least one available holder makes use of
+     * optional holder dependencies. Those optional plugins might not be available at runtime.
      * Therefore any extension is checked by default against available plugins before its
      * instantiation.
      *
@@ -218,8 +218,8 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
      * [Extension.plugins] configured by an extension.
      *
      *
-     * This feature is enabled by default, if at least one available plugin makes use of
-     * optional plugin dependencies. Those optional plugins might not be available at runtime.
+     * This feature is enabled by default, if at least one available holder makes use of
+     * optional holder dependencies. Those optional plugins might not be available at runtime.
      * Therefore any extension is checked by default against available plugins before its
      * instantiation.
      *

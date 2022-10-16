@@ -47,7 +47,7 @@ internal class ExtensionVisitor(
                                 "plugins" -> {
                                     when (value) {
                                         is String -> {
-                                            Log.d { "Found plugin $value" }
+                                            Log.d { "Found holder $value" }
                                             extensionInfo.plugins.plus(value)
                                         }
 
@@ -58,7 +58,7 @@ internal class ExtensionVisitor(
                                         }
 
                                         else -> {
-                                            Log.d { "Found plugin $value"  }
+                                            Log.d { "Found holder $value"  }
                                             extensionInfo.plugins.plus(value.toString())
                                         }
                                     }

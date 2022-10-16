@@ -1,5 +1,8 @@
 package com.mcxross.cohesive.common
 
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.window.ApplicationScope
+import androidx.compose.ui.window.application
 import com.mcxross.cohesive.common.utils.Log
 import com.mcxross.cohesive.cps.DefaultPluginManager
 
@@ -9,17 +12,17 @@ object Cohesive {
         //Must initialize logging before anything else
         Log.init()
 
-        Log.i { "Cohesive starting" }
+        Log.i { "Cohesive starting..." }
 
         val pluginManager = DefaultPluginManager()
     }
 
-    fun bootstrap() {
-        Log.i {
-            "Starting up Cohesive"
+    fun run(
+        content: @Composable (ApplicationScope.() -> Unit),
+    ) {
+        application {
+            content()
         }
     }
-
-    //private fun extensions() = pluginManager.getExtensions(IStore::class.java)
 
 }

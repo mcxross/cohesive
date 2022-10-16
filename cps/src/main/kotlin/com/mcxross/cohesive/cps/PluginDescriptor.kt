@@ -1,7 +1,7 @@
 package com.mcxross.cohesive.cps
 
 /**
- * A plugin descriptor contains information about a plug-in.
+ * A holder descriptor contains information about a plug-in.
  */
 interface PluginDescriptor {
     var pluginId: String

@@ -4,7 +4,7 @@ import java.nio.file.Path
 
 
 /**
- * Load all information (classes) needed by a plugin.
+ * Load all information (classes) needed by a holder.
  */
 interface PluginLoader {
     /**

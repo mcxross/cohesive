@@ -4,11 +4,11 @@ import java.util.*
 
 
 /**
- * PluginStateListener defines the interface for an object that listens to plugin state changes.
+ * PluginStateListener defines the interface for an object that listens to holder state changes.
  */
 interface PluginStateListener : EventListener {
     /**
-     * Invoked when a plugin's state (for example DISABLED, STARTED) is changed.
+     * Invoked when a holder's state (for example DISABLED, STARTED) is changed.
      */
     fun pluginStateChanged(event: PluginStateEvent)
 }

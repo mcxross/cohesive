@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets
 import java.util.*
 
 /**
- * All extensions declared in a plugin are indexed in a file `META-INF/extensions.idx`.
+ * All extensions declared in a holder are indexed in a file `META-INF/extensions.idx`.
  * This class lookup extensions in all extensions index files `META-INF/extensions.idx`.
  */
 class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFinder(pluginManager) {
@@ -38,7 +38,7 @@ class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFin
         val plugins: List<Any?> = pluginManager.plugins
         for (plugin in plugins) {
             val pluginId: String = (plugin as PluginWrapper).pluginId
-            Log.d { "Reading extensions storages from plugin $pluginId" }
+            Log.d { "Reading extensions storages from holder $pluginId" }
             val bucket: Set<String> = HashSet()
             try {
                 Log.d { "Read $EXTENSIONS_RESOURCE" }

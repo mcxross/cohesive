@@ -51,40 +51,40 @@ fun BrewContextCompositionLocal(
     }
 }
 
-fun main() = application {
-    Cohesive.bootstrap()
+fun main() = Cohesive.run {
+
     /*val init by rememberUpdatedState {
-        runBlocking {
-            StatesHolder.init {
-                println("Scheduler initialized")
-            }
-        }
-    }
+       runBlocking {
+           StatesHolder.init {
+               println("Scheduler initialized")
+           }
+       }
+   }
 
-    var isLoadingPlugins by remember { mutableStateOf(true) }
-    var isLoadingConfig by remember { mutableStateOf(true) }
-    var isLoadingResources by remember { mutableStateOf(true) }
+   var isLoadingPlugins by remember { mutableStateOf(true) }
+   var isLoadingConfig by remember { mutableStateOf(true) }
+   var isLoadingResources by remember { mutableStateOf(true) }
 
-    var environment by remember { mutableStateOf(com.mcxross.cohesive.common.frontend.model.Environment) }
+   var environment by remember { mutableStateOf(com.mcxross.cohesive.common.frontend.model.Environment) }
 
-    WindowState.state = rememberWindowState(
-        placement = WindowPlacement.Floating,
-        position = WindowPosition.Aligned(Alignment.Center),
-        size = getPreferredWindowSize(800, 1000)
-    )
+   WindowState.state = rememberWindowState(
+       placement = WindowPlacement.Floating,
+       position = WindowPosition.Aligned(Alignment.Center),
+       size = getPreferredWindowSize(800, 1000)
+   )
 
-    val loadResources by rememberUpdatedState {
+   val loadResources by rememberUpdatedState {
 
-        Log.i { "Loading resources" }
+       Log.i { "Loading resources" }
 
-        val timeLoadingResources = measureTimeMillis {
+       val timeLoadingResources = measureTimeMillis {
 
-            loadConfig {
-                environment = it
-                isLoadingConfig = false
-            }
+           loadConfig {
+               environment = it
+               isLoadingConfig = false
+           }
 
-            *//*loadStartPlugins({}) {
+           *//*loadStartPlugins({}) {
                 pluginManager = it
                 isLoadingPlugins = false
             }*//*
@@ -200,4 +200,5 @@ fun main() = application {
         }
 
     }*/
+
 }
