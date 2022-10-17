@@ -9,23 +9,22 @@ import java.nio.charset.StandardCharsets
 import java.util.*
 
 /**
- * All extensions declared in a holder are indexed in a file `META-INF/extensions.idx`.
- * This class lookup extensions in all extensions index files `META-INF/extensions.idx`.
+ * All extensions declared in a plugin are indexed in a kt file `com/mcxross/cohesive/r/Extensions`.
+ * This class lookup extensions in all extensions index files `com/mcxross/cohesive/r/Extensions`.
  */
 class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFinder(pluginManager) {
-    override fun readClasspathStorages(): MutableMap<String?, Set<String>> {
+    override fun readClasspathStorages(): MutableMap<String, Set<String>> {
         Log.d { "Reading extensions storages from classpath" }
-        val result: MutableMap<String?, Set<String>> = LinkedHashMap()
-        val bucket: Set<String> = HashSet()
+        val result: MutableMap<String, Set<String>> = LinkedHashMap()
+        val bucket = mutableSetOf<String>()
         try {
-            val urls = javaClass.classLoader.getResources(EXTENSIONS_RESOURCE)
-            if (urls.hasMoreElements()) {
-                collectExtensions(urls, bucket)
-            } else {
-                Log.d { "Cannot find $EXTENSIONS_RESOURCE" }
+
+            (javaClass.classLoader.loadClass(EXTENSIONS_RESOURCE).getDeclaredConstructor()
+                .newInstance() as ExtensionIndex).extensions.forEach {
+                bucket.add(it)
             }
             debugExtensions(bucket)
-            result[null] = bucket
+            result["cohesive"] = bucket
         } catch (e: IOException) {
             Log.e { e.message.toString() }
         }
@@ -38,7 +37,7 @@ class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFin
         val plugins: List<Any?> = pluginManager.plugins
         for (plugin in plugins) {
             val pluginId: String = (plugin as PluginWrapper).pluginId
-            Log.d { "Reading extensions storages from holder $pluginId" }
+            Log.d { "Reading extensions storages from plugin $pluginId" }
             val bucket: Set<String> = HashSet()
             try {
                 Log.d { "Read $EXTENSIONS_RESOURCE" }
@@ -79,6 +78,6 @@ class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFin
     }
 
     companion object {
-        const val EXTENSIONS_RESOURCE: String = "LegacyExtensionStorage.EXTENSIONS_RESOURCE"
+        const val EXTENSIONS_RESOURCE: String = "com.mcxross.cohesive.r.DefaultExtensionIndex"
     }
 }

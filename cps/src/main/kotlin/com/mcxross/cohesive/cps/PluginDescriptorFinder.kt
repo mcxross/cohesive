@@ -3,8 +3,8 @@ package com.mcxross.cohesive.cps
 import java.nio.file.Path
 
 /**
- * Find a holder descriptor for a holder path.
- * You can find the holder descriptor in manifest file [ManifestPluginDescriptorFinder],
+ * Find a plugin descriptor for a plugin path.
+ * You can find the plugin descriptor in manifest file [ManifestPluginDescriptorFinder],
  * properties file [PropertiesPluginDescriptorFinder], xml file,
  * java services (with [java.util.ServiceLoader]), etc.
  */

@@ -38,7 +38,7 @@ class CompositePluginDescriptorFinder : PluginDescriptorFinder {
     override fun find(pluginPath: Path): PluginDescriptor {
         for (finder in finders) {
             if (finder.isApplicable(pluginPath)) {
-                Log.d { "$finder is applicable for holder $pluginPath" }
+                Log.d { "$finder is applicable for plugin $pluginPath" }
                 try {
                     return finder.find(pluginPath)!!
                 } catch (e: Exception) {
@@ -52,9 +52,9 @@ class CompositePluginDescriptorFinder : PluginDescriptorFinder {
                     }
                 }
             } else {
-                Log.d { "$finder is not applicable for holder $pluginPath" }
+                Log.d { "$finder is not applicable for plugin $pluginPath" }
             }
         }
-        throw PluginRuntimeException("No PluginDescriptorFinder for holder '{}'", pluginPath)
+        throw PluginRuntimeException("No PluginDescriptorFinder for plugin '{}'", pluginPath)
     }
 }

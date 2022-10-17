@@ -39,7 +39,7 @@ class CompositePluginLoader : PluginLoader {
     override fun loadPlugin(pluginPath: Path, pluginDescriptor: PluginDescriptor): ClassLoader {
         for (loader in loaders) {
             if (loader.isApplicable(pluginPath)) {
-                Log.d { "$loader is applicable for holder $pluginPath" }
+                Log.d { "$loader is applicable for plugin $pluginPath" }
                 try {
                     return loader.loadPlugin(pluginPath, pluginDescriptor)!!
                 } catch (e: Exception) {
@@ -47,11 +47,11 @@ class CompositePluginLoader : PluginLoader {
                     Log.e { e.message.toString() }
                 }
             } else {
-                Log.d { "$loader is not applicable for holder $pluginPath" }
+                Log.d { "$loader is not applicable for plugin $pluginPath" }
 
             }
         }
-        throw RuntimeException("No PluginLoader for holder '$pluginPath' and descriptor '$pluginDescriptor'")
+        throw RuntimeException("No PluginLoader for plugin '$pluginPath' and descriptor '$pluginDescriptor'")
     }
 
 }

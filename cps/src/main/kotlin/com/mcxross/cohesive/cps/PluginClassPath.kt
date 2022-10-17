@@ -4,7 +4,7 @@ import java.util.*
 
 
 /**
- * The classpath of the holder.
+ * The classpath of the plugin.
  * It contains `classes` directories (directories that contain classes files)
  * and `jars` directories (directories that contain jars files).
  */

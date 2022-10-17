@@ -12,13 +12,13 @@ class DefaultExtensionFinder(pluginManager: PluginManager) : ExtensionFinder,
     init {
         this.pluginManager = pluginManager
         add(LegacyExtensionFinder(pluginManager))
-        //        plus(new ServiceProviderExtensionFinder(pluginManager));
+        //plus(new ServiceProviderExtensionFinder(pluginManager));
     }
 
     override fun <T> find(type: Class<T>): List<ExtensionWrapper<T>> {
         val extensions: MutableList<ExtensionWrapper<T>> = ArrayList()
         for (finder in finders) {
-            extensions.plus(finder.find(type))
+            extensions.addAll(finder.find(type))
         }
         return extensions
     }
@@ -26,7 +26,7 @@ class DefaultExtensionFinder(pluginManager: PluginManager) : ExtensionFinder,
     override fun <T> find(type: Class<T>, pluginId: String): List<ExtensionWrapper<T>> {
         val extensions: MutableList<ExtensionWrapper<T>> = ArrayList()
         for (finder in finders) {
-            extensions.plus(finder.find(type, pluginId))
+            extensions.addAll(finder.find(type, pluginId))
         }
         return extensions
     }
@@ -34,7 +34,7 @@ class DefaultExtensionFinder(pluginManager: PluginManager) : ExtensionFinder,
     override fun <T> find(pluginId: String): List<ExtensionWrapper<T>> {
         val extensions: MutableList<ExtensionWrapper<T>> = ArrayList()
         for (finder in finders) {
-            extensions.plus(finder.find(pluginId))
+            extensions.addAll(finder.find(pluginId))
         }
         return extensions
     }

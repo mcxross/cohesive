@@ -16,32 +16,32 @@ class ClassLoadingStrategy(val sources: List<Source>) {
 
     companion object {
         /**
-         * application(parent) -> holder -> dependencies
+         * application(parent) -> plugin -> dependencies
          */
         val APD = ClassLoadingStrategy(listOf(Source.APPLICATION, Source.PLUGIN, Source.DEPENDENCIES))
 
         /**
-         * application(parent) -> dependencies -> holder
+         * application(parent) -> dependencies -> plugin
          */
         val ADP = ClassLoadingStrategy(listOf(Source.APPLICATION, Source.DEPENDENCIES, Source.PLUGIN))
 
         /**
-         * holder -> application(parent) -> dependencies
+         * plugin -> application(parent) -> dependencies
          */
         val PAD = ClassLoadingStrategy(listOf(Source.PLUGIN, Source.APPLICATION, Source.DEPENDENCIES))
 
         /**
-         * dependencies -> application(parent) -> holder
+         * dependencies -> application(parent) -> plugin
          */
         val DAP = ClassLoadingStrategy(listOf(Source.DEPENDENCIES, Source.APPLICATION, Source.PLUGIN))
 
         /**
-         * dependencies -> holder -> application(parent)
+         * dependencies -> plugin -> application(parent)
          */
         val DPA = ClassLoadingStrategy(listOf(Source.DEPENDENCIES, Source.PLUGIN, Source.APPLICATION))
 
         /**
-         * holder -> dependencies -> application(parent)
+         * plugin -> dependencies -> application(parent)
          */
         val PDA = ClassLoadingStrategy(listOf(Source.PLUGIN, Source.DEPENDENCIES, Source.APPLICATION))
     }

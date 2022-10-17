@@ -3,7 +3,7 @@ package com.mcxross.cohesive.cps
 import java.nio.file.Path
 
 /**
- * Provides the functionality for holder management such as load,
+ * Provides the functionality for plugin management such as load,
  * start and stop the plugins.
  */
 interface PluginManager {
@@ -33,10 +33,10 @@ interface PluginManager {
     val startedPlugins: List<Any?>?
 
     /**
-     * Retrieves the holder with this id, or null if the holder does not exist.
+     * Retrieves the plugin with this id, or null if the plugin does not exist.
      *
-     * @param pluginId the unique holder identifier, specified in its metadata
-     * @return A PluginWrapper object for this holder, or null if it does not exist.
+     * @param pluginId the unique plugin identifier, specified in its metadata
+     * @return A PluginWrapper object for this plugin, or null if it does not exist.
      */
     fun getPlugin(pluginId: String): PluginWrapper
 
@@ -46,10 +46,10 @@ interface PluginManager {
     fun loadPlugins()
 
     /**
-     * Load a holder.
+     * Load a plugin.
      *
-     * @param pluginPath the holder location
-     * @return the pluginId of the installed holder as specified in its [metadata][PluginDescriptor]
+     * @param pluginPath the plugin location
+     * @return the pluginId of the installed plugin as specified in its [metadata][PluginDescriptor]
      * @throws PluginRuntimeException if something goes wrong
      */
     fun loadPlugin(pluginPath: Path): String?
@@ -60,9 +60,9 @@ interface PluginManager {
     fun startPlugins()
 
     /**
-     * Start the specified holder and its dependencies.
+     * Start the specified plugin and its dependencies.
      *
-     * @return the holder state
+     * @return the plugin state
      * @throws PluginRuntimeException if something goes wrong
      */
     fun startPlugin(pluginId: String): PluginState?
@@ -73,9 +73,9 @@ interface PluginManager {
     fun stopPlugins()
 
     /**
-     * Stop the specified holder and its dependencies.
+     * Stop the specified plugin and its dependencies.
      *
-     * @return the holder state
+     * @return the plugin state
      * @throws PluginRuntimeException if something goes wrong
      */
     fun stopPlugin(pluginId: String): PluginState?
@@ -86,37 +86,37 @@ interface PluginManager {
     fun unloadPlugins()
 
     /**
-     * Unload a holder.
+     * Unload a plugin.
      *
-     * @param pluginId the unique holder identifier, specified in its metadata
-     * @return true if the holder was unloaded
+     * @param pluginId the unique plugin identifier, specified in its metadata
+     * @return true if the plugin was unloaded
      * @throws PluginRuntimeException if something goes wrong
      */
     fun unloadPlugin(pluginId: String): Boolean
 
     /**
-     * Disables a holder from being loaded.
+     * Disables a plugin from being loaded.
      *
-     * @param pluginId the unique holder identifier, specified in its metadata
-     * @return true if holder is disabled
+     * @param pluginId the unique plugin identifier, specified in its metadata
+     * @return true if plugin is disabled
      * @throws PluginRuntimeException if something goes wrong
      */
     fun disablePlugin(pluginId: String): Boolean
 
     /**
-     * Enables a holder that has previously been disabled.
+     * Enables a plugin that has previously been disabled.
      *
-     * @param pluginId the unique holder identifier, specified in its metadata
-     * @return true if holder is enabled
+     * @param pluginId the unique plugin identifier, specified in its metadata
+     * @return true if plugin is enabled
      * @throws PluginRuntimeException if something goes wrong
      */
     fun enablePlugin(pluginId: String): Boolean
 
     /**
-     * Deletes a holder.
+     * Deletes a plugin.
      *
-     * @param pluginId the unique holder identifier, specified in its metadata
-     * @return true if the holder was deleted
+     * @param pluginId the unique plugin identifier, specified in its metadata
+     * @return true if the plugin was deleted
      * @throws PluginRuntimeException if something goes wrong
      */
     fun deletePlugin(pluginId: String): Boolean
@@ -159,7 +159,7 @@ interface PluginManager {
      * @return the system version
      */
     /**
-     * Set the system version.  This is used to compare against the holder
+     * Set the system version.  This is used to compare against the plugin
      * requires attribute.  The default system version is 0.0.0 which
      * disables all version checking.
      *

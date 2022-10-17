@@ -6,11 +6,8 @@ import java.io.IOException
 import java.util.*
 
 /**
- * This class holds the parameters of an [org.pf4j.Extension]
+ * This class holds the parameters of an [com.mcxross.cohesive.cps.Extension]
  * annotation defined for a certain class.
- *
- * @author Andreas Rudolph
- * @author Decebal Suiu
  */
 class ExtensionInfo private constructor(
     /**

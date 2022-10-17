@@ -81,9 +81,9 @@ class DependencyResolver(versionManager: VersionManager) {
     }
 
     /**
-     * Retrieves the plugins ids that the given holder id directly depends on.
+     * Retrieves the plugins ids that the given plugin id directly depends on.
      *
-     * @param pluginId the unique holder identifier, specified in its metadata
+     * @param pluginId the unique plugin identifier, specified in its metadata
      * @return an immutable list of dependencies (new list for each call)
      */
     fun getDependencies(pluginId: String): List<String> {
@@ -94,7 +94,7 @@ class DependencyResolver(versionManager: VersionManager) {
     /**
      * Retrieves the plugins ids that the given content is a direct dependency of.
      *
-     * @param pluginId the unique holder identifier, specified in its metadata
+     * @param pluginId the unique plugin identifier, specified in its metadata
      * @return an immutable list of dependents (new list for each call)
      */
     fun getDependents(pluginId: String): MutableList<String> {
@@ -103,7 +103,7 @@ class DependencyResolver(versionManager: VersionManager) {
     }
 
     /**
-     * Check if an existing version of dependency is compatible with the required version (from holder descriptor).
+     * Check if an existing version of dependency is compatible with the required version (from plugin descriptor).
      *
      * @param requiredVersion
      * @param existingVersion
@@ -122,7 +122,7 @@ class DependencyResolver(versionManager: VersionManager) {
         } else {
             var edgeAdded = false
             for (dependency: PluginDependency in dependencies) {
-                // Don't register optional plugins in the dependency graph to avoid automatic disabling of the holder,
+                // Don't register optional plugins in the dependency graph to avoid automatic disabling of the plugin,
                 // if an optional dependency is missing.
                 if (!dependency.isOptional) {
                     edgeAdded = true
@@ -131,7 +131,7 @@ class DependencyResolver(versionManager: VersionManager) {
                 }
             }
 
-            // Register the holder without dependencies, if all of its dependencies are optional.
+            // Register the plugin without dependencies, if all of its dependencies are optional.
             if (!edgeAdded) {
                 dependenciesGraph?.addVertex(pluginId)
                 dependentsGraph?.addVertex(pluginId)
@@ -154,7 +154,7 @@ class DependencyResolver(versionManager: VersionManager) {
         }
         throw IllegalStateException(
             "Cannot find a dependency with id '" + dependencyId +
-                    "' for holder '" + dependent.pluginId + "'"
+                    "' for plugin '" + dependent.pluginId + "'"
         )
     }
 

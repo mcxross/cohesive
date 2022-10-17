@@ -16,9 +16,9 @@ import java.util.*
  */
 class ServiceProviderExtensionFinder(pluginManager: PluginManager) :
     AbstractExtensionFinder(pluginManager) {
-    override fun readClasspathStorages(): MutableMap<String?, Set<String>> {
+    override fun readClasspathStorages(): MutableMap<String, Set<String>> {
         Log.d { "Reading classpath storages" }
-        val result: MutableMap<String?, Set<String>> = LinkedHashMap()
+        val result: MutableMap<String, Set<String>> = LinkedHashMap()
         val bucket: MutableSet<String> = HashSet()
         try {
             val urls = javaClass.classLoader.getResources(EXTENSIONS_RESOURCE)
@@ -28,7 +28,7 @@ class ServiceProviderExtensionFinder(pluginManager: PluginManager) :
                 Log.d { "No extensions found in classpath $EXTENSIONS_RESOURCE" }
             }
             debugExtensions(bucket)
-            result[null] = bucket
+            result["cohesive"] = bucket
         } catch (e: IOException) {
             Log.e { "Error reading extensions from classpath ${e.message.toString()}" }
         } catch (e: URISyntaxException) {
@@ -43,7 +43,7 @@ class ServiceProviderExtensionFinder(pluginManager: PluginManager) :
         val plugins: List<PluginWrapper> = (pluginManager.plugins as List<PluginWrapper>?)!!
         for (plugin in plugins) {
             val pluginId: String = plugin.getDescriptor().pluginId
-            Log.d { "Reading extensions storages from holder $pluginId" }
+            Log.d { "Reading extensions storages from plugin $pluginId" }
             val bucket: MutableSet<String> = HashSet()
             try {
                 val urls: Enumeration<URL> =
@@ -58,9 +58,9 @@ class ServiceProviderExtensionFinder(pluginManager: PluginManager) :
                 debugExtensions(bucket)
                 result[pluginId] = bucket
             } catch (e: IOException) {
-                Log.e { "Error reading extensions from holder $pluginId ${e.message.toString()}" }
+                Log.e { "Error reading extensions from plugin $pluginId ${e.message.toString()}" }
             } catch (e: URISyntaxException) {
-                Log.e { "Error reading extensions from holder $pluginId ${e.message.toString()}" }
+                Log.e { "Error reading extensions from plugin $pluginId ${e.message.toString()}" }
             }
         }
         return result

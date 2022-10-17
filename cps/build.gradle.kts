@@ -20,6 +20,7 @@ dependencies {
     implementation("com.google.devtools.ksp:symbol-processing-api:1.6.10-1.0.4")
     implementation("com.squareup.okio:okio:$okioVersion")
     implementation("com.akuleshov7:ktoml-core:0.2.11")
+    implementation(kotlin("reflect"))
 }
 
 sourceSets.main {

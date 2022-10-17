@@ -14,7 +14,7 @@ class PluginStateEvent(source: PluginManager, val plugin: PluginWrapper, val old
     }
 
     override fun toString(): String {
-        return "PluginStateEvent [holder=" + plugin.pluginId +
+        return "PluginStateEvent [plugin=" + plugin.pluginId +
                 ", newState=" + pluginState +
                 ", oldState=" + oldState +
                 ']'

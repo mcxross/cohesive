@@ -3,6 +3,7 @@ package com.mcxross.cohesive.common
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.ApplicationScope
 import androidx.compose.ui.window.application
+import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IStore
 import com.mcxross.cohesive.common.utils.Log
 import com.mcxross.cohesive.cps.DefaultPluginManager
 
@@ -15,6 +16,7 @@ object Cohesive {
         Log.i { "Cohesive starting..." }
 
         val pluginManager = DefaultPluginManager()
+        Log.i { pluginManager.getExtensions(IStore::class.java).toString() }
     }
 
     fun run(

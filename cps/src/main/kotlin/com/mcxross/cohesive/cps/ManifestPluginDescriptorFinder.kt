@@ -11,7 +11,7 @@ import java.util.jar.Manifest
 import java.util.zip.ZipFile
 
 /**
- * Read the holder descriptor from the manifest file.
+ * Read the plugin descriptor from the manifest file.
  */
 class ManifestPluginDescriptorFinder : PluginDescriptorFinder {
     override fun isApplicable(pluginPath: Path): Boolean {
@@ -94,7 +94,7 @@ class ManifestPluginDescriptorFinder : PluginDescriptorFinder {
         // legacy (the path is something like "classes/META-INF/MANIFEST.MF")
         val manifestPath: Path = FileUtils.findFile(pluginPath, "MANIFEST.MF")
             ?: throw PluginRuntimeException("Cannot find the manifest path")
-        Log.d { "Lookup holder descriptor in $manifestPath" }
+        Log.d { "Lookup plugin descriptor in $manifestPath" }
         if (Files.notExists(manifestPath)) {
             throw PluginRuntimeException("Cannot find '{}' path", manifestPath)
         }

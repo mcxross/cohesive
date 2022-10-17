@@ -23,7 +23,7 @@ annotation class Extension(
      */
     val points: Array<KClass<out ExtensionPoint>> = [],
     /**
-     * An array of holder IDs, that have to be available in order to load this extension.
+     * An array of plugin IDs, that have to be available in order to load this extension.
      * The [AbstractExtensionFinder] won't load this extension, if these plugins are not
      * available / started at runtime.
      *
@@ -32,7 +32,7 @@ annotation class Extension(
      * to be available on the applications classpath and has to be explicitly enabled via
      * [AbstractExtensionFinder.setCheckForExtensionDependencies].
      *
-     * @return holder IDs, that have to be available in order to load this extension
+     * @return plugin IDs, that have to be available in order to load this extension
      */
     val plugins: Array<String> = [],
 )

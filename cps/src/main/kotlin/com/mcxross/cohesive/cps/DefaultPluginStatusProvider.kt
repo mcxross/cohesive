@@ -34,11 +34,11 @@ class DefaultPluginStatusProvider(private val pluginsRoot: Path) : PluginStatusP
             plugins.role(config.secondaryKindStatus)
             plugins.role(config.tertiaryKindStatus)
 
-            // create a list with holder identifiers that should be only accepted by this manager (whitelist from plugins/enabled.txt file)
+            // create a list with plugin identifiers that should be only accepted by this manager (whitelist from plugins/enabled.txt file)
             //enabledPlugins = FileUtils.readLines(enabledFilePath, true).toMutableList()
             Log.i { "Enabled plugins: ${plugins.enabled}" }
 
-            // create a list with holder identifiers that should not be accepted by this manager (blacklist from plugins/disabled.txt file)
+            // create a list with plugin identifiers that should not be accepted by this manager (blacklist from plugins/disabled.txt file)
             //disabledPlugins = FileUtils.readLines(disabledFilePath, true).toMutableList()
             Log.i { "Disabled plugins: ${plugins.disabled}" }
         } catch (e: IOException) {

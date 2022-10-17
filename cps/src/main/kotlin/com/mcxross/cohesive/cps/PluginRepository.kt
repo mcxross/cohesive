@@ -3,20 +3,20 @@ package com.mcxross.cohesive.cps
 import java.nio.file.Path
 
 /**
- * Directory that contains plugins. A holder could be a `directory`, @code zip} or `jar` file.
+ * Directory that contains plugins. A plugin could be a `directory`, @code zip} or `jar` file.
  */
 interface PluginRepository {
     /**
-     * List all holder paths.
+     * List all plugin paths.
      *
      * @return a list with paths
      */
     val pluginPaths: List<Path>
 
     /**
-     * Removes a holder from the repository.
+     * Removes a plugin from the repository.
      *
-     * @param pluginPath the holder path
+     * @param pluginPath the plugin path
      * @return true if deleted
      * @throws PluginRuntimeException if something goes wrong
      */
