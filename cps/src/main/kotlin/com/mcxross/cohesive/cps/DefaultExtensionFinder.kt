@@ -4,13 +4,13 @@ package com.mcxross.cohesive.cps
  * The default implementation for [ExtensionFinder].
  * It's a compound `ExtensionFinder`.
  */
-class DefaultExtensionFinder(pluginManager: PluginManager) : ExtensionFinder,
+open class DefaultExtensionFinder(val pluginManager: PluginManager) : ExtensionFinder,
     PluginStateListener {
-    protected var pluginManager: PluginManager
+
     protected var finders: MutableList<ExtensionFinder> = ArrayList()
 
     init {
-        this.pluginManager = pluginManager
+
         add(LegacyExtensionFinder(pluginManager))
         //plus(new ServiceProviderExtensionFinder(pluginManager));
     }

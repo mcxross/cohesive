@@ -4,9 +4,8 @@ import com.mcxross.cohesive.cps.asm.ExtensionInfo
 import com.mcxross.cohesive.cps.utils.ClassUtils
 import com.mcxross.cohesive.cps.utils.Log
 
-abstract class AbstractExtensionFinder(pluginManager: PluginManager) : ExtensionFinder,
+abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : ExtensionFinder,
     PluginStateListener {
-    protected var pluginManager: PluginManager
 
     @Volatile
     protected var entries: MutableMap<String, Set<String>> = readStorages()
@@ -16,11 +15,7 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
             : MutableMap<String, ExtensionInfo?>
     protected var checkForExtensionDependencies: Boolean? = null
 
-    init {
-        this.pluginManager = pluginManager
-    }
-
-    abstract fun readPluginsStorages(): Map<String, Set<String>>?
+    abstract fun readPluginsStorages(): Map<String, Set<String>>
     abstract fun readClasspathStorages(): MutableMap<String, Set<String>>
     override fun <T> find(type: Class<T>): List<ExtensionWrapper<T>> {
         Log.d { "Finding extensions of extension point ${type.name}" }
@@ -252,7 +247,7 @@ abstract class AbstractExtensionFinder(pluginManager: PluginManager) : Extension
     private fun readStorages(): MutableMap<String, Set<String>> {
         val result: MutableMap<String, Set<String>> = LinkedHashMap()
         result.putAll(readClasspathStorages())
-        //result.putAll(readPluginsStorages()!!)
+        result.putAll(readPluginsStorages())
         return result
     }
 
