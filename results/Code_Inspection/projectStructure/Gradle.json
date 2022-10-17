@@ -210,6 +210,14 @@
       "version": "1.6.10-1.0.4"
     },
     {
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.6.10",
+      "gradleName": "org.jetbrains.kotlin:kotlin-reflect:1.6.10",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlin",
+      "artifactId": "kotlin-reflect",
+      "version": "1.6.10"
+    },
+    {
       "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
       "gradleName": "org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
       "unresolved": false,
