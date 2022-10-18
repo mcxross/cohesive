@@ -2,7 +2,6 @@ package com.mcxross.cohesive.cps.utils
 
 import java.io.File
 import java.io.FileFilter
-import java.util.*
 
 
 /**
@@ -14,10 +13,9 @@ import java.util.*
 class AndFileFilter @JvmOverloads constructor(fileFilters: List<FileFilter> = ArrayList()) : FileFilter {
 
     /** The list of file filters.  */
-     var fileFilters = ArrayList(fileFilters)
+    var fileFilters = ArrayList(fileFilters)
 
     constructor(vararg fileFilters: FileFilter) : this(listOf<FileFilter>(*fileFilters)) {}
-
 
     fun removeFileFilter(fileFilter: FileFilter): Boolean {
         return fileFilters.remove(fileFilter)
@@ -27,8 +25,8 @@ class AndFileFilter @JvmOverloads constructor(fileFilters: List<FileFilter> = Ar
         if (fileFilters.isEmpty()) {
             return false
         }
-        for (fileFilter in fileFilters) {
-            if (!fileFilter.accept(file)) {
+        fileFilters.forEach {
+            if (!it.accept(file)) {
                 return false
             }
         }

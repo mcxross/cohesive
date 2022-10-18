@@ -14,7 +14,7 @@ open class DefaultExtensionFactory : ExtensionFactory {
     override fun <T> create(extensionClass: Class<T>): T {
         Log.d { "Creating extension instance for $extensionClass" }
         return try {
-            extensionClass.newInstance()
+            extensionClass.getDeclaredConstructor().newInstance()
         } catch (e: Exception) {
             throw PluginRuntimeException(e)
         }

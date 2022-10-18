@@ -17,21 +17,12 @@ class OrFileFilter @JvmOverloads constructor(fileFilters: List<FileFilter> = Arr
 
     constructor(vararg fileFilters: FileFilter) : this(listOf<FileFilter>(*fileFilters)) {}
 
-    fun addFileFilter(fileFilter: FileFilter): OrFileFilter {
-        fileFilters.add(fileFilter)
-        return this
-    }
-
-    fun removeFileFilter(fileFilter: FileFilter): Boolean {
-        return fileFilters.remove(fileFilter)
-    }
-
     override fun accept(file: File): Boolean {
         if (fileFilters.isEmpty()) {
             return true
         }
-        for (fileFilter in fileFilters) {
-            if (fileFilter.accept(file)) {
+        fileFilters.forEach {
+            if (it.accept(file)) {
                 return true
             }
         }

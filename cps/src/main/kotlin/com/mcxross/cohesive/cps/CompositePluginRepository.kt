@@ -5,9 +5,9 @@ import java.nio.file.Path
 fun compositePluginRepository(
     repo: CompositePluginRepository.() -> Unit,
 ): PluginRepository {
-    val repository = CompositePluginRepository()
-    repo(repository)
-    return repository
+    val compositePluginRepository = CompositePluginRepository()
+    compositePluginRepository.repo()
+    return compositePluginRepository
 }
 
 /**
@@ -22,8 +22,8 @@ class CompositePluginRepository : PluginRepository {
     override val pluginPaths: List<Path>
         get() {
             val paths: MutableSet<Path> = LinkedHashSet()
-            for (repository in repositories) {
-                paths.addAll(repository.pluginPaths)
+            repositories.forEach {
+                paths.addAll(it.pluginPaths)
             }
             return ArrayList(paths)
         }
@@ -43,8 +43,8 @@ class CompositePluginRepository : PluginRepository {
      * @return [Boolean] true if the path was cleared, false otherwise.
      */
     override fun deletePluginPath(pluginPath: Path): Boolean {
-        for (repository in repositories) {
-            if (repository.deletePluginPath(pluginPath)) {
+        repositories.forEach {
+            if (it.deletePluginPath(pluginPath)) {
                 return true
             }
         }

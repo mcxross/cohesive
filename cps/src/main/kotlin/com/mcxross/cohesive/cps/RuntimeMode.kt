@@ -8,7 +8,6 @@ enum class RuntimeMode(
     DEVELOPMENT("development", "dev"),  // development
     DEPLOYMENT("deployment", "prod");
 
-
     override fun toString(): String {
         return name
     }
@@ -17,10 +16,10 @@ enum class RuntimeMode(
         private val map: MutableMap<String, RuntimeMode> = HashMap()
 
         init {
-            for (mode: RuntimeMode in RuntimeMode.values()) {
-                map[mode.name] = mode
-                for (alias: String in mode.aliases) {
-                    map[alias] = mode
+            RuntimeMode.values().forEach {
+                map[it.name] = it
+                for (alias: String in it.aliases) {
+                    map[alias] = it
                 }
             }
         }
@@ -30,7 +29,7 @@ enum class RuntimeMode(
                 return map[name]
             }
             throw NoSuchElementException(
-                "Cannot found PF4J runtime mode with name '" + name + "'." +
+                "Cannot found CPS runtime mode with name '" + name + "'." +
                         "Must be one value from '" + map.keys + "."
             )
         }

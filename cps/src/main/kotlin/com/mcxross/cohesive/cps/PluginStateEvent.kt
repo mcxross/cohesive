@@ -7,7 +7,7 @@ class PluginStateEvent(source: PluginManager, val plugin: PluginWrapper, val old
     EventObject(source) {
 
     val pluginState: PluginState
-        get() = plugin.getPluginState()
+        get() = plugin.pluginState
 
     override fun getSource(): PluginManager {
         return super.getSource() as PluginManager

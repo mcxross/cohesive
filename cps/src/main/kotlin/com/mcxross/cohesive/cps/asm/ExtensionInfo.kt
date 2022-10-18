@@ -54,7 +54,10 @@ class ExtensionInfo private constructor(
          * @param classLoader class pluginLoader to access the class
          * @return the [ExtensionInfo], if the class was annotated with an [Extension], otherwise null
          */
-        fun load(className: String, classLoader: ClassLoader): ExtensionInfo? {
+        fun load(
+            className: String,
+            classLoader: ClassLoader,
+        ): ExtensionInfo? {
             try {
                 classLoader.getResourceAsStream(className.replace('.', '/') + ".class").use { input ->
                     val info = ExtensionInfo(className)

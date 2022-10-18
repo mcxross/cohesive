@@ -2,7 +2,6 @@ package com.mcxross.cohesive.cps.utils
 
 import javax.lang.model.element.AnnotationMirror
 import javax.lang.model.element.AnnotationValue
-import javax.lang.model.element.ExecutableElement
 import javax.lang.model.element.TypeElement
 
 object ClassUtils {
@@ -60,9 +59,9 @@ object ClassUtils {
      */
     fun getAnnotationMirror(typeElement: TypeElement, annotationClass: Class<*>): AnnotationMirror? {
         val annotationClassName = annotationClass.name
-        for (m in typeElement.annotationMirrors) {
-            if (m.annotationType.toString() == annotationClassName) {
-                return m
+        typeElement.annotationMirrors.forEach {
+            if (it.annotationType.toString() == annotationClassName) {
+                return it
             }
         }
         return null
@@ -83,11 +82,11 @@ object ClassUtils {
      * @throws NullPointerException if `annotationMirror` is null
      */
     fun getAnnotationValue(annotationMirror: AnnotationMirror, annotationParameter: String): AnnotationValue? {
-       /* for ((key, value): Map.Entry<ExecutableElement?, AnnotationValue?> in annotationMirror.elementValues) {
-            if (key!!.simpleName.toString() == annotationParameter) {
-                return value
-            }
-        }*/
+        /* for ((key, value): Map.Entry<ExecutableElement?, AnnotationValue?> in annotationMirror.elementValues) {
+             if (key!!.simpleName.toString() == annotationParameter) {
+                 return value
+             }
+         }*/
         return null
     }
 
@@ -118,8 +117,8 @@ object ClassUtils {
      */
     private fun toString(classes: List<Class<*>>): List<String> {
         val list: MutableList<String> = ArrayList()
-        for (aClass in classes) {
-            list.add(aClass.simpleName)
+        classes.forEach {
+            list.add(it.simpleName)
         }
         return list
     }

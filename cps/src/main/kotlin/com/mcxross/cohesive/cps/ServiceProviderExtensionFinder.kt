@@ -42,7 +42,7 @@ class ServiceProviderExtensionFinder(pluginManager: PluginManager) :
         val result: MutableMap<String, Set<String>> = LinkedHashMap()
         val plugins: List<PluginWrapper> = (pluginManager.plugins as List<PluginWrapper>?)!!
         for (plugin in plugins) {
-            val pluginId: String = plugin.getDescriptor().pluginId
+            val pluginId: String = plugin.descriptor.pluginId
             Log.d { "Reading extensions storages from plugin $pluginId" }
             val bucket: MutableSet<String> = HashSet()
             try {
@@ -94,7 +94,7 @@ class ServiceProviderExtensionFinder(pluginManager: PluginManager) :
         val result: Set<String> = HashSet()
         Files.walkFileTree(extensionPath, emptySet(), 1, object : SimpleFileVisitor<Path?>() {
             @Throws(IOException::class)
-            override fun visitFile(file: Path?, attrs: BasicFileAttributes?): FileVisitResult? {
+            override fun visitFile(file: Path?, attrs: BasicFileAttributes?): FileVisitResult {
                 Log.d { "Read extension file $file" }
                 Files.newBufferedReader(file!!, StandardCharsets.UTF_8).use { reader ->
                     /*ExtensionStorage.read(

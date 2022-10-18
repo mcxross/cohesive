@@ -145,9 +145,9 @@ abstract class AbstractPluginManager : PluginManager {
     override fun pluginsWithState(pluginState: PluginState): List<PluginWrapper>? {
 
         val plugins: MutableList<PluginWrapper> = ArrayList<PluginWrapper>()
-        for (plugin: PluginWrapper in plugins) {
-            if ((pluginState == plugin.getPluginState())) {
-                plugins.add(plugin)
+        plugins.forEach {
+            if ((pluginState == it.pluginState)) {
+                plugins.add(it)
             }
         }
         return plugins
@@ -167,7 +167,7 @@ abstract class AbstractPluginManager : PluginManager {
 
         // try to resolve  the loaded plugin together with other possible plugins that depend on this plugin
         resolvePlugins()
-        return pluginWrapper?.getDescriptor()!!.pluginId
+        return pluginWrapper?.descriptor!!.pluginId
     }
 
     /**
@@ -245,7 +245,7 @@ abstract class AbstractPluginManager : PluginManager {
                 return false
             }
             val pluginWrapper: PluginWrapper = getPlugin(pluginId)
-            Log.i { "Unload plugin ${getPluginLabel(pluginWrapper.getDescriptor())}" }
+            Log.i { "Unload plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
 
             // remove the plugin
             pluginsMap.remove(pluginId)
@@ -301,22 +301,22 @@ abstract class AbstractPluginManager : PluginManager {
      */
     override fun startPlugins() {
         for (pluginWrapper: PluginWrapper in resolvedPlugins) {
-            val pluginState: PluginState = pluginWrapper.getPluginState()
+            val pluginState: PluginState = pluginWrapper.pluginState
             if ((PluginState.DISABLED != pluginState) && (PluginState.STARTED != pluginState)) {
                 try {
-                    Log.i { "Start plugin ${getPluginLabel(pluginWrapper.getDescriptor())}" }
+                    Log.i { "Start plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
                     pluginWrapper.plugin!!.start()
-                    pluginWrapper.setPluginState(PluginState.STARTED)
+                    pluginWrapper.pluginState = PluginState.STARTED
                     pluginWrapper.failedException = null
                     startedPlugins.add(pluginWrapper)
                 } catch (e: Exception) {
-                    pluginWrapper.setPluginState(PluginState.FAILED)
+                    pluginWrapper.pluginState = PluginState.FAILED
                     pluginWrapper.failedException = e
-                    Log.e { "Unable to start plugin ${getPluginLabel(pluginWrapper.getDescriptor())}" }
+                    Log.e { "Unable to start plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
                 } catch (e: LinkageError) {
-                    pluginWrapper.setPluginState(PluginState.FAILED)
+                    pluginWrapper.pluginState = PluginState.FAILED
                     pluginWrapper.failedException = e
-                    Log.e { "Unable to start plugin ${getPluginLabel(pluginWrapper.getDescriptor())}" }
+                    Log.e { "Unable to start plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
                 } finally {
                     firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
                 }
@@ -330,8 +330,8 @@ abstract class AbstractPluginManager : PluginManager {
     override fun startPlugin(pluginId: String): PluginState {
         checkPluginId(pluginId)
         val pluginWrapper: PluginWrapper = getPlugin(pluginId)
-        val pluginDescriptor: PluginDescriptor = pluginWrapper.getDescriptor()
-        val pluginState: PluginState = pluginWrapper.getPluginState()
+        val pluginDescriptor: PluginDescriptor = pluginWrapper.descriptor
+        val pluginState: PluginState = pluginWrapper.pluginState
         if (PluginState.STARTED == pluginState) {
             Log.d { "Already started plugin ${getPluginLabel(pluginDescriptor)}" }
             return PluginState.STARTED
@@ -354,10 +354,10 @@ abstract class AbstractPluginManager : PluginManager {
         }
         Log.i { "Start plugin ${getPluginLabel(pluginDescriptor)}" }
         pluginWrapper.plugin!!.start()
-        pluginWrapper.setPluginState(PluginState.STARTED)
+        pluginWrapper.pluginState = PluginState.STARTED
         startedPlugins.add(pluginWrapper)
         firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
-        return pluginWrapper.getPluginState()
+        return pluginWrapper.pluginState
     }
 
     /**
@@ -370,12 +370,12 @@ abstract class AbstractPluginManager : PluginManager {
         val itr: MutableIterator<PluginWrapper> = startedPlugins.iterator()
         while (itr.hasNext()) {
             val pluginWrapper: PluginWrapper = itr.next()
-            val pluginState: PluginState = pluginWrapper.getPluginState()
+            val pluginState: PluginState = pluginWrapper.pluginState
             if (PluginState.STARTED == pluginState) {
                 try {
-                    Log.i { "Stop plugin ${getPluginLabel(pluginWrapper.getDescriptor())}" }
+                    Log.i { "Stop plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
                     pluginWrapper.plugin?.stop()
-                    pluginWrapper.setPluginState(PluginState.STOPPED)
+                    pluginWrapper.pluginState = PluginState.STOPPED
                     itr.remove()
                     firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
                 } catch (e: PluginRuntimeException) {
@@ -395,8 +395,8 @@ abstract class AbstractPluginManager : PluginManager {
     protected fun stopPlugin(pluginId: String, stopDependents: Boolean): PluginState {
         checkPluginId(pluginId)
         val pluginWrapper: PluginWrapper = getPlugin(pluginId)
-        val pluginDescriptor: PluginDescriptor = pluginWrapper.getDescriptor()
-        val pluginState: PluginState = pluginWrapper.getPluginState()
+        val pluginDescriptor: PluginDescriptor = pluginWrapper.descriptor
+        val pluginState: PluginState = pluginWrapper.pluginState
         if (PluginState.STOPPED == pluginState) {
             Log.d { "Already stopped plugin ${getPluginLabel(pluginDescriptor)}" }
             return PluginState.STOPPED
@@ -417,10 +417,10 @@ abstract class AbstractPluginManager : PluginManager {
         }
         Log.i { "Stop plugin ${getPluginLabel(pluginDescriptor)}" }
         pluginWrapper.plugin?.stop()
-        pluginWrapper.setPluginState(PluginState.STOPPED)
+        pluginWrapper.pluginState = PluginState.STOPPED
         startedPlugins.remove(pluginWrapper)
         firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
-        return pluginWrapper.getPluginState()
+        return pluginWrapper.pluginState
     }
 
     protected fun checkPluginId(pluginId: String?) {
@@ -432,14 +432,14 @@ abstract class AbstractPluginManager : PluginManager {
     override fun disablePlugin(pluginId: String): Boolean {
         checkPluginId(pluginId)
         val pluginWrapper: PluginWrapper = getPlugin(pluginId)
-        val pluginDescriptor: PluginDescriptor = pluginWrapper.getDescriptor()
-        val pluginState: PluginState = pluginWrapper.getPluginState()
+        val pluginDescriptor: PluginDescriptor = pluginWrapper.descriptor
+        val pluginState: PluginState = pluginWrapper.pluginState
         if (PluginState.DISABLED == pluginState) {
             Log.d { "Already disabled plugin ${getPluginLabel(pluginDescriptor)}" }
             return true
         }
         if (PluginState.STOPPED == stopPlugin(pluginId)) {
-            pluginWrapper.setPluginState(PluginState.DISABLED)
+            pluginWrapper.pluginState = PluginState.DISABLED
             firePluginStateEvent(PluginStateEvent(this, pluginWrapper, PluginState.STOPPED))
             pluginStatusProvider.disablePlugin(pluginId)
             Log.i { "Disabled plugin ${getPluginLabel(pluginDescriptor)}" }
@@ -452,17 +452,17 @@ abstract class AbstractPluginManager : PluginManager {
         checkPluginId(pluginId)
         val pluginWrapper: PluginWrapper = getPlugin(pluginId)
         if (!isPluginValid(pluginWrapper)) {
-            Log.w { "Plugin ${getPluginLabel(pluginWrapper.getDescriptor())} can not be enabled" }
+            Log.w { "Plugin ${getPluginLabel(pluginWrapper.descriptor)} can not be enabled" }
             return false
         }
-        val pluginDescriptor: PluginDescriptor = pluginWrapper.getDescriptor()
-        val pluginState: PluginState = pluginWrapper.getPluginState()
+        val pluginDescriptor: PluginDescriptor = pluginWrapper.descriptor
+        val pluginState: PluginState = pluginWrapper.pluginState
         if (PluginState.DISABLED != pluginState) {
             Log.d { "Plugin ${getPluginLabel(pluginDescriptor)} is not disabled" }
             return true
         }
         pluginStatusProvider.enablePlugin(pluginId)
-        pluginWrapper.setPluginState(PluginState.CREATED)
+        pluginWrapper.pluginState = PluginState.CREATED
         firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
         Log.i { "Enabled plugin ${getPluginLabel(pluginDescriptor)}" }
         return true
@@ -571,7 +571,7 @@ abstract class AbstractPluginManager : PluginManager {
      * @return true if plugin satisfies the "requires" or if requires was left blank
      */
     protected fun isPluginValid(pluginWrapper: PluginWrapper): Boolean {
-        var requires: String = pluginWrapper.getDescriptor().requires!!.trim { it <= ' ' }
+        var requires: String = pluginWrapper.descriptor.requires!!.trim { it <= ' ' }
         if (!isExactVersionAllowed && requires.matches(Regex("^\\init+\\.\\init+\\.\\init+$"))) {
             // If exact versions are not allowed in requires, rewrite to >= expression
             requires = ">=$requires"
@@ -579,7 +579,7 @@ abstract class AbstractPluginManager : PluginManager {
         if ((systemVersion == "0.0.0") || versionManager!!.checkVersionConstraint(systemVersion, requires)) {
             return true
         }
-        val pluginDescriptor: PluginDescriptor = pluginWrapper.getDescriptor()
+        val pluginDescriptor: PluginDescriptor = pluginWrapper.descriptor
         Log.w { "Plugin ${getPluginLabel(pluginDescriptor)} requires a minimum system version of $requires, and you have $systemVersion" }
         return false
     }
@@ -592,18 +592,18 @@ abstract class AbstractPluginManager : PluginManager {
         // retrieves the plugins descriptors
         val descriptors: MutableList<PluginDescriptor> = ArrayList<PluginDescriptor>()
         for (plugin: PluginWrapper in pluginsMap.values) {
-            descriptors.add(plugin.getDescriptor())
+            descriptors.add(plugin.descriptor)
         }
         val result: DependencyResolver.Result = dependencyResolver.resolve(descriptors)
         if (result.hasCyclicDependency()) {
             throw DependencyResolver.CyclicDependencyException()
         }
-        val notFoundDependencies: List<String> = result.getNotFoundDependencies()
+        val notFoundDependencies: List<String> = result.notFoundDependencies
         if (notFoundDependencies.isNotEmpty()) {
             throw DependencyResolver.DependenciesNotFoundException(notFoundDependencies)
         }
         val wrongVersionDependencies: List<DependencyResolver.WrongDependencyVersion> =
-            result.getWrongVersionDependencies()
+            result.wrongVersionDependencies
         if (wrongVersionDependencies.isNotEmpty()) {
             throw DependencyResolver.DependenciesWrongVersionException(wrongVersionDependencies)
         }
@@ -613,12 +613,12 @@ abstract class AbstractPluginManager : PluginManager {
         for (pluginId: String? in sortedPlugins) {
             val pluginWrapper: PluginWrapper = pluginsMap[pluginId]!!
             if (unresolvedPlugins.remove(pluginWrapper)) {
-                val pluginState: PluginState = pluginWrapper.getPluginState()
+                val pluginState: PluginState = pluginWrapper.pluginState
                 if (pluginState != PluginState.DISABLED) {
-                    pluginWrapper.setPluginState(PluginState.RESOLVED)
+                    pluginWrapper.pluginState = PluginState.RESOLVED
                 }
                 resolvedPlugins.add(pluginWrapper)
-                Log.i { "Plugin ${getPluginLabel(pluginWrapper.getDescriptor())} resolved" }
+                Log.i { "Plugin ${getPluginLabel(pluginWrapper.descriptor)} resolved" }
                 firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
             }
         }
@@ -672,13 +672,13 @@ abstract class AbstractPluginManager : PluginManager {
         // test for disabled plugin
         if (isPluginDisabled(pluginDescriptor.pluginId)) {
             Log.i { "Plugin $pluginPath is disabled" }
-            pluginWrapper.setPluginState(PluginState.DISABLED)
+            pluginWrapper.pluginState = PluginState.DISABLED
         }
 
         // validate the plugin
         if (!isPluginValid(pluginWrapper)) {
             Log.w { "Plugin $pluginPath is invalid and it will be disabled" }
-            pluginWrapper.setPluginState(PluginState.DISABLED)
+            pluginWrapper.pluginState = PluginState.DISABLED
         }
         Log.d { "Created wrapper $pluginWrapper for plugin $pluginPath" }
         pluginId = pluginDescriptor.pluginId
@@ -706,7 +706,7 @@ abstract class AbstractPluginManager : PluginManager {
         Log.d { "Creating wrapper for plugin $pluginPath" }
         val pluginWrapper: PluginWrapper =
             PluginWrapper(this, pluginDescriptor, pluginPath, pluginClassLoader)
-        pluginWrapper.setPluginFactory(pluginFactory)
+        pluginWrapper.pluginFactory = pluginFactory
         return pluginWrapper
     }
 

@@ -6,14 +6,14 @@ package com.mcxross.cohesive.cps
  */
 class DevelopmentPluginClasspath : PluginClasspath() {
     init {
-        addClassesDirectories(MAVEN.getClassesDirectories())
-        addClassesDirectories(GRADLE.getClassesDirectories())
-        addClassesDirectories(KOTLIN.getClassesDirectories())
-        addClassesDirectories(IDEA.getClassesDirectories())
-        addJarsDirectories(MAVEN.getJarsDirectories())
-        addJarsDirectories(GRADLE.getJarsDirectories())
-        addJarsDirectories(KOTLIN.getJarsDirectories())
-        addJarsDirectories(IDEA.getJarsDirectories())
+        addClassesDirectories(MAVEN.classesDirectories)
+        addClassesDirectories(GRADLE.classesDirectories)
+        addClassesDirectories(KOTLIN.classesDirectories)
+        addClassesDirectories(IDEA.classesDirectories)
+        addJarsDirectories(MAVEN.jarsDirectories)
+        addJarsDirectories(GRADLE.jarsDirectories)
+        addJarsDirectories(KOTLIN.jarsDirectories)
+        addJarsDirectories(IDEA.jarsDirectories)
     }
 
     companion object {

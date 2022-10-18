@@ -8,21 +8,21 @@ import java.nio.file.Path
 
 
 class DefaultPluginRepository(pluginsRoots: List<Path>) : BasePluginRepository(pluginsRoots) {
-    constructor(vararg pluginsRoots: Path) : this(mutableListOf<Path>(*pluginsRoots)) {}
 
     override var filter: FileFilter? = filter()
-    fun filter(): AndFileFilter {
-        val pluginsFilter =
-            AndFileFilter(DirectoryFileFilter())
-        pluginsFilter.fileFilters.add(NotFileFilter(createHiddenPluginFilter()))
-        return pluginsFilter
-    }
-
     override val pluginPaths: List<Path>
         get() {
             extractZipFiles()
             return super.pluginPaths
         }
+
+    constructor(vararg pluginsRoots: Path) : this(mutableListOf<Path>(*pluginsRoots)) {}
+
+    fun filter(): AndFileFilter {
+        val pluginsFilter = AndFileFilter(DirectoryFileFilter())
+        pluginsFilter.fileFilters.add(NotFileFilter(createHiddenPluginFilter()))
+        return pluginsFilter
+    }
 
     override fun deletePluginPath(pluginPath: Path): Boolean {
         FileUtils.optimisticDelete(

@@ -7,60 +7,53 @@ package com.mcxross.cohesive.cps
 open class DefaultExtensionFinder(val pluginManager: PluginManager) : ExtensionFinder,
     PluginStateListener {
 
-    protected var finders: MutableList<ExtensionFinder> = ArrayList()
-
-    init {
-
-        add(LegacyExtensionFinder(pluginManager))
-        //plus(new ServiceProviderExtensionFinder(pluginManager));
-    }
+    private var finders: MutableList<ExtensionFinder> = mutableListOf(LegacyExtensionFinder(pluginManager))
 
     override fun <T> find(type: Class<T>): List<ExtensionWrapper<T>> {
         val extensions: MutableList<ExtensionWrapper<T>> = ArrayList()
-        for (finder in finders) {
-            extensions.addAll(finder.find(type))
+        finders.forEach {
+            extensions.addAll(it.find(type))
         }
         return extensions
     }
 
     override fun <T> find(type: Class<T>, pluginId: String): List<ExtensionWrapper<T>> {
         val extensions: MutableList<ExtensionWrapper<T>> = ArrayList()
-        for (finder in finders) {
-            extensions.addAll(finder.find(type, pluginId))
+        finders.forEach {
+            extensions.addAll(it.find(type, pluginId))
         }
         return extensions
     }
 
     override fun <T> find(pluginId: String): List<ExtensionWrapper<T>> {
         val extensions: MutableList<ExtensionWrapper<T>> = ArrayList()
-        for (finder in finders) {
-            extensions.addAll(finder.find(pluginId))
+        finders.forEach {
+            extensions.addAll(it.find(pluginId))
         }
         return extensions
     }
 
     override fun findClassNames(pluginId: String): Set<String> {
         val classNames: MutableSet<String> = HashSet()
-        for (finder in finders) {
-            classNames.addAll(finder.findClassNames(pluginId))
+        finders.forEach {
+            classNames.addAll(it.findClassNames(pluginId))
         }
         return classNames
     }
 
     override fun pluginStateChanged(event: PluginStateEvent) {
-        for (finder in finders) {
-            if (finder is PluginStateListener) {
-                (finder as PluginStateListener).pluginStateChanged(event)
+        finders.forEach {
+            if (it is PluginStateListener) {
+                (it as PluginStateListener).pluginStateChanged(event)
             }
         }
     }
 
-    fun addServiceProviderExtensionFinder(): DefaultExtensionFinder {
-        return add(ServiceProviderExtensionFinder(pluginManager))
+    fun addServiceProviderExtensionFinder() {
+        finders.add(ServiceProviderExtensionFinder(pluginManager))
     }
 
-    fun add(finder: ExtensionFinder): DefaultExtensionFinder {
+    fun add(finder: ExtensionFinder) {
         finders.add(finder)
-        return this
     }
 }

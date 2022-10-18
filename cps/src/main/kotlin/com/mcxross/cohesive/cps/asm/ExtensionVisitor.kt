@@ -18,20 +18,8 @@ import org.objectweb.asm.Type
  * the class pluginLoader. This avoids possible [NoClassDefFoundError]'s
  * for extensions, that can't be loaded due to missing dependencies.
  */
-internal class ExtensionVisitor(
-    extensionInfo:
-    ExtensionInfo,
-) : ClassVisitor(
-    ASM_VERSION
-) {
-    private val extensionInfo: ExtensionInfo
-
-    init {
-        this.extensionInfo = extensionInfo
-    }
-
+internal class ExtensionVisitor(val extensionInfo: ExtensionInfo) : ClassVisitor(ASM_VERSION) {
     override fun visitAnnotation(descriptor: String, visible: Boolean): AnnotationVisitor {
-        //if (!descriptor.equals("Lorg/pf4j/Extension;")) {
         return if (Type.getType(descriptor).className != Extension::class.java.name) {
             super.visitAnnotation(descriptor, visible)
         } else object : AnnotationVisitor(ASM_VERSION) {
@@ -44,6 +32,7 @@ internal class ExtensionVisitor(
                                 "ordinal" -> {
                                     extensionInfo.ordinal = value.toString().toInt()
                                 }
+
                                 "plugins" -> {
                                     when (value) {
                                         is String -> {
@@ -58,11 +47,12 @@ internal class ExtensionVisitor(
                                         }
 
                                         else -> {
-                                            Log.d { "Found plugin $value"  }
+                                            Log.d { "Found plugin $value" }
                                             extensionInfo.plugins.plus(value.toString())
                                         }
                                     }
                                 }
+
                                 else -> {
                                     val pointClassName = (value as Type).className
                                     Log.d { "Found point $pointClassName" }

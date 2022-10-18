@@ -71,8 +71,8 @@ class DirectedGraph<V> {
      */
     fun outDegree(): Map<V, Int> {
         val result: MutableMap<V, Int> = HashMap()
-        for (vertex in neighbors.keys) {
-            result[vertex] = neighbors[vertex]!!.size
+        neighbors.keys.forEach {
+            result[it] = neighbors[it]!!.size
         }
         return result
     }
@@ -82,12 +82,12 @@ class DirectedGraph<V> {
      */
     fun inDegree(): MutableMap<V, Int> {
         val result: MutableMap<V, Int> = HashMap()
-        for (vertex in neighbors.keys) {
-            result[vertex] = 0 // all in-degrees are 0
+        neighbors.keys.forEach {
+            result[it] = 0 // all in-degrees are 0
         }
-        for (from in neighbors.keys) {
-            for (to in neighbors[from]!!) {
-                result[to] = result[to]!! + 1 // increment in-degree
+        neighbors.keys.forEach { fromVertex ->
+            neighbors[fromVertex]!!.forEach {
+                result[it] = result[it]!! + 1 // increment in-degree
             }
         }
         return result
@@ -102,25 +102,25 @@ class DirectedGraph<V> {
 
         // determine all vertices with zero in-degree
         val zeroVertices = Stack<V>() // stack as good as any here
-        for (v in degree.keys) {
-            if (degree[v] == 0) {
-                zeroVertices.push(v)
+        degree.keys.forEach {
+            if (degree[it] == 0) {
+                zeroVertices.push(it)
             }
         }
-
         // determine the topological order
         val result: MutableList<V?> = ArrayList()
         while (!zeroVertices.isEmpty()) {
             val vertex = zeroVertices.pop() // choose a vertex with zero in-degree
             result.add(vertex) // vertex 'v' is next in topological order
             // "remove" vertex 'v' by updating its neighbors
-            for (neighbor in neighbors[vertex]!!) {
-                degree[neighbor] = degree[neighbor]!! - 1
+            neighbors[vertex]!!.forEach { neighbor ->
+                degree[neighbor] = degree[neighbor]!! - 1 // decrement in-degree
                 // remember any vertices that now have zero in-degree
                 if (degree[neighbor] == 0) {
                     zeroVertices.push(neighbor)
                 }
             }
+
         }
 
         // check that we have used the entire graph (if not, there was a cycle)
@@ -143,8 +143,8 @@ class DirectedGraph<V> {
      */
     override fun toString(): String {
         val sb = StringBuilder()
-        for (vertex in neighbors.keys) {
-            sb.append("\n   ").append(vertex).append(" -> ").append(neighbors[vertex])
+        neighbors.keys.forEach {
+            sb.append("\n   ").append(it).append(" -> ").append(neighbors[it])
         }
         return sb.toString()
     }

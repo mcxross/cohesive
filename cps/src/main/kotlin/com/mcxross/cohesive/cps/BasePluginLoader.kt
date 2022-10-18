@@ -10,15 +10,8 @@ import java.nio.file.Path
  * This means plus to the plugin's [ClassLoader] all the jar files and
  * all the class files specified in the [PluginClasspath].
  */
-open class BasePluginLoader(pluginManager: PluginManager, pluginClasspath: PluginClasspath) :
+open class BasePluginLoader(var pluginManager: PluginManager, var pluginClasspath: PluginClasspath) :
     PluginLoader {
-    protected var pluginManager: PluginManager
-    protected var pluginClasspath: PluginClasspath
-
-    init {
-        this.pluginManager = pluginManager
-        this.pluginClasspath = pluginClasspath
-    }
 
     override fun isApplicable(pluginPath: Path): Boolean {
         return Files.exists(pluginPath)
@@ -43,8 +36,8 @@ open class BasePluginLoader(pluginManager: PluginManager, pluginClasspath: Plugi
      * to the plugin's [ClassLoader].
      */
     protected fun loadClasses(pluginPath: Path, pluginClassLoader: PluginClassLoader) {
-        for (directory in pluginClasspath.getClassesDirectories()) {
-            val file = pluginPath.resolve(directory).toFile()
+        pluginClasspath.classesDirectories.forEach {
+            val file = pluginPath.resolve(it).toFile()
             if (file.exists() && file.isDirectory) {
                 pluginClassLoader.addFile(file)
             }
@@ -56,8 +49,8 @@ open class BasePluginLoader(pluginManager: PluginManager, pluginClasspath: Plugi
      * to the plugin's [ClassLoader].
      */
     protected fun loadJars(pluginPath: Path, pluginClassLoader: PluginClassLoader) {
-        for (jarsDirectory in pluginClasspath.getJarsDirectories()) {
-            val file = pluginPath.resolve(jarsDirectory)
+        pluginClasspath.jarsDirectories.forEach {
+            val file = pluginPath.resolve(it)
             val jars: List<File> = FileUtils.getJars(file)
             for (jar in jars) {
                 pluginClassLoader.addFile(jar)

@@ -9,11 +9,8 @@ import java.util.*
  * and `jars` directories (directories that contain jars files).
  */
 open class PluginClasspath {
-    private val classesDirectories: MutableSet<String> = HashSet()
-    private val jarsDirectories: MutableSet<String> = HashSet()
-    fun getClassesDirectories(): Set<String> {
-        return classesDirectories
-    }
+     val classesDirectories: MutableSet<String> = HashSet()
+     val jarsDirectories: MutableSet<String> = HashSet()
 
     fun addClassesDirectories(vararg classesDirectories: String): PluginClasspath {
         return addClassesDirectories(listOf(*classesDirectories))
@@ -22,10 +19,6 @@ open class PluginClasspath {
     fun addClassesDirectories(classesDirectories: Collection<String>): PluginClasspath {
         this.classesDirectories.addAll(classesDirectories)
         return this
-    }
-
-    fun getJarsDirectories(): Set<String> {
-        return jarsDirectories
     }
 
     fun addJarsDirectories(vararg jarsDirectories: String): PluginClasspath {

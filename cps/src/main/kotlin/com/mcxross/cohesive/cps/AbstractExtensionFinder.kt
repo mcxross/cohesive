@@ -10,9 +10,9 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
     @Volatile
     protected var entries: MutableMap<String, Set<String>> = readStorages()
 
+    // cache extension infos by class name
     @Volatile
-    protected lateinit var extensionInfos // cache extension infos by class name
-            : MutableMap<String, ExtensionInfo?>
+    protected lateinit var extensionInfos: MutableMap<String, ExtensionInfo?>
     protected var checkForExtensionDependencies: Boolean? = null
 
     abstract fun readPluginsStorages(): Map<String, Set<String>>
@@ -23,9 +23,9 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
         val result: MutableList<ExtensionWrapper<T>> = ArrayList()
 
         // plus extensions found in classpath and plugins
-        for (pluginId in entries.keys) {
+        entries.keys.forEach {
             // classpath's extensions <=> pluginId = null
-            val pluginExtensions: List<ExtensionWrapper<T>> = find(type, pluginId)
+            val pluginExtensions: List<ExtensionWrapper<T>> = find(type, it)
             result.addAll(pluginExtensions)
         }
         if (result.isEmpty()) {
@@ -52,7 +52,7 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
         if (pluginId != "cohesive") {
 
             val pluginWrapper: PluginWrapper = pluginManager.getPlugin(pluginId)
-            if (PluginState.STARTED != pluginWrapper.getPluginState()) {
+            if (PluginState.STARTED != pluginWrapper.pluginState) {
                 return result
             }
             Log.i { "Checking extensions from plugin $pluginId" }
@@ -62,6 +62,7 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
         }
 
         val classLoader = if (pluginId != "cohesive") pluginManager.getPluginClassLoader(pluginId) else javaClass.classLoader
+
         for (className in classNames) {
             try {
                 if (isCheckForExtensionDependencies()) {
@@ -78,17 +79,17 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
 
                     // Make sure, that all plugins required by this extension are available.
                     val missingPluginIds: MutableList<String> = ArrayList()
-                    for (requiredPluginId in extensionInfo.plugins) {
-                        val requiredPlugin: PluginWrapper = pluginManager.getPlugin(requiredPluginId)
-                        if (PluginState.STARTED != requiredPlugin.getPluginState()) {
-                            missingPluginIds.add(requiredPluginId)
+                    extensionInfo.plugins.forEach {
+                        val requiredPlugin: PluginWrapper = pluginManager.getPlugin(it)
+                        if (PluginState.STARTED != requiredPlugin.pluginState) {
+                            missingPluginIds.add(it)
                         }
                     }
                     if (missingPluginIds.isNotEmpty()) {
                         val missing = StringBuilder()
-                        for (missingPluginId in missingPluginIds) {
+                        missingPluginIds.forEach {
                             if (missing.isNotEmpty()) missing.append(", ")
-                            missing.append(missingPluginId)
+                            missing.append(it)
                         }
                         Log.d { "Extension $className is ignored due to missing plugins: $missing" }
                         continue
@@ -133,24 +134,25 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
             return result
         }
         val pluginWrapper: PluginWrapper = pluginManager.getPlugin(pluginId)
-        if (PluginState.STARTED != pluginWrapper.getPluginState()) {
+        if (PluginState.STARTED != pluginWrapper.pluginState) {
             return result
         }
         Log.d { "Checking extensions from plugin $pluginId" }
         val classLoader = pluginManager.getPluginClassLoader(pluginId)
-        for (className in classNames) {
+        classNames.forEach {
             try {
-                Log.d { "Loading class $className using class pluginLoader $classLoader" }
-                val extensionClass = classLoader.loadClass(className)
+                Log.d { "Loading class $it using class pluginLoader $classLoader" }
+                val extensionClass = classLoader.loadClass(it)
                 val extensionWrapper: ExtensionWrapper<T> = createExtensionWrapper(extensionClass)
                 result.add(extensionWrapper)
-                Log.d { "Added extension $className with ordinal ${extensionWrapper.ordinal}" }
+                Log.d { "Added extension $it with ordinal ${extensionWrapper.ordinal}" }
             } catch (e: ClassNotFoundException) {
                 Log.e { e.message.toString() }
             } catch (e: NoClassDefFoundError) {
                 Log.e { e.message.toString() }
             }
         }
+
         if (result.isEmpty()) {
             Log.d { "No extensions found for plugin $pluginId" }
         } else {
@@ -178,7 +180,7 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
         // dependencies. Therefore we're enabling the check for optional extensions, if the
         // started plugin contains at least one optional plugin dependency.
         if (checkForExtensionDependencies == null && PluginState.STARTED == event.pluginState) {
-            for (dependency in event.plugin.getDescriptor().dependencies!!) {
+            for (dependency in event.plugin.descriptor.dependencies!!) {
                 if (dependency.isOptional) {
                     Log.d { "Enable check for extension dependencies via ASM." }
                     checkForExtensionDependencies = true
@@ -236,10 +238,10 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
             Log.d { "No extensions found" }
         } else {
             Log.d { "Found possible ${extensions.size} extensions:" }
-            for (extension in extensions) {
-                Log.d { extension }
-
+            extensions.forEach {
+                Log.d { it }
             }
+
         }
 
     }
@@ -301,8 +303,8 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
             }
 
             // search recursively through all annotations
-            for (annotation in clazz.annotations) {
-                val annotationClass: Class<out Annotation> = annotation.annotationClass.java
+            clazz.annotations.forEach {
+                val annotationClass: Class<out Annotation> = it.annotationClass.java
                 if (!annotationClass.name.startsWith("java.lang.annotation")) {
                     val extensionAnnotation: Extension? = findExtensionAnnotation(annotationClass)
                     if (extensionAnnotation != null) {

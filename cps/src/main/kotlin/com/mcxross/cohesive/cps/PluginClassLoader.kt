@@ -14,42 +14,12 @@ import java.util.*
  * Use [.classLoadingStrategy] to change the loading strategy.
  */
 class PluginClassLoader @JvmOverloads constructor(
-    pluginManager: PluginManager,
-    pluginDescriptor: PluginDescriptor,
+    val pluginManager: PluginManager,
+    val pluginDescriptor: PluginDescriptor,
     parent: ClassLoader?,
-    classLoadingStrategy: ClassLoadingStrategy = ClassLoadingStrategy.PDA,
-) :
-    URLClassLoader(arrayOfNulls(0), parent) {
-    private val pluginManager: PluginManager
-    private val pluginDescriptor: PluginDescriptor
-    private val classLoadingStrategy: ClassLoadingStrategy
-
-    @Deprecated(
-        """Replaced by {@link #PluginClassLoader(PluginManager, PluginDescriptor, ClassLoader, ClassLoadingStrategy)}.
-      If {@code parentFirst} is {@code true}, indicates that the parent {@link ClassLoader} should be consulted
-      before trying to load the a class through this pluginLoader."""
-    )
-    constructor(
-        pluginManager: PluginManager,
-        pluginDescriptor: PluginDescriptor,
-        parent: ClassLoader?,
-        parentFirst: Boolean,
-    ) : this(
-        pluginManager,
-        pluginDescriptor,
-        parent,
-        if (parentFirst) ClassLoadingStrategy.APD else ClassLoadingStrategy.PDA
-    ) {
-    }
-
-    /**
-     * classloading according to `classLoadingStrategy`
-     */
-    init {
-        this.pluginManager = pluginManager
-        this.pluginDescriptor = pluginDescriptor
-        this.classLoadingStrategy = classLoadingStrategy
-    }
+    val parentFirst: Boolean = false,
+    val classLoadingStrategy: ClassLoadingStrategy = if (parentFirst) ClassLoadingStrategy.APD else ClassLoadingStrategy.PDA,
+) : URLClassLoader(arrayOfNulls(0), parent) {
 
     public override fun addURL(url: URL) {
         Log.d { "Add $url" }
@@ -96,10 +66,11 @@ class PluginClassLoader @JvmOverloads constructor(
                 Log.v { "Found loaded class $className" }
                 return loadedClass
             }
-            for (classLoadingSource in classLoadingStrategy.sources) {
+
+            classLoadingStrategy.sources.forEach {
                 var c: Class<*>? = null
                 try {
-                    when (classLoadingSource) {
+                    when (it) {
                         ClassLoadingStrategy.Source.APPLICATION -> c = super.loadClass(className)
                         ClassLoadingStrategy.Source.PLUGIN -> c = findClass(className)
                         ClassLoadingStrategy.Source.DEPENDENCIES -> c = loadClassFromDependencies(className)
@@ -107,13 +78,15 @@ class PluginClassLoader @JvmOverloads constructor(
                 } catch (ignored: ClassNotFoundException) {
                 }
                 if (c != null) {
-                    Log.v {  "Found class $className in $classLoadingSource classpath" }
+                    Log.v { "Found class $className in $it classpath" }
                     return c
                 } else {
-                    Log.v { "Couldn't find class $className in $classLoadingSource classpath" }
+                    Log.v { "Couldn't find class $className in $it classpath" }
                 }
             }
             throw ClassNotFoundException(className)
+
+
         }
     }
 
@@ -127,17 +100,17 @@ class PluginClassLoader @JvmOverloads constructor(
      */
     override fun getResource(name: String): URL? {
         Log.v { "Received request to load resource $name" }
-        for (classLoadingSource in classLoadingStrategy.sources) {
-            val url: URL? = when (classLoadingSource) {
+        classLoadingStrategy.sources.forEach {
+            val url: URL? = when (it) {
                 ClassLoadingStrategy.Source.APPLICATION -> super.getResource(name)
                 ClassLoadingStrategy.Source.PLUGIN -> findResource(name)
                 ClassLoadingStrategy.Source.DEPENDENCIES -> findResourceFromDependencies(name)
             }
             if (url != null) {
-                Log.v { "Found resource $name in $classLoadingSource classpath" }
+                Log.v { "Found resource $name in $it classpath" }
                 return url
             } else {
-                Log.v { "Couldn't find resource $name in $classLoadingSource" }
+                Log.v { "Couldn't find resource $name in $it" }
             }
         }
         return null
@@ -147,12 +120,11 @@ class PluginClassLoader @JvmOverloads constructor(
     override fun getResources(name: String): Enumeration<URL> {
         val resources: MutableList<URL> = ArrayList()
         Log.v { "Received request to load resources $name" }
-        for (classLoadingSource in classLoadingStrategy.sources) {
-            when (classLoadingSource) {
+        classLoadingStrategy.sources.forEach {
+            when (it) {
                 ClassLoadingStrategy.Source.APPLICATION -> if (parent != null) {
                     resources.addAll(Collections.list(parent.getResources(name)))
                 }
-
                 ClassLoadingStrategy.Source.PLUGIN -> resources.addAll(Collections.list(findResources(name)))
                 ClassLoadingStrategy.Source.DEPENDENCIES -> resources.addAll(findResourcesFromDependencies(name))
             }

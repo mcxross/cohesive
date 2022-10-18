@@ -3,11 +3,10 @@ package com.mcxross.cohesive.cps
 /**
  * A wrapper over extension instance.
  */
-class ExtensionWrapper<T>(descriptor: ExtensionDescriptor, extensionFactory: ExtensionFactory) :
+class ExtensionWrapper<T>(val descriptor: ExtensionDescriptor, private val extensionFactory: ExtensionFactory) :
     Comparable<ExtensionWrapper<T>?> {
-    val descriptor: ExtensionDescriptor
-    private val extensionFactory: ExtensionFactory
-    var extension: T? = null // cache
+
+    var extension: T? = null // cache extension instance
         get() {
             if (field == null) {
                 field = extensionFactory.create(descriptor.extensionClass) as T?
@@ -15,13 +14,6 @@ class ExtensionWrapper<T>(descriptor: ExtensionDescriptor, extensionFactory: Ext
             return field
         }
         private set
-
-    init {
-        this.descriptor = descriptor
-        this.extensionFactory = extensionFactory
-    }
-
-
     val ordinal: Int
         get() = descriptor.ordinal
 

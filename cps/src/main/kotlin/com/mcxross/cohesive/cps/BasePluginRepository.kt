@@ -13,13 +13,9 @@ import java.util.stream.Stream
 open class BasePluginRepository @JvmOverloads constructor(
     protected val pluginsRoots: List<Path>,
     protected open var filter: FileFilter? = null,
-) :
-    PluginRepository {
+) : PluginRepository {
 
-     var comparator: Comparator<File>? = Comparator.comparingLong { obj: File -> obj.lastModified() }
-
-    constructor(vararg pluginsRoots: Path) : this(listOf<Path>(*pluginsRoots)) {}
-
+    var comparator: Comparator<File>? = Comparator.comparingLong { obj: File -> obj.lastModified() }
     override val pluginPaths: List<Path>
         get() = pluginsRoots.stream()
             .flatMap { path: Path ->
@@ -31,6 +27,8 @@ open class BasePluginRepository @JvmOverloads constructor(
             .sorted(comparator)
             .map { obj: File -> obj.toPath() }
             .collect(Collectors.toList())
+
+    constructor(vararg pluginsRoots: Path) : this(listOf<Path>(*pluginsRoots)) {}
 
     override fun deletePluginPath(pluginPath: Path): Boolean {
         return if (!filter!!.accept(pluginPath.toFile())) {

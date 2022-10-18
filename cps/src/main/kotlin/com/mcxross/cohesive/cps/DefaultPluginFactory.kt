@@ -14,7 +14,7 @@ class DefaultPluginFactory : PluginFactory {
      * @return
      */
     override fun create(pluginWrapper: PluginWrapper): Plugin? {
-        val pluginClassName: String = pluginWrapper.getDescriptor().pluginClass!!
+        val pluginClassName: String = pluginWrapper.descriptor.pluginClass!!
         Log.d { "Creating plugin instance for $pluginClassName" }
         val pluginClass: Class<*> = try {
             pluginWrapper.pluginClassLoader.loadClass(pluginClassName)

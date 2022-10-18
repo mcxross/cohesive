@@ -3,9 +3,6 @@ package com.mcxross.cohesive.cps
 import com.mcxross.cohesive.cps.DependencyResolver.Result
 import com.mcxross.cohesive.cps.utils.DirectedGraph
 import com.mcxross.cohesive.cps.utils.Log
-import kotlin.Boolean
-import kotlin.IllegalStateException
-import kotlin.String
 
 /**
  * This class builds a dependency graph for a list of plugins (descriptors).
@@ -17,17 +14,13 @@ import kotlin.String
  * Only some attributes (pluginId, dependencies and pluginVersion) from [PluginDescriptor] are used in
  * the process of `resolve` operation.
  */
-class DependencyResolver(versionManager: VersionManager) {
-    private val versionManager: VersionManager
-    private var dependenciesGraph // the value is 'pluginId'
-            : DirectedGraph<String>? = null
-    private var dependentsGraph // the value is 'pluginId'
-            : DirectedGraph<String>? = null
-    private var resolved = false
+class DependencyResolver(val versionManager: VersionManager) {
+    // the value is 'pluginId'
+    private var dependenciesGraph: DirectedGraph<String>? = null
 
-    init {
-        this.versionManager = versionManager
-    }
+    // the value is 'pluginId'
+    private var dependentsGraph: DirectedGraph<String>? = null
+    private var resolved = false
 
     fun resolve(plugins: List<PluginDescriptor>): Result {
         // create graphs
@@ -35,10 +28,10 @@ class DependencyResolver(versionManager: VersionManager) {
         dependentsGraph = DirectedGraph()
 
         // populate graphs
-        val pluginByIds: MutableMap<String, PluginDescriptor> = HashMap<String, PluginDescriptor>()
-        for (plugin: PluginDescriptor in plugins) {
-            addPlugin(plugin)
-            pluginByIds[plugin.pluginId] = plugin
+        val pluginByIds: MutableMap<String, PluginDescriptor> = HashMap()
+        plugins.forEach {
+            addPlugin(it)
+            pluginByIds[it.pluginId] = it
         }
         Log.d { "Graph: $dependenciesGraph" }
 
@@ -49,9 +42,9 @@ class DependencyResolver(versionManager: VersionManager) {
         // create the result object
         val result = Result(sortedPlugins)
         resolved = true
-        for (pluginId: String? in sortedPlugins) {
+        sortedPlugins.forEach { pluginId ->
             if (!pluginByIds.containsKey(pluginId)) {
-                pluginId?.let { result.addNotFoundDependency(it) }
+                pluginId.let { result.notFoundDependencies.add(it) }
             }
         }
 
@@ -66,7 +59,7 @@ class DependencyResolver(versionManager: VersionManager) {
                 val requiredVersion = getDependencyVersionSupport(dependent, pluginId)
                 val ok = checkDependencyVersion(requiredVersion, existingVersion)
                 if (!ok) {
-                    result.addWrongDependencyVersion(
+                    result.wrongVersionDependencies.add(
                         WrongDependencyVersion(
                             pluginId,
                             dependentId,
@@ -160,16 +153,11 @@ class DependencyResolver(versionManager: VersionManager) {
 
     class Result internal constructor(val sortedPlugins: List<String>) {
         private var cyclicDependency = false
-        private val notFoundDependencies // value is "pluginId"
-                : MutableList<String>
 
+        // value is "pluginId"
+        val notFoundDependencies: MutableList<String> = ArrayList()
 
-        private val wrongVersionDependencies: MutableList<WrongDependencyVersion>
-
-        init {
-            notFoundDependencies = ArrayList()
-            wrongVersionDependencies = ArrayList()
-        }
+        val wrongVersionDependencies: MutableList<WrongDependencyVersion> = ArrayList()
 
         /**
          * Returns true is a cyclic dependency was detected.
@@ -178,41 +166,14 @@ class DependencyResolver(versionManager: VersionManager) {
             return cyclicDependency
         }
 
-        /**
-         * Returns a list with dependencies required that were not found.
-         */
-        fun getNotFoundDependencies(): List<String> {
-            return notFoundDependencies
-        }
-
-        /**
-         * Returns a list with dependencies with wrong version.
-         */
-        fun getWrongVersionDependencies(): List<WrongDependencyVersion> {
-            return wrongVersionDependencies
-        }
-
-        fun addNotFoundDependency(pluginId: String) {
-            notFoundDependencies.add(pluginId)
-        }
-
-        fun addWrongDependencyVersion(wrongDependencyVersion: WrongDependencyVersion) {
-            wrongVersionDependencies.add(wrongDependencyVersion)
-        }
     }
 
     class WrongDependencyVersion internal constructor(
-// value is "pluginId"
         val dependencyId: String, // value is "pluginId"
-        var dependentId: String, existingVersion: String, requiredVersion: String,
+        var dependentId: String,
+        val existingVersion: String,
+        val requiredVersion: String,
     ) {
-        val existingVersion: String
-        val requiredVersion: String
-
-        init {
-            this.existingVersion = existingVersion
-            this.requiredVersion = requiredVersion
-        }
 
         override fun toString(): String {
             return ("WrongDependencyVersion{" +
@@ -227,30 +188,18 @@ class DependencyResolver(versionManager: VersionManager) {
     /**
      * It will be thrown if a cyclic dependency is detected.
      */
-    class CyclicDependencyException() : PluginRuntimeException("Cyclic dependencies")
+    class CyclicDependencyException : PluginRuntimeException("Cyclic dependencies")
 
     /**
      * Indicates that the dependencies required were not found.
      */
-    class DependenciesNotFoundException(dependencies: List<String>) :
-        PluginRuntimeException("Dependencies '{}' not found", dependencies) {
-        val dependencies: List<String>
-
-        init {
-            this.dependencies = dependencies
-        }
-    }
+    class DependenciesNotFoundException(val dependencies: List<String>) :
+        PluginRuntimeException("Dependencies '{}' not found", dependencies)
 
     /**
      * Indicates that some dependencies have wrong version.
      */
-    class DependenciesWrongVersionException(dependencies: List<WrongDependencyVersion>) :
-        PluginRuntimeException("Dependencies '{}' have wrong version", dependencies) {
-        val dependencies: List<WrongDependencyVersion>
-
-        init {
-            this.dependencies = dependencies
-        }
-    }
+    class DependenciesWrongVersionException(val dependencies: List<WrongDependencyVersion>) :
+        PluginRuntimeException("Dependencies '{}' have wrong version", dependencies)
 
 }
