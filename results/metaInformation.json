@@ -1,18 +1,18 @@
 {
-  "total": 29,
+  "total": 21,
   "tools inspection": {
-    "Code Inspection": 29
+    "Code Inspection": 21
   },
   "attributes": {
     "vcs": {
       "sarifIdea": {
         "repositoryUri": "https://github.com/mcxross/cohesive",
-        "revisionId": "bbb30430959280eb513d4f1c1a7ef2746f0ed7bf",
+        "revisionId": "ed779cfe586c56caa333c9aa5d8d5ad12aa89fde",
         "branch": "main"
       }
     },
     "deviceId": "200820300000000-49a7-80d1-6387-25a0083d4549",
-    "jobUrl": "https://github.com/mcxross/cohesive/actions/runs/3265021748",
+    "jobUrl": "https://github.com/mcxross/cohesive/actions/runs/3274771046",
     "repoUrl": "https://github.com/mcxross/cohesive"
   }
 }
