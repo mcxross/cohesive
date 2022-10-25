@@ -17,7 +17,7 @@ plugins {
 }
 
 group = "com.mcxross.cohesive"
-version = "1.0-SNAPSHOT"
+version = "0.1.0"
 
 allOpen {
     annotation("org.openjdk.jmh.annotations.State")
@@ -81,9 +81,12 @@ kotlin {
             kotlin.srcDirs("src/jvmMain/kotlin")
             dependencies {
                 api(compose.preview)
-                implementation(project(":cps"))
+                implementation(project(":csp"))
                 implementation("io.ktor:ktor-client-cio:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.5")
+                implementation(kotlin("reflect"))
+                implementation("com.squareup:kotlinpoet-ksp:1.12.0")
+                implementation("org.ow2.asm:asm:9.4")
             }
         }
         val desktopTest by getting {
@@ -96,7 +99,7 @@ kotlin {
 }
 
 dependencies {
-    add("kspDesktop", project(":cps"))
+    add("kspDesktop", project(":csp"))
 }
 
 android {

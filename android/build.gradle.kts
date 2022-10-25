@@ -5,7 +5,7 @@ plugins {
 }
 
 group "com.mcxross.cohesive"
-version "1.0-SNAPSHOT"
+version "0.1.0"
 
 repositories {
     mavenCentral()

@@ -8,12 +8,16 @@ import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.res.useResource
 import androidx.compose.ui.window.*
 import com.mcxross.cohesive.common.Cohesive
+import com.mcxross.cohesive.common.Cohesive.LocalPluginManager
 import com.mcxross.cohesive.common.frontend.model.Local.LocalContext
 import com.mcxross.cohesive.common.frontend.model.onnet.Descriptor
+import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IStore
+import com.mcxross.cohesive.common.frontend.ui.screen.MainScreen
 import com.mcxross.cohesive.common.frontend.ui.view.splash.SplashScreen
 import com.mcxross.cohesive.common.frontend.utils.*
 import com.mcxross.cohesive.common.frontend.utils.WindowState
 import com.mcxross.cohesive.common.utils.Log
+import com.mcxross.cohesive.common.utils.Log.e
 import com.mcxross.cohesive.mellow.PlatformDropTargetModifier
 import kotlinx.coroutines.delay
 import kotlin.system.measureTimeMillis
@@ -53,41 +57,35 @@ fun BrewContextCompositionLocal(
 
 fun main() = Cohesive.run {
 
-    /*val init by rememberUpdatedState {
-       runBlocking {
-           StatesHolder.init {
-               println("Scheduler initialized")
-           }
-       }
-   }
+    val init by rememberUpdatedState {
+        runBlocking {
+            StatesHolder.init {
+                println("Scheduler initialized")
+            }
+        }
+    }
 
-   var isLoadingPlugins by remember { mutableStateOf(true) }
-   var isLoadingConfig by remember { mutableStateOf(true) }
-   var isLoadingResources by remember { mutableStateOf(true) }
+    var isLoadingConfig by remember { mutableStateOf(true) }
+    var isLoadingResources by remember { mutableStateOf(true) }
 
-   var environment by remember { mutableStateOf(com.mcxross.cohesive.common.frontend.model.Environment) }
+    var environment by remember { mutableStateOf(com.mcxross.cohesive.common.frontend.model.Environment) }
 
-   WindowState.state = rememberWindowState(
-       placement = WindowPlacement.Floating,
-       position = WindowPosition.Aligned(Alignment.Center),
-       size = getPreferredWindowSize(800, 1000)
-   )
+    WindowState.state = rememberWindowState(
+        placement = WindowPlacement.Floating,
+        position = WindowPosition.Aligned(Alignment.Center),
+        size = getPreferredWindowSize(800, 1000)
+    )
 
-   val loadResources by rememberUpdatedState {
+    val loadResources by rememberUpdatedState {
 
-       Log.i { "Loading resources" }
+        Log.i { "Loading resources" }
 
-       val timeLoadingResources = measureTimeMillis {
+        val timeLoadingResources = measureTimeMillis {
 
-           loadConfig {
-               environment = it
-               isLoadingConfig = false
-           }
-
-           *//*loadStartPlugins({}) {
-                pluginManager = it
-                isLoadingPlugins = false
-            }*//*
+            loadConfig {
+                environment = it
+                isLoadingConfig = false
+            }
 
         }
 
@@ -135,16 +133,20 @@ fun main() = Cohesive.run {
                         )
                     }
 
-                    *//*pluginManager.getExtensions(IMain::class.java).forEach {
+                    LocalPluginManager.current.getCohesiveView().let { view ->
                         BrewContextCompositionLocal(
                             windowScope = this,
                             environment = environment,
                             platformDropTargetModifier = dropParent,
                         ) {
-                            it.Compose()
+                            if (view != null) {
+                                MainScreen(view).Compose()
+                            } else {
+                                e { "View is null. Ensure you've defined View and built with CSP" }
+                            }
                         }
+                    }
 
-                    }*//*
                 }
 
             }
@@ -174,7 +176,7 @@ fun main() = Cohesive.run {
                             window = window,
                         )
                     }
-                    //val iStore = pluginManager.getExtensions(IStore::class.java)[0]
+                    val iStore = LocalPluginManager.current.getExtensions(IStore::class.java)[0]
                     if (content.isContentReady()) {
                         environment.plugins = content.getPlugins()
                         BrewContextCompositionLocal(
@@ -182,7 +184,7 @@ fun main() = Cohesive.run {
                             environment = environment,
                             platformDropTargetModifier = dropParent,
                         ) {
-                            // iStore.Compose()
+                            iStore.Compose()
                         }
 
                     } else {
@@ -191,7 +193,7 @@ fun main() = Cohesive.run {
                             environment = environment,
                             platformDropTargetModifier = dropParent,
                         ) {
-                            //iStore.Compose()
+                            iStore.Compose()
                         }
                     }
                 }
@@ -199,6 +201,6 @@ fun main() = Cohesive.run {
             }
         }
 
-    }*/
+    }
 
 }

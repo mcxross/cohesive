@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.mcxross.cohesive"
-version = "1.0-SNAPSHOT"
+version = "0.1.0"
 
 kotlin {
     jvm {
@@ -21,7 +21,7 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation(project(":common"))
-                implementation(project(":cps"))
+                implementation(project(":csp"))
                 implementation(compose.desktop.currentOs)
             }
         }
