@@ -8,7 +8,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/PluginState.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/PluginState.kt",
       "language": "kotlin",
       "line": 35,
       "offset": 9,
@@ -22,38 +22,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.cps.main",
+    "module": "cohesive.common.desktopMain",
     "inspectionName": "KotlinCovariantEquals"
   },
-  "hash": "bd9549804a15c93ac5c7250c10c7fc8315974ad23ce963a7c1c04f640940b2fb"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "Elvis operator (?:) always returns the left operand of non-nullable type Path",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cps/src/main/kotlin/com/mcxross/cohesive/cps/PropertiesPluginDescriptorFinder.kt",
-      "language": "kotlin",
-      "line": 30,
-      "offset": 30,
-      "length": 128,
-      "code": {
-        "startLine": 28,
-        "length": 128,
-        "offset": 95,
-        "surroundingCode": "\n    protected fun readProperties(pluginPath: Path): Properties {\n        val propertiesPath = getPropertiesPath(pluginPath, propertiesFileName)\n            ?: throw PluginRuntimeException(\"Cannot find the properties path\")\n        val properties = Properties()\n        try {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cps.main",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "7a02d879068a0e5dabcdceb79a3ad13d55776664690ffdb224fe4d6e38aa8f83"
+  "hash": "b767cdd0480e36f7f0846dea184a8ef1b64976640d2433360c46cdd2f6681b58"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -137,7 +109,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "34f0829311a2baaa840ae62684362bd23afac5d7aebba4263fa2e265b4aef858"
+  "hash": "d3585947f296b24d64d69386498e57aacd09252511751d72d62f4f2f52aa059c"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -165,7 +137,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "2fcff02f442e05b38fd44fcf235826df802b765b24fe8280be7db80dc16e80db"
+  "hash": "141f1bc1e06c7f7e18bb7b46103c4a6fbdaaac875d899cf7398833afea9bbd77"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -193,7 +165,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "857e3f65d9184735829ea29e8096cb64b76412f2d54d19e183a2695ecb9b551d"
+  "hash": "41a25c74dd613aaea21f78588896f6c16ed2c34ed1b2ae1232cdad82d93ac577"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -221,7 +193,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "9be72620ef0bcd5ccf458d0986ae0d41ff1693f0b46b18520055503e6f781624"
+  "hash": "faf5b1add17569a0e88b7f158a44f0b463ab18eb66529910c973513105b4fade"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -249,7 +221,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "173e8cf409183dc305a900837a09e372a0b5c524d1b7d60816fc60a5da8e5468"
+  "hash": "20ea1407ae34745b7b4e597c76151895071f08dc682e0e33826fff78ffe5b8c2"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -277,7 +249,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "edf3883dcba7710f5dddcdef1df6e5a2f30791f28a941392e40622ff81d36a17"
+  "hash": "3872cc18e73b5fc766e8debc5c397ce5e541d6c9103e2eeac89e8140b6f4e7af"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -305,7 +277,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "ba4b21e765bb618300949eb951ca2d9300c18bc4923aa3992cf325dd4c8d99b9"
+  "hash": "3898006bd192d04fe5dcdea92226ccc37d9873c355f9787132aca12a42debec8"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -333,7 +305,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "a8d240d2ca2c2faf65a2d47fe9840c97eea8db8b8f6ace3059e7e14ea96c0d00"
+  "hash": "2e17a8c893da25790242dea001c59f9fe2580f69814adc33c587bc8629ebad2e"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -346,11 +318,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 105,
+      "line": 108,
       "offset": 9,
       "length": 6,
       "code": {
-        "startLine": 103,
+        "startLine": 106,
         "length": 6,
         "offset": 48,
         "surroundingCode": "    compileSdk = 33\n    defaultConfig {\n        minSdk = 24\n        targetSdk = 33\n    }"
@@ -361,7 +333,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "03e43d84ce790dc7f421f14d9f020d9a7927fdbd2b484ad40a5672b398afd837"
+  "hash": "e471e4c0f2125f66f08039f945cb3db4f65f38d7ac932aaf5443e4a1473f8b01"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -374,11 +346,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 106,
+      "line": 109,
       "offset": 9,
       "length": 9,
       "code": {
-        "startLine": 104,
+        "startLine": 107,
         "length": 9,
         "offset": 48,
         "surroundingCode": "    defaultConfig {\n        minSdk = 24\n        targetSdk = 33\n    }\n    compileOptions {"
@@ -389,7 +361,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "493ce725387ba770aed07d8f6ac407498b3435f335ffbe51dbff32d1f7867cf6"
+  "hash": "062dabf43e692a4173caa04b629fa08d835d654b246e687b3f3c118ff5eab0c5"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -402,11 +374,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 109,
+      "line": 112,
       "offset": 9,
       "length": 19,
       "code": {
-        "startLine": 107,
+        "startLine": 110,
         "length": 19,
         "offset": 35,
         "surroundingCode": "    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }"
@@ -417,7 +389,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "b264b2c696f2e8d6501eb5d6cd899d48a57a954bd040d7fc53ab0c57033554d2"
+  "hash": "d9401df251e1f470177a6a323b9d7255fc57f89059ab4df2999dd8db28aed7bf"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -430,11 +402,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 110,
+      "line": 113,
       "offset": 9,
       "length": 19,
       "code": {
-        "startLine": 108,
+        "startLine": 111,
         "length": 19,
         "offset": 83,
         "surroundingCode": "    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    sourceSets {"
@@ -445,7 +417,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "bf7b3fc8fa94591f8f7d3b9177e9c5aac01cb12f9a584c1ea919793008a540a4"
+  "hash": "00a9ac13d84dbb5a93d0ec14db0de94d843a9149b9549bb3c732ca2ff77602f3"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -458,11 +430,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 112,
+      "line": 115,
       "offset": 5,
       "length": 10,
       "code": {
-        "startLine": 110,
+        "startLine": 113,
         "length": 10,
         "offset": 64,
         "surroundingCode": "        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")"
@@ -473,7 +445,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "685334294e4262bda89764e5d35149b979682074abca41836c34a721147b827f"
+  "hash": "ef8eecce94b5cd70d315fff0a9b8dbf43e978c01107f29bda8b3e2ca1111a44a"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -486,11 +458,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 114,
+      "line": 117,
       "offset": 13,
       "length": 8,
       "code": {
-        "startLine": 112,
+        "startLine": 115,
         "length": 8,
         "offset": 53,
         "surroundingCode": "    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }"
@@ -501,7 +473,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "3c3728bfbd2d5868840a63c3c76627e6432f9fdb2b2a57f28c8c66d9cc02c853"
+  "hash": "2e142dc8de1252f285beb27edff601a47fc7dd193cea9d06bf9268b7f396e71c"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -514,11 +486,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 114,
+      "line": 117,
       "offset": 22,
       "length": 7,
       "code": {
-        "startLine": 112,
+        "startLine": 115,
         "length": 7,
         "offset": 62,
         "surroundingCode": "    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }"
@@ -529,7 +501,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "98eae90d11f66371bfcceffa3948c95d0f93a44a646ef6ade69e5460d822bf6b"
+  "hash": "5641dc378da88ecace768cb515afe4fb37c5382d6c519a87ddea0c4bc76a1b23"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -542,11 +514,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 115,
+      "line": 118,
       "offset": 13,
       "length": 3,
       "code": {
-        "startLine": 113,
+        "startLine": 116,
         "length": 3,
         "offset": 104,
         "surroundingCode": "        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }\n    }"
@@ -557,7 +529,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "2e2acb0a479a6582f3db0fe4f8312d89149a0964bf9d97ae95209b1966632d5b"
+  "hash": "2d3163b6c000ea00b0c5febd825a10b7a821aa5290a417f5a3b35bb124f19836"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -570,11 +542,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 115,
+      "line": 118,
       "offset": 17,
       "length": 7,
       "code": {
-        "startLine": 113,
+        "startLine": 116,
         "length": 7,
         "offset": 108,
         "surroundingCode": "        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }\n    }"
@@ -585,5 +557,5 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "bbb025886cf6a407a08080c152078d8f7f391e48d245420ac98a8783eaa5c94b"
+  "hash": "899b3413a3c8d60255dd5d1259342ffa67b8c2a97ddce0beed80b503f502a2ff"
 }]}
