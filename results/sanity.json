@@ -28,7 +28,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "5b476c92e6d1d0d05b393e923ca2fbe0221fbf79f1395409d5a24821c5fdaddb"
+  "hash": "7e7fe8a6f2dee695e8edfb341b6784d6416980355c49e8e14e77e6f435f99bc4"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -59,7 +59,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "a2eaf0821939f68242274cf6a448ec5c1cc40836498265caa0b94c41edf0ea51"
+  "hash": "3a8162060b2536a9f42178850a7790a4048a3aa63166b70e83436ef2391d2bb3"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -90,7 +90,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "70bde0c27f820c17bc1abdb50d06d7b1b8a853dc42757b94ee270d66b8ab505a"
+  "hash": "485bbba71470a23ff3ff10c9caf90487b797a4456a5ede853ac9cf7019050eb5"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -121,7 +121,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "e87785b09fe6656ca49809f001f671964cbbc6439d3dd557b1ff69f61e03abfc"
+  "hash": "f43337a71700c8118093a873f06122ba46dc80dcd73a0056df1875d9af7babd3"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -392,7 +392,7 @@
         "startLine": 7,
         "length": 17,
         "offset": 24,
-        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: ScrollState,"
+        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n  modifier: Modifier,\n  scrollState: ScrollState,"
       }
     }
   ],
@@ -400,7 +400,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "0ee27c6c87c8980556987174feded26ae751393c50090c9044e9739e128252c2"
+  "hash": "3ab7a836b72c9971078a239a2e69a84c0950003cf523253c8ce26fc9d5398a4c"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -423,7 +423,7 @@
         "startLine": 7,
         "length": 17,
         "offset": 24,
-        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: ScrollState,"
+        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n  modifier: Modifier,\n  scrollState: ScrollState,"
       }
     }
   ],
@@ -431,7 +431,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "e598381badb78500eec4a7d6449a7263cf143730f159ea4acf6780469e24fc25"
+  "hash": "9bd5384a1014b5fb85252a0e16d6f4bb2255426fbe4b49de96ef3fbc7c1bb0e6"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -454,7 +454,7 @@
         "startLine": 7,
         "length": 17,
         "offset": 24,
-        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n    modifier: Modifier,\n    scrollState: ScrollState,"
+        "surroundingCode": "\n@Composable\nexpect fun VerticalScrollbar(\n  modifier: Modifier,\n  scrollState: ScrollState,"
       }
     }
   ],
@@ -462,5 +462,5 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "575e344d84a7ba952891a6e868d8a7a30aa5023c3350316b0e3874eb5eb91968"
+  "hash": "7e007552f4ef9c88439561a758138945ee7423ce91fa1b7b8a19323d9dfb5311"
 }]}

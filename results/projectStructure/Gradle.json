@@ -282,12 +282,12 @@
       "version": "2.1.0"
     },
     {
-      "ideaName": "Gradle: io.github.xxfast:kstore-desktop:0.1",
-      "gradleName": "io.github.xxfast:kstore-desktop:0.1",
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.4.0-RC",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.4.0-RC",
       "unresolved": false,
-      "groupId": "io.github.xxfast",
-      "artifactId": "kstore-desktop",
-      "version": "0.1"
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-serialization-json-jvm",
+      "version": "1.4.0-RC"
     },
     {
       "ideaName": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
@@ -336,14 +336,6 @@
       "groupId": "org.kodein.di",
       "artifactId": "kodein-di-jvm",
       "version": "7.15.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.4.0",
-      "gradleName": "org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.4.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlinx",
-      "artifactId": "kotlinx-serialization-json-jvm",
-      "version": "1.4.0"
     },
     {
       "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
@@ -442,20 +434,12 @@
       "version": "2.1.0"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json-okio-jvm:1.4.0",
-      "gradleName": "org.jetbrains.kotlinx:kotlinx-serialization-json-okio-jvm:1.4.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlinx",
-      "artifactId": "kotlinx-serialization-json-okio-jvm",
-      "version": "1.4.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.4.0",
-      "gradleName": "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.4.0",
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.4.0-RC",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.4.0-RC",
       "unresolved": false,
       "groupId": "org.jetbrains.kotlinx",
       "artifactId": "kotlinx-serialization-core-jvm",
-      "version": "1.4.0"
+      "version": "1.4.0-RC"
     },
     {
       "ideaName": "Gradle: org.kodein.type:kaverit-jvm:2.2.1-kotlin-1.7.20-RC",
@@ -728,22 +712,6 @@
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-reflect",
       "version": "1.6.10"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.4.0-RC",
-      "gradleName": "org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.4.0-RC",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlinx",
-      "artifactId": "kotlinx-serialization-json-jvm",
-      "version": "1.4.0-RC"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.4.0-RC",
-      "gradleName": "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.4.0-RC",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlinx",
-      "artifactId": "kotlinx-serialization-core-jvm",
-      "version": "1.4.0-RC"
     },
     {
       "ideaName": "Gradle: io.ktor:ktor-client-cio:2.1.0",
@@ -1032,11 +1000,6 @@
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-test-annotations-common",
       "version": "1.6.10"
-    },
-    {
-      "ideaName": "Gradle: io.github.xxfast:kstore:0.1",
-      "gradleName": "io.github.xxfast:kstore:0.1",
-      "unresolved": true
     },
     {
       "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",

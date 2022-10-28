@@ -11,13 +11,13 @@
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/PluginState.kt",
       "language": "kotlin",
       "line": 35,
-      "offset": 9,
+      "offset": 7,
       "length": 6,
       "code": {
         "startLine": 33,
         "length": 6,
-        "offset": 31,
-        "surroundingCode": "    FAILED(\"FAILED\");\n\n    fun equals(status: String?): Boolean {\n        return if (status == null) false else this.status.equals(status, ignoreCase = true)\n    }"
+        "offset": 27,
+        "surroundingCode": "  FAILED(\"FAILED\");\n\n  fun equals(status: String?): Boolean {\n    return if (status == null) false else this.status.equals(status, ignoreCase = true)\n  }"
       }
     }
   ],
@@ -25,7 +25,7 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "KotlinCovariantEquals"
   },
-  "hash": "b767cdd0480e36f7f0846dea184a8ef1b64976640d2433360c46cdd2f6681b58"
+  "hash": "4132e19f4a98eb0c7180618c44044a1fb0567691c8d6fa780ca3ed3469434f95"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -39,13 +39,13 @@
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/selection/TextFieldSelectionManager.desktop.kt",
       "language": "kotlin",
       "line": 22,
-      "offset": 13,
+      "offset": 11,
       "length": 10,
       "code": {
         "startLine": 20,
         "length": 10,
-        "offset": 63,
-        "surroundingCode": "\ninternal val PointerEvent.isShiftPressed: Boolean\n    get() = mouseEvent?.isShiftDown ?: false\n"
+        "offset": 61,
+        "surroundingCode": "\ninternal val PointerEvent.isShiftPressed: Boolean\n  get() = mouseEvent?.isShiftDown ?: false\n"
       }
     }
   ],
@@ -53,7 +53,7 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "KotlinDeprecation"
   },
-  "hash": "ae4df0ffb59b7ce4295ddcbd0905a090c9a703d7a06d1d34940ad7347543b3b1"
+  "hash": "b29632939c5d24bca7e2c0c98ab62c8794eb2dfcc9f5e7fe4e8bb17a075e96d2"
 },{
   "tool": "Code Inspection",
   "category": "Probable bugs",
@@ -66,14 +66,14 @@
       "type": "file",
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
       "language": "kotlin",
-      "line": 77,
-      "offset": 9,
+      "line": 92,
+      "offset": 5,
       "length": 5,
       "code": {
-        "startLine": 75,
+        "startLine": 90,
         "length": 5,
-        "offset": 117,
-        "surroundingCode": "    sealed class ItemType {\n        class Nest(val isExpanded: Boolean, val canExpand: Boolean) : ItemType()\n        class Plain() : ItemType()\n    }\n"
+        "offset": 107,
+        "surroundingCode": "  sealed class ItemType {\n    class Nest(val isExpanded: Boolean, val canExpand: Boolean) : ItemType()\n    class Plain() : ItemType()\n  }\n"
       }
     }
   ],
@@ -81,7 +81,7 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "CanSealedSubClassBeObject"
   },
-  "hash": "34f4207878062d5b9b95c060df4685ce12aa23e137efd2395c52dd9110892729"
+  "hash": "4ee2702c6c493b2d9399125c664b5cd852e4679e6356971068d0d113230a9a5b"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -94,11 +94,11 @@
       "type": "file",
       "path": "android/build.gradle.kts",
       "language": "kotlin",
-      "line": 23,
+      "line": 24,
       "offset": 9,
       "length": 13,
       "code": {
-        "startLine": 21,
+        "startLine": 22,
         "length": 13,
         "offset": 48,
         "surroundingCode": "    compileSdk = 33\n    defaultConfig {\n        applicationId = \"com.mcxross.cohesive.android\"\n        minSdk = 24\n        targetSdk = 33"
@@ -109,7 +109,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "d3585947f296b24d64d69386498e57aacd09252511751d72d62f4f2f52aa059c"
+  "hash": "3025a76f8500a264f8d8878dbf719a065cc2592222219f00fe5b1b8c76cf515e"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -122,11 +122,11 @@
       "type": "file",
       "path": "android/build.gradle.kts",
       "language": "kotlin",
-      "line": 24,
+      "line": 25,
       "offset": 9,
       "length": 6,
       "code": {
-        "startLine": 22,
+        "startLine": 23,
         "length": 6,
         "offset": 83,
         "surroundingCode": "    defaultConfig {\n        applicationId = \"com.mcxross.cohesive.android\"\n        minSdk = 24\n        targetSdk = 33\n        versionCode = 1"
@@ -137,7 +137,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "141f1bc1e06c7f7e18bb7b46103c4a6fbdaaac875d899cf7398833afea9bbd77"
+  "hash": "1dc83e14d7d84b44e3887f4d36b8bf60047a291235c8b11c81570c7e76aed331"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -150,11 +150,11 @@
       "type": "file",
       "path": "android/build.gradle.kts",
       "language": "kotlin",
-      "line": 25,
+      "line": 26,
       "offset": 9,
       "length": 9,
       "code": {
-        "startLine": 23,
+        "startLine": 24,
         "length": 9,
         "offset": 83,
         "surroundingCode": "        applicationId = \"com.mcxross.cohesive.android\"\n        minSdk = 24\n        targetSdk = 33\n        versionCode = 1\n        versionName = \"1.0-SNAPSHOT\""
@@ -165,7 +165,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "41a25c74dd613aaea21f78588896f6c16ed2c34ed1b2ae1232cdad82d93ac577"
+  "hash": "0221e5654a6beb17e5830ddf110634f35aeb3785611d64f97eee954c2aa0f603"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -178,11 +178,11 @@
       "type": "file",
       "path": "android/build.gradle.kts",
       "language": "kotlin",
-      "line": 26,
+      "line": 27,
       "offset": 9,
       "length": 11,
       "code": {
-        "startLine": 24,
+        "startLine": 25,
         "length": 11,
         "offset": 51,
         "surroundingCode": "        minSdk = 24\n        targetSdk = 33\n        versionCode = 1\n        versionName = \"1.0-SNAPSHOT\"\n    }"
@@ -193,7 +193,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "faf5b1add17569a0e88b7f158a44f0b463ab18eb66529910c973513105b4fade"
+  "hash": "4bdfd45ba71cda58d062f9c148409c1dfc014d4a95115aa93af4416e33b8223a"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -206,11 +206,11 @@
       "type": "file",
       "path": "android/build.gradle.kts",
       "language": "kotlin",
-      "line": 27,
+      "line": 28,
       "offset": 9,
       "length": 11,
       "code": {
-        "startLine": 25,
+        "startLine": 26,
         "length": 11,
         "offset": 55,
         "surroundingCode": "        targetSdk = 33\n        versionCode = 1\n        versionName = \"1.0-SNAPSHOT\"\n    }\n    compileOptions {"
@@ -221,41 +221,13 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "20ea1407ae34745b7b4e597c76151895071f08dc682e0e33826fff78ffe5b8c2"
+  "hash": "55cb2434bb321cecb0eebfecd6d2f871f2e3ba1ee78e90103fb9a1221eb90a6e"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
   "type": "Unstable API Usage",
   "severity": "High",
   "comment": "'setSourceCompatibility(org.gradle.api.JavaVersion)' is marked unstable with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "android/build.gradle.kts",
-      "language": "kotlin",
-      "line": 30,
-      "offset": 9,
-      "length": 19,
-      "code": {
-        "startLine": 28,
-        "length": 19,
-        "offset": 35,
-        "surroundingCode": "    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.android",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "3872cc18e73b5fc766e8debc5c397ce5e541d6c9103e2eeac89e8140b6f4e7af"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'setTargetCompatibility(org.gradle.api.JavaVersion)' is marked unstable with @Incubating",
   "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
   "sources": [
     {
@@ -268,6 +240,34 @@
       "code": {
         "startLine": 29,
         "length": 19,
+        "offset": 35,
+        "surroundingCode": "    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.android",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "de36dc7278a7674dc861f7f5fcdb915dfee86d978af47d3ea829436f360320d7"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'setTargetCompatibility(org.gradle.api.JavaVersion)' is marked unstable with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "android/build.gradle.kts",
+      "language": "kotlin",
+      "line": 32,
+      "offset": 9,
+      "length": 19,
+      "code": {
+        "startLine": 30,
+        "length": 19,
         "offset": 83,
         "surroundingCode": "    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    buildTypes {"
       }
@@ -277,7 +277,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "3898006bd192d04fe5dcdea92226ccc37d9873c355f9787132aca12a42debec8"
+  "hash": "f95dcc1a9c79450341779d39fe8672eb299a42a4a59583d82f6cefbc2b5fae1b"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -290,11 +290,11 @@
       "type": "file",
       "path": "android/build.gradle.kts",
       "language": "kotlin",
-      "line": 35,
+      "line": 36,
       "offset": 13,
       "length": 15,
       "code": {
-        "startLine": 33,
+        "startLine": 34,
         "length": 15,
         "offset": 60,
         "surroundingCode": "    buildTypes {\n        getByName(\"release\") {\n            isMinifyEnabled = false\n        }\n    }"
@@ -305,7 +305,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "2e17a8c893da25790242dea001c59f9fe2580f69814adc33c587bc8629ebad2e"
+  "hash": "3683ee7366b47e5d5bff5e6db943c2ca0b34d0fc5040e06d81187befbe9a7422"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -318,11 +318,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 108,
+      "line": 107,
       "offset": 9,
       "length": 6,
       "code": {
-        "startLine": 106,
+        "startLine": 105,
         "length": 6,
         "offset": 48,
         "surroundingCode": "    compileSdk = 33\n    defaultConfig {\n        minSdk = 24\n        targetSdk = 33\n    }"
@@ -333,7 +333,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "e471e4c0f2125f66f08039f945cb3db4f65f38d7ac932aaf5443e4a1473f8b01"
+  "hash": "7d100fab6947ff53d1fadd48c08139e7aedeca8a79d5b17badc1c1419d281402"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -346,11 +346,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 109,
+      "line": 108,
       "offset": 9,
       "length": 9,
       "code": {
-        "startLine": 107,
+        "startLine": 106,
         "length": 9,
         "offset": 48,
         "surroundingCode": "    defaultConfig {\n        minSdk = 24\n        targetSdk = 33\n    }\n    compileOptions {"
@@ -361,7 +361,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "062dabf43e692a4173caa04b629fa08d835d654b246e687b3f3c118ff5eab0c5"
+  "hash": "ec94a73f3d304d7442834c7f8436249c54dda46ea7848bb7c994c1b87fff3d83"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -374,11 +374,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 112,
+      "line": 111,
       "offset": 9,
       "length": 19,
       "code": {
-        "startLine": 110,
+        "startLine": 109,
         "length": 19,
         "offset": 35,
         "surroundingCode": "    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }"
@@ -389,7 +389,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "d9401df251e1f470177a6a323b9d7255fc57f89059ab4df2999dd8db28aed7bf"
+  "hash": "346419cec38bae08af5e47ab3013fd69bda0660ea984fdba28dde85c26728735"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -402,11 +402,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 113,
+      "line": 112,
       "offset": 9,
       "length": 19,
       "code": {
-        "startLine": 111,
+        "startLine": 110,
         "length": 19,
         "offset": 83,
         "surroundingCode": "    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    sourceSets {"
@@ -417,7 +417,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "00a9ac13d84dbb5a93d0ec14db0de94d843a9149b9549bb3c732ca2ff77602f3"
+  "hash": "77480585138c84ca68b08dbe082e61f770e018ca9af0f205536497e467bc43cc"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -430,11 +430,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 115,
+      "line": 114,
       "offset": 5,
       "length": 10,
       "code": {
-        "startLine": 113,
+        "startLine": 112,
         "length": 10,
         "offset": 64,
         "surroundingCode": "        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")"
@@ -445,7 +445,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "ef8eecce94b5cd70d315fff0a9b8dbf43e978c01107f29bda8b3e2ca1111a44a"
+  "hash": "2e24814156a5f6eb535004fa11d4c753383e3ccd59439db28fdead703f3a17c4"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -458,11 +458,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 117,
+      "line": 116,
       "offset": 13,
       "length": 8,
       "code": {
-        "startLine": 115,
+        "startLine": 114,
         "length": 8,
         "offset": 53,
         "surroundingCode": "    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }"
@@ -473,7 +473,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "2e142dc8de1252f285beb27edff601a47fc7dd193cea9d06bf9268b7f396e71c"
+  "hash": "8ebde8ddf358def20240807c96bae7e1fc4a77716c5abc44b748d8132335b2ec"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -486,11 +486,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 117,
+      "line": 116,
       "offset": 22,
       "length": 7,
       "code": {
-        "startLine": 115,
+        "startLine": 114,
         "length": 7,
         "offset": 62,
         "surroundingCode": "    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }"
@@ -501,7 +501,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "5641dc378da88ecace768cb515afe4fb37c5382d6c519a87ddea0c4bc76a1b23"
+  "hash": "add8502a6809385a98923d41abf7bcca72f29bfb2a39a85e0ff8b2f0feeec049"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -514,11 +514,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 118,
+      "line": 117,
       "offset": 13,
       "length": 3,
       "code": {
-        "startLine": 116,
+        "startLine": 115,
         "length": 3,
         "offset": 104,
         "surroundingCode": "        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }\n    }"
@@ -529,7 +529,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "2d3163b6c000ea00b0c5febd825a10b7a821aa5290a417f5a3b35bb124f19836"
+  "hash": "5efae7615dd7c26dbbe9e1c14867a87b68131642deec1dcea18fbebcfbfa8e45"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -542,11 +542,11 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 118,
+      "line": 117,
       "offset": 17,
       "length": 7,
       "code": {
-        "startLine": 116,
+        "startLine": 115,
         "length": 7,
         "offset": 108,
         "surroundingCode": "        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }\n    }"
@@ -557,5 +557,5 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "899b3413a3c8d60255dd5d1259342ffa67b8c2a97ddce0beed80b503f502a2ff"
+  "hash": "e31ec92e1c689264740e0fd5dced5f45c553c260fb6d86e573c57ca9fbf33311"
 }]}
