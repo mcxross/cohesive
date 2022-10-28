@@ -30,29 +30,29 @@ import com.mcxross.cohesive.mellow.foundation.text.selection.mouseSelectionDetec
 
 // Touch selection
 internal fun Modifier.longPressDragGestureFilter(
-    observer: TextDragObserver,
-    enabled: Boolean
+  observer: TextDragObserver,
+  enabled: Boolean
 ) = if (enabled) {
-    this.pointerInput(observer) { detectDragGesturesAfterLongPressWithObserver(observer) }
+  this.pointerInput(observer) { detectDragGesturesAfterLongPressWithObserver(observer) }
 } else {
-    this
+  this
 }
 
 // Focus modifiers
 internal fun Modifier.textFieldFocusModifier(
-    enabled: Boolean,
-    focusRequester: FocusRequester,
-    interactionSource: MutableInteractionSource?,
-    onFocusChanged: (FocusState) -> Unit
+  enabled: Boolean,
+  focusRequester: FocusRequester,
+  interactionSource: MutableInteractionSource?,
+  onFocusChanged: (FocusState) -> Unit
 ) = this
-    .focusRequester(focusRequester)
-    .onFocusChanged(onFocusChanged)
-    .focusable(interactionSource = interactionSource, enabled = enabled)
+  .focusRequester(focusRequester)
+  .onFocusChanged(onFocusChanged)
+  .focusable(interactionSource = interactionSource, enabled = enabled)
 
 // Mouse
 internal fun Modifier.mouseDragGestureDetector(
-    observer: MouseSelectionObserver,
-    enabled: Boolean
+  observer: MouseSelectionObserver,
+  enabled: Boolean
 ) = if (enabled) Modifier.pointerInput(observer) {
-    mouseSelectionDetector(observer)
+  mouseSelectionDetector(observer)
 } else this

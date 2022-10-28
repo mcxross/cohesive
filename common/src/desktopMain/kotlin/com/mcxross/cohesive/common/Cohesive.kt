@@ -10,26 +10,26 @@ import com.mcxross.cohesive.cps.pluginManager
 
 object Cohesive {
 
-    private val pluginManager = pluginManager {}
+  private val pluginManager = pluginManager {}
 
-    val LocalPluginManager = compositionLocalOf { pluginManager }
+  val LocalPluginManager = compositionLocalOf { pluginManager }
 
-    init {
-        //Must initialize logging before anything else
-        Log.init()
+  init {
+    //Must initialize logging before anything else
+    Log.init()
 
-        Log.i { "Cohesive starting..." }
+    Log.i { "Cohesive starting..." }
 
+  }
+
+  fun run(
+    content: @Composable (ApplicationScope.() -> Unit),
+  ) {
+    application {
+      CompositionLocalProvider(LocalPluginManager provides pluginManager) {
+        content()
+      }
     }
-
-    fun run(
-        content: @Composable (ApplicationScope.() -> Unit),
-    ) {
-        application {
-            CompositionLocalProvider(LocalPluginManager provides pluginManager) {
-                content()
-            }
-        }
-    }
+  }
 
 }

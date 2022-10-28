@@ -21,41 +21,41 @@ import androidx.compose.ui.layout.onGloballyPositioned
  */
 @Composable
 fun rememberTipState(
-    initialIndex: Int = 0,
+  initialIndex: Int = 0,
 ): TipState {
-    return remember {
-        TipState(
-            initialIndex = initialIndex,
-        )
-    }
+  return remember {
+    TipState(
+      initialIndex = initialIndex,
+    )
+  }
 }
 
 /**
  * Modifier that marks Compose UI element as a target for [Tip]
  */
 fun Modifier.tipTarget(
-    state: TipState,
-    index: Int,
-    style: TipStyle = TipStyle.Default,
-    content: @Composable BoxScope.() -> Unit,
+  state: TipState,
+  index: Int,
+  style: TipStyle = TipStyle.Default,
+  content: @Composable BoxScope.() -> Unit,
 ): Modifier = onGloballyPositioned { coordinates ->
-    state.targets[index] = TipTargets(
-        index = index,
-        coordinates = coordinates,
-        style = style,
-        content = content
-    )
+  state.targets[index] = TipTargets(
+    index = index,
+    coordinates = coordinates,
+    style = style,
+    content = content,
+  )
 }
 
 class TipState internal constructor(
-    initialIndex: Int,
+  initialIndex: Int,
 ) {
 
-    internal var targets = mutableStateMapOf<Int, TipTargets>()
+  internal var targets = mutableStateMapOf<Int, TipTargets>()
 
-    var currentTargetIndex by mutableStateOf(initialIndex)
-        internal set
+  var currentTargetIndex by mutableStateOf(initialIndex)
+    internal set
 
-    val currentTarget: TipTargets?
-        get() = targets[currentTargetIndex]
+  val currentTarget: TipTargets?
+    get() = targets[currentTargetIndex]
 }

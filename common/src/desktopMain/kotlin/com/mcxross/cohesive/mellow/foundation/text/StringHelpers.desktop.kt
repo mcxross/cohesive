@@ -19,16 +19,16 @@ package com.mcxross.cohesive.mellow.foundation.text
 import org.jetbrains.skia.BreakIterator
 
 internal fun String.findPrecedingBreak(index: Int): Int {
-    val it = BreakIterator.makeCharacterInstance()
-    it.setText(this)
-    return it.preceding(index)
+  val it = BreakIterator.makeCharacterInstance()
+  it.setText(this)
+  return it.preceding(index)
 }
 
 internal fun String.findFollowingBreak(index: Int): Int {
-    val it = BreakIterator.makeCharacterInstance()
-    it.setText(this)
-    return it.following(index)
+  val it = BreakIterator.makeCharacterInstance()
+  it.setText(this)
+  return it.following(index)
 }
 
 internal fun StringBuilder.appendCodePointX(codePoint: Int): StringBuilder =
-    this.appendCodePoint(codePoint)
+  this.appendCodePoint(codePoint)

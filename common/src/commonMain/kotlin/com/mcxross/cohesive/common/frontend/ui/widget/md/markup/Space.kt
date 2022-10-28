@@ -9,9 +9,9 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun Space(
-    modifier: Modifier = Modifier,
+  modifier: Modifier = Modifier,
 ) {
-    Spacer(modifier = modifier.fillMaxWidth().height(5.dp))
+  Spacer(modifier = modifier.fillMaxWidth().height(5.dp))
 }
 
 class Space : Element

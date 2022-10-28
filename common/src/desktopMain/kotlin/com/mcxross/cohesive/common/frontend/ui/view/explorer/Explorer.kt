@@ -17,16 +17,16 @@ import androidx.compose.ui.unit.sp
 @Composable
 actual fun Explorer() {
 
-    Box(Modifier.fillMaxSize().background(MaterialTheme.colors.background)) {
-        Column(Modifier.align(Alignment.Center)) {
+  Box(Modifier.fillMaxSize().background(MaterialTheme.colors.background)) {
+    Column(Modifier.align(Alignment.Center)) {
 
-            Text(
-                "ExplorerView",
-                color = LocalContentColor.current.copy(alpha = 0.60f),
-                fontSize = 20.sp,
-                modifier = Modifier.align(Alignment.CenterHorizontally).padding(16.dp)
-            )
-        }
+      Text(
+        "ExplorerView",
+        color = LocalContentColor.current.copy(alpha = 0.60f),
+        fontSize = 20.sp,
+        modifier = Modifier.align(Alignment.CenterHorizontally).padding(16.dp),
+      )
     }
+  }
 
 }

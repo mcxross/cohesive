@@ -10,27 +10,27 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun EditorSimple(
-    file: File,
+  file: File,
 ) {
-    val editorManager = remember { EditorManager() }
-    //onCLose recomposes with the file, not closing
-    editorManager.open(file)
-    if (editorManager.isActiveNonNull()) {
-        Column(
-            modifier = Modifier.fillMaxSize()
-        ) {
-            EditorTabs(editorManager = editorManager)
-            Box(modifier = Modifier.weight(1f)) {
-                Crossfade(targetState = editorManager.active) {
-                    Editor(
-                        model = it!!,
-                    )
-                }
-            }
-
+  val editorManager = remember { EditorManager() }
+  //onCLose recomposes with the file, not closing
+  editorManager.open(file)
+  if (editorManager.isActiveNonNull()) {
+    Column(
+      modifier = Modifier.fillMaxSize(),
+    ) {
+      EditorTabs(editorManager = editorManager)
+      Box(modifier = Modifier.weight(1f)) {
+        Crossfade(targetState = editorManager.active) {
+          Editor(
+            model = it!!,
+          )
         }
-    } else {
-        EditorEmpty()
+      }
+
     }
+  } else {
+    EditorEmpty()
+  }
 
 }

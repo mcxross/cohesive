@@ -17,69 +17,70 @@ import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 
 object Descriptor {
-    private val isContentReady = mutableStateOf(false)
-    private val scope = CoroutineScope(Dispatchers.IO)
-    private var plugins: ArrayList<com.mcxross.cohesive.common.frontend.model.Plugin> = arrayListOf()
-    fun run(): Descriptor {
-        scope.launch(Dispatchers.IO) {
-            chainFlow().toList(plugins)
-            onContentReady()
-        }
-        return this
+  private val isContentReady = mutableStateOf(false)
+  private val scope = CoroutineScope(Dispatchers.IO)
+  private var plugins: ArrayList<com.mcxross.cohesive.common.frontend.model.Plugin> = arrayListOf()
+  fun run(): Descriptor {
+    scope.launch(Dispatchers.IO) {
+      chainFlow().toList(plugins)
+      onContentReady()
+    }
+    return this
+  }
+
+  private fun onContentReady() {
+    isContentReady.value = true
+  }
+
+  fun isContentReady(): Boolean {
+    return isContentReady.value
+  }
+
+  private fun parse(data: String): JsonElement {
+    return Json.parseToJsonElement(data)
+  }
+
+  fun getValue(jsonElement: JsonElement, key: String): String {
+    return parse(jsonElement.toString()).jsonObject[key].toString().replace("\"", "")
+  }
+
+  private suspend fun chainFlow(): Flow<com.mcxross.cohesive.common.frontend.model.Plugin> = flow {
+    var jsonResp = ""
+    val desCo = scope.launch(Dispatchers.IO) {
+      jsonResp = getDescriptor()
+    }
+    desCo.join()
+
+    parse(jsonResp).jsonObject["chain"]?.jsonArray?.shuffled()?.forEach {
+      emit(
+        com.mcxross.cohesive.common.frontend.model.Plugin(
+          id = getValue(jsonElement = it, key = "id"),
+          name = getValue(jsonElement = it, key = "name"),
+          icon = getValue(jsonElement = it, key = "icon"),
+          repo = getValue(jsonElement = it, key = "repo"),
+          category = getValue(jsonElement = it, key = "category"),
+          description = getValue(jsonElement = it, key = "description"),
+          author = getValue(jsonElement = it, key = "author"),
+        ),
+      )
     }
 
-    private fun onContentReady() {
-        isContentReady.value = true
-    }
+  }
 
-    fun isContentReady(): Boolean {
-        return isContentReady.value
-    }
-
-    private fun parse(data: String): JsonElement {
-        return Json.parseToJsonElement(data)
-    }
-
-    fun getValue(jsonElement: JsonElement, key: String): String {
-        return parse(jsonElement.toString()).jsonObject[key].toString().replace("\"", "")
-    }
-
-    private suspend fun chainFlow(): Flow<com.mcxross.cohesive.common.frontend.model.Plugin> = flow {
-        var jsonResp = ""
-        val desCo = scope.launch(Dispatchers.IO) {
-            jsonResp = getDescriptor()
-        }
-        desCo.join()
-
-        parse(jsonResp).jsonObject["chain"]?.jsonArray?.shuffled()?.forEach {
-            emit(
-                com.mcxross.cohesive.common.frontend.model.Plugin(
-                    id = getValue(jsonElement = it, key = "id"),
-                    name = getValue(jsonElement = it, key = "name"),
-                    icon = getValue(jsonElement = it, key = "icon"),
-                    repo = getValue(jsonElement = it, key = "repo"),
-                    category = getValue(jsonElement = it, key = "category"),
-                    description = getValue(jsonElement = it, key = "description"),
-                    author = getValue(jsonElement = it, key = "author"),
-                )
-            )
-        }
-
-    }
-
-    fun getPlugins(): List<com.mcxross.cohesive.common.frontend.model.Plugin> {
-        return plugins
-    }
+  fun getPlugins(): List<com.mcxross.cohesive.common.frontend.model.Plugin> {
+    return plugins
+  }
 
 }
 
 actual fun getDescriptor(): String {
 
-    return runBlocking {
-        getHTTPClient().use { client ->
-            client.get("https://raw.githubusercontent.com/mcxross/cohesives/main/src/descriptor.json").bodyAsText()
-        }
+  return runBlocking {
+    getHTTPClient().use { client ->
+      client.get("https://raw.githubusercontent.com/mcxross/cohesives/main/src/descriptor.json")
+        .bodyAsText()
     }
+  }
 }
 
 

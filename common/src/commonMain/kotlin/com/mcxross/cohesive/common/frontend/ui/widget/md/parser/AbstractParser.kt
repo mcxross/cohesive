@@ -6,10 +6,10 @@ import kotlinx.coroutines.flow.Flow
 
 interface AbstractParser {
 
-    fun setMarkdownConfig(config: MarkdownConfig): Parser
+  fun setMarkdownConfig(config: MarkdownConfig): Parser
 
-    fun setMarkdownContent(content: String): Parser
+  fun setMarkdownContent(content: String): Parser
 
-    fun build(): Flow<Element>
+  fun build(): Flow<Element>
 
 }

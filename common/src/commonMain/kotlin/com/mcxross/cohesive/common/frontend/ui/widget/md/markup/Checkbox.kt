@@ -17,26 +17,26 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun Checkbox(
-    text: String,
-    color: Color,
-    isChecked: Boolean,
+  text: String,
+  color: Color,
+  isChecked: Boolean,
 ) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        val checkedState = remember { mutableStateOf(isChecked) }
-        Checkbox(
-            checked = checkedState.value,
-            onCheckedChange = { checkedState.value = isChecked },
-            colors = CheckboxDefaults.colors(color)
-        )
-        Spacer(modifier = Modifier.width(5.dp))
-        Text(text = text)
-    }
+  Row(
+    modifier = Modifier.fillMaxWidth(),
+    verticalAlignment = Alignment.CenterVertically,
+  ) {
+    val checkedState = remember { mutableStateOf(isChecked) }
+    Checkbox(
+      checked = checkedState.value,
+      onCheckedChange = { checkedState.value = isChecked },
+      colors = CheckboxDefaults.colors(color),
+    )
+    Spacer(modifier = Modifier.width(5.dp))
+    Text(text = text)
+  }
 }
 
 data class Checkbox(
-    val isChecked: Boolean,
-    val text: String,
+  val isChecked: Boolean,
+  val text: String,
 ) : Element

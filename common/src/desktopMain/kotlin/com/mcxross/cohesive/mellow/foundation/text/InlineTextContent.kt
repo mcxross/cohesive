@@ -23,9 +23,11 @@ import androidx.compose.ui.text.Placeholder
 
 /** The annotation tag used by inline content. */
 internal const val INLINE_CONTENT_TAG = "androidx.compose.foundation.text.inlineContent"
+
 // A string that contains a replacement character specified by unicode. It's used as the default
 // value of alternate text.
 private const val REPLACEMENT_CHAR = "\uFFFD"
+
 /**
  * Used to insert composables into the text layout. This method can be used together with the
  * inlineContent parameter of [BasicText]. It will append the [alternateText] to this
@@ -46,15 +48,15 @@ private const val REPLACEMENT_CHAR = "\uFFFD"
  * @throws IllegalArgumentException if [alternateText] has zero length.
  */
 fun AnnotatedString.Builder.appendInlineContent(
-    id: String,
-    alternateText: String = REPLACEMENT_CHAR
+  id: String,
+  alternateText: String = REPLACEMENT_CHAR
 ) {
-    require(alternateText.isNotEmpty()) {
-        "alternateText can't be an empty string."
-    }
-    pushStringAnnotation(INLINE_CONTENT_TAG, id)
-    append(alternateText)
-    pop()
+  require(alternateText.isNotEmpty()) {
+    "alternateText can't be an empty string."
+  }
+  pushStringAnnotation(INLINE_CONTENT_TAG, id)
+  append(alternateText)
+  pop()
 }
 
 /**
@@ -72,15 +74,15 @@ fun AnnotatedString.Builder.appendInlineContent(
  */
 @Immutable
 class InlineTextContent(
-    /**
-     * The setting object that defines the size and vertical alignment of this composable in the
-     * text line. This is different from the measure of Layout
-     * @see Placeholder
-     */
-    val placeholder: Placeholder,
-    /**
-     * The composable to be inserted into the text layout.
-     * The string parameter passed to it will the alternateText given to [appendInlineContent].
-     */
-    val children: @Composable (String) -> Unit
+  /**
+   * The setting object that defines the size and vertical alignment of this composable in the
+   * text line. This is different from the measure of Layout
+   * @see Placeholder
+   */
+  val placeholder: Placeholder,
+  /**
+   * The composable to be inserted into the text layout.
+   * The string parameter passed to it will the alternateText given to [appendInlineContent].
+   */
+  val children: @Composable (String) -> Unit
 )

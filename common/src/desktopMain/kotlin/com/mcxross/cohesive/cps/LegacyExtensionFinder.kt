@@ -12,52 +12,52 @@ import java.io.IOException
  */
 class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFinder(pluginManager) {
 
-    override fun readSystemExtensionIndex(): MutableMap<String, Set<String>> {
-        Log.d { "Reading extensions storages from classpath" }
-        val result: MutableMap<String, Set<String>> = LinkedHashMap()
-        val bucket = mutableSetOf<String>()
-        try {
-            (javaClass.classLoader.loadClass(COHESIVE_RESOURCE).getDeclaredConstructor()
-                .newInstance() as ExtensionIndex).extensions.forEach {
-                bucket.add(it)
-            }
-            (javaClass.classLoader.loadClass(EXTENSIONS_RESOURCE).getDeclaredConstructor()
-                .newInstance() as ExtensionIndex).extensions.forEach {
-                bucket.add(it)
-            }
-            debugExtensions(bucket)
-            result["cohesive"] = bucket
-        } catch (e: IOException) {
-            Log.e { e.message.toString() }
+  override fun readSystemExtensionIndex(): MutableMap<String, Set<String>> {
+    Log.d { "Reading extensions storages from classpath" }
+    val result: MutableMap<String, Set<String>> = LinkedHashMap()
+    val bucket = mutableSetOf<String>()
+    try {
+      (javaClass.classLoader.loadClass(COHESIVE_RESOURCE).getDeclaredConstructor()
+        .newInstance() as ExtensionIndex).extensions.forEach {
+        bucket.add(it)
+      }
+      (javaClass.classLoader.loadClass(EXTENSIONS_RESOURCE).getDeclaredConstructor()
+        .newInstance() as ExtensionIndex).extensions.forEach {
+        bucket.add(it)
+      }
+      debugExtensions(bucket)
+      result["cohesive"] = bucket
+    } catch (e: IOException) {
+      Log.e { e.message.toString() }
+    }
+    return result
+  }
+
+  override fun readPluginExtensionIndex(): Map<String, Set<String>> {
+    Log.d { "Reading extensions storages from plugins" }
+    val result: MutableMap<String, Set<String>> = LinkedHashMap()
+    pluginManager.plugins.forEach {
+      val pluginId: String = it.pluginId
+      Log.d { "Reading extensions storages from plugin $pluginId" }
+      val bucket = mutableSetOf<String>()
+      try {
+        Log.d { "Read $EXTENSIONS_RESOURCE" }
+        (javaClass.classLoader.loadClass(EXTENSIONS_RESOURCE).getDeclaredConstructor()
+          .newInstance() as ExtensionIndex).extensions.forEach { ext ->
+          bucket.add(ext)
         }
-        return result
+        debugExtensions(bucket)
+        result[pluginId] = bucket
+      } catch (e: IOException) {
+        Log.e { e.message.toString() }
+      }
     }
 
-    override fun readPluginExtensionIndex(): Map<String, Set<String>> {
-        Log.d { "Reading extensions storages from plugins" }
-        val result: MutableMap<String, Set<String>> = LinkedHashMap()
-        pluginManager.plugins.forEach {
-            val pluginId: String = it.pluginId
-            Log.d { "Reading extensions storages from plugin $pluginId" }
-            val bucket = mutableSetOf<String>()
-            try {
-                Log.d { "Read $EXTENSIONS_RESOURCE" }
-                (javaClass.classLoader.loadClass(EXTENSIONS_RESOURCE).getDeclaredConstructor()
-                    .newInstance() as ExtensionIndex).extensions.forEach { ext ->
-                    bucket.add(ext)
-                }
-                debugExtensions(bucket)
-                result[pluginId] = bucket
-            } catch (e: IOException) {
-                Log.e { e.message.toString() }
-            }
-        }
+    return result
+  }
 
-        return result
-    }
-
-    companion object {
-        const val EXTENSIONS_RESOURCE: String = "com.mcxross.cohesive.r.DefaultExtensionIndex"
-        const val COHESIVE_RESOURCE: String = "com.mcxross.cohesive.r.DefaultCohesiveExtension"
-    }
+  companion object {
+    const val EXTENSIONS_RESOURCE: String = "com.mcxross.cohesive.r.DefaultExtensionIndex"
+    const val COHESIVE_RESOURCE: String = "com.mcxross.cohesive.r.DefaultCohesiveExtension"
+  }
 }

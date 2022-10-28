@@ -4,11 +4,11 @@ import com.mcxross.cohesive.common.utils.Log
 import okio.Path
 
 inline fun compositePluginDescriptorFinder(
-    descriptor: CompositePluginDescriptorFinder.() -> Unit,
+  descriptor: CompositePluginDescriptorFinder.() -> Unit,
 ): PluginDescriptorFinder {
-    val compositePluginDescriptorFinder = CompositePluginDescriptorFinder()
-    compositePluginDescriptorFinder.descriptor()
-    return compositePluginDescriptorFinder
+  val compositePluginDescriptorFinder = CompositePluginDescriptorFinder()
+  compositePluginDescriptorFinder.descriptor()
+  return compositePluginDescriptorFinder
 }
 
 /**
@@ -16,46 +16,46 @@ inline fun compositePluginDescriptorFinder(
  * */
 class CompositePluginDescriptorFinder : PluginDescriptorFinder {
 
-    private val finders: MutableList<PluginDescriptorFinder> = ArrayList()
+  private val finders: MutableList<PluginDescriptorFinder> = ArrayList()
 
-    operator fun plus(finder: PluginDescriptorFinder) {
-        finders.add(finder)
+  operator fun plus(finder: PluginDescriptorFinder) {
+    finders.add(finder)
+  }
+
+  fun size(): Int {
+    return finders.size
+  }
+
+  override fun isApplicable(pluginPath: Path): Boolean {
+    finders.forEach {
+      if (it.isApplicable(pluginPath)) {
+        return true
+      }
     }
+    return false
+  }
 
-    fun size(): Int {
-        return finders.size
-    }
-
-    override fun isApplicable(pluginPath: Path): Boolean {
-        finders.forEach {
-            if (it.isApplicable(pluginPath)) {
-                return true
-            }
+  override fun find(pluginPath: Path): PluginDescriptor {
+    finders.forEach {
+      if (it.isApplicable(pluginPath)) {
+        Log.d { "$it is applicable for plugin $pluginPath" }
+        try {
+          return it.find(pluginPath)!!
+        } catch (e: Exception) {
+          if (finders.indexOf(it) == finders.size - 1) {
+            // it's the last finder
+            Log.e { e.message.toString() }
+          } else {
+            // log the exception and continue with the next finder
+            Log.d { e.message.toString() }
+            Log.d { "Try to continue with the next finder" }
+          }
         }
-        return false
+      } else {
+        Log.d { "$it is not applicable for plugin $pluginPath" }
+      }
     }
-
-    override fun find(pluginPath: Path): PluginDescriptor {
-        finders.forEach {
-            if (it.isApplicable(pluginPath)) {
-                Log.d { "$it is applicable for plugin $pluginPath" }
-                try {
-                    return it.find(pluginPath)!!
-                } catch (e: Exception) {
-                    if (finders.indexOf(it) == finders.size - 1) {
-                        // it's the last finder
-                        Log.e { e.message.toString() }
-                    } else {
-                        // log the exception and continue with the next finder
-                        Log.d { e.message.toString() }
-                        Log.d { "Try to continue with the next finder" }
-                    }
-                }
-            } else {
-                Log.d { "$it is not applicable for plugin $pluginPath" }
-            }
-        }
-        throw PluginRuntimeException("No PluginDescriptorFinder for plugin '{}'", pluginPath)
-    }
+    throw PluginRuntimeException("No PluginDescriptorFinder for plugin '{}'", pluginPath)
+  }
 
 }

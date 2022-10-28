@@ -8,6 +8,6 @@ data class Configuration(val chain: Chain)
 
 @Serializable
 data class Chain(
-    @SerialName("clusterKey") val clusterKey: List<String?>,
-    @SerialName("clusterValue") val clusterValue: List<String>,
+  @SerialName("clusterKey") val clusterKey: List<String?>,
+  @SerialName("clusterValue") val clusterValue: List<String>,
 )

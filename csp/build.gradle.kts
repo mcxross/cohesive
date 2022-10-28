@@ -4,6 +4,7 @@ val okioVersion: String by project
 plugins {
     kotlin("jvm")
     kotlin("plugin.serialization") version "1.6.10"
+    id("org.jetbrains.dokka")
 }
 
 group = "com.mcxross.cohesive.csp"

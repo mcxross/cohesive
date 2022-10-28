@@ -4,18 +4,18 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
 
 internal fun lerp(start: Float, stop: Float, fraction: Float): Float {
-    return start + ((stop - start) * fraction)
+  return start + ((stop - start) * fraction)
 }
 
 @OptIn(ExperimentalContracts::class)
 inline fun <T> List<T>.fastForEach(action: (T) -> Unit) {
-    contract {
-        callsInPlace(action)
-    }
-    for (index in indices) {
-        val item = get(index)
-        action(item)
-    }
+  contract {
+    callsInPlace(action)
+  }
+  for (index in indices) {
+    val item = get(index)
+    action(item)
+  }
 }
 
 /**
@@ -24,18 +24,18 @@ inline fun <T> List<T>.fastForEach(action: (T) -> Unit) {
  */
 @OptIn(ExperimentalContracts::class)
 inline fun <T> List<T>.fastForEachIndexed(action: (Int, T) -> Unit) {
-    contract { callsInPlace(action) }
-    for (index in indices) {
-        val item = get(index)
-        action(index, item)
-    }
+  contract { callsInPlace(action) }
+  for (index in indices) {
+    val item = get(index)
+    action(index, item)
+  }
 }
 
 @OptIn(ExperimentalContracts::class)
 inline fun <T> List<T>.fastFirstOrNull(predicate: (T) -> Boolean): T? {
-    contract { callsInPlace(predicate) }
-    forEach { if (predicate(it)) return it }
-    return null
+  contract { callsInPlace(predicate) }
+  forEach { if (predicate(it)) return it }
+  return null
 }
 
 /**
@@ -44,12 +44,12 @@ inline fun <T> List<T>.fastFirstOrNull(predicate: (T) -> Boolean): T? {
  */
 @OptIn(ExperimentalContracts::class)
 inline fun <T, R> List<T>.fastMap(transform: (T) -> R): List<R> {
-    contract { callsInPlace(transform) }
-    val target = ArrayList<R>(size)
-    fastForEach {
-        target += transform(it)
-    }
-    return target
+  contract { callsInPlace(transform) }
+  val target = ArrayList<R>(size)
+  fastForEach {
+    target += transform(it)
+  }
+  return target
 }
 
 /**
@@ -62,12 +62,12 @@ inline fun <T, R> List<T>.fastMap(transform: (T) -> R): List<R> {
  */
 @OptIn(ExperimentalContracts::class)
 internal inline fun <T, R> List<T>.fastFold(initial: R, operation: (acc: R, T) -> R): R {
-    contract { callsInPlace(operation) }
-    var accumulator = initial
-    fastForEach { e ->
-        accumulator = operation(accumulator, e)
-    }
-    return accumulator
+  contract { callsInPlace(operation) }
+  var accumulator = initial
+  fastForEach { e ->
+    accumulator = operation(accumulator, e)
+  }
+  return accumulator
 }
 
 /**
@@ -75,9 +75,9 @@ internal inline fun <T, R> List<T>.fastFold(initial: R, operation: (acc: R, T) -
  */
 @OptIn(ExperimentalContracts::class)
 inline fun <T> List<T>.fastAll(predicate: (T) -> Boolean): Boolean {
-    contract { callsInPlace(predicate) }
-    fastForEach { if (!predicate(it)) return false }
-    return true
+  contract { callsInPlace(predicate) }
+  fastForEach { if (!predicate(it)) return false }
+  return true
 }
 
 /**
@@ -85,9 +85,9 @@ inline fun <T> List<T>.fastAll(predicate: (T) -> Boolean): Boolean {
  */
 @OptIn(ExperimentalContracts::class)
 inline fun <T> List<T>.fastAny(predicate: (T) -> Boolean): Boolean {
-    contract { callsInPlace(predicate) }
-    fastForEach { if (predicate(it)) return true }
-    return false
+  contract { callsInPlace(predicate) }
+  fastForEach { if (predicate(it)) return true }
+  return false
 }
 
 /**
@@ -96,12 +96,12 @@ inline fun <T> List<T>.fastAny(predicate: (T) -> Boolean): Boolean {
  */
 @OptIn(ExperimentalContracts::class)
 internal inline fun <T, R> List<T>.fastMapIndexedNotNull(
-    transform: (index: Int, T) -> R?
+  transform: (index: Int, T) -> R?
 ): List<R> {
-    contract { callsInPlace(transform) }
-    val target = ArrayList<R>(size)
-    fastForEachIndexed { index, e ->
-        transform(index, e)?.let { target += it }
-    }
-    return target
+  contract { callsInPlace(transform) }
+  val target = ArrayList<R>(size)
+  fastForEachIndexed { index, e ->
+    transform(index, e)?.let { target += it }
+  }
+  return target
 }

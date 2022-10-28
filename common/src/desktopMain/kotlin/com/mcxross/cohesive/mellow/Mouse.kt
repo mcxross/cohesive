@@ -10,10 +10,10 @@ import java.awt.Cursor
 
 @OptIn(ExperimentalComposeUiApi::class)
 actual fun Modifier.pointerMoveFilter(
-    onEnter: () -> Boolean,
-    onExit: () -> Boolean,
-    onMove: (Offset) -> Boolean
+  onEnter: () -> Boolean,
+  onExit: () -> Boolean,
+  onMove: (Offset) -> Boolean
 ): Modifier = this.pointerMoveFilter(onEnter = onEnter, onExit = onExit, onMove = onMove)
 
 actual fun Modifier.cursorForHorizontalResize(): Modifier =
-    this.pointerHoverIcon(PointerIcon(Cursor(Cursor.E_RESIZE_CURSOR)))
+  this.pointerHoverIcon(PointerIcon(Cursor(Cursor.E_RESIZE_CURSOR)))

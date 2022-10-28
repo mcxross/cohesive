@@ -13,18 +13,18 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun Card(
-    modifier: Modifier,
-    shape: Shape = RoundedCornerShape(15.dp),
-    backgroundColor: Color = MaterialTheme.colors.surface,
-    contentColor: Color = contentColorFor(backgroundColor),
-    border: BorderStroke? = null,
-    elevation: Dp = 1.dp,
-    content: @Composable () -> Unit,
+  modifier: Modifier,
+  shape: Shape = RoundedCornerShape(15.dp),
+  backgroundColor: Color = MaterialTheme.colors.surface,
+  contentColor: Color = contentColorFor(backgroundColor),
+  border: BorderStroke? = null,
+  elevation: Dp = 1.dp,
+  content: @Composable () -> Unit,
 ) = androidx.compose.material.Card(
-    modifier = modifier,
-    shape = shape,
-    backgroundColor = backgroundColor,
-    contentColor = contentColor,
-    border = border,
-    elevation = elevation,
+  modifier = modifier,
+  shape = shape,
+  backgroundColor = backgroundColor,
+  contentColor = contentColor,
+  border = border,
+  elevation = elevation,
 ) { content() }

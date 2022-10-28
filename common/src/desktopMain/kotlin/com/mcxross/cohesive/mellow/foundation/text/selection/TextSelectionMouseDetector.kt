@@ -39,101 +39,101 @@ import com.mcxross.cohesive.mellow.fastAll
 // * The specific case of it when selection is collapsed, but the same logic is
 // applied for not collapsed selection too.
 internal interface MouseSelectionObserver {
-    // on start of shift click. if returns true event will be consumed
-    fun onExtend(downPosition: Offset): Boolean
+  // on start of shift click. if returns true event will be consumed
+  fun onExtend(downPosition: Offset): Boolean
 
-    // on drag after shift click. if returns true event will be consumed
-    fun onExtendDrag(dragPosition: Offset): Boolean
+  // on drag after shift click. if returns true event will be consumed
+  fun onExtendDrag(dragPosition: Offset): Boolean
 
-    // if returns true event will be consumed
-    fun onStart(downPosition: Offset, adjustment: SelectionAdjustment): Boolean
-    fun onDrag(dragPosition: Offset, adjustment: SelectionAdjustment): Boolean
+  // if returns true event will be consumed
+  fun onStart(downPosition: Offset, adjustment: SelectionAdjustment): Boolean
+  fun onDrag(dragPosition: Offset, adjustment: SelectionAdjustment): Boolean
 }
 
 // Distance in pixels between consecutive click positions to be considered them as clicks sequence
 internal const val ClicksSlop = 100.0
 
 private class ClicksCounter(
-    private val viewConfiguration: ViewConfiguration
+  private val viewConfiguration: ViewConfiguration
 ) {
-    var clicks = 0
-    var prevClick: PointerInputChange? = null
-    fun update(event: PointerEvent) {
-        val currentPrevClick = prevClick
-        val newClick = event.changes[0]
-        if (currentPrevClick != null &&
-            timeIsTolerable(currentPrevClick, newClick) &&
-            positionIsTolerable(currentPrevClick, newClick)
-        ) {
-            clicks += 1
-        } else {
-            clicks = 1
-        }
-        prevClick = newClick
+  var clicks = 0
+  var prevClick: PointerInputChange? = null
+  fun update(event: PointerEvent) {
+    val currentPrevClick = prevClick
+    val newClick = event.changes[0]
+    if (currentPrevClick != null &&
+      timeIsTolerable(currentPrevClick, newClick) &&
+      positionIsTolerable(currentPrevClick, newClick)
+    ) {
+      clicks += 1
+    } else {
+      clicks = 1
     }
+    prevClick = newClick
+  }
 
-    fun timeIsTolerable(prevClick: PointerInputChange, newClick: PointerInputChange): Boolean {
-        val diff = newClick.uptimeMillis - prevClick.uptimeMillis
-        return diff < viewConfiguration.doubleTapTimeoutMillis
-    }
+  fun timeIsTolerable(prevClick: PointerInputChange, newClick: PointerInputChange): Boolean {
+    val diff = newClick.uptimeMillis - prevClick.uptimeMillis
+    return diff < viewConfiguration.doubleTapTimeoutMillis
+  }
 
-    fun positionIsTolerable(prevClick: PointerInputChange, newClick: PointerInputChange): Boolean {
-        val diff = newClick.position - prevClick.position
-        return diff.getDistance() < ClicksSlop
-    }
+  fun positionIsTolerable(prevClick: PointerInputChange, newClick: PointerInputChange): Boolean {
+    val diff = newClick.position - prevClick.position
+    return diff.getDistance() < ClicksSlop
+  }
 }
 
 internal suspend fun PointerInputScope.mouseSelectionDetector(
-    observer: MouseSelectionObserver
+  observer: MouseSelectionObserver
 ) {
-    forEachGesture {
-        awaitPointerEventScope {
-            val clicksCounter = ClicksCounter(viewConfiguration)
-            while (true) {
-                val down = awaitMouseEventDown()
-                clicksCounter.update(down)
-                val downChange = down.changes[0]
-                if (down.isShiftPressed) {
-                    val started = observer.onExtend(downChange.position)
-                    if (started) {
-                        downChange.consumeDownChange()
-                        drag(downChange.id) {
-                            if (observer.onExtendDrag(it.position)) {
-                                it.consumeAllChanges()
-                            }
-                        }
-                    }
-                } else {
-                    val selectionMode = when (clicksCounter.clicks) {
-                        1 -> SelectionAdjustment.None
-                        2 -> SelectionAdjustment.Word
-                        else -> SelectionAdjustment.Paragraph
-                    }
-                    val started = observer.onStart(downChange.position, selectionMode)
-                    if (started) {
-                        downChange.consumeDownChange()
-                        drag(downChange.id) {
-                            if (observer.onDrag(it.position, selectionMode)) {
-                                it.consumeAllChanges()
-                            }
-                        }
-                    }
-                }
+  forEachGesture {
+    awaitPointerEventScope {
+      val clicksCounter = ClicksCounter(viewConfiguration)
+      while (true) {
+        val down = awaitMouseEventDown()
+        clicksCounter.update(down)
+        val downChange = down.changes[0]
+        if (down.isShiftPressed) {
+          val started = observer.onExtend(downChange.position)
+          if (started) {
+            downChange.consumeDownChange()
+            drag(downChange.id) {
+              if (observer.onExtendDrag(it.position)) {
+                it.consumeAllChanges()
+              }
             }
+          }
+        } else {
+          val selectionMode = when (clicksCounter.clicks) {
+            1 -> SelectionAdjustment.None
+            2 -> SelectionAdjustment.Word
+            else -> SelectionAdjustment.Paragraph
+          }
+          val started = observer.onStart(downChange.position, selectionMode)
+          if (started) {
+            downChange.consumeDownChange()
+            drag(downChange.id) {
+              if (observer.onDrag(it.position, selectionMode)) {
+                it.consumeAllChanges()
+              }
+            }
+          }
         }
+      }
     }
+  }
 }
 
 private suspend fun AwaitPointerEventScope.awaitMouseEventDown(): PointerEvent {
-    var event: PointerEvent
-    do {
-        event = awaitPointerEvent(PointerEventPass.Main)
-    } while (
-        !(
-            event.buttons.isPrimaryPressed && event.changes.fastAll {
-                it.type == PointerType.Mouse && it.changedToDown()
-            }
-            )
-    )
-    return event
+  var event: PointerEvent
+  do {
+    event = awaitPointerEvent(PointerEventPass.Main)
+  } while (
+    !(
+      event.buttons.isPrimaryPressed && event.changes.fastAll {
+        it.type == PointerType.Mouse && it.changedToDown()
+      }
+      )
+  )
+  return event
 }

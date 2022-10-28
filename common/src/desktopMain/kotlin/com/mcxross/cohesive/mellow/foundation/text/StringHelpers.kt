@@ -19,21 +19,21 @@ package com.mcxross.cohesive.mellow.foundation.text
 import androidx.compose.ui.text.TextRange
 
 internal fun CharSequence.findParagraphStart(startIndex: Int): Int {
-    for (index in startIndex - 1 downTo 1) {
-        if (this[index - 1] == '\n') {
-            return index
-        }
+  for (index in startIndex - 1 downTo 1) {
+    if (this[index - 1] == '\n') {
+      return index
     }
-    return 0
+  }
+  return 0
 }
 
 internal fun CharSequence.findParagraphEnd(startIndex: Int): Int {
-    for (index in startIndex + 1 until this.length) {
-        if (this[index] == '\n') {
-            return index
-        }
+  for (index in startIndex + 1 until this.length) {
+    if (this[index] == '\n') {
+      return index
     }
-    return this.length
+  }
+  return this.length
 }
 
 /**
@@ -42,5 +42,5 @@ internal fun CharSequence.findParagraphEnd(startIndex: Int): Int {
  * Paragraphs are separated by Line Feed character (\n).
  */
 internal fun CharSequence.getParagraphBoundary(index: Int): TextRange {
-    return TextRange(findParagraphStart(index), findParagraphEnd(index))
+  return TextRange(findParagraphStart(index), findParagraphEnd(index))
 }

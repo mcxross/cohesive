@@ -22,37 +22,37 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.PointerInputScope
 
 internal interface TextDragObserver {
-    fun onStart(startPoint: Offset)
+  fun onStart(startPoint: Offset)
 
-    fun onDrag(delta: Offset)
+  fun onDrag(delta: Offset)
 
-    fun onStop()
+  fun onStop()
 
-    fun onCancel()
+  fun onCancel()
 }
 
 internal suspend fun PointerInputScope.detectDragGesturesAfterLongPressWithObserver(
-    observer: TextDragObserver
+  observer: TextDragObserver
 ) = detectDragGesturesAfterLongPress(
-    onDragEnd = { observer.onStop() },
-    onDrag = { _, offset ->
-        observer.onDrag(offset)
-    },
-    onDragStart = {
-        observer.onStart(it)
-    },
-    onDragCancel = { observer.onCancel() }
+  onDragEnd = { observer.onStop() },
+  onDrag = { _, offset ->
+    observer.onDrag(offset)
+  },
+  onDragStart = {
+    observer.onStart(it)
+  },
+  onDragCancel = { observer.onCancel() },
 )
 
 internal suspend fun PointerInputScope.detectDragGesturesWithObserver(
-    observer: TextDragObserver
+  observer: TextDragObserver
 ) = detectDragGestures(
-    onDragEnd = { observer.onStop() },
-    onDrag = { _, offset ->
-        observer.onDrag(offset)
-    },
-    onDragStart = {
-        observer.onStart(it)
-    },
-    onDragCancel = { observer.onCancel() }
+  onDragEnd = { observer.onStop() },
+  onDrag = { _, offset ->
+    observer.onDrag(offset)
+  },
+  onDragStart = {
+    observer.onStart(it)
+  },
+  onDragCancel = { observer.onCancel() },
 )

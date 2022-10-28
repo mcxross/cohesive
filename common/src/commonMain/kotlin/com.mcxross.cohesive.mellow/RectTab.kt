@@ -6,7 +6,11 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.LocalContentColor
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
@@ -19,48 +23,48 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun RectTab(
-    text: String,
-    active: Boolean,
-    onActivate: () -> Unit,
-    onClose: (() -> Unit?)? = null,
+  text: String,
+  active: Boolean,
+  onActivate: () -> Unit,
+  onClose: (() -> Unit?)? = null,
 ) = Surface(
-    color = if (active) {
-        MaterialTheme.colors.background
-    } else {
-        Color.Transparent
-    }
+  color = if (active) {
+    MaterialTheme.colors.background
+  } else {
+    Color.Transparent
+  },
 ) {
-    Row(
-        modifier = Modifier
-            .clickable(
-                interactionSource = remember(::MutableInteractionSource),
-                indication = null
-            ) {
-                onActivate()
-            }.padding(4.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Text(
-            text = text,
-            color = LocalContentColor.current,
-            fontSize = 12.sp,
-            modifier = Modifier.padding(horizontal = 4.dp),
-            maxLines = 1
-        )
+  Row(
+    modifier = Modifier
+      .clickable(
+        interactionSource = remember(::MutableInteractionSource),
+        indication = null,
+      ) {
+        onActivate()
+      }.padding(4.dp),
+    verticalAlignment = Alignment.CenterVertically,
+  ) {
+    Text(
+      text = text,
+      color = LocalContentColor.current,
+      fontSize = 12.sp,
+      modifier = Modifier.padding(horizontal = 4.dp),
+      maxLines = 1,
+    )
 
-        if (onClose != null) {
-            Icon(
-                imageVector = Icons.Default.Close,
-                tint = LocalContentColor.current,
-                contentDescription = "Close",
-                modifier = Modifier.size(24.dp).padding(4.dp).clickable {
-                    onClose()
-                }
-            )
-        } else {
-            Box(
-                modifier = Modifier.size(24.dp, 24.dp).padding(4.dp)
-            )
-        }
+    if (onClose != null) {
+      Icon(
+        imageVector = Icons.Default.Close,
+        tint = LocalContentColor.current,
+        contentDescription = "Close",
+        modifier = Modifier.size(24.dp).padding(4.dp).clickable {
+          onClose()
+        },
+      )
+    } else {
+      Box(
+        modifier = Modifier.size(24.dp, 24.dp).padding(4.dp),
+      )
     }
+  }
 }

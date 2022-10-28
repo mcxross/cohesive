@@ -13,55 +13,55 @@ import java.util.*
  * @param license the plugin license. Defaults to an empty String.
  * */
 open class DefaultPluginDescriptor(
-    override var pluginId: String = "",
-    override var pluginDescription: String = "",
-    override var pluginClass: String = Plugin::class.java.name,
-    override var version: String = "",
-    override var requires: String = "*",
-    override var provider: String = "",
-    override var license: String = "",
+  override var pluginId: String = "",
+  override var pluginDescription: String = "",
+  override var pluginClass: String = Plugin::class.java.name,
+  override var version: String = "",
+  override var requires: String = "*",
+  override var provider: String = "",
+  override var license: String = "",
 ) : PluginDescriptor {
 
-    override var dependencies: MutableList<PluginDependency> = mutableListOf()
+  override var dependencies: MutableList<PluginDependency> = mutableListOf()
 
-    override fun toString(): String {
-        return ("PluginDescriptor [pluginId=" + pluginId + ", pluginClass="
-                + pluginClass + ", version=" + version + ", provider="
-                + provider + ", dependencies=" + dependencies + ", description="
-                + pluginDescription + ", requires=" + requires + ", license="
-                + license + "]")
-    }
+  override fun toString(): String {
+    return ("PluginDescriptor [pluginId=" + pluginId + ", pluginClass="
+      + pluginClass + ", version=" + version + ", provider="
+      + provider + ", dependencies=" + dependencies + ", description="
+      + pluginDescription + ", requires=" + requires + ", license="
+      + license + "]")
+  }
 
-    fun setDependencies(dependencies: String) {
-        dependencies.trim { it <= ' ' }
-        if (dependencies.isNotEmpty()) {
-            val tokens = dependencies.split(",".toRegex()).dropLastWhile { it.isEmpty() }
-                .toTypedArray()
-            for (dependency in tokens) {
-                dependency.trim { it <= ' ' }
-                if (dependency.isNotEmpty()) {
-                    this.dependencies.add(PluginDependency(dependency))
-                }
-            }
+  fun setDependencies(dependencies: String) {
+    dependencies.trim { it <= ' ' }
+    if (dependencies.isNotEmpty()) {
+      val tokens = dependencies.split(",".toRegex()).dropLastWhile { it.isEmpty() }
+        .toTypedArray()
+      for (dependency in tokens) {
+        dependency.trim { it <= ' ' }
+        if (dependency.isNotEmpty()) {
+          this.dependencies.add(PluginDependency(dependency))
         }
+      }
     }
+  }
 
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is DefaultPluginDescriptor) return false
-        return (pluginId == other.pluginId) && (pluginDescription == other.pluginDescription) && (pluginClass == other.pluginClass) && (version == other.version) && (requires == other.requires) && (provider == other.provider) && (dependencies == other.dependencies) && (license == other.license)
-    }
+  override fun equals(other: Any?): Boolean {
+    if (this === other) return true
+    if (other !is DefaultPluginDescriptor) return false
+    return (pluginId == other.pluginId) && (pluginDescription == other.pluginDescription) && (pluginClass == other.pluginClass) && (version == other.version) && (requires == other.requires) && (provider == other.provider) && (dependencies == other.dependencies) && (license == other.license)
+  }
 
-    override fun hashCode(): Int {
-        return Objects.hash(
-            pluginId,
-            pluginDescription,
-            pluginClass,
-            version,
-            requires,
-            provider,
-            dependencies,
-            license
-        )
-    }
+  override fun hashCode(): Int {
+    return Objects.hash(
+      pluginId,
+      pluginDescription,
+      pluginClass,
+      version,
+      requires,
+      provider,
+      dependencies,
+      license,
+    )
+  }
 }

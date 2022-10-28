@@ -33,61 +33,61 @@ import androidx.compose.ui.unit.LayoutDirection
 
 @Suppress("ModifierInspectorInfo")
 internal fun Modifier.textFieldMinSize(style: TextStyle) = composed {
-    val density = LocalDensity.current
-    val resourceLoader = LocalFontLoader.current
-    val layoutDirection = LocalLayoutDirection.current
+  val density = LocalDensity.current
+  val resourceLoader = LocalFontLoader.current
+  val layoutDirection = LocalLayoutDirection.current
 
-    val minSizeState = remember { TextFieldSize(layoutDirection, density, resourceLoader, style) }
-    minSizeState.update(layoutDirection, density, resourceLoader, style)
+  val minSizeState = remember { TextFieldSize(layoutDirection, density, resourceLoader, style) }
+  minSizeState.update(layoutDirection, density, resourceLoader, style)
 
-    Modifier.layout { measurable, constraints ->
-        Modifier.defaultMinSize()
-        val minSize = minSizeState.minSize
+  Modifier.layout { measurable, constraints ->
+    Modifier.defaultMinSize()
+    val minSize = minSizeState.minSize
 
-        val childConstraints = constraints.copy(
-            minWidth = minSize.width.coerceIn(constraints.minWidth, constraints.maxWidth),
-            minHeight = minSize.height.coerceIn(constraints.minHeight, constraints.maxHeight)
-        )
-        val measured = measurable.measure(childConstraints)
-        layout(measured.width, measured.height) {
-            measured.placeRelative(0, 0)
-        }
+    val childConstraints = constraints.copy(
+      minWidth = minSize.width.coerceIn(constraints.minWidth, constraints.maxWidth),
+      minHeight = minSize.height.coerceIn(constraints.minHeight, constraints.maxHeight),
+    )
+    val measured = measurable.measure(childConstraints)
+    layout(measured.width, measured.height) {
+      measured.placeRelative(0, 0)
     }
+  }
 }
 
 private class TextFieldSize(
-    var layoutDirection: LayoutDirection,
-    var density: Density,
-    var resourceLoader: Font.ResourceLoader,
-    var style: TextStyle
+  var layoutDirection: LayoutDirection,
+  var density: Density,
+  var resourceLoader: Font.ResourceLoader,
+  var style: TextStyle
 ) {
-    var minSize = computeMinSize()
-        private set
+  var minSize = computeMinSize()
+    private set
 
-    fun update(
-        layoutDirection: LayoutDirection,
-        density: Density,
-        resourceLoader: Font.ResourceLoader,
-        style: TextStyle
+  fun update(
+    layoutDirection: LayoutDirection,
+    density: Density,
+    resourceLoader: Font.ResourceLoader,
+    style: TextStyle
+  ) {
+    if (layoutDirection != this.layoutDirection ||
+      density != this.density ||
+      resourceLoader != this.resourceLoader ||
+      style != this.style
     ) {
-        if (layoutDirection != this.layoutDirection ||
-            density != this.density ||
-            resourceLoader != this.resourceLoader ||
-            style != this.style
-        ) {
-            this.layoutDirection = layoutDirection
-            this.density = density
-            this.resourceLoader = resourceLoader
-            this.style = style
-            minSize = computeMinSize()
-        }
+      this.layoutDirection = layoutDirection
+      this.density = density
+      this.resourceLoader = resourceLoader
+      this.style = style
+      minSize = computeMinSize()
     }
+  }
 
-    private fun computeMinSize(): IntSize {
-        return computeSizeForDefaultText(
-            style = resolveDefaults(style, layoutDirection),
-            density = density,
-            resourceLoader = resourceLoader
-        )
-    }
+  private fun computeMinSize(): IntSize {
+    return computeSizeForDefaultText(
+      style = resolveDefaults(style, layoutDirection),
+      density = density,
+      resourceLoader = resourceLoader,
+    )
+  }
 }

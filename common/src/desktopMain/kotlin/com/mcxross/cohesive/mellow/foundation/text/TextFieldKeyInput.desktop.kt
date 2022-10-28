@@ -17,11 +17,11 @@
 package com.mcxross.cohesive.mellow.foundation.text
 
 private fun Char.isPrintable(): Boolean {
-    val block = Character.UnicodeBlock.of(this)
-    return (!Character.isISOControl(this)) &&
-        this != java.awt.event.KeyEvent.CHAR_UNDEFINED &&
-        block != null &&
-        block != Character.UnicodeBlock.SPECIALS
+  val block = Character.UnicodeBlock.of(this)
+  return (!Character.isISOControl(this)) &&
+    this != java.awt.event.KeyEvent.CHAR_UNDEFINED &&
+    block != null &&
+    block != Character.UnicodeBlock.SPECIALS
 }
 
 

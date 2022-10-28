@@ -23,42 +23,45 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 
 class PanelState {
-    val collapsedSize = 24.dp
-    var expandedSize by mutableStateOf(300.dp)
-    val expandedSizeMin = 90.dp
-    var isExpanded by mutableStateOf(true)
-    val splitter = SplitterState()
+  val collapsedSize = 24.dp
+  var expandedSize by mutableStateOf(300.dp)
+  val expandedSizeMin = 90.dp
+  var isExpanded by mutableStateOf(true)
+  val splitter = SplitterState()
 }
 
 @Composable
 fun ResizablePanel(
-    modifier: Modifier,
-    state: PanelState,
-    content: @Composable () -> Unit,
+  modifier: Modifier,
+  state: PanelState,
+  content: @Composable () -> Unit,
 ) {
-    val alpha by animateFloatAsState(if (state.isExpanded) 1f else 0f, SpringSpec(stiffness = Spring.StiffnessLow))
+  val alpha by animateFloatAsState(
+    if (state.isExpanded) 1f else 0f,
+    SpringSpec(stiffness = Spring.StiffnessLow),
+  )
 
+  Box(
+    modifier = modifier,
+  ) {
     Box(
-        modifier = modifier
+      modifier = Modifier.fillMaxSize().graphicsLayer(alpha = alpha),
     ) {
-        Box(
-            modifier = Modifier.fillMaxSize().graphicsLayer(alpha = alpha)
-        ) {
-            content()
-        }
-
-        Icon(
-            imageVector = if (state.isExpanded) Icons.Default.ArrowBack else Icons.Default.ArrowForward,
-            contentDescription = if (state.isExpanded) "Collapse" else "Expand",
-            tint = LocalContentColor.current,
-            modifier = Modifier
-                .padding(top = 4.dp)
-                .width(24.dp)
-                .clickable {
-                    state.isExpanded = !state.isExpanded
-                }
-                .padding(4.dp)
-                .align(Alignment.TopEnd)
-        )
+      content()
     }
+
+    Icon(
+      imageVector = if (state.isExpanded) Icons.Default.ArrowBack else Icons.Default.ArrowForward,
+      contentDescription = if (state.isExpanded) "Collapse" else "Expand",
+      tint = LocalContentColor.current,
+      modifier = Modifier
+        .padding(top = 4.dp)
+        .width(24.dp)
+        .clickable {
+          state.isExpanded = !state.isExpanded
+        }
+        .padding(4.dp)
+        .align(Alignment.TopEnd),
+    )
+  }
 }

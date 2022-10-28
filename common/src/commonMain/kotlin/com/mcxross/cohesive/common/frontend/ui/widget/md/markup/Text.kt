@@ -13,17 +13,17 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalUnitApi::class)
 @Composable
 fun Text(
-    text: String,
-    color: Color,
+  text: String,
+  color: Color,
 ) {
-    Text(
-        text = text,
-        fontSize = TextUnit(13f, TextUnitType.Sp),
-        color = color,
-        modifier = Modifier.padding(5.dp)
-    )
+  Text(
+    text = text,
+    fontSize = TextUnit(13f, TextUnitType.Sp),
+    color = color,
+    modifier = Modifier.padding(5.dp),
+  )
 }
 
 data class MKText(
-    val text: String,
+  val text: String,
 ) : Element

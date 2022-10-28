@@ -10,12 +10,11 @@ import com.mcxross.cohesive.mellow.MellowTheme
 
 @Composable
 fun SplashScreen() {
-    DisableSelection {
-        MaterialTheme(colors = MellowTheme.getColors()) {
-            Surface(modifier = Modifier.fillMaxSize()) {
+  DisableSelection {
+    MaterialTheme(colors = MellowTheme.getColors()) {
+      Surface(modifier = Modifier.fillMaxSize()) {
 
-            }
-        }
+      }
     }
-
+  }
 }

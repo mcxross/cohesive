@@ -11,12 +11,12 @@ import androidx.compose.ui.unit.Dp
 
 @Composable
 internal fun ProgressIndicator(
-    modifier: Modifier,
-    size: Dp,
-    onDraw: DrawScope.() -> Unit,
+  modifier: Modifier,
+  size: Dp,
+  onDraw: DrawScope.() -> Unit,
 ) {
-    Canvas(
-        modifier = modifier.progressSemantics().size(size).focusable(),
-        onDraw = onDraw
-    )
+  Canvas(
+    modifier = modifier.progressSemantics().size(size).focusable(),
+    onDraw = onDraw,
+  )
 }

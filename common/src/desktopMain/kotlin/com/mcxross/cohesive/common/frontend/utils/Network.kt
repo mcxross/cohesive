@@ -20,53 +20,53 @@ import java.io.ByteArrayInputStream
 val ktorHttpClient = HttpClient {}
 
 actual fun isInternetAvailable(): Boolean {
-    return runBlocking {
-        try {
-            ktorHttpClient.head("http://google.com")
-            true
-        } catch (e: Exception) {
-            println(e.message)
-            false
-        }
+  return runBlocking {
+    try {
+      ktorHttpClient.head("http://google.com")
+      true
+    } catch (e: Exception) {
+      println(e.message)
+      false
     }
+  }
 }
 
 actual fun getHTTPClient(): HttpClient = HttpClient(CIO) {
-    install(UserAgent) {
-        agent = "Cohesive"
+  install(UserAgent) {
+    agent = "Cohesive"
+  }
+  install(HttpRequestRetry) {
+    maxRetries = 5
+    retryIf { _, response ->
+      !response.status.isSuccess()
     }
-    install(HttpRequestRetry) {
-        maxRetries = 5
-        retryIf { _, response ->
-            !response.status.isSuccess()
-        }
-        retryOnExceptionIf { _, cause ->
-            cause is ConnectTimeoutException
-        }
-        exponentialDelay()
+    retryOnExceptionIf { _, cause ->
+      cause is ConnectTimeoutException
     }
+    exponentialDelay()
+  }
 }
 
 
 suspend fun loadImageBitmap(
-    url: String,
+  url: String,
 ): ImageBitmap =
-    urlStream(url).use(::loadImageBitmap)
+  urlStream(url).use(::loadImageBitmap)
 
 suspend fun loadSvgPainter(
-    url: String,
-    density: Density,
+  url: String,
+  density: Density,
 ): Painter =
-    urlStream(url).use { loadSvgPainter(it, density) }
+  urlStream(url).use { loadSvgPainter(it, density) }
 
 suspend fun loadXmlImageVector(
-    url: String,
-    density: Density,
+  url: String,
+  density: Density,
 ): ImageVector =
-    urlStream(url).use { loadXmlImageVector(InputSource(it), density) }
+  urlStream(url).use { loadXmlImageVector(InputSource(it), density) }
 
 private suspend fun urlStream(
-    url: String,
+  url: String,
 ) = getHTTPClient().use {
-    ByteArrayInputStream(it.get(url).body())
+  ByteArrayInputStream(it.get(url).body())
 }

@@ -7,8 +7,8 @@ import com.mcxross.cohesive.common.utils.Log
  * This listener is added automatically by [DefaultPluginManager] for `dev` mode.
  */
 class LoggingPluginStateListener : PluginStateListener {
-    override fun pluginStateChanged(event: PluginStateEvent) {
-        Log.d { "The state of plugin ${event.plugin.pluginId} has changed from ${event.oldState} to ${event.pluginState}" }
-    }
+  override fun pluginStateChanged(event: PluginStateEvent) {
+    Log.d { "The state of plugin ${event.plugin.pluginId} has changed from ${event.oldState} to ${event.pluginState}" }
+  }
 
 }

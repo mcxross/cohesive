@@ -30,5 +30,5 @@ internal val HandleHeight = 25.dp
  * hit current line, move up this y coordinates by 1 pixel.
  */
 internal fun getAdjustedCoordinates(position: Offset): Offset {
-    return Offset(position.x, position.y - 1f)
+  return Offset(position.x, position.y - 1f)
 }

@@ -17,23 +17,23 @@
 package com.mcxross.cohesive.mellow
 
 internal enum class Platform {
-    Linux,
-    Windows,
-    MacOS,
-    Unknown;
+  Linux,
+  Windows,
+  MacOS,
+  Unknown;
 
-    companion object {
-        /**
-         * Identify OS on which the application is currently running.
-         */
-        val Current: Platform by lazy {
-            val name = System.getProperty("os.name")
-            when {
-                name?.startsWith("Linux") == true -> Linux
-                name?.startsWith("Win") == true -> Windows
-                name == "Mac OS X" -> MacOS
-                else -> Unknown
-            }
-        }
+  companion object {
+    /**
+     * Identify OS on which the application is currently running.
+     */
+    val Current: Platform by lazy {
+      val name = System.getProperty("os.name")
+      when {
+        name?.startsWith("Linux") == true -> Linux
+        name?.startsWith("Win") == true -> Windows
+        name == "Mac OS X" -> MacOS
+        else -> Unknown
+      }
     }
+  }
 }

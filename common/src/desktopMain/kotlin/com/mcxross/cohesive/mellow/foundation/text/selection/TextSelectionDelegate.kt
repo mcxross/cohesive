@@ -32,23 +32,23 @@ import kotlin.math.max
  * @return the graphical position where the selection handle should be.
  */
 internal fun getSelectionHandleCoordinates(
-    textLayoutResult: TextLayoutResult,
-    offset: Int,
-    isStart: Boolean,
-    areHandlesCrossed: Boolean
+  textLayoutResult: TextLayoutResult,
+  offset: Int,
+  isStart: Boolean,
+  areHandlesCrossed: Boolean
 ): Offset {
-    val line = textLayoutResult.getLineForOffset(offset)
-    val offsetToCheck =
-        if (isStart && !areHandlesCrossed || !isStart && areHandlesCrossed) offset
-        else max(offset - 1, 0)
-    val bidiRunDirection = textLayoutResult.getBidiRunDirection(offsetToCheck)
-    val paragraphDirection = textLayoutResult.getParagraphDirection(offset)
+  val line = textLayoutResult.getLineForOffset(offset)
+  val offsetToCheck =
+    if (isStart && !areHandlesCrossed || !isStart && areHandlesCrossed) offset
+    else max(offset - 1, 0)
+  val bidiRunDirection = textLayoutResult.getBidiRunDirection(offsetToCheck)
+  val paragraphDirection = textLayoutResult.getParagraphDirection(offset)
 
-    val x = textLayoutResult.getHorizontalPosition(
-        offset = offset,
-        usePrimaryDirection = bidiRunDirection == paragraphDirection
-    )
-    val y = textLayoutResult.getLineBottom(line)
+  val x = textLayoutResult.getHorizontalPosition(
+    offset = offset,
+    usePrimaryDirection = bidiRunDirection == paragraphDirection,
+  )
+  val y = textLayoutResult.getLineBottom(line)
 
-    return Offset(x, y)
+  return Offset(x, y)
 }

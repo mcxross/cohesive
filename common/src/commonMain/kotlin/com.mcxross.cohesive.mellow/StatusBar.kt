@@ -8,14 +8,14 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun StatusBar(
-    content: @Composable (RowScope.() -> Unit),
+  content: @Composable (RowScope.() -> Unit),
 ) = Box(
-    modifier = Modifier
-        .height(25.dp)
-        .fillMaxWidth()
-        .padding(4.dp)
+  modifier = Modifier
+    .height(25.dp)
+    .fillMaxWidth()
+    .padding(4.dp),
 ) {
-    Row(modifier = Modifier.fillMaxHeight().align(Alignment.CenterEnd)) {
-        content()
-    }
+  Row(modifier = Modifier.fillMaxHeight().align(Alignment.CenterEnd)) {
+    content()
+  }
 }

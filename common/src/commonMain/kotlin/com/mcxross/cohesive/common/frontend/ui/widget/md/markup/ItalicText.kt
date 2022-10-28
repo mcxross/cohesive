@@ -10,17 +10,17 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ItalicText(
-    text: String,
-    color: Color,
+  text: String,
+  color: Color,
 ) {
-    Text(
-        text = text,
-        fontStyle = FontStyle.Italic,
-        modifier = Modifier.padding(5.dp),
-        color = color
-    )
+  Text(
+    text = text,
+    fontStyle = FontStyle.Italic,
+    modifier = Modifier.padding(5.dp),
+    color = color,
+  )
 }
 
 data class ItalicText(
-    val text: String,
+  val text: String,
 ) : Element

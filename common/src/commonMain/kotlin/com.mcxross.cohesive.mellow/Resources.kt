@@ -7,8 +7,8 @@ import androidx.compose.ui.text.font.FontWeight
 
 @Composable
 expect fun Font(
-    name: String,
-    res: String,
-    weight: FontWeight,
-    style: FontStyle,
+  name: String,
+  res: String,
+  weight: FontWeight,
+  style: FontStyle,
 ): Font

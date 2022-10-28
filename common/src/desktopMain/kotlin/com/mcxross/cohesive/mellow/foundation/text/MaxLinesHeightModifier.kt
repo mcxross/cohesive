@@ -32,50 +32,50 @@ import androidx.compose.ui.text.resolveDefaults
  * number of lines.
  */
 internal fun Modifier.maxLinesHeight(
-    /*@IntRange(from = 1)*/
-    maxLines: Int,
-    textStyle: TextStyle
+  /*@IntRange(from = 1)*/
+  maxLines: Int,
+  textStyle: TextStyle
 ) = composed(
-    inspectorInfo = debugInspectorInfo {
-        name = "maxLinesHeight"
-        properties["maxLines"] = maxLines
-        properties["textStyle"] = textStyle
-    }
+  inspectorInfo = debugInspectorInfo {
+    name = "maxLinesHeight"
+    properties["maxLines"] = maxLines
+    properties["textStyle"] = textStyle
+  },
 ) {
-    require(maxLines > 0) {
-        "maxLines must be greater than 0"
-    }
-    if (maxLines == Int.MAX_VALUE) return@composed Modifier
+  require(maxLines > 0) {
+    "maxLines must be greater than 0"
+  }
+  if (maxLines == Int.MAX_VALUE) return@composed Modifier
 
-    val density = LocalDensity.current
-    val resourceLoader = LocalFontLoader.current
-    val layoutDirection = LocalLayoutDirection.current
+  val density = LocalDensity.current
+  val resourceLoader = LocalFontLoader.current
+  val layoutDirection = LocalLayoutDirection.current
 
-    // Difference between the height of two lines paragraph and one line paragraph gives us
-    // an approximation of height of one line
-    val firstLineHeight = remember(density, resourceLoader, textStyle, layoutDirection) {
-        computeSizeForDefaultText(
-            style = resolveDefaults(textStyle, layoutDirection),
-            density = density,
-            resourceLoader = resourceLoader,
-            text = EmptyTextReplacement,
-            maxLines = 1
-        ).height
-    }
-    val firstTwoLinesHeight = remember(density, resourceLoader, textStyle, layoutDirection) {
-        val twoLines = EmptyTextReplacement + "\n" + EmptyTextReplacement
-        computeSizeForDefaultText(
-            style = resolveDefaults(textStyle, layoutDirection),
-            density = density,
-            resourceLoader = resourceLoader,
-            text = twoLines,
-            maxLines = 2
-        ).height
-    }
-    val lineHeight = firstTwoLinesHeight - firstLineHeight
-    val precomputedMaxLinesHeight = firstLineHeight + lineHeight * (maxLines - 1)
+  // Difference between the height of two lines paragraph and one line paragraph gives us
+  // an approximation of height of one line
+  val firstLineHeight = remember(density, resourceLoader, textStyle, layoutDirection) {
+    computeSizeForDefaultText(
+      style = resolveDefaults(textStyle, layoutDirection),
+      density = density,
+      resourceLoader = resourceLoader,
+      text = EmptyTextReplacement,
+      maxLines = 1,
+    ).height
+  }
+  val firstTwoLinesHeight = remember(density, resourceLoader, textStyle, layoutDirection) {
+    val twoLines = EmptyTextReplacement + "\n" + EmptyTextReplacement
+    computeSizeForDefaultText(
+      style = resolveDefaults(textStyle, layoutDirection),
+      density = density,
+      resourceLoader = resourceLoader,
+      text = twoLines,
+      maxLines = 2,
+    ).height
+  }
+  val lineHeight = firstTwoLinesHeight - firstLineHeight
+  val precomputedMaxLinesHeight = firstLineHeight + lineHeight * (maxLines - 1)
 
-    Modifier.heightIn(
-        max = with(density) { precomputedMaxLinesHeight.toDp() }
-    )
+  Modifier.heightIn(
+    max = with(density) { precomputedMaxLinesHeight.toDp() },
+  )
 }

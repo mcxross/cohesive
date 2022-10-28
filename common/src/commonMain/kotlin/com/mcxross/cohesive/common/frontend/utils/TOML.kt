@@ -6,16 +6,16 @@ import com.mcxross.cohesive.common.frontend.model.Configuration
 import kotlinx.serialization.decodeFromString
 
 fun load(
-    tomlString: String,
+  tomlString: String,
 ): Configuration {
-    return Toml(
-        config = TomlConfig(
-            ignoreUnknownNames = true,
-            allowEmptyValues = true,
-            allowEscapedQuotesInLiteralStrings = true,
-            allowEmptyToml = true,
-        ),
-    ).decodeFromString(
-        tomlString
-    )
+  return Toml(
+    config = TomlConfig(
+      ignoreUnknownNames = true,
+      allowEmptyValues = true,
+      allowEscapedQuotesInLiteralStrings = true,
+      allowEmptyToml = true,
+    ),
+  ).decodeFromString(
+    tomlString,
+  )
 }

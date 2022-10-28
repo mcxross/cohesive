@@ -1,5 +1,5 @@
 package com.mcxross.cohesive.cps
 
 interface ExtensionIndex {
-    var extensions: List<String>
+  var extensions: List<String>
 }

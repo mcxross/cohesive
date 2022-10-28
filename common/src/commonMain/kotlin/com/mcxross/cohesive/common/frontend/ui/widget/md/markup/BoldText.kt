@@ -10,17 +10,17 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun BoldText(
-    text: String,
-    color: Color,
+  text: String,
+  color: Color,
 ) {
-    Text(
-        text = text,
-        fontWeight = FontWeight.Bold,
-        modifier = Modifier.padding(5.dp),
-        color = color
-    )
+  Text(
+    text = text,
+    fontWeight = FontWeight.Bold,
+    modifier = Modifier.padding(5.dp),
+    color = color,
+  )
 }
 
 data class BoldText(
-    val text: String,
+  val text: String,
 ) : Element

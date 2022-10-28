@@ -32,29 +32,29 @@ import androidx.compose.ui.text.TextRange
  * @return selected text range.
  */
 internal fun getTextFieldSelection(
-    textLayoutResult: TextLayoutResult?,
-    rawStartOffset: Int,
-    rawEndOffset: Int,
-    previousSelection: TextRange?,
-    isStartHandle: Boolean,
-    adjustment: SelectionAdjustment
+  textLayoutResult: TextLayoutResult?,
+  rawStartOffset: Int,
+  rawEndOffset: Int,
+  previousSelection: TextRange?,
+  isStartHandle: Boolean,
+  adjustment: SelectionAdjustment
 ): TextRange {
-    textLayoutResult?.let {
-        val textRange = TextRange(rawStartOffset, rawEndOffset)
+  textLayoutResult?.let {
+    val textRange = TextRange(rawStartOffset, rawEndOffset)
 
-        // When the previous selection is null, it's allowed to have collapsed selection.
-        // So we can ignore the SelectionAdjustment.Character.
-        if (previousSelection == null && adjustment == SelectionAdjustment.Character) {
-            return textRange
-        }
-
-        return adjustment.adjust(
-            textLayoutResult = textLayoutResult,
-            newRawSelectionRange = textRange,
-            previousHandleOffset = -1,
-            isStartHandle = isStartHandle,
-            previousSelectionRange = previousSelection
-        )
+    // When the previous selection is null, it's allowed to have collapsed selection.
+    // So we can ignore the SelectionAdjustment.Character.
+    if (previousSelection == null && adjustment == SelectionAdjustment.Character) {
+      return textRange
     }
-    return TextRange(0, 0)
+
+    return adjustment.adjust(
+      textLayoutResult = textLayoutResult,
+      newRawSelectionRange = textRange,
+      previousHandleOffset = -1,
+      isStartHandle = isStartHandle,
+      previousSelectionRange = previousSelection,
+    )
+  }
+  return TextRange(0, 0)
 }

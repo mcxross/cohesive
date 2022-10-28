@@ -1,6 +1,14 @@
 package com.mcxross.cohesive.desktop
 
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.platform.LocalDensity
@@ -14,8 +22,10 @@ import com.mcxross.cohesive.common.frontend.model.onnet.Descriptor
 import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IStore
 import com.mcxross.cohesive.common.frontend.ui.screen.MainScreen
 import com.mcxross.cohesive.common.frontend.ui.view.splash.SplashScreen
-import com.mcxross.cohesive.common.frontend.utils.*
 import com.mcxross.cohesive.common.frontend.utils.WindowState
+import com.mcxross.cohesive.common.frontend.utils.getPreferredWindowSize
+import com.mcxross.cohesive.common.frontend.utils.load
+import com.mcxross.cohesive.common.frontend.utils.readFileToStr
 import com.mcxross.cohesive.common.utils.Log
 import com.mcxross.cohesive.common.utils.Log.e
 import com.mcxross.cohesive.mellow.PlatformDropTargetModifier
@@ -23,184 +33,181 @@ import kotlinx.coroutines.delay
 import kotlin.system.measureTimeMillis
 
 inline fun loadConfig(onLoaded: (environment: com.mcxross.cohesive.common.frontend.model.Environment) -> Unit) {
-    Log.i { "Loading config" }
-    var configuration: com.mcxross.cohesive.common.frontend.model.Configuration
-    val timeInMillis = measureTimeMillis {
-        configuration = load(readFileToStr("config.toml"))
-    }
-    val chains = ArrayList<String>()
-    val chainPaths = ArrayList<String>()
-    configuration.chain.clusterKey.forEachIndexed { index, clusterKey ->
-        chains.add(clusterKey.toString())
-        chainPaths.add(configuration.chain.clusterValue[index])
-    }
-    Log.i { "Config loaded in $timeInMillis ms" }
-    onLoaded(com.mcxross.cohesive.common.frontend.model.Environment.create(chains = chains, chainPaths = chainPaths))
+  Log.i { "Loading config" }
+  var configuration: com.mcxross.cohesive.common.frontend.model.Configuration
+  val timeInMillis = measureTimeMillis {
+    configuration = load(readFileToStr("config.toml"))
+  }
+  val chains = ArrayList<String>()
+  val chainPaths = ArrayList<String>()
+  configuration.chain.clusterKey.forEachIndexed { index, clusterKey ->
+    chains.add(clusterKey.toString())
+    chainPaths.add(configuration.chain.clusterValue[index])
+  }
+  Log.i { "Config loaded in $timeInMillis ms" }
+  onLoaded(
+    com.mcxross.cohesive.common.frontend.model.Environment.create(
+      chains = chains,
+      chainPaths = chainPaths,
+    ),
+  )
 }
 
 @Composable
 fun BrewContextCompositionLocal(
-    windowScope: WindowScope,
-    environment: com.mcxross.cohesive.common.frontend.model.Environment,
-    platformDropTargetModifier: PlatformDropTargetModifier,
-    content: @Composable () -> Unit,
+  windowScope: WindowScope,
+  environment: com.mcxross.cohesive.common.frontend.model.Environment,
+  platformDropTargetModifier: PlatformDropTargetModifier,
+  content: @Composable () -> Unit,
 ) {
-    val context = com.mcxross.cohesive.common.frontend.model.Context()
-    context.windowScope = windowScope
-    context.environment = environment
-    context.platformDropTargetModifier = platformDropTargetModifier
-    LocalContext = compositionLocalOf { context }
-    CompositionLocalProvider(LocalContext provides context) {
-        content()
-    }
+  val context = com.mcxross.cohesive.common.frontend.model.Context()
+  context.windowScope = windowScope
+  context.environment = environment
+  context.platformDropTargetModifier = platformDropTargetModifier
+  LocalContext = compositionLocalOf { context }
+  CompositionLocalProvider(LocalContext provides context) {
+    content()
+  }
 }
 
 fun main() = Cohesive.run {
 
-    val init by rememberUpdatedState {
-        runBlocking {
-            StatesHolder.init {
-                println("Scheduler initialized")
-            }
-        }
+  var isLoadingConfig by remember { mutableStateOf(true) }
+  var isLoadingResources by remember { mutableStateOf(true) }
+
+  var environment by remember { mutableStateOf(com.mcxross.cohesive.common.frontend.model.Environment) }
+
+  WindowState.state = rememberWindowState(
+    placement = WindowPlacement.Floating,
+    position = WindowPosition.Aligned(Alignment.Center),
+    size = getPreferredWindowSize(800, 1000),
+  )
+
+  val loadResources by rememberUpdatedState {
+
+    Log.i { "Loading resources" }
+
+    val timeLoadingResources = measureTimeMillis {
+
+      loadConfig {
+        environment = it
+        isLoadingConfig = false
+      }
+
     }
 
-    var isLoadingConfig by remember { mutableStateOf(true) }
-    var isLoadingResources by remember { mutableStateOf(true) }
+    Log.i { "Resources loaded in $timeLoadingResources ms" }
 
-    var environment by remember { mutableStateOf(com.mcxross.cohesive.common.frontend.model.Environment) }
+  }
 
-    WindowState.state = rememberWindowState(
-        placement = WindowPlacement.Floating,
+  LaunchedEffect(true) {
+    delay(3000)
+    loadResources()
+  }
+
+  isLoadingResources = isLoadingConfig//isLoadingPlugins &&
+  if (isLoadingResources) {
+
+    Window(
+      onCloseRequest = ::exitApplication,
+      undecorated = true,
+      resizable = false,
+      state = WindowState(
         position = WindowPosition.Aligned(Alignment.Center),
-        size = getPreferredWindowSize(800, 1000)
-    )
-
-    val loadResources by rememberUpdatedState {
-
-        Log.i { "Loading resources" }
-
-        val timeLoadingResources = measureTimeMillis {
-
-            loadConfig {
-                environment = it
-                isLoadingConfig = false
-            }
-
-        }
-
-        Log.i { "Resources loaded in $timeLoadingResources ms" }
-
+        size = getPreferredWindowSize(400, 300),
+      ),
+    ) {
+      SplashScreen()
     }
 
-    LaunchedEffect(true) {
-        delay(3000)
-        loadResources()
-    }
+  } else {
 
-    isLoadingResources = isLoadingConfig//isLoadingPlugins &&
-    if (isLoadingResources) {
+    if (WindowState.isPreAvail) {
+
+      if (WindowState.isMainWindowOpen) {
 
         Window(
-            onCloseRequest = ::exitApplication,
-            undecorated = true,
-            resizable = false,
-            state = WindowState(
-                position = WindowPosition.Aligned(Alignment.Center),
-                size = getPreferredWindowSize(400, 300),
-            ),
+          onCloseRequest = ::exitApplication,
+          undecorated = true,
+          state = WindowState.state,
+          icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
         ) {
-            SplashScreen()
-        }
+          val density = LocalDensity.current.density
+          val dropParent = remember(density) {
+            PlatformDropTargetModifier(
+              density = density,
+              window = window,
+            )
+          }
 
-    } else {
-
-        if (WindowState.isPreAvail) {
-
-            if (WindowState.isMainWindowOpen) {
-
-                Window(
-                    onCloseRequest = ::exitApplication,
-                    undecorated = true,
-                    state = WindowState.state,
-                    icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
-                ) {
-                    val density = LocalDensity.current.density
-                    val dropParent = remember(density) {
-                        PlatformDropTargetModifier(
-                            density = density,
-                            window = window,
-                        )
-                    }
-
-                    LocalPluginManager.current.getCohesiveView().let { view ->
-                        BrewContextCompositionLocal(
-                            windowScope = this,
-                            environment = environment,
-                            platformDropTargetModifier = dropParent,
-                        ) {
-                            if (view != null) {
-                                MainScreen(view).Compose()
-                            } else {
-                                e { "View is null. Ensure you've defined View and built with CSP" }
-                            }
-                        }
-                    }
-
-                }
-
+          LocalPluginManager.current.getCohesiveView().let { View ->
+            BrewContextCompositionLocal(
+              windowScope = this,
+              environment = environment,
+              platformDropTargetModifier = dropParent,
+            ) {
+              if (View != null) {
+                MainScreen() Ingest View
+              } else {
+                e { "View is null. Ensure you've defined View and built with CSP" }
+              }
             }
+          }
+
         }
 
-        if (WindowState.isDelayClose) {
-
-            if (WindowState.isStoreWindowOpen) {
-
-                val content = remember {
-                    Descriptor.run()
-                }
-
-                Window(
-                    onCloseRequest = ::exitApplication,
-                    undecorated = true,
-                    resizable = false,
-                    state = WindowState(
-                        position = WindowPosition.Aligned(Alignment.Center),
-                    ),
-                    icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
-                ) {
-                    val density = LocalDensity.current.density
-                    val dropParent = remember(density) {
-                        PlatformDropTargetModifier(
-                            density = density,
-                            window = window,
-                        )
-                    }
-                    val iStore = LocalPluginManager.current.getExtensions(IStore::class.java)[0]
-                    if (content.isContentReady()) {
-                        environment.plugins = content.getPlugins()
-                        BrewContextCompositionLocal(
-                            windowScope = this,
-                            environment = environment,
-                            platformDropTargetModifier = dropParent,
-                        ) {
-                            iStore.Compose()
-                        }
-
-                    } else {
-                        BrewContextCompositionLocal(
-                            windowScope = this,
-                            environment = environment,
-                            platformDropTargetModifier = dropParent,
-                        ) {
-                            iStore.Compose()
-                        }
-                    }
-                }
-
-            }
-        }
-
+      }
     }
+
+    if (WindowState.isDelayClose) {
+
+      if (WindowState.isStoreWindowOpen) {
+
+        val content = remember {
+          Descriptor.run()
+        }
+
+        Window(
+          onCloseRequest = ::exitApplication,
+          undecorated = true,
+          resizable = false,
+          state = WindowState(
+            position = WindowPosition.Aligned(Alignment.Center),
+          ),
+          icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
+        ) {
+          val density = LocalDensity.current.density
+          val dropParent = remember(density) {
+            PlatformDropTargetModifier(
+              density = density,
+              window = window,
+            )
+          }
+          val iStore = LocalPluginManager.current.getExtensions(IStore::class.java)[0]
+          if (content.isContentReady()) {
+            environment.plugins = content.getPlugins()
+            BrewContextCompositionLocal(
+              windowScope = this,
+              environment = environment,
+              platformDropTargetModifier = dropParent,
+            ) {
+              iStore.Compose()
+            }
+
+          } else {
+            BrewContextCompositionLocal(
+              windowScope = this,
+              environment = environment,
+              platformDropTargetModifier = dropParent,
+            ) {
+              iStore.Compose()
+            }
+          }
+        }
+
+      }
+    }
+
+  }
 
 }

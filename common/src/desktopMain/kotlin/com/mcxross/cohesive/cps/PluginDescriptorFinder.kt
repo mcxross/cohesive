@@ -10,9 +10,9 @@ import okio.Path
  * java services (with [java.util.ServiceLoader]), etc.
  */
 interface PluginDescriptorFinder {
-    /**
-     * Returns true if this finder is applicable to the given [Path].
-     */
-    fun isApplicable(pluginPath: Path): Boolean
-    fun find(pluginPath: Path): PluginDescriptor?
+  /**
+   * Returns true if this finder is applicable to the given [Path].
+   */
+  fun isApplicable(pluginPath: Path): Boolean
+  fun find(pluginPath: Path): PluginDescriptor?
 }

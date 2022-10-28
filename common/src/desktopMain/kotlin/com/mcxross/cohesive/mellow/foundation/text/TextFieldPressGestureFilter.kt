@@ -35,51 +35,51 @@ import kotlinx.coroutines.launch
  */
 @Suppress("ModifierInspectorInfo")
 internal fun Modifier.tapPressTextFieldModifier(
-    interactionSource: MutableInteractionSource?,
-    enabled: Boolean = true,
-    onTap: (Offset) -> Unit
+  interactionSource: MutableInteractionSource?,
+  enabled: Boolean = true,
+  onTap: (Offset) -> Unit
 ): Modifier = if (enabled) composed {
-    val scope = rememberCoroutineScope()
-    val pressedInteraction = remember { mutableStateOf<PressInteraction.Press?>(null) }
-    val onTapState = rememberUpdatedState(onTap)
-    DisposableEffect(interactionSource) {
-        onDispose {
-            pressedInteraction.value?.let { oldValue ->
-                val interaction = PressInteraction.Cancel(oldValue)
-                interactionSource?.tryEmit(interaction)
-                pressedInteraction.value = null
-            }
+  val scope = rememberCoroutineScope()
+  val pressedInteraction = remember { mutableStateOf<PressInteraction.Press?>(null) }
+  val onTapState = rememberUpdatedState(onTap)
+  DisposableEffect(interactionSource) {
+    onDispose {
+      pressedInteraction.value?.let { oldValue ->
+        val interaction = PressInteraction.Cancel(oldValue)
+        interactionSource?.tryEmit(interaction)
+        pressedInteraction.value = null
+      }
+    }
+  }
+  Modifier.pointerInput(interactionSource) {
+    detectTapAndPress(
+      onPress = {
+        scope.launch {
+          // Remove any old interactions if we didn't fire stop / cancel properly
+          pressedInteraction.value?.let { oldValue ->
+            val interaction = PressInteraction.Cancel(oldValue)
+            interactionSource?.emit(interaction)
+            pressedInteraction.value = null
+          }
+          val interaction = PressInteraction.Press(it)
+          interactionSource?.emit(interaction)
+          pressedInteraction.value = interaction
         }
-    }
-    Modifier.pointerInput(interactionSource) {
-        detectTapAndPress(
-            onPress = {
-                scope.launch {
-                    // Remove any old interactions if we didn't fire stop / cancel properly
-                    pressedInteraction.value?.let { oldValue ->
-                        val interaction = PressInteraction.Cancel(oldValue)
-                        interactionSource?.emit(interaction)
-                        pressedInteraction.value = null
-                    }
-                    val interaction = PressInteraction.Press(it)
-                    interactionSource?.emit(interaction)
-                    pressedInteraction.value = interaction
-                }
-                val success = tryAwaitRelease()
-                scope.launch {
-                    pressedInteraction.value?.let { oldValue ->
-                        val interaction =
-                            if (success) {
-                                PressInteraction.Release(oldValue)
-                            } else {
-                                PressInteraction.Cancel(oldValue)
-                            }
-                        interactionSource?.emit(interaction)
-                        pressedInteraction.value = null
-                    }
-                }
-            },
-            onTap = { onTapState.value.invoke(it) }
-        )
-    }
+        val success = tryAwaitRelease()
+        scope.launch {
+          pressedInteraction.value?.let { oldValue ->
+            val interaction =
+              if (success) {
+                PressInteraction.Release(oldValue)
+              } else {
+                PressInteraction.Cancel(oldValue)
+              }
+            interactionSource?.emit(interaction)
+            pressedInteraction.value = null
+          }
+        }
+      },
+      onTap = { onTapState.value.invoke(it) },
+    )
+  }
 } else this

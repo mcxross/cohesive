@@ -23,9 +23,9 @@ import androidx.compose.ui.geometry.Offset
 @Composable
 @Suppress("UNUSED_PARAMETER")
 internal fun CursorHandle(
-    handlePosition: Offset,
-    modifier: Modifier,
-    content: @Composable (() -> Unit)?
+  handlePosition: Offset,
+  modifier: Modifier,
+  content: @Composable (() -> Unit)?
 ) {
-    /* Not implemented. */
+  /* Not implemented. */
 }

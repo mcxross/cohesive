@@ -14,10 +14,10 @@ typealias ChildDeclaration<T> = ChildDeclarationInterface<T>.() -> Unit
  */
 @JvmSynthetic
 inline fun <reified T> tree(
-    root: T,
-    childDeclaration: ChildDeclaration<T>,
+  root: T,
+  childDeclaration: ChildDeclaration<T>,
 ): TreeNode<T> {
-    val treeNode = TreeNode(root)
-    treeNode.childDeclaration()
-    return treeNode
+  val treeNode = TreeNode(root)
+  treeNode.childDeclaration()
+  return treeNode
 }

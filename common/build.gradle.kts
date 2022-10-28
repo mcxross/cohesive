@@ -45,7 +45,6 @@ kotlin {
                 implementation("io.github.aakira:napier:$napierVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.5")
                 implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.5")
-                implementation("io.github.xxfast:kstore:0.1")
                 implementation("org.jetbrains:markdown:0.3.1")
                 implementation("org.kodein.di:kodein-di:7.15.0")
             }

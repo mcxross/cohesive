@@ -11,26 +11,27 @@ import com.mcxross.cohesive.common.frontend.ui.widget.MarkdownConfig
 
 @Composable
 fun Link(
-    text: String,
-    link: String,
-    color: Color,
-    isLinksClickable: Boolean,
-    onLinkClickListener: (String, Int) -> Unit,
+  text: String,
+  link: String,
+  color: Color,
+  isLinksClickable: Boolean,
+  onLinkClickListener: (String, Int) -> Unit,
 ) {
-    Text(
-        text = text,
-        color = color,
-        modifier = Modifier
-            .padding(5.dp)
-            .clickable(enabled = isLinksClickable) {
-                onLinkClickListener(
-                    link,
-                    MarkdownConfig.LINK_TYPE
-                )
-            })
+  Text(
+    text = text,
+    color = color,
+    modifier = Modifier
+      .padding(5.dp)
+      .clickable(enabled = isLinksClickable) {
+        onLinkClickListener(
+          link,
+          MarkdownConfig.LINK_TYPE,
+        )
+      },
+  )
 }
 
 data class Link(
-    val text: String,
-    val link: String,
+  val text: String,
+  val link: String,
 ) : Element

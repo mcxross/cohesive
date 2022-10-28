@@ -10,6 +10,7 @@
 <b>Economics</b> | <b>Ergonomics</b> | <b>Aesthetics</b>
 </p>
 
+<img src="artwork/readme/preview.png" alt="Cohesive Preview" width="100%" height="100%">
 
 ## Table of contents
 - [Quick start](#quick-start)
@@ -26,7 +27,7 @@
 ## Quick start
 > Convention: We'll use "Platform" and "Blockchain" interchangeably herein - and rarely, "Chain"
 
-Cohesive is a modular meta-tool, i.e., a tool for tools specifically for Blockchain technology. It's Multiplatform, and Blockchain-neutral with a base implementation of/and, core functionality including but not limited to UI framework, Plugin Store, Simple Editor, and IDE. Specific Platform implementation can be built and installed as a _primary_ plugin acting as the Platform wrapper, i.e., consuming Cohesive, and thus bending its gears for that specific Platform.
+Cohesive is a modular meta-tool, i.e., a tool for tools specifically for Blockchain technology. It's Multiplatform, and Blockchain-neutral with a base implementation of/and, core functionality including but not limited to UI framework, Plugin Store, Simple Editor, and IDE. Specific Platform implementation can be built and installed as a _secondary_ plugin acting as the Platform wrapper, i.e., consuming Cohesive, and thus bending its gears for that specific Platform.
 
 ### Running Base desktop application
 ```
@@ -51,6 +52,7 @@ Above everything, this repo is a Kotlin Multiplatform project containing apps an
 * iOS Application (WIP)
 
 ## Documentation
+
 
 ## Features
 - [x] Multiplatform

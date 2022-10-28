@@ -35,3 +35,8 @@ subprojects {
         }
     }
 }
+
+tasks.dokkaHtmlMultiModule.configure {
+    outputDirectory.set(projectDir.resolve("doc/api"))
+    moduleName.set("Cohesive")
+}

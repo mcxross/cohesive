@@ -20,15 +20,19 @@ import com.mcxross.cohesive.csp.annotation.ExtensionPoint
  */
 interface CohesiveView : ExtensionPoint {
 
-    @Composable
-    fun Explorer() {}
+  @Composable
+  fun Explorer() {
+  }
 
-    @Composable
-    fun Wallet() {}
+  @Composable
+  fun Wallet() {
+  }
 
-    @Composable
-    fun SimpleEditor() {}
+  @Composable
+  fun SimpleEditor() {
+  }
 
-    @Composable
-    fun CompositeEditor() {}
+  @Composable
+  fun CompositeEditor() {
+  }
 }
