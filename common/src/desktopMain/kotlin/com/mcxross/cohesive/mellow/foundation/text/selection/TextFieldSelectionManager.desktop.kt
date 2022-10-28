@@ -19,4 +19,5 @@ package com.mcxross.cohesive.mellow.foundation.text.selection
 import androidx.compose.ui.input.pointer.PointerEvent
 
 internal val PointerEvent.isShiftPressed: Boolean
-  get() = mouseEvent?.isShiftDown ?: false
+  get() = false // TODO implement
+// mouseEvent?.isShiftDown ?: false

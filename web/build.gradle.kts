@@ -19,7 +19,7 @@ kotlin {
         named("jsMain") {
             dependencies {
                 implementation(compose.runtime)
-                implementation(compose.web.widgets)
+                implementation(compose.web.core)
 
                 implementation(npm("copy-webpack-plugin", "9.0.0"))
             }

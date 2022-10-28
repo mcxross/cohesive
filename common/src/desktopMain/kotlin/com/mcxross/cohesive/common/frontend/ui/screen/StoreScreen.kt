@@ -18,8 +18,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.window.WindowDraggableArea
@@ -107,7 +107,7 @@ open class StoreScreen : IStore {
   ) {
 
     LazyVerticalGrid(
-      cells = GridCells.Adaptive(minSize = 128.dp),
+      columns = GridCells.Adaptive(minSize = 128.dp),
       modifier = modifier,
       verticalArrangement = Arrangement.spacedBy(26.dp),
       horizontalArrangement = Arrangement.spacedBy(16.dp),

@@ -26,13 +26,11 @@ import androidx.compose.ui.input.pointer.PointerInputChange
 import androidx.compose.ui.input.pointer.PointerInputScope
 import androidx.compose.ui.input.pointer.PointerType
 import androidx.compose.ui.input.pointer.changedToDown
-import androidx.compose.ui.input.pointer.consumeAllChanges
-import androidx.compose.ui.input.pointer.consumeDownChange
 import androidx.compose.ui.input.pointer.isPrimaryPressed
 import androidx.compose.ui.platform.ViewConfiguration
 import com.mcxross.cohesive.mellow.fastAll
 
-// * Without shift it starts the new selection from the scratch.
+// * Without shift, it starts the new selection from the scratch.
 // * With shift expand / shrink existed selection.
 // * Click sets start and end of the selection, but shift click only the end of
 // selection.
@@ -53,17 +51,16 @@ internal interface MouseSelectionObserver {
 // Distance in pixels between consecutive click positions to be considered them as clicks sequence
 internal const val ClicksSlop = 100.0
 
-private class ClicksCounter(
-  private val viewConfiguration: ViewConfiguration
-) {
+private class ClicksCounter(private val viewConfiguration: ViewConfiguration) {
   var clicks = 0
   var prevClick: PointerInputChange? = null
   fun update(event: PointerEvent) {
     val currentPrevClick = prevClick
     val newClick = event.changes[0]
-    if (currentPrevClick != null &&
-      timeIsTolerable(currentPrevClick, newClick) &&
-      positionIsTolerable(currentPrevClick, newClick)
+    if (
+      currentPrevClick != null &&
+        timeIsTolerable(currentPrevClick, newClick) &&
+        positionIsTolerable(currentPrevClick, newClick)
     ) {
       clicks += 1
     } else {
@@ -83,9 +80,7 @@ private class ClicksCounter(
   }
 }
 
-internal suspend fun PointerInputScope.mouseSelectionDetector(
-  observer: MouseSelectionObserver
-) {
+internal suspend fun PointerInputScope.mouseSelectionDetector(observer: MouseSelectionObserver) {
   forEachGesture {
     awaitPointerEventScope {
       val clicksCounter = ClicksCounter(viewConfiguration)
@@ -96,25 +91,26 @@ internal suspend fun PointerInputScope.mouseSelectionDetector(
         if (down.isShiftPressed) {
           val started = observer.onExtend(downChange.position)
           if (started) {
-            downChange.consumeDownChange()
+            if (downChange.pressed != downChange.previousPressed) downChange.consume()
             drag(downChange.id) {
               if (observer.onExtendDrag(it.position)) {
-                it.consumeAllChanges()
+                it.consume()
               }
             }
           }
         } else {
-          val selectionMode = when (clicksCounter.clicks) {
-            1 -> SelectionAdjustment.None
-            2 -> SelectionAdjustment.Word
-            else -> SelectionAdjustment.Paragraph
-          }
+          val selectionMode =
+            when (clicksCounter.clicks) {
+              1 -> SelectionAdjustment.None
+              2 -> SelectionAdjustment.Word
+              else -> SelectionAdjustment.Paragraph
+            }
           val started = observer.onStart(downChange.position, selectionMode)
           if (started) {
-            downChange.consumeDownChange()
+            if (downChange.pressed != downChange.previousPressed) downChange.consume()
             drag(downChange.id) {
               if (observer.onDrag(it.position, selectionMode)) {
-                it.consumeAllChanges()
+                it.consume()
               }
             }
           }
@@ -129,11 +125,8 @@ private suspend fun AwaitPointerEventScope.awaitMouseEventDown(): PointerEvent {
   do {
     event = awaitPointerEvent(PointerEventPass.Main)
   } while (
-    !(
-      event.buttons.isPrimaryPressed && event.changes.fastAll {
-        it.type == PointerType.Mouse && it.changedToDown()
-      }
-      )
+    !(event.buttons.isPrimaryPressed &&
+      event.changes.fastAll { it.type == PointerType.Mouse && it.changedToDown() })
   )
   return event
 }

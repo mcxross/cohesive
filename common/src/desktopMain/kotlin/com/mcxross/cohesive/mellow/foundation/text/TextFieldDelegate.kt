@@ -31,7 +31,7 @@ import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextPainter
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.EditCommand
 import androidx.compose.ui.text.input.EditProcessor
 import androidx.compose.ui.text.input.ImeAction
@@ -67,20 +67,21 @@ internal val EmptyTextReplacement = "H".repeat(DefaultWidthCharCount) // just a 
 internal fun computeSizeForDefaultText(
   style: TextStyle,
   density: Density,
-  resourceLoader: Font.ResourceLoader,
+  fontFamilyResolver: FontFamily.Resolver,
   text: String = EmptyTextReplacement,
   maxLines: Int = 1
 ): IntSize {
-  val paragraph = Paragraph(
-    text = text,
-    style = style,
-    spanStyles = listOf(),
-    maxLines = maxLines,
-    ellipsis = false,
-    density = density,
-    resourceLoader = resourceLoader,
-    width = Float.POSITIVE_INFINITY,
-  )
+  val paragraph =
+    Paragraph(
+      text = text,
+      style = style,
+      spanStyles = listOf(),
+      maxLines = maxLines,
+      ellipsis = false,
+      density = density,
+      fontFamilyResolver = fontFamilyResolver,
+      constraints = Constraints()
+    )
   return IntSize(paragraph.minIntrinsicWidth.toIntPx(), paragraph.height.toIntPx())
 }
 
@@ -160,28 +161,28 @@ internal class TextFieldDelegate {
         return
       }
       val focusOffsetInTransformed = offsetMapping.originalToTransformed(value.selection.max)
-      val bbox = when {
-        focusOffsetInTransformed < textLayoutResult.layoutInput.text.length -> {
-          textLayoutResult.getBoundingBox(focusOffsetInTransformed)
+      val bbox =
+        when {
+          focusOffsetInTransformed < textLayoutResult.layoutInput.text.length -> {
+            textLayoutResult.getBoundingBox(focusOffsetInTransformed)
+          }
+          focusOffsetInTransformed != 0 -> {
+            textLayoutResult.getBoundingBox(focusOffsetInTransformed - 1)
+          }
+          else -> { // empty text.
+            val defaultSize =
+              computeSizeForDefaultText(
+                textDelegate.style,
+                textDelegate.density,
+                textDelegate.fontFamilyResolver
+              )
+            Rect(0f, 0f, 1.0f, defaultSize.height.toFloat())
+          }
         }
-
-        focusOffsetInTransformed != 0 -> {
-          textLayoutResult.getBoundingBox(focusOffsetInTransformed - 1)
-        }
-
-        else -> { // empty text.
-          val defaultSize = computeSizeForDefaultText(
-            textDelegate.style,
-            textDelegate.density,
-            textDelegate.resourceLoader,
-          )
-          Rect(0f, 0f, 1.0f, defaultSize.height.toFloat())
-        }
-      }
       val globalLT = layoutCoordinates.localToRoot(Offset(bbox.left, bbox.top))
 
       textInputSession.notifyFocusedRect(
-        Rect(Offset(globalLT.x, globalLT.y), Size(bbox.width, bbox.height)),
+        Rect(Offset(globalLT.x, globalLT.y), Size(bbox.width, bbox.height))
       )
     }
 
@@ -218,9 +219,8 @@ internal class TextFieldDelegate {
       offsetMapping: OffsetMapping,
       onValueChange: (TextFieldValue) -> Unit
     ) {
-      val offset = offsetMapping.transformedToOriginal(
-        textLayoutResult.getOffsetForPosition(position),
-      )
+      val offset =
+        offsetMapping.transformedToOriginal(textLayoutResult.getOffsetForPosition(position))
       onValueChange(editProcessor.toTextFieldValue().copy(selection = TextRange(offset)))
     }
 
@@ -247,7 +247,7 @@ internal class TextFieldDelegate {
         value = value.copy(),
         imeOptions = imeOptions,
         onEditCommand = { onEditCommand(it, editProcessor, onValueChange) },
-        onImeActionPerformed = onImeActionPerformed,
+        onImeActionPerformed = onImeActionPerformed
       )
     }
 
@@ -270,14 +270,15 @@ internal class TextFieldDelegate {
       onValueChange: (TextFieldValue) -> Unit,
       onImeActionPerformed: (ImeAction) -> Unit
     ): TextInputSession {
-      val textInputSession = restartInput(
-        textInputService = textInputService,
-        value = value,
-        editProcessor = editProcessor,
-        imeOptions = imeOptions,
-        onValueChange = onValueChange,
-        onImeActionPerformed = onImeActionPerformed,
-      )
+      val textInputSession =
+        restartInput(
+          textInputService = textInputService,
+          value = value,
+          editProcessor = editProcessor,
+          imeOptions = imeOptions,
+          onValueChange = onValueChange,
+          onImeActionPerformed = onImeActionPerformed
+        )
 
       textInputSession.showSoftwareKeyboard()
 
@@ -303,27 +304,29 @@ internal class TextFieldDelegate {
     }
 
     /**
-     *  Apply the composition text decoration (undeline) to the transformed text.
+     * Apply the composition text decoration (undeline) to the transformed text.
      *
-     *  @param compositionRange An input state
-     *  @param transformed A transformed text
-     *  @return The transformed text with composition decoration.
+     * @param compositionRange An input state
+     * @param transformed A transformed text
+     * @return The transformed text with composition decoration.
      *
-     *  @suppress
+     * @suppress
      */
     fun applyCompositionDecoration(
       compositionRange: TextRange,
       transformed: TransformedText
     ): TransformedText =
       TransformedText(
-        AnnotatedString.Builder(transformed.text).apply {
-          addStyle(
-            SpanStyle(textDecoration = TextDecoration.Underline),
-            transformed.offsetMapping.originalToTransformed(compositionRange.start),
-            transformed.offsetMapping.originalToTransformed(compositionRange.end),
-          )
-        }.toAnnotatedString(),
-        transformed.offsetMapping,
+        AnnotatedString.Builder(transformed.text)
+          .apply {
+            addStyle(
+              SpanStyle(textDecoration = TextDecoration.Underline),
+              transformed.offsetMapping.originalToTransformed(compositionRange.start),
+              transformed.offsetMapping.originalToTransformed(compositionRange.end)
+            )
+          }
+          .toAnnotatedString(),
+        transformed.offsetMapping
       )
   }
 }

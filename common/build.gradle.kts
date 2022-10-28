@@ -1,5 +1,3 @@
-import org.jetbrains.compose.compose
-
 val ktorVersion: String by project
 val serializationVersion: String by project
 val okioVersion: String by project
@@ -8,9 +6,9 @@ val napierVersion: String by project
 plugins {
     kotlin("multiplatform")
     id("org.jetbrains.kotlinx.benchmark") version "0.4.4"
-    id("org.jetbrains.kotlin.plugin.allopen") version "1.6.10"
-    id("com.google.devtools.ksp") version "1.6.10-1.0.4"
-    kotlin("plugin.serialization") version "1.6.10"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.7.10"
+    id("com.google.devtools.ksp") version "1.7.10-1.0.6"
+    kotlin("plugin.serialization") version "1.7.10"
     id("org.jetbrains.compose")
     id("com.android.library")
     id("org.jetbrains.dokka")
