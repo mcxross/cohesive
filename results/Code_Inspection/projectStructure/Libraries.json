@@ -1,21 +1,21 @@
 {
   "libraries": [
     {
-      "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.6.10-1.0.4",
+      "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.10-1.0.6",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.google.devtools.ksp/symbol-processing-api/1.6.10-1.0.4/9ede3e4199b78f57f30ed13774451428c544980a/symbol-processing-api-1.6.10-1.0.4.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.google.devtools.ksp/symbol-processing-api/1.7.10-1.0.6/b139b05624ad6281ca6b4707fc0214bbee00edf9/symbol-processing-api-1.7.10-1.0.6.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.6.10",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.10",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.6.10/1cbe9c92c12a94eea200d23c2bbaedaf3daf5132/kotlin-reflect-1.6.10.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.7.10/165e600dfea6185cf5efa700756294cc4904dbeb/kotlin-reflect-1.7.10.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.6.21",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.6.21/11ef67f1900634fd951bad28c53ec957fabbe5b8/kotlin-stdlib-1.6.21.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.7.10/d2abf9e77736acc4450dc4a3f707fa2c10f5099d/kotlin-stdlib-1.7.10.jar!/"
       ]
     },
     {
@@ -25,17 +25,17 @@
       ]
     },
     {
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.7.10/bac80c520d0a9e3f3673bc2658c6ed02ef45a76a/kotlin-stdlib-common-1.7.10.jar!/"
+      ],
+      "properties": {}
+    },
+    {
       "name": "Gradle: org.jetbrains:annotations:13.0",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar!/"
       ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.6.21",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.6.21/5e5b55c26dbc80372a920aef60eb774b714559b8/kotlin-stdlib-common-1.6.21.jar!/"
-      ],
-      "properties": {}
     },
     {
       "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21",
@@ -50,16 +50,9 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.6.10",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.7.10",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-js/1.6.10/c5ec19c0cb2291017562f852321b4cfcc8064150/kotlin-stdlib-js-1.6.10.jar!/"
-      ],
-      "properties": {}
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.6.10",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.6.10/c118700e3a33c8a0d9adc920e9dec0831171925/kotlin-stdlib-common-1.6.10.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-js/1.7.10/d8938f869b99321cedd02ebf7646b73f9915b6ea/kotlin-stdlib-js-1.7.10.jar!/"
       ],
       "properties": {}
     },
@@ -69,644 +62,39 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.web:web-widgets-js:klib:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.web:web-core-js:klib:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.web/web-widgets-js/1.1.0/730db94cd87a01e960893528a4b1f39fc77125c2/web-widgets-js-1.1.0.klib!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.web/web-core-js/1.2.0/243d12362b10cb71c62b59c0f54e5099a540b568/web-core-js-1.2.0.klib!/"
       ],
       "properties": {}
     },
     {
-      "name": "Gradle: org.jetbrains.compose.runtime:runtime-js:klib:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.runtime:runtime-js:klib:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime-js/1.1.0/e360aa1ff126d86ff0677c33adce23141a8819d7/runtime-js-1.1.0.klib!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime-js/1.2.0/411edd6ceff8a8f06647ac9312e2b12b34ce10c6/runtime-js-1.2.0.klib!/"
       ],
       "properties": {}
     },
     {
-      "name": "Gradle: org.jetbrains.compose.web:web-core-js:klib:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.web/web-core-js/1.1.0/5410c73c59248d9f3a4d3ff3c457f10dcd52a3e5/web-core-js-1.1.0.klib!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.web/internal-web-core-runtime-js/1.2.0/ee1b6e2dfa9e0756488153a36e88c37bbabd8117/internal-web-core-runtime-js-1.2.0.klib!/"
       ],
       "properties": {}
     },
     {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-js:klib:1.5.2",
+      "name": "Gradle: org.jetbrains.kotlinx:atomicfu-js:klib:0.17.2",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-js/1.5.2/4e4c0735ba5c2c9e7226fcd724a6bebd82cbd0c8/kotlinx-coroutines-core-jsir-1.5.2.klib!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-js/0.17.2/ee3c477cba096dc206ab024ada6f7cccde0a17a1/atomicfu-jsir-0.17.2.klib!/"
       ],
       "properties": {}
     },
     {
-      "name": "Gradle: org.jetbrains.kotlinx:atomicfu-js:klib:0.16.3",
+      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-js:klib:1.6.1",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-js/0.16.3/5820096bcb0d08c0c3e8301e8a45c92868c03dd1/atomicfu-jsir-0.16.3.klib!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-js/1.6.1/e872989a3849d7c38571f9a1c8348db86a4a14a2/kotlinx-coroutines-core-jsir-1.6.1.klib!/"
       ],
       "properties": {}
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.web/internal-web-core-runtime-js/1.1.0/ef28068f93b4025d110276889eaf4545adb57ba9/internal-web-core-runtime-js-1.1.0.klib!/"
-      ],
-      "properties": {}
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.6.10/e80fe6ac3c3573a80305f5ec43f86b829e8ab53d/kotlin-stdlib-jdk8-1.6.10.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.6.10/e1c380673654a089c4f0c9f83d0ddfdc1efdb498/kotlin-stdlib-jdk7-1.6.10.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.6.10",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.6.10/b8af3fe6f1ca88526914929add63cf5e7c5049af/kotlin-stdlib-1.6.10.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: io.ktor:ktor-client-core:2.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-core/2.1.0/4524771b9224fa1dca4234147d1e9d013ed0081d/ktor-client-core-2.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.material:material:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material/1.1.0/4d3b2a4752f78fe976a157e09a1b8767470fd8f4/material-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.foundation:foundation:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.foundation/foundation/1.1.0/d834fa431c21a0c301ac779cb83ed4b6ea45997e/foundation-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0-RC",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-json/1.4.0-RC/a0db89a7f5abeb70b2b17f76564c17a6cedd87b0/kotlinx-serialization-json-1.4.0-RC.jar!/"
-      ],
-      "properties": {}
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.material:material-icons-extended:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-icons-extended/1.1.0/b4a9bdf68adb9164653ed246227765b6a7527892/material-icons-extended-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime:0.4.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-datetime/0.4.0/ef7f388d6c50a6b9967e74e5be4f5a9aa5ed1a50/kotlinx-datetime-0.4.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: com.squareup.okio:okio:3.2.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/3.2.0/afd4b7185a6976c2ac6bfb7b126c257ee9b3e765/okio-3.2.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.runtime:runtime:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime/1.1.0/922eef6fd16d4237a05d6534f4397de81f13e1ce/runtime-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: com.akuleshov7:ktoml-core:0.2.11",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.akuleshov7/ktoml-core/0.2.11/7ddffe823e4d59450e41af02eda67fc705f3303e/ktoml-core-0.2.11.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: io.github.aakira:napier:2.6.1",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.github.aakira/napier/2.6.1/c853a046ebc31a4c9ddc773d14056c84d4e89b90/napier-2.6.1.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.material:material-ripple:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-ripple/1.1.0/36a7a44a730bae38d0fe8b4f2e0f8e7aa0611bbe/material-ripple-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.material:material-icons-core:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-icons-core/1.1.0/c8473198010755105271d173dcdf272bdf23e8d4/material-icons-core-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-cli:0.3.5",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-cli/0.3.5/1a3a1c669b3e9626e80734e3bdfd0d70393a3ab3/kotlinx-cli-0.3.5.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.ui:ui:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui/1.1.0/9a9c686c518fef3c5896bf546dc9165f423a3520/ui-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.5",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-benchmark-runtime/0.4.5/425f4af4b5318236026bd09aa08eeb08503d35e4/kotlinx-benchmark-runtime-0.4.5.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.animation:animation-core:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.animation/animation-core/1.1.0/8a4ced3aee39f5eb6f0c7a07de9b01c9b910e977/animation-core-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains:markdown:0.3.1",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains/markdown/0.3.1/66a97bf0d6817ba41a05f1ec38911edf411c4a29/markdown-metadata-0.3.1.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.ui:ui-text:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-text/1.1.0/eb8c5a55ee1d715de51679eb5f004bed88864b75/ui-text-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.kodein.di:kodein-di:7.15.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.kodein.di/kodein-di/7.15.0/eedbf1e4e97b336c84b4e9faf660b49075d4f3f7/kodein-di-7.15.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: io.ktor:ktor-events:2.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-events/2.1.0/6abfa5c4c28cdd598e1e3b2f5bb69edd69496d10/ktor-events-2.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.animation:animation:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.animation/animation/1.1.0/c8b4b200a3fa6d24f8568f83e4cb61ca5d89ad67/animation-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: io.ktor:ktor-websocket-serialization:2.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-websocket-serialization/2.1.0/1a9bdf414230f7ae3be9e49884b36041fc86faf4/ktor-websocket-serialization-2.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: io.ktor:ktor-http:2.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-http/2.1.0/d35d3d736f2f8595ede199781d168b0e4fc834a5/ktor-http-2.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime-saveable/1.1.0/705d42a1120cf3506990a1ef99cb875d381a917c/runtime-saveable-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core/1.6.4/3107ff8b8130b4c17c0745c82b0ca1c4ff39aed2/kotlinx-coroutines-core-1.6.4.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.ui:ui-graphics:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-graphics/1.1.0/3de6691aba714a6c5ce3909cc3fc047cdf80659e/ui-graphics-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.7.20/e15351bdaf9fa06f009be5da7a202e4184f00ae3/kotlin-stdlib-common-1.7.20.jar!/"
-      ],
-      "properties": {}
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.ui:ui-unit:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-unit/1.1.0/598daf2d829928a503f1f732d15e0b0b1f31e425/ui-unit-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core:1.4.0-RC",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core/1.4.0-RC/8cc791651ff87d4d3a83325d84acff43f540778d/kotlinx-serialization-core-1.4.0-RC.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.ui:ui-geometry:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-geometry/1.1.0/ea88b614c2b7b74663796cfa5870d7d7cac008f5/ui-geometry-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.kodein.type:kaverit:2.2.1-kotlin-1.7.20-RC",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.kodein.type/kaverit/2.2.1-kotlin-1.7.20-RC/21bc9382373b6444d307c764239827cabee83745/kaverit-2.2.1-kotlin-1.7.20-RC.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: io.ktor:ktor-utils:2.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils/2.1.0/e973a8e86e98a20960672917b5a73a0ab3d4e13f/ktor-utils-2.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core/1.5.2/b69812855f235ec832341b48e721a5e62e7a888c/kotlinx-coroutines-core-1.5.2.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: io.ktor:ktor-serialization:2.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-serialization/2.1.0/53dd818d773b496ec07ee895e0c59a697ed34644/ktor-serialization-2.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.foundation/foundation-layout/1.1.0/f7a454831dc15b6a904e95f0753906a81023a9/foundation-layout-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: io.ktor:ktor-io:2.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-io/2.1.0/bf9adc41f6bff9f8fb364d1cdfd488c4339efebc/ktor-io-2.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: io.ktor:ktor-websockets:2.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-websockets/2.1.0/d559174ea2bed8e5ce7d612985f7d3568e6238f/ktor-websockets-2.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: io.ktor:ktor-client-mock:2.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-mock/2.1.0/f78436c383ae654249452a005458243a8fcf2af5/ktor-client-mock-2.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: com.squareup.okio:okio-fakefilesystem:3.2.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.okio/okio-fakefilesystem/3.2.0/54a83e49ec2afc8e2016a19d79140b1129d9174a/okio-fakefilesystem-3.2.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-test-common:1.6.10",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-common/1.6.10/76cd822dc49f45edd67d950275ef43e63e841f76/kotlin-test-common-1.6.10.jar!/"
-      ],
-      "properties": {}
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-test-annotations-common:1.6.10",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-annotations-common/1.6.10/aae238f02a670cf4c645549c7fa30787e15fc33c/kotlin-test-annotations-common-1.6.10.jar!/"
-      ],
-      "properties": {}
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime:0.3.2",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-datetime/0.3.2/f3dbb11227be81e3d0a10ba16eb742afcd9be24a/kotlinx-datetime-0.3.2.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.activity:activity-compose:aar:1.5.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.activity/activity-compose/1.5.1/64f3b71432abfde764edea254eff4d92236c1b15/activity-compose-1.5.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.appcompat:appcompat:aar:1.4.2",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.4.2/dd539dbf5bbf5a8d2bba1727970683e00b663e16/appcompat-1.4.2.aar"
-      ]
-    },
-    {
-      "name": "Gradle: io.ktor:ktor-client-okhttp:2.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-okhttp/2.1.0/49360feccd87f2f12e1b2f0ac42725a52ab242f5/ktor-client-okhttp-2.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.activity:activity-ktx:aar:1.5.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.activity/activity-ktx/1.5.1/d408b7b3377bfb098f82398c80b5752633d145c2/activity-ktx-1.5.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.core:core-ktx:aar:1.8.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.core/core-ktx/1.8.0/4c72a0f8fa6cd11a21ef86be9c1d5d257068b225/core-ktx-1.8.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.compose.ui:ui:aar:1.0.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.compose.ui/ui/1.0.1/50f83047962a2106c025536069435d9c46cd0a1b/ui-1.0.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.cursoradapter:cursoradapter:aar:1.0.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.cursoradapter/cursoradapter/1.0.0/74014983a86b83cbce534dec4e7aa9312f5f5d82/cursoradapter-1.0.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.compose.runtime:runtime-saveable:aar:1.0.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.compose.runtime/runtime-saveable/1.0.1/2ce1179fe2c2f84abf8ab3eddac9a7f8d673f324/runtime-saveable-1.0.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.fragment:fragment:aar:1.3.6",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.fragment/fragment/1.3.6/6391fc504e7c0f24051ac8b9da3f0ba4d1241dff/fragment-1.3.6.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.activity:activity:aar:1.2.4",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.activity/activity/1.2.4/bebd083d1486ed7f033b2dcc06e7cdefede4445f/activity-1.2.4.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.compose.runtime:runtime:aar:1.0.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.compose.runtime/runtime/1.0.1/cbc009877d3425d446775f46471fef1eae4a64be/runtime-1.0.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.activity:activity:aar:1.5.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.activity/activity/1.5.1/fd9bedd4fa5b13501bc5ff75b537ba9fa07185de/activity-1.5.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.appcompat:appcompat-resources:aar:1.4.2",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat-resources/1.4.2/d4e27bd00b20f3991663f2c45f1185c1acdfd429/appcompat-resources-1.4.2.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.core:core-ktx:aar:1.2.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.core/core-ktx/1.2.0/6756534f262c845d4d06b55aaf8b751db0e48822/core-ktx-1.2.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.drawerlayout:drawerlayout:aar:1.0.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.drawerlayout/drawerlayout/1.0.0/dd02c7e207136e1272b33815cc61e57676ed13a2/drawerlayout-1.0.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.lifecycle:lifecycle-runtime-ktx:aar:2.5.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-runtime-ktx/2.5.1/5574be6b531d0482a4f8c9bbbb411b393d4dc61/lifecycle-runtime-ktx-2.5.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.savedstate:savedstate:aar:1.1.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.savedstate/savedstate/1.1.0/8d4785f699f93e4020b185e2b7de37cb1f58753c/savedstate-1.1.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.core:core:aar:1.8.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.core/core/1.8.0/56215072292d2db400ba7bfec758a980c0ecc9a4/core-1.8.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel-ktx:aar:2.5.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-viewmodel-ktx/2.5.1/29568ba92f7069ecf00949f74898f57e61d40d4/lifecycle-viewmodel-ktx-2.5.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.annotation:annotation:1.3.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.3.0/21f49f5f9b85fc49de712539f79123119740595/annotation-1.3.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.savedstate:savedstate-ktx:aar:1.2.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.savedstate/savedstate-ktx/1.2.0/ba0205c6239f63c109058f1b7977125cdb7d0ffe/savedstate-ktx-1.2.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.compose.ui:ui-text:aar:1.0.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.compose.ui/ui-text/1.0.1/55a255e5bc2714c22e1f078832fb0ee06ad8bd18/ui-text-1.0.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:aar:2.3.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-viewmodel-savedstate/2.3.1/ef1df1036fc803ab3eaf0c298ee256e0b9fdad01/lifecycle-viewmodel-savedstate-2.3.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.compose.ui:ui-graphics:aar:1.0.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.compose.ui/ui-graphics/1.0.1/61c9307247494229658e61969f797da27d74e/ui-graphics-1.0.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.viewpager:viewpager:aar:1.0.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.viewpager/viewpager/1.0.0/1f90e13820f96c2fb868f9674079a551678d68b2/viewpager-1.0.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.compose.ui:ui-unit:aar:1.0.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.compose.ui/ui-unit/1.0.1/63db5a61722d6f5209b3ab414157306bb587c59/ui-unit-1.0.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.loader:loader:aar:1.0.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.loader/loader/1.0.0/8af8b6cec0da85c207d03e15840e0722cbc71e70/loader-1.0.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.compose.ui:ui-geometry:aar:1.0.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.compose.ui/ui-geometry/1.0.1/98d9eb3ac8ad91a0e7857f58da0e30e5052ef042/ui-geometry-1.0.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel:aar:2.3.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-viewmodel/2.3.1/9b96f5276783647e1436154c7ae393b2a4e9c2c4/lifecycle-viewmodel-2.3.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.annotation:annotation:1.2.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.2.0/57136ff68ee784c6e19db34ed4a175338fadfde1/annotation-1.2.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.collection:collection:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.lifecycle:lifecycle-livedata-core:aar:2.3.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-livedata-core/2.3.1/d6d9279495dc234dc37cecf461b3b626825086ef/lifecycle-livedata-core-2.3.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-android/1.6.1/4e61fcdcc508cbaa37c4a284a50205d7c7767e37/kotlinx-coroutines-android-1.6.1.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.annotation:annotation-experimental:aar:1.1.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.annotation/annotation-experimental/1.1.0/5481c9aca18271c977d67b30e26f484f3f8f1c02/annotation-experimental-1.1.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:aar:2.5.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-viewmodel-savedstate/2.5.1/35860ecab7b49f43ab38d9afffbf37847192e156/lifecycle-viewmodel-savedstate-2.5.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.lifecycle:lifecycle-runtime:aar:2.3.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-runtime/2.3.1/5786c819df8bcc1f050e9a752d2d0d85f87c4aed/lifecycle-runtime-2.3.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.lifecycle:lifecycle-viewmodel:aar:2.5.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-viewmodel/2.5.1/81fe3e2d11ed12be941b71dbea223aa3e64c6903/lifecycle-viewmodel-2.5.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.savedstate:savedstate:aar:1.2.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.savedstate/savedstate/1.2.0/bcaeef765339b976946cc9e891536713af651ebc/savedstate-1.2.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.vectordrawable:vectordrawable-animated:aar:1.1.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.vectordrawable/vectordrawable-animated/1.1.0/fcda1161354501471c30a4e077af6b5c4d4eddc6/vectordrawable-animated-1.1.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.vectordrawable:vectordrawable:aar:1.1.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.vectordrawable/vectordrawable/1.1.0/eac7a364fff534035a2a6cb17770a1288315f69f/vectordrawable-1.1.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.customview:customview:aar:1.0.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.customview/customview/1.0.0/30f5ff6075d112f8076e733b24410e68159735b6/customview-1.0.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.lifecycle:lifecycle-runtime:aar:2.5.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-runtime/2.5.1/26e3d5564fe875473320ad0c15cab765099be8c2/lifecycle-runtime-2.5.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.versionedparcelable:versionedparcelable:aar:1.1.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.versionedparcelable/versionedparcelable/1.1.1/18e18071e7715679e0593c570217edeb5ca48b9e/versionedparcelable-1.1.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.6.0/baf82c475e9372c25407f3d132439e4aa803b8b8/kotlin-stdlib-jdk8-1.6.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.lifecycle:lifecycle-livedata:aar:2.0.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-livedata/2.0.0/c17007cd0b21d6401910b0becdd16c438c68a9af/lifecycle-livedata-2.0.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core/1.6.1/f04befbe83100278a57f652f78e1af000cbf069f/kotlinx-coroutines-core-1.6.1.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.lifecycle:lifecycle-common:2.3.1",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.3.1/fc466261d52f4433863642fb40d12441ae274a98/lifecycle-common-2.3.1.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.lifecycle:lifecycle-livedata-core:aar:2.5.1",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-livedata-core/2.5.1/a55defc29b52baf41304c058c91dba38b5c7651c/lifecycle-livedata-core-2.5.1.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.arch.core:core-common:2.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.1.0/b3152fc64428c9354344bd89848ecddc09b6f07e/core-common-2.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.interpolator:interpolator:aar:1.0.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.interpolator/interpolator/1.0.0/8a01fa254a23b9388571eb6334b03707c7d122d7/interpolator-1.0.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.arch.core:core-runtime:aar:2.0.0",
-      "roots": [
-        "file://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.arch.core/core-runtime/2.0.0/c5be9edf9ca9135a465d23939f6e7d0e1cf90b41/core-runtime-2.0.0.aar"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.lifecycle:lifecycle-common:2.5.1",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.5.1/1fdb7349701e9cf2f0a69fc10642b6fef6bb3e12/lifecycle-common-2.5.1.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.6.0/da6bdc87391322974a43ccc00a25536ae74dad51/kotlin-stdlib-jdk7-1.6.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: androidx.collection:collection:1.0.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.0.0/42858b26cafdaa69b6149f45dfc2894007bc2c7a/collection-1.0.0.jar!/"
-      ]
     },
     {
       "name": "Gradle: com.squareup:kotlinpoet-ksp:1.12.0",
@@ -715,15 +103,9 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.foundation:foundation:skikoMain:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-tooling-preview/1.1.0/5b8f86fea035328fc9e8c660773037a3401ce25f/ui-tooling-preview-metadata-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: io.ktor:ktor-client-cio:2.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-cio/2.1.0/c443f3238836ef934a6e3a2561a49eb9160aac42/ktor-client-cio-2.1.0.jar!/"
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/common.cohesive/desktopMain/api/org.jetbrains.compose.foundation-foundation/org.jetbrains.compose.foundation-foundation-skikoMain.klib!/"
       ]
     },
     {
@@ -733,10 +115,11 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.0",
+      "name": "Gradle: io.ktor:ktor-client-cio:jvmAndNixMain:2.1.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.7.0/e660b0079fdaf744dc9cc7f6f3aa3c761ec839b0/kotlin-reflect-1.7.0.jar!/"
-      ]
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/common.cohesive/desktopMain/implementation/io.ktor-ktor-client-cio/io.ktor-ktor-client-cio-jvmAndNixMain.klib!/"
+      ],
+      "properties": {}
     },
     {
       "name": "Gradle: org.ow2.asm:asm:9.4",
@@ -745,45 +128,39 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-desktop/1.1.0/9562f3d1265ac4485d96d6a42788cecf03a0f9fd/material-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-desktop/1.2.0/9da8852a7bb56d138959a798cea63c0ad3395b23/material-desktop-1.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.1.0",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.foundation/foundation-desktop/1.1.0/37301aed12391c2b359b7ae4628da760b0dae2c3/foundation-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.7.10/d70d7d2c56371f7aa18f32e984e3e2e998fe9081/kotlin-stdlib-jdk8-1.7.10.jar!/"
       ]
     },
     {
-      "name": "Gradle: io.ktor:ktor-http-cio:2.1.0",
+      "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-http-cio/2.1.0/8ba71a1ba4d96b58c63db81bdd013e59e2501fd5/ktor-http-cio-2.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.foundation/foundation-desktop/1.2.0/ccfcc4364865de8cac6b9fe84db7967311ababf6/foundation-desktop-1.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-tooling-preview-desktop/1.1.0/b57e16cd7cca67c9aa0bfb85aba98e393c486771/ui-tooling-preview-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-tooling-preview-desktop/1.2.0/b57e16cd7cca67c9aa0bfb85aba98e393c486771/ui-tooling-preview-desktop-1.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-icons-extended-desktop/1.1.0/20f0ba9d11f5da99833e7abc1542e8363f9a7ec5/material-icons-extended-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-icons-extended-desktop/1.2.0/bb0518f7006c6b38e6413e4ae3bcee64f12777fa/material-icons-extended-desktop-1.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: io.ktor:ktor-network-tls:2.1.0",
+      "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-network-tls/2.1.0/c443f3238836ef934a6e3a2561a49eb9160aac42/ktor-network-tls-2.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime-desktop/1.1.0/c27d7023bd5de69a0aa3410335302121f8aa60d8/runtime-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime-desktop/1.2.0/641ffea51b35e78dea52d93ab585c449f3e49284/runtime-desktop-1.2.0.jar!/"
       ]
     },
     {
@@ -799,21 +176,15 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.0",
+      "name": "Gradle: org.jetbrains:markdown:0.3.1",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.7.0/a5f42c684ad9003160ef0d0f693ecf0ba7b13549/kotlin-stdlib-1.7.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains/markdown/0.3.1/66a97bf0d6817ba41a05f1ec38911edf411c4a29/markdown-metadata-0.3.1.jar!/"
       ]
     },
     {
       "name": "Gradle: io.ktor:ktor-client-core-jvm:2.1.0",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-client-core-jvm/2.1.0/9f817ae55e463f27d885ef051ff88e4c2acea7da/ktor-client-core-jvm-2.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.7.0/362da0b4951ed79a6591743a7fddcfb8c73809f6/kotlin-stdlib-jdk8-1.7.0.jar!/"
       ]
     },
     {
@@ -835,6 +206,12 @@
       ]
     },
     {
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.7.10/1ef73fee66f45d52c67e2aca12fd945dbe0659bf/kotlin-stdlib-jdk7-1.7.10.jar!/"
+      ]
+    },
+    {
       "name": "Gradle: org.jetbrains.kotlinx:kotlinx-benchmark-runtime-jvm:0.4.5",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-benchmark-runtime-jvm/0.4.5/b7fba44b6f5487686926f1353e8514c925954ff1/kotlinx-benchmark-runtime-jvm-0.4.5.jar!/"
@@ -847,16 +224,17 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.7.0/fbeaa8fa63cbab09c547083a449097be6660a9a/kotlin-stdlib-jdk7-1.7.0.jar!/"
-      ]
-    },
-    {
       "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.7.20/2a729aa8763306368e665e2b747abd1dfd29b9d5/kotlin-stdlib-jdk7-1.7.20.jar!/"
       ]
+    },
+    {
+      "name": "Gradle: io.ktor:ktor-http-cio:commonMain:2.1.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/common.cohesive/desktopMain/implementation/io.ktor-ktor-http-cio/io.ktor-ktor-http-cio-commonMain.klib!/"
+      ],
+      "properties": {}
     },
     {
       "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
@@ -875,6 +253,13 @@
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.github.aakira/napier-jvm/2.6.1/6029a7c248d4965dfc6d7426659a4b2b755f8ed0/napier-jvm-2.6.1.jar!/"
       ]
+    },
+    {
+      "name": "Gradle: io.ktor:ktor-network-tls:jvmAndNixMain:2.1.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/common.cohesive/desktopMain/implementation/io.ktor-ktor-network-tls/io.ktor-ktor-network-tls-jvmAndNixMain.klib!/"
+      ],
+      "properties": {}
     },
     {
       "name": "Gradle: org.jetbrains.kotlinx:kotlinx-cli-jvm:0.3.5",
@@ -901,9 +286,9 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-ripple-desktop/1.1.0/ed5d636ff53e8a9bb478325b2870235d1f1a4251/material-ripple-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-ripple-desktop/1.2.0/3c9c18fbfc5df768581e0ce73d114c9975cec011/material-ripple-desktop-1.2.0.jar!/"
       ]
     },
     {
@@ -913,33 +298,46 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-icons-core-desktop/1.1.0/cdf1ec28bd1eb52288e8b9c6c8fb6859b06ab394/material-icons-core-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-icons-core-desktop/1.2.0/43cf3ae19335f708894027ba460c252f55b6663e/material-icons-core-desktop-1.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.1.0",
+      "name": "Gradle: io.ktor:ktor-network:jvmAndNixMain:2.1.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-desktop/1.1.0/4884062666a55d239ce40c5c85202fea17638e0c/ui-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/common.cohesive/desktopMain/implementation/io.ktor-ktor-network/io.ktor-ktor-network-jvmAndNixMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-desktop/1.2.0/dbf2a12453f7d0548ebadf1c93421ca1e6f87bb7/ui-desktop-1.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.animation/animation-core-desktop/1.1.0/35cb8857d549cceabc442af169cd3205cbe14555/animation-core-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-text-desktop/1.2.0/7577f6b3802042b1b0e74ae7348b90a865d42528/ui-text-desktop-1.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-text-desktop/1.1.0/652aa25cd2a00c43f3e1903dc3e30ef9032d237d/ui-text-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.animation/animation-core-desktop/1.2.0/ee6b2acbcb6876a522de6601b403b0a97e5e1146/animation-core-desktop-1.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.animation/animation-desktop/1.1.0/183763d41b1e2ebca2f86418934fa7f1908d5b80/animation-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.animation/animation-desktop/1.2.0/2980f259e82fac7ad0ad6479e46163279695d08f/animation-desktop-1.2.0.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.34",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.skiko/skiko-awt/0.7.34/47c3c84b38804bfd32167fad12ff81101e953c70/skiko-awt-0.7.34.jar!/"
       ]
     },
     {
@@ -961,21 +359,27 @@
       ]
     },
     {
+      "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-util-desktop/1.2.0/8d614e93d49b509f9630b5cf7bd2dcb01a5da29a/ui-util-desktop-1.2.0.jar!/"
+      ]
+    },
+    {
       "name": "Gradle: io.ktor:ktor-events-jvm:2.1.0",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-events-jvm/2.1.0/ef58c3c3d012ab115011af1e2f2afc357433c220/ktor-events-jvm-2.1.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-util-desktop/1.1.0/367ca852f7123f5c69541717e5584ec99b9c2db0/ui-util-desktop-1.1.0.jar!/"
-      ]
-    },
-    {
       "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.1.0",
       "roots": [
         "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.ktor/ktor-websocket-serialization-jvm/2.1.0/d202979642d5091a18587b3f81269c0a9a8acc78/ktor-websocket-serialization-jvm-2.1.0.jar!/"
+      ]
+    },
+    {
+      "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-jvm/0.17.2/7f2eae498c00cd33ef2a8eba4be72b284270aa16/atomicfu-jvm-0.17.2.jar!/"
       ]
     },
     {
@@ -997,45 +401,33 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.6.4",
+      "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-swing/1.6.4/7646b68c7bba762dcbf347b0751db4dcdf7f6872/kotlinx-coroutines-swing-1.6.4.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime-saveable-desktop/1.2.0/a04a7d1e665d71be67544457882378eca362a151/runtime-saveable-desktop-1.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime-saveable-desktop/1.1.0/e202665934e15df56d9a0b7d30dc71df4381e3c4/runtime-saveable-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-graphics-desktop/1.2.0/c7810bc183bc3ef706ab4a711957bb6eee783e9d/ui-graphics-desktop-1.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-graphics-desktop/1.1.0/bd61651535860a3797e47080cde4ebc6e539a25e/ui-graphics-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-unit-desktop/1.2.0/ff4c3051e4848a52c8b0034a9320c18555916ddf/ui-unit-desktop-1.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.12",
+      "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.skiko/skiko-awt/0.7.12/7df725c58d41d89237ec0a6771fc6366bfeb8439/skiko-awt-0.7.12.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-geometry-desktop/1.2.0/5b8ff007af95d69733a94eb1ac4e5a99ac970a1/ui-geometry-desktop-1.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-unit-desktop/1.1.0/14026c6ac45573662068c721c4b79853dd0fa6ed/ui-unit-desktop-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.ui/ui-geometry-desktop/1.1.0/51cf3b7ba42e945ad258e14eeaa16e4e0a4bf182/ui-geometry-desktop-1.1.0.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.1.0",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.foundation/foundation-layout-desktop/1.1.0/491f6db7b259e08bef4635edb1edefb16054eb50/foundation-layout-desktop-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.foundation/foundation-layout-desktop/1.2.0/e923aa02175aee9745161eff45ff89610cab5fd1/foundation-layout-desktop-1.2.0.jar!/"
       ]
     },
     {
@@ -1063,39 +455,174 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.12",
+      "name": "Gradle: org.jetbrains.compose.material:material:commonMain:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.skiko/skiko-awt-runtime-linux-x64/0.7.12/c12fe155a7f200bad885c6b458ba9e08d5341dec/skiko-awt-runtime-linux-x64-0.7.12.jar!/"
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.material-material/org.jetbrains.compose.material-material-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.foundation:foundation:commonMain:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.foundation-foundation/org.jetbrains.compose.foundation-foundation-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.material:material-icons-extended:commonMain:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.material-material-icons-extended/org.jetbrains.compose.material-material-icons-extended-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.runtime:runtime:commonMain:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.runtime-runtime/org.jetbrains.compose.runtime-runtime-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.34",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.skiko/skiko-awt-runtime-linux-x64/0.7.34/60f05c42be49b3ba7fc98173f4f6e80c3b9de4fd/skiko-awt-runtime-linux-x64-0.7.34.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.desktop:desktop:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.desktop/desktop/1.1.0/5b8f86fea035328fc9e8c660773037a3401ce25f/desktop-metadata-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.desktop/desktop-jvm/1.2.0/b40f90472dd0d318e490e9b42a45e1aa2787ea52/desktop-jvm-1.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.1.0",
+      "name": "Gradle: org.jetbrains.compose.material:material-ripple:commonMain:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.compose.desktop/desktop-jvm/1.1.0/5ee1b0cb95662b9ec8e19c2d7f94b38673fdbe14/desktop-jvm-1.1.0.jar!/"
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.material-material-ripple/org.jetbrains.compose.material-material-ripple-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.animation:animation:commonMain:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.animation-animation/org.jetbrains.compose.animation-animation-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout:commonMain:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.foundation-foundation-layout/org.jetbrains.compose.foundation-foundation-layout-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.animation:animation-core:commonMain:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.animation-animation-core/org.jetbrains.compose.animation-animation-core-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.material:material-icons-core:commonMain:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.material-material-icons-core/org.jetbrains.compose.material-material-icons-core-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.ui:ui:commonMain:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.ui-ui/org.jetbrains.compose.ui-ui-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.ui:ui:skikoMain:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.ui-ui/org.jetbrains.compose.ui-ui-skikoMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.ui:ui-text:commonMain:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.ui-ui-text/org.jetbrains.compose.ui-ui-text-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.ui:ui-text:skikoMain:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.ui-ui-text/org.jetbrains.compose.ui-ui-text-skikoMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.skiko:skiko:commonMain:0.7.34",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.skiko-skiko/org.jetbrains.skiko-skiko-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:commonMain:1.6.1",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.kotlinx-kotlinx-coroutines-core/org.jetbrains.kotlinx-kotlinx-coroutines-core-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:concurrentMain:1.6.1",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.kotlinx-kotlinx-coroutines-core/org.jetbrains.kotlinx-kotlinx-coroutines-core-concurrentMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.6.1/97fd74ccf54a863d221956ffcd21835e168e2aaa/kotlinx-coroutines-core-jvm-1.6.1.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.2",
+      "name": "Gradle: org.jetbrains.compose.ui:ui-geometry:commonMain:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.5.2/f4cc07a50437659e0043e7da762809a46932b6a0/kotlinx-coroutines-core-jvm-1.5.2.jar!/"
-      ]
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.ui-ui-geometry/org.jetbrains.compose.ui-ui-geometry-commonMain.klib!/"
+      ],
+      "properties": {}
     },
     {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.5.2",
+      "name": "Gradle: org.jetbrains.compose.ui:ui-unit:commonMain:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-swing/1.5.2/373883facba753a6665fbe1c6820f9dc156045b1/kotlinx-coroutines-swing-1.5.2.jar!/"
-      ]
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.ui-ui-unit/org.jetbrains.compose.ui-ui-unit-commonMain.klib!/"
+      ],
+      "properties": {}
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-test:1.6.10",
+      "name": "Gradle: org.jetbrains.compose.ui:ui-graphics:commonMain:1.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.6.10/59bace81228ddb06ac0dc81bd3a554bb19799715/kotlin-test-1.6.10.jar!/"
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.ui-ui-graphics/org.jetbrains.compose.ui-ui-graphics-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.ui:ui-graphics:skikoMain:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.ui-ui-graphics/org.jetbrains.compose.ui-ui-graphics-skikoMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable:commonMain:1.2.0",
+      "roots": [
+        "jar://$PROJECT_DIR$/.gradle/kotlin/sourceSetMetadata/desktop.cohesive/jvmMain/implementation/org.jetbrains.compose.runtime-runtime-saveable/org.jetbrains.compose.runtime-runtime-saveable-commonMain.klib!/"
+      ],
+      "properties": {}
+    },
+    {
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-test:1.7.10",
+      "roots": [
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.7.10/4d644a88cc0a386712d4b1c1b4ca748203421e07/kotlin-test-1.7.10.jar!/"
       ]
     },
     {
@@ -1111,15 +638,15 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-test-junit:1.6.10",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-test-junit:1.7.10",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-junit/1.6.10/7723f4362f824bf5fabef0ad213d188d2be8d937/kotlin-test-junit-1.6.10.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-junit/1.7.10/27228b08adb999a47ae98ac03e98e1f3132f83ca/kotlin-test-junit-1.7.10.jar!/"
       ]
     },
     {
-      "name": "Gradle: junit:junit:4.12",
+      "name": "Gradle: junit:junit:4.13.2",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/junit/junit/4.13.2/8ac9e16d933b6fb43bc7f576336b8f4d7eb5ba12/junit-4.13.2.jar!/"
       ]
     },
     {
