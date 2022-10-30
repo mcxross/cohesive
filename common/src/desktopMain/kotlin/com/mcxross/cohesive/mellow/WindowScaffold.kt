@@ -15,7 +15,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
-import com.mcxross.cohesive.common.frontend.model.Local
+import com.mcxross.cohesive.common.Local
 
 object Toast {
   var model: ToastModel by mutableStateOf(ToastModel())
@@ -42,7 +42,7 @@ fun WindowScaffold(
     MellowTheme.Theme {
       Surface(
         modifier = modifier.fillMaxSize()
-          .then(Local.LocalContext.current.platformDropTargetModifier!!),
+          .then(Local.LocalScreen.current.pdtm!!),
         contentColor = contentColorFor(MaterialTheme.colors.surface),
       ) {
         Column {

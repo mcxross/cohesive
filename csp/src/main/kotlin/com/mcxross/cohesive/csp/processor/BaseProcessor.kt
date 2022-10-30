@@ -16,8 +16,7 @@ open class BaseProcessor(private val environment: SymbolProcessorEnvironment) : 
   var extensions = ArrayList<String>()
 
   fun Resolver.findAnnotations(kClass: KClass<*>) =
-    getSymbolsWithAnnotation(kClass.qualifiedName.toString())
-      .filterIsInstance<KSClassDeclaration>()
+    getSymbolsWithAnnotation(kClass.qualifiedName.toString()).filterIsInstance<KSClassDeclaration>()
 
   operator fun OutputStream.plusAssign(str: String) {
     this.write(str.toByteArray())
@@ -46,5 +45,4 @@ open class BaseProcessor(private val environment: SymbolProcessorEnvironment) : 
   fun e(message: String, symbol: KSNode? = null) {
     getLogger().error(message = message, symbol = symbol)
   }
-
 }

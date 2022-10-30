@@ -46,9 +46,7 @@ object Descriptor {
 
   private suspend fun chainFlow(): Flow<com.mcxross.cohesive.common.frontend.model.Plugin> = flow {
     var jsonResp = ""
-    val desCo = scope.launch(Dispatchers.IO) {
-      jsonResp = getDescriptor()
-    }
+    val desCo = scope.launch(Dispatchers.IO) { jsonResp = getDescriptor() }
     desCo.join()
 
     parse(jsonResp).jsonObject["chain"]?.jsonArray?.shuffled()?.forEach {
@@ -64,23 +62,20 @@ object Descriptor {
         ),
       )
     }
-
   }
 
   fun getPlugins(): List<com.mcxross.cohesive.common.frontend.model.Plugin> {
     return plugins
   }
-
 }
 
 actual fun getDescriptor(): String {
 
   return runBlocking {
     getHTTPClient().use { client ->
-      client.get("https://raw.githubusercontent.com/mcxross/cohesives/main/src/descriptor.json")
+      client
+        .get("https://raw.githubusercontent.com/mcxross/cohesives/main/src/descriptor.json")
         .bodyAsText()
     }
   }
 }
-
-

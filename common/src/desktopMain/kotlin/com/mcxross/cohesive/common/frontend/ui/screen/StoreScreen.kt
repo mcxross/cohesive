@@ -44,7 +44,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.mcxross.cohesive.common.frontend.model.Local
+import com.mcxross.cohesive.common.Context
+import com.mcxross.cohesive.common.Local
 import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IStore
 import com.mcxross.cohesive.common.frontend.utils.WindowState
 import com.mcxross.cohesive.common.frontend.utils.loadImageBitmap
@@ -70,16 +71,16 @@ open class StoreScreen : IStore {
         Surface(modifier = Modifier.fillMaxSize()) {
 
           Box(modifier = Modifier.fillMaxSize()) {
-            if (Local.LocalContext.current.environment!!.plugins.isNotEmpty()) {
+            if (Context.secondaryPlugin.isNotEmpty()) {
               StoreViewChains(
                 modifier = Modifier.matchParentSize().align(Alignment.Center)
                   .padding(top = 34.dp),
-                plugins = Local.LocalContext.current.environment!!.plugins,
+                plugins = Context.secondaryPlugin,
               )
             } else {
               StoreViewLoading()
             }
-            Local.LocalContext.current.windowScope!!.WindowDraggableArea {
+            Local.LocalScreen.current.scope!!.WindowDraggableArea {
               TopMinBar(
                 onClose = { WindowState.isStoreWindowOpen = false },
                 text = "Select Platform",
@@ -88,7 +89,7 @@ open class StoreScreen : IStore {
             }
 
             SkipButton(
-              show = Local.LocalContext.current.environment!!.plugins.isNotEmpty(),
+              show = Context.secondaryPlugin.isNotEmpty(),
               modifier = Modifier.align(Alignment.BottomEnd),
             )
 

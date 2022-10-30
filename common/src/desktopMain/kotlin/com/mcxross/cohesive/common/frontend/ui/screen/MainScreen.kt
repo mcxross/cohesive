@@ -36,8 +36,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.WindowPlacement
+import com.mcxross.cohesive.common.Local
 import com.mcxross.cohesive.common.ds.tree.tree
-import com.mcxross.cohesive.common.frontend.model.Local
 import com.mcxross.cohesive.common.frontend.openapi.ui.view.CohesiveView
 import com.mcxross.cohesive.common.frontend.ui.view.View
 import com.mcxross.cohesive.common.frontend.utils.WindowState
@@ -58,7 +58,6 @@ import com.mcxross.cohesive.mellow.TopBar
 import com.mcxross.cohesive.mellow.WindowButton
 import com.mcxross.cohesive.mellow.WindowScaffold
 
-
 open class MainScreen {
 
   private lateinit var cohesiveView: CohesiveView
@@ -67,81 +66,72 @@ open class MainScreen {
   @Composable
   protected fun WindowListMenuButton() {
 
-    val root = tree(CMenuItem(null, "")) {
+    val root =
+      tree(CMenuItem(null, "")) {
+        child(CMenuItem(text = "New")) {
+          child(CMenuItem(text = "Project"))
+          child(CMenuItem(text = "Wallet"))
+        }
 
-      child(CMenuItem(text = "New")) {
-        child(CMenuItem(text = "Project"))
-        child(CMenuItem(text = "Wallet"))
+        child(
+          CMenuItem(
+            icon = painterResource("menu-open_dark.svg"),
+            text = "Open",
+            menuInterface =
+              object : MenuInterface {
+                override fun onClick() {
+                  WindowState.isOpenDialogOpen = true
+                }
+
+                override fun onHover(onEnter: Boolean) {}
+              },
+          ),
+        )
+
+        child(
+          CMenuItem(
+            text = "Switch Chain",
+            menuInterface =
+              object : MenuInterface {
+                override fun onClick() {
+                  WindowState.isPreAvail = false
+                  WindowState.isStoreWindowOpen = true
+                }
+
+                override fun onHover(onEnter: Boolean) {}
+              },
+          ),
+        )
+
+        child(CMenuItem(text = "Open Recent"))
+        child(CMenuItem(text = "Settings"))
+        child(
+          CMenuItem(
+            text = "Exit",
+            menuInterface =
+              object : MenuInterface {
+                override fun onClick() {
+                  WindowState.isMainWindowOpen = false
+                }
+
+                override fun onHover(onEnter: Boolean) {
+                  TODO("Not yet implemented")
+                }
+              },
+          ),
+        )
       }
 
-      child(
-        CMenuItem(
-          icon = painterResource("menu-open_dark.svg"),
-          text = "Open",
-          menuInterface = object : MenuInterface {
-            override fun onClick() {
-              WindowState.isOpenDialogOpen = true
-            }
-
-            override fun onHover(onEnter: Boolean) {
-
-            }
-
-          },
-        ),
-      )
-
-      child(
-        CMenuItem(
-          text = "Switch Chain",
-          menuInterface = object : MenuInterface {
-            override fun onClick() {
-              WindowState.isPreAvail = false
-              WindowState.isStoreWindowOpen = true
-            }
-
-            override fun onHover(onEnter: Boolean) {
-
-            }
-
-          },
-        ),
-      )
-
-      child(CMenuItem(text = "Open Recent"))
-      child(CMenuItem(text = "Settings"))
-      child(
-        CMenuItem(
-          text = "Exit",
-          menuInterface = object : MenuInterface {
-            override fun onClick() {
-              WindowState.isMainWindowOpen = false
-            }
-
-            override fun onHover(onEnter: Boolean) {
-              TODO("Not yet implemented")
-            }
-          },
-        ),
-      )
-
-    }
-
-    Menu(MenuTree(root)) {
-
-    }
-
+    Menu(MenuTree(root)) {}
   }
 
   @Composable
   protected fun TitleMenuBar() {
     Column(
-      modifier = Modifier
-        .fillMaxWidth()
-        .wrapContentHeight(),
+      modifier = Modifier.fillMaxWidth().wrapContentHeight(),
     ) {
       var restore by remember { mutableStateOf(true) }
-      Local.LocalContext.current.windowScope?.TopBar(
+      Local.LocalScreen.current.scope?.TopBar(
         onClose = { WindowState.isMainWindowOpen = false },
         onRestore = {
           if (restore) {
@@ -161,7 +151,9 @@ open class MainScreen {
             WindowListMenuButton()
           }
         },
-        restoreIcon = if (restore) painterResource("maximize_dark.svg") else painterResource("restore_dark.svg"),
+        restoreIcon =
+          if (restore) painterResource("maximize_dark.svg")
+          else painterResource("restore_dark.svg"),
       ) {
         Text(
           "${cohesive.platform}  —",
@@ -185,10 +177,11 @@ open class MainScreen {
       Button(
         modifier = Modifier.defaultMinSize(minWidth = 150.dp),
         border = BorderStroke(1.dp, MaterialTheme.colors.surface),
-        colors = ButtonDefaults.buttonColors(
-          backgroundColor = Color.Transparent,
-          contentColor = contentColorFor(MaterialTheme.colors.surface),
-        ),
+        colors =
+          ButtonDefaults.buttonColors(
+            backgroundColor = Color.Transparent,
+            contentColor = contentColorFor(MaterialTheme.colors.surface),
+          ),
         onClick = { expanded = !expanded },
       ) {
         Icon(
@@ -206,8 +199,9 @@ open class MainScreen {
       DropdownMenu(
         expanded = expanded,
         onDismissRequest = { expanded = false },
-        modifier = Modifier.defaultMinSize(minWidth = 150.dp)
-          .border(border = BorderStroke(2.dp, Color(0xFF4D5051)), shape = RectangleShape),
+        modifier =
+          Modifier.defaultMinSize(minWidth = 150.dp)
+            .border(border = BorderStroke(2.dp, Color(0xFF4D5051)), shape = RectangleShape),
       ) {
         suggestions.forEach { label ->
           DropdownMenuItem(
@@ -217,7 +211,6 @@ open class MainScreen {
                 setCluster = label
               }
               expanded = false
-
             },
           ) {
             Text(text = label, fontSize = 12.sp)
@@ -240,7 +233,8 @@ open class MainScreen {
     WindowButton(
       onClick = { onClick() },
       icon = painterResource("switchView_dark.svg"),
-      contentDescription = "Switch View", width = 40.dp,
+      contentDescription = "Switch View",
+      width = 40.dp,
     )
   }
 
@@ -292,9 +286,7 @@ open class MainScreen {
       width = 450.dp,
       height = 450.dp,
     ) {
-      FileTree(model = FileTreeModel(root = HomeFolder)) {
-        file = it
-      }
+      FileTree(model = FileTreeModel(root = HomeFolder)) { file = it }
     }
   }
 
@@ -310,10 +302,8 @@ open class MainScreen {
     }
     WindowScaffold(
       topBar = { TitleMenuBar() },
-      onDragStarted = { uris, _ ->
-        uris.isNotEmpty()
-      },
-      onDragEntered = { },
+      onDragStarted = { uris, _ -> uris.isNotEmpty() },
+      onDragEntered = {},
       onDropped = { uris, _ ->
         if (isDirectory(uris[0].path)) {
           WindowState.currentProjectFile = uris[0].path
