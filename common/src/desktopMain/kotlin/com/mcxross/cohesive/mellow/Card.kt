@@ -1,4 +1,4 @@
-@file: JvmName("MellowCard")
+@file:JvmName("MellowCard")
 
 package com.mcxross.cohesive.mellow
 
@@ -41,32 +41,36 @@ fun Card(
     var currentState by remember { mutableStateOf(CardState.FLAT) }
     val transition = updateTransition(currentState)
 
-    val widthAnim by transition.animateDp { state ->
-      when (state) {
-        CardState.FLAT -> width
-        CardState.RAISED -> width + 5.dp
+    val widthAnim by
+      transition.animateDp { state ->
+        when (state) {
+          CardState.FLAT -> width
+          CardState.RAISED -> width + 5.dp
+        }
       }
-    }
 
-    val heightAnim by transition.animateDp { state ->
-      when (state) {
-        CardState.FLAT -> height
-        CardState.RAISED -> height + 5.dp
+    val heightAnim by
+      transition.animateDp { state ->
+        when (state) {
+          CardState.FLAT -> height
+          CardState.RAISED -> height + 5.dp
+        }
       }
-    }
 
-    val elevationAnim by transition.animateDp { state ->
-      when (state) {
-        CardState.FLAT -> 1.dp
-        CardState.RAISED -> 4.dp
+    val elevationAnim by
+      transition.animateDp { state ->
+        when (state) {
+          CardState.FLAT -> 1.dp
+          CardState.RAISED -> 4.dp
+        }
       }
-    }
 
     androidx.compose.material.Card(
-      modifier = modifier
-        .size(widthAnim, heightAnim)
-        .onPointerEvent(PointerEventType.Enter) { currentState = CardState.RAISED }
-        .onPointerEvent(PointerEventType.Exit) { currentState = CardState.FLAT },
+      modifier =
+        modifier
+          .size(widthAnim, heightAnim)
+          .onPointerEvent(PointerEventType.Enter) { currentState = CardState.RAISED }
+          .onPointerEvent(PointerEventType.Exit) { currentState = CardState.FLAT },
       shape = shape,
       backgroundColor = backgroundColor,
       contentColor = contentColor,
@@ -82,6 +86,8 @@ fun Card(
       contentColor = contentColor,
       border = border,
       elevation = elevation,
-    ) { content() }
+    ) {
+      content()
+    }
   }
 }

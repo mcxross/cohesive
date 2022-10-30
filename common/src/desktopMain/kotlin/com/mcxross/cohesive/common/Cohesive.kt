@@ -28,7 +28,7 @@ fun runDescriptor() {
   Log.d { "Working on descriptor..." }
   val time = measureTimeMillis {
     Context.descriptor = Descriptor.run()
-    Context.secondaryPlugin = Context.descriptor.getPlugins()
+    Context.secondaryPlugins = Context.descriptor.getPlugins()
   }
   Log.d { "Done! Took $time ms" }
 }

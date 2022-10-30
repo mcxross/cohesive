@@ -19,10 +19,10 @@ import kotlinx.serialization.json.jsonObject
 object Descriptor {
   private val isContentReady = mutableStateOf(false)
   private val scope = CoroutineScope(Dispatchers.IO)
-  private var plugins: ArrayList<com.mcxross.cohesive.common.frontend.model.Plugin> = arrayListOf()
+  private var secondaryPlugins: ArrayList<com.mcxross.cohesive.common.frontend.model.SecondaryPlugin> = arrayListOf()
   fun run(): Descriptor {
     scope.launch(Dispatchers.IO) {
-      chainFlow().toList(plugins)
+      chainFlow().toList(secondaryPlugins)
       onContentReady()
     }
     return this
@@ -44,14 +44,14 @@ object Descriptor {
     return parse(jsonElement.toString()).jsonObject[key].toString().replace("\"", "")
   }
 
-  private suspend fun chainFlow(): Flow<com.mcxross.cohesive.common.frontend.model.Plugin> = flow {
+  private suspend fun chainFlow(): Flow<com.mcxross.cohesive.common.frontend.model.SecondaryPlugin> = flow {
     var jsonResp = ""
     val desCo = scope.launch(Dispatchers.IO) { jsonResp = getDescriptor() }
     desCo.join()
 
     parse(jsonResp).jsonObject["chain"]?.jsonArray?.shuffled()?.forEach {
       emit(
-        com.mcxross.cohesive.common.frontend.model.Plugin(
+        com.mcxross.cohesive.common.frontend.model.SecondaryPlugin(
           id = getValue(jsonElement = it, key = "id"),
           name = getValue(jsonElement = it, key = "name"),
           icon = getValue(jsonElement = it, key = "icon"),
@@ -64,8 +64,8 @@ object Descriptor {
     }
   }
 
-  fun getPlugins(): List<com.mcxross.cohesive.common.frontend.model.Plugin> {
-    return plugins
+  fun getPlugins(): List<com.mcxross.cohesive.common.frontend.model.SecondaryPlugin> {
+    return secondaryPlugins
   }
 }
 

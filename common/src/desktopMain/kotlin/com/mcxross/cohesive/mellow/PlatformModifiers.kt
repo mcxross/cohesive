@@ -21,10 +21,7 @@ import java.awt.dnd.DropTargetEvent
 import java.awt.dnd.DropTargetListener
 import java.io.File
 
-/**
- * An overload of [Modifier.combinedClickable]
- *
- */
+/** An overload of [Modifier.combinedClickable] */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Modifier.combinedClickableNoInteractionDesktop(
@@ -37,30 +34,32 @@ fun Modifier.combinedClickableNoInteractionDesktop(
   onLongClick: (() -> Unit)? = null,
   onDoubleClick: (() -> Unit)? = null,
   onClick: () -> Unit,
-) = composed(
-  inspectorInfo = debugInspectorInfo {
-    name = "combinedClickable"
-    properties["enabled"] = enabled
-    properties["onClickLabel"] = onClickLabel
-    properties["role"] = role
-    properties["onClick"] = onClick
-    properties["onDoubleClick"] = onDoubleClick
-    properties["onLongClick"] = onLongClick
-    properties["onLongClickLabel"] = onLongClickLabel
-  },
-) {
-  Modifier.combinedClickable(
-    enabled = enabled,
-    onClickLabel = onClickLabel,
-    onLongClickLabel = onLongClickLabel,
-    onLongClick = onLongClick,
-    onDoubleClick = onDoubleClick,
-    onClick = onClick,
-    role = role,
-    indication = indication,
-    interactionSource = interactionSource ?: remember { MutableInteractionSource() },
-  )
-}
+) =
+  composed(
+    inspectorInfo =
+      debugInspectorInfo {
+        name = "combinedClickable"
+        properties["enabled"] = enabled
+        properties["onClickLabel"] = onClickLabel
+        properties["role"] = role
+        properties["onClick"] = onClick
+        properties["onDoubleClick"] = onDoubleClick
+        properties["onLongClick"] = onLongClick
+        properties["onLongClickLabel"] = onLongClickLabel
+      },
+  ) {
+    Modifier.combinedClickable(
+      enabled = enabled,
+      onClickLabel = onClickLabel,
+      onLongClickLabel = onLongClickLabel,
+      onLongClick = onLongClick,
+      onDoubleClick = onDoubleClick,
+      onClick = onClick,
+      role = role,
+      indication = indication,
+      interactionSource = interactionSource ?: remember { MutableInteractionSource() },
+    )
+  }
 
 /* Original author, tunjid*/
 
@@ -80,64 +79,64 @@ actual class PlatformDropTargetModifier(
   }
 }
 
-private fun dropTargetListener(
-  dropTargetModifier: DropTargetModifier,
-  density: Float
-) = object : DropTargetListener {
-  override fun dragEnter(dtde: DropTargetDragEvent?) {
-    if (dtde == null) return
-    dropTargetModifier.onDragStarted(
-      dtde.fileUris(),
-      Offset(
-        dtde.location.x * density,
-        dtde.location.y * density,
-      ),
-    )
-    dropTargetModifier.onDragEntered()
-  }
-
-  override fun dragOver(dtde: DropTargetDragEvent?) {
-    if (dtde == null) return
-    dropTargetModifier.onDragMoved(
-      Offset(
-        dtde.location.x * density,
-        dtde.location.y * density,
-      ),
-    )
-  }
-
-  override fun dropActionChanged(dtde: DropTargetDragEvent?) = Unit
-
-  override fun dragExit(dte: DropTargetEvent?) {
-    dropTargetModifier.onDragExited()
-    dropTargetModifier.onDragEnded()
-  }
-
-  override fun drop(dtde: DropTargetDropEvent?) {
-    if (dtde == null) return dropTargetModifier.onDragEnded()
-
-    dtde.acceptDrop(DnDConstants.ACTION_REFERENCE)
-    dtde.dropComplete(
-      dropTargetModifier.onDropped(
+private fun dropTargetListener(dropTargetModifier: DropTargetModifier, density: Float) =
+  object : DropTargetListener {
+    override fun dragEnter(dtde: DropTargetDragEvent?) {
+      if (dtde == null) return
+      dropTargetModifier.onDragStarted(
         dtde.fileUris(),
         Offset(
           dtde.location.x * density,
           dtde.location.y * density,
         ),
-      ),
-    )
-    dropTargetModifier.onDragEnded()
+      )
+      dropTargetModifier.onDragEntered()
+    }
+
+    override fun dragOver(dtde: DropTargetDragEvent?) {
+      if (dtde == null) return
+      dropTargetModifier.onDragMoved(
+        Offset(
+          dtde.location.x * density,
+          dtde.location.y * density,
+        ),
+      )
+    }
+
+    override fun dropActionChanged(dtde: DropTargetDragEvent?) = Unit
+
+    override fun dragExit(dte: DropTargetEvent?) {
+      dropTargetModifier.onDragExited()
+      dropTargetModifier.onDragEnded()
+    }
+
+    override fun drop(dtde: DropTargetDropEvent?) {
+      if (dtde == null) return dropTargetModifier.onDragEnded()
+
+      dtde.acceptDrop(DnDConstants.ACTION_REFERENCE)
+      dtde.dropComplete(
+        dropTargetModifier.onDropped(
+          dtde.fileUris(),
+          Offset(
+            dtde.location.x * density,
+            dtde.location.y * density,
+          ),
+        ),
+      )
+      dropTargetModifier.onDragEnded()
+    }
   }
-}
 
-private fun DropTargetDragEvent.fileUris(): List<Uri> = transferable
-  .getTransferData(DataFlavor.javaFileListFlavor)
-  .let { it as? List<*> ?: listOf<File>() }
-  .filterIsInstance<File>()
-  .map(::FileUri)
+private fun DropTargetDragEvent.fileUris(): List<Uri> =
+  transferable
+    .getTransferData(DataFlavor.javaFileListFlavor)
+    .let { it as? List<*> ?: listOf<File>() }
+    .filterIsInstance<File>()
+    .map(::FileUri)
 
-private fun DropTargetDropEvent.fileUris(): List<Uri> = transferable
-  .getTransferData(DataFlavor.javaFileListFlavor)
-  .let { it as? List<*> ?: listOf<File>() }
-  .filterIsInstance<File>()
-  .map(::FileUri)
+private fun DropTargetDropEvent.fileUris(): List<Uri> =
+  transferable
+    .getTransferData(DataFlavor.javaFileListFlavor)
+    .let { it as? List<*> ?: listOf<File>() }
+    .filterIsInstance<File>()
+    .map(::FileUri)

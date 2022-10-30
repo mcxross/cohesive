@@ -7,7 +7,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.window.WindowScope
 import com.mcxross.cohesive.common.frontend.model.Platform
-import com.mcxross.cohesive.common.frontend.model.Plugin
+import com.mcxross.cohesive.common.frontend.model.SecondaryPlugin
 import com.mcxross.cohesive.common.frontend.model.onnet.Descriptor
 import com.mcxross.cohesive.cps.PluginManager
 import com.mcxross.cohesive.mellow.PlatformDropTargetModifier
@@ -22,7 +22,7 @@ data class Screen(var scope: WindowScope? = null, var pdtm: PlatformDropTargetMo
 
 actual object Context {
 
-  var secondaryPlugin: List<Plugin> = emptyList()
+  var secondaryPlugins: List<SecondaryPlugin> = emptyList()
   lateinit var platform: Platform
   lateinit var pluginManager: PluginManager
   var isLoadingConfig: Boolean by mutableStateOf(true)

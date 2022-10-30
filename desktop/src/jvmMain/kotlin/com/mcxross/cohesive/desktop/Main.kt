@@ -14,8 +14,8 @@ import com.mcxross.cohesive.common.Cohesive
 import com.mcxross.cohesive.common.Context
 import com.mcxross.cohesive.common.Local.LocalScreen
 import com.mcxross.cohesive.common.Screen
-import com.mcxross.cohesive.common.frontend.openapi.ui.screen.IStore
 import com.mcxross.cohesive.common.frontend.ui.screen.MainScreen
+import com.mcxross.cohesive.common.frontend.ui.screen.StoreScreen
 import com.mcxross.cohesive.common.frontend.ui.view.splash.SplashScreen
 import com.mcxross.cohesive.common.frontend.utils.WindowState
 import com.mcxross.cohesive.common.frontend.utils.getPreferredWindowSize
@@ -34,6 +34,7 @@ fun BrewScreenCompositionLocal(
   CompositionLocalProvider(LocalScreen provides screen) { content() }
 }
 
+/** This is where the magic happens, the main function is the entry point to the application. */
 fun main() =
   Cohesive.run {
     if (Context.isLoadingResource) {
@@ -109,21 +110,11 @@ fun main() =
                   window = window,
                 )
               }
-            val iStore = Context.pluginManager.getExtensions(IStore::class.java)[0]
-            if (Context.descriptor.isContentReady()) {
-              BrewScreenCompositionLocal(
-                windowScope = this,
-                pdtm = dropParent,
-              ) {
-                iStore.Compose()
-              }
-            } else {
-              BrewScreenCompositionLocal(
-                windowScope = this,
-                pdtm = dropParent,
-              ) {
-                iStore.Compose()
-              }
+            BrewScreenCompositionLocal(
+              windowScope = this,
+              pdtm = dropParent,
+            ) {
+              StoreScreen()
             }
           }
         }

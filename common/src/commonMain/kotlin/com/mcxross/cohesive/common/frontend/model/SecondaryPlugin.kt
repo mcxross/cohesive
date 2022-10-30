@@ -1,6 +1,6 @@
 package com.mcxross.cohesive.common.frontend.model
 
-data class Plugin(
+data class SecondaryPlugin(
   val id: String,
   val name: String,
   val icon: String,

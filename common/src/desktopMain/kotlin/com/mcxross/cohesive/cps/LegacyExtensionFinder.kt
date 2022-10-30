@@ -3,12 +3,12 @@ package com.mcxross.cohesive.cps
 import com.mcxross.cohesive.common.utils.Log
 import java.io.IOException
 
-
 /**
  * An extension finder that attempts to find System and Plugin Extensions.
  *
- * All extensions declared in a plugin are indexed in various kt files `com/mcxross/cohesive/r/{DefaultCohesiveExtension || DefaultExtensionIndex}`.
- * This class looks-up extensions in all extensions index files i.e System and Plugins.
+ * All extensions declared in a plugin are indexed in various kt files
+ * `com/mcxross/cohesive/r/{DefaultCohesiveExtension || DefaultExtensionIndex}`. This class looks-up
+ * extensions in all extensions index files i.e System and Plugins.
  */
 class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFinder(pluginManager) {
 
@@ -17,19 +17,26 @@ class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFin
     val result: MutableMap<String, Set<String>> = LinkedHashMap()
     val bucket = mutableSetOf<String>()
     try {
-      (javaClass.classLoader.loadClass(COHESIVE_RESOURCE).getDeclaredConstructor()
-        .newInstance() as ExtensionIndex).extensions.forEach {
-        bucket.add(it)
-      }
-      (javaClass.classLoader.loadClass(EXTENSIONS_RESOURCE).getDeclaredConstructor()
-        .newInstance() as ExtensionIndex).extensions.forEach {
-        bucket.add(it)
-      }
-      debugExtensions(bucket)
-      result["cohesive"] = bucket
-    } catch (e: IOException) {
+      (javaClass.classLoader.loadClass(COHESIVE_RESOURCE).getDeclaredConstructor().newInstance()
+          as ExtensionIndex)
+        .extensions
+        .forEach { bucket.add(it) }
+    } catch (e: ClassNotFoundException) {
       Log.e { e.message.toString() }
     }
+
+    try {
+      (javaClass.classLoader.loadClass(EXTENSIONS_RESOURCE).getDeclaredConstructor().newInstance()
+          as ExtensionIndex)
+        .extensions
+        .forEach { bucket.add(it) }
+    } catch (e: Exception) {
+      Log.d { e.message.toString() }
+    }
+
+    debugExtensions(bucket)
+    result["cohesive"] = bucket
+
     return result
   }
 
@@ -42,10 +49,10 @@ class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFin
       val bucket = mutableSetOf<String>()
       try {
         Log.d { "Read $EXTENSIONS_RESOURCE" }
-        (javaClass.classLoader.loadClass(EXTENSIONS_RESOURCE).getDeclaredConstructor()
-          .newInstance() as ExtensionIndex).extensions.forEach { ext ->
-          bucket.add(ext)
-        }
+        (javaClass.classLoader.loadClass(EXTENSIONS_RESOURCE).getDeclaredConstructor().newInstance()
+            as ExtensionIndex)
+          .extensions
+          .forEach { ext -> bucket.add(ext) }
         debugExtensions(bucket)
         result[pluginId] = bucket
       } catch (e: IOException) {
