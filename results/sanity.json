@@ -68,68 +68,6 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Expected class 'Context' has no actual declaration in module cohesive.common.androidBenchmark for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/model/Context.kt",
-      "language": "kotlin",
-      "line": 3,
-      "offset": 14,
-      "length": 7,
-      "code": {
-        "startLine": 1,
-        "length": 7,
-        "offset": 65,
-        "surroundingCode": "package com.mcxross.cohesive.common.frontend.model\n\nexpect class Context {\n}"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "54abdbb361036c717802e734996d3015e0709e769bc4b26528ee9163aa53f5fb"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected class 'Context' has no actual declaration in module cohesive.common.commonBenchmark for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/model/Context.kt",
-      "language": "kotlin",
-      "line": 3,
-      "offset": 14,
-      "length": 7,
-      "code": {
-        "startLine": 1,
-        "length": 7,
-        "offset": 65,
-        "surroundingCode": "package com.mcxross.cohesive.common.frontend.model\n\nexpect class Context {\n}"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "0ad3df47b84576d903e0722a648318ce6be977327e3428416a787cd95fd8c0f3"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
   "comment": "Expected function 'readFileToStr' has no actual declaration in module cohesive.common.androidBenchmark for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
@@ -618,4 +556,66 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "79aa262bb3dd080629b9ab0149ba526869742d9118b8f78f4c1e22ac52789179"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'getScreenSize' has no actual declaration in module cohesive.common.androidBenchmark for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/ui/Screen.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 1,
+        "length": 13,
+        "offset": 60,
+        "surroundingCode": "package com.mcxross.cohesive.common.frontend.ui\n\nexpect fun getScreenSize(): Pair<Int, Int>"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "a8223646b2869953e9e8d0269302bda236f5db8e365c80b3ffc831f53b95ef14"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'getScreenSize' has no actual declaration in module cohesive.common.commonBenchmark for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/ui/Screen.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 1,
+        "length": 13,
+        "offset": 60,
+        "surroundingCode": "package com.mcxross.cohesive.common.frontend.ui\n\nexpect fun getScreenSize(): Pair<Int, Int>"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "aa53c2592eb24dbb8ab8f49562d85f2495c416d57e638a1ed84bb2ba03b947b6"
 }]}

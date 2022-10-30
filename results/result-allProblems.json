@@ -31,174 +31,6 @@
   "category": "Migration",
   "type": "Usage of redundant or deprecated syntax or deprecated symbols",
   "severity": "High",
-  "comment": "'consumeAllChanges(): Unit' is deprecated. Use consume() instead",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 178,
-      "offset": 36,
-      "length": 17,
-      "code": {
-        "startLine": 176,
-        "length": 17,
-        "offset": 78,
-        "surroundingCode": "  do {\n    val event = awaitPointerEvent()\n    event.changes.fastForEach { it.consumeAllChanges() }\n  } while (event.changes.fastAny { it.pressed })\n}"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "eb0fddc8bef0041ee827772e792393b66fbc47f091bea2f58fd6dc4c9398374c"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 213,
-      "offset": 47,
-      "length": 17,
-      "code": {
-        "startLine": 211,
-        "length": 17,
-        "offset": 78,
-        "surroundingCode": "      awaitPointerEventScope {\n\n        val down = awaitFirstDown().also { it.consumeDownChange() }\n\n        if (onPress !== NoPressGesture) {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "3a2a60c6d5af12371f489d6f008eee068be054748f2bded1ee04f5d7a3b78a3a"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 223,
-      "offset": 14,
-      "length": 17,
-      "code": {
-        "startLine": 221,
-        "length": 17,
-        "offset": 83,
-        "surroundingCode": "          pressScope.cancel() // tap-up was canceled\n        } else {\n          up.consumeDownChange()\n          pressScope.release()\n          onTap?.invoke(up.position)"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "3ec2eefec81a8bd1adf63ff5ec508694795b08f39bfe5a34cf5b0c96989b1f36"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "Remove deprecated symbol import",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 31,
-      "offset": 1,
-      "length": 58,
-      "code": {
-        "startLine": 29,
-        "length": 58,
-        "offset": 122,
-        "surroundingCode": "import androidx.compose.ui.input.pointer.changedToDownIgnoreConsumed\nimport androidx.compose.ui.input.pointer.changedToUp\nimport androidx.compose.ui.input.pointer.consumeAllChanges\nimport androidx.compose.ui.input.pointer.consumeDownChange\nimport androidx.compose.ui.input.pointer.isOutOfBounds"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "d9febefca6020f33c27b06160f3f02e834a9c3bcb1a8e42474800635cc025bbe"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "Remove deprecated symbol import",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 32,
-      "offset": 1,
-      "length": 58,
-      "code": {
-        "startLine": 30,
-        "length": 58,
-        "offset": 112,
-        "surroundingCode": "import androidx.compose.ui.input.pointer.changedToUp\nimport androidx.compose.ui.input.pointer.consumeAllChanges\nimport androidx.compose.ui.input.pointer.consumeDownChange\nimport androidx.compose.ui.input.pointer.isOutOfBounds\nimport androidx.compose.ui.input.pointer.positionChangeConsumed"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "5cf0a3dba07f99a57e908a61e5f7238c4bb233b8de327ec72181529cca98fb47"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "Remove deprecated symbol import",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 34,
-      "offset": 1,
-      "length": 63,
-      "code": {
-        "startLine": 32,
-        "length": 63,
-        "offset": 114,
-        "surroundingCode": "import androidx.compose.ui.input.pointer.consumeDownChange\nimport androidx.compose.ui.input.pointer.isOutOfBounds\nimport androidx.compose.ui.input.pointer.positionChangeConsumed\nimport androidx.compose.ui.platform.ViewConfiguration\nimport androidx.compose.ui.unit.Density"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "7d1477b3e67d945e38959cc367a45c77e53dc22dc4870e8ae12ceba51c4790d2"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
   "comment": "'positionChangeConsumed(): Boolean' is deprecated. Partial consumption has been deprecated. Use isConsumed instead",
   "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
   "sources": [
@@ -308,6 +140,202 @@
   "hash": "70799d5e5571756a54851c4c10d6fc4f94db0ca41889cbd35dc11a835c2b4988"
 },{
   "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "Remove deprecated symbol import",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 31,
+      "offset": 1,
+      "length": 58,
+      "code": {
+        "startLine": 29,
+        "length": 58,
+        "offset": 122,
+        "surroundingCode": "import androidx.compose.ui.input.pointer.changedToDownIgnoreConsumed\nimport androidx.compose.ui.input.pointer.changedToUp\nimport androidx.compose.ui.input.pointer.consumeAllChanges\nimport androidx.compose.ui.input.pointer.consumeDownChange\nimport androidx.compose.ui.input.pointer.isOutOfBounds"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "d9febefca6020f33c27b06160f3f02e834a9c3bcb1a8e42474800635cc025bbe"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "Remove deprecated symbol import",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 32,
+      "offset": 1,
+      "length": 58,
+      "code": {
+        "startLine": 30,
+        "length": 58,
+        "offset": 112,
+        "surroundingCode": "import androidx.compose.ui.input.pointer.changedToUp\nimport androidx.compose.ui.input.pointer.consumeAllChanges\nimport androidx.compose.ui.input.pointer.consumeDownChange\nimport androidx.compose.ui.input.pointer.isOutOfBounds\nimport androidx.compose.ui.input.pointer.positionChangeConsumed"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "5cf0a3dba07f99a57e908a61e5f7238c4bb233b8de327ec72181529cca98fb47"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "Remove deprecated symbol import",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 34,
+      "offset": 1,
+      "length": 63,
+      "code": {
+        "startLine": 32,
+        "length": 63,
+        "offset": 114,
+        "surroundingCode": "import androidx.compose.ui.input.pointer.consumeDownChange\nimport androidx.compose.ui.input.pointer.isOutOfBounds\nimport androidx.compose.ui.input.pointer.positionChangeConsumed\nimport androidx.compose.ui.platform.ViewConfiguration\nimport androidx.compose.ui.unit.Density"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "7d1477b3e67d945e38959cc367a45c77e53dc22dc4870e8ae12ceba51c4790d2"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 213,
+      "offset": 47,
+      "length": 17,
+      "code": {
+        "startLine": 211,
+        "length": 17,
+        "offset": 78,
+        "surroundingCode": "      awaitPointerEventScope {\n\n        val down = awaitFirstDown().also { it.consumeDownChange() }\n\n        if (onPress !== NoPressGesture) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "3a2a60c6d5af12371f489d6f008eee068be054748f2bded1ee04f5d7a3b78a3a"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 223,
+      "offset": 14,
+      "length": 17,
+      "code": {
+        "startLine": 221,
+        "length": 17,
+        "offset": 83,
+        "surroundingCode": "          pressScope.cancel() // tap-up was canceled\n        } else {\n          up.consumeDownChange()\n          pressScope.release()\n          onTap?.invoke(up.position)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "3ec2eefec81a8bd1adf63ff5ec508694795b08f39bfe5a34cf5b0c96989b1f36"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'consumeAllChanges(): Unit' is deprecated. Use consume() instead",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 178,
+      "offset": 36,
+      "length": 17,
+      "code": {
+        "startLine": 176,
+        "length": 17,
+        "offset": 78,
+        "surroundingCode": "  do {\n    val event = awaitPointerEvent()\n    event.changes.fastForEach { it.consumeAllChanges() }\n  } while (event.changes.fastAny { it.pressed })\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "eb0fddc8bef0041ee827772e792393b66fbc47f091bea2f58fd6dc4c9398374c"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "Unnecessary non-null assertion (!!) on a non-null receiver of type PlatformDropTargetModifier",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/WindowScaffold.kt",
+      "language": "kotlin",
+      "line": 45,
+      "offset": 47,
+      "length": 2,
+      "code": {
+        "startLine": 43,
+        "length": 2,
+        "offset": 103,
+        "surroundingCode": "      Surface(\n        modifier = modifier.fillMaxSize()\n          .then(Local.LocalScreen.current.pdtm!!),\n        contentColor = contentColorFor(MaterialTheme.colors.surface),\n      ) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "7d0a021954440e9a5864009bb6a23993703e1e66a820454782c3947f37f633c0"
+},{
+  "tool": "Code Inspection",
   "category": "Probable bugs",
   "type": "Sealed sub-class without state and overridden equals",
   "severity": "Moderate",
@@ -346,14 +374,14 @@
       "type": "file",
       "path": "android/build.gradle.kts",
       "language": "kotlin",
-      "line": 24,
-      "offset": 9,
+      "line": 26,
+      "offset": 5,
       "length": 13,
       "code": {
-        "startLine": 22,
+        "startLine": 24,
         "length": 13,
-        "offset": 48,
-        "surroundingCode": "    compileSdk = 33\n    defaultConfig {\n        applicationId = \"com.mcxross.cohesive.android\"\n        minSdk = 24\n        targetSdk = 33"
+        "offset": 40,
+        "surroundingCode": "  compileSdk = 33\n  defaultConfig {\n    applicationId = \"com.mcxross.cohesive.android\"\n    minSdk = 24\n    targetSdk = 33"
       }
     }
   ],
@@ -361,7 +389,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "3025a76f8500a264f8d8878dbf719a065cc2592222219f00fe5b1b8c76cf515e"
+  "hash": "437eefdffb947346e7ef7c1bd6957ee951a20004c613c7d4e8b8cf2e456dd291"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -374,14 +402,14 @@
       "type": "file",
       "path": "android/build.gradle.kts",
       "language": "kotlin",
-      "line": 25,
-      "offset": 9,
+      "line": 27,
+      "offset": 5,
       "length": 6,
       "code": {
-        "startLine": 23,
+        "startLine": 25,
         "length": 6,
-        "offset": 83,
-        "surroundingCode": "    defaultConfig {\n        applicationId = \"com.mcxross.cohesive.android\"\n        minSdk = 24\n        targetSdk = 33\n        versionCode = 1"
+        "offset": 73,
+        "surroundingCode": "  defaultConfig {\n    applicationId = \"com.mcxross.cohesive.android\"\n    minSdk = 24\n    targetSdk = 33\n    versionCode = 1"
       }
     }
   ],
@@ -389,7 +417,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "1dc83e14d7d84b44e3887f4d36b8bf60047a291235c8b11c81570c7e76aed331"
+  "hash": "41eb4c2b52499ac515cb3a0e31ee961556c795fd39d09af8bfb0a37ab24789b0"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -402,14 +430,14 @@
       "type": "file",
       "path": "android/build.gradle.kts",
       "language": "kotlin",
-      "line": 26,
-      "offset": 9,
+      "line": 28,
+      "offset": 5,
       "length": 9,
       "code": {
-        "startLine": 24,
+        "startLine": 26,
         "length": 9,
-        "offset": 83,
-        "surroundingCode": "        applicationId = \"com.mcxross.cohesive.android\"\n        minSdk = 24\n        targetSdk = 33\n        versionCode = 1\n        versionName = \"1.0-SNAPSHOT\""
+        "offset": 71,
+        "surroundingCode": "    applicationId = \"com.mcxross.cohesive.android\"\n    minSdk = 24\n    targetSdk = 33\n    versionCode = 1\n    versionName = \"1.0.0\""
       }
     }
   ],
@@ -417,7 +445,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "0221e5654a6beb17e5830ddf110634f35aeb3785611d64f97eee954c2aa0f603"
+  "hash": "81b12ff34f1803e10e694e018f42472acf888b6ace38e66352704a57da854104"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -430,14 +458,14 @@
       "type": "file",
       "path": "android/build.gradle.kts",
       "language": "kotlin",
-      "line": 27,
-      "offset": 9,
+      "line": 29,
+      "offset": 5,
       "length": 11,
       "code": {
-        "startLine": 25,
+        "startLine": 27,
         "length": 11,
-        "offset": 51,
-        "surroundingCode": "        minSdk = 24\n        targetSdk = 33\n        versionCode = 1\n        versionName = \"1.0-SNAPSHOT\"\n    }"
+        "offset": 39,
+        "surroundingCode": "    minSdk = 24\n    targetSdk = 33\n    versionCode = 1\n    versionName = \"1.0.0\"\n  }"
       }
     }
   ],
@@ -445,7 +473,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "4bdfd45ba71cda58d062f9c148409c1dfc014d4a95115aa93af4416e33b8223a"
+  "hash": "51c82b9afb97e8f17a0ecee90726beebaca5ee98610a7c8cc14fcbd5f57bf6cf"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -458,14 +486,14 @@
       "type": "file",
       "path": "android/build.gradle.kts",
       "language": "kotlin",
-      "line": 28,
-      "offset": 9,
+      "line": 30,
+      "offset": 5,
       "length": 11,
       "code": {
-        "startLine": 26,
+        "startLine": 28,
         "length": 11,
-        "offset": 55,
-        "surroundingCode": "        targetSdk = 33\n        versionCode = 1\n        versionName = \"1.0-SNAPSHOT\"\n    }\n    compileOptions {"
+        "offset": 43,
+        "surroundingCode": "    targetSdk = 33\n    versionCode = 1\n    versionName = \"1.0.0\"\n  }\n  compileOptions {"
       }
     }
   ],
@@ -473,7 +501,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "55cb2434bb321cecb0eebfecd6d2f871f2e3ba1ee78e90103fb9a1221eb90a6e"
+  "hash": "11c8f0a1eb5d00dd030a5c05fa9a951093e1bebb2686df6d1cb7d9a9e1da2f8c"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -486,14 +514,14 @@
       "type": "file",
       "path": "android/build.gradle.kts",
       "language": "kotlin",
-      "line": 31,
-      "offset": 9,
+      "line": 33,
+      "offset": 5,
       "length": 19,
       "code": {
-        "startLine": 29,
+        "startLine": 31,
         "length": 19,
-        "offset": 35,
-        "surroundingCode": "    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }"
+        "offset": 27,
+        "surroundingCode": "  }\n  compileOptions {\n    sourceCompatibility = JavaVersion.VERSION_1_8\n    targetCompatibility = JavaVersion.VERSION_1_8\n  }"
       }
     }
   ],
@@ -501,7 +529,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "de36dc7278a7674dc861f7f5fcdb915dfee86d978af47d3ea829436f360320d7"
+  "hash": "5786668959e523c38c99ac18368b0fd8d6e9f1ea03599d5b1fea208ae47cf271"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -514,14 +542,14 @@
       "type": "file",
       "path": "android/build.gradle.kts",
       "language": "kotlin",
-      "line": 32,
-      "offset": 9,
+      "line": 34,
+      "offset": 5,
       "length": 19,
       "code": {
-        "startLine": 30,
+        "startLine": 32,
         "length": 19,
-        "offset": 83,
-        "surroundingCode": "    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    buildTypes {"
+        "offset": 73,
+        "surroundingCode": "  compileOptions {\n    sourceCompatibility = JavaVersion.VERSION_1_8\n    targetCompatibility = JavaVersion.VERSION_1_8\n  }\n  buildTypes { getByName(\"release\") { isMinifyEnabled = false } }"
       }
     }
   ],
@@ -529,7 +557,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "f95dcc1a9c79450341779d39fe8672eb299a42a4a59583d82f6cefbc2b5fae1b"
+  "hash": "e82ce994e89dc8856eed2b7f843875c6c15e6031e947fa699ea099ce51a3286c"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -543,13 +571,13 @@
       "path": "android/build.gradle.kts",
       "language": "kotlin",
       "line": 36,
-      "offset": 13,
+      "offset": 39,
       "length": 15,
       "code": {
         "startLine": 34,
         "length": 15,
-        "offset": 60,
-        "surroundingCode": "    buildTypes {\n        getByName(\"release\") {\n            isMinifyEnabled = false\n        }\n    }"
+        "offset": 92,
+        "surroundingCode": "    targetCompatibility = JavaVersion.VERSION_1_8\n  }\n  buildTypes { getByName(\"release\") { isMinifyEnabled = false } }\n}\n"
       }
     }
   ],
@@ -557,7 +585,7 @@
     "module": "cohesive.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "3683ee7366b47e5d5bff5e6db943c2ca0b34d0fc5040e06d81187befbe9a7422"
+  "hash": "c355b506b4a6f3bc5a27754caab4ed3b36d6bd39c69652c877dd0d067c09e02e"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -570,14 +598,14 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 105,
-      "offset": 9,
+      "line": 86,
+      "offset": 5,
       "length": 6,
       "code": {
-        "startLine": 103,
+        "startLine": 84,
         "length": 6,
-        "offset": 48,
-        "surroundingCode": "    compileSdk = 33\n    defaultConfig {\n        minSdk = 24\n        targetSdk = 33\n    }"
+        "offset": 40,
+        "surroundingCode": "  compileSdk = 33\n  defaultConfig {\n    minSdk = 24\n    targetSdk = 33\n  }"
       }
     }
   ],
@@ -585,7 +613,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "e23200819d5f0c29f9b8e41b68fa3c024d56fcede8b4e52630f42431372421b8"
+  "hash": "7c137d572a36dd9046bccf5acd7ba338501f3b07a0bebfb6a08d784222865b0f"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -598,14 +626,14 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 106,
-      "offset": 9,
+      "line": 87,
+      "offset": 5,
       "length": 9,
       "code": {
-        "startLine": 104,
+        "startLine": 85,
         "length": 9,
-        "offset": 48,
-        "surroundingCode": "    defaultConfig {\n        minSdk = 24\n        targetSdk = 33\n    }\n    compileOptions {"
+        "offset": 38,
+        "surroundingCode": "  defaultConfig {\n    minSdk = 24\n    targetSdk = 33\n  }\n  compileOptions {"
       }
     }
   ],
@@ -613,7 +641,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "1c7b267a446e7f02370b5df7d05aaaaeef96ddd3cd8e6355239daa9127397545"
+  "hash": "16296b32cacf7a75bfa88eed87d37c5e626cae3aa36bf1d663b48803fb083405"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -626,14 +654,14 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 109,
-      "offset": 9,
+      "line": 90,
+      "offset": 5,
       "length": 19,
       "code": {
-        "startLine": 107,
+        "startLine": 88,
         "length": 19,
-        "offset": 35,
-        "surroundingCode": "    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }"
+        "offset": 27,
+        "surroundingCode": "  }\n  compileOptions {\n    sourceCompatibility = JavaVersion.VERSION_1_8\n    targetCompatibility = JavaVersion.VERSION_1_8\n  }"
       }
     }
   ],
@@ -641,7 +669,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "177e377e67b7736a118632c1155690d5985859835befda23196ad2437eeb1474"
+  "hash": "21036ef11f5adf7963649089d487e3d3e42860861c4f12085c122f5a55818c74"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -654,14 +682,14 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 110,
-      "offset": 9,
+      "line": 91,
+      "offset": 5,
       "length": 19,
       "code": {
-        "startLine": 108,
+        "startLine": 89,
         "length": 19,
-        "offset": 83,
-        "surroundingCode": "    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    sourceSets {"
+        "offset": 73,
+        "surroundingCode": "  compileOptions {\n    sourceCompatibility = JavaVersion.VERSION_1_8\n    targetCompatibility = JavaVersion.VERSION_1_8\n  }\n  sourceSets {"
       }
     }
   ],
@@ -669,7 +697,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "a67b204cbf0fcb1ddf32fc88b480d247d90b776777738f5fb89503a65b75dd04"
+  "hash": "b2db659793705ea929f799109335e4b81555c2761dd032c5642b371af9ff0d34"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -682,14 +710,14 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 112,
-      "offset": 5,
+      "line": 93,
+      "offset": 3,
       "length": 10,
       "code": {
-        "startLine": 110,
+        "startLine": 91,
         "length": 10,
-        "offset": 64,
-        "surroundingCode": "        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")"
+        "offset": 56,
+        "surroundingCode": "    targetCompatibility = JavaVersion.VERSION_1_8\n  }\n  sourceSets {\n    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")"
       }
     }
   ],
@@ -697,7 +725,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "352dbd99e3474852c8c0cba56396e24e2a5b0c0c332d6ac9eb5aa4fa4b7c6c69"
+  "hash": "dd71bbad2e46be4293bcde84caff0b28829059cc0fa05b2b7f711cd1760dd1ce"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -710,14 +738,14 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 114,
-      "offset": 13,
+      "line": 95,
+      "offset": 7,
       "length": 8,
       "code": {
-        "startLine": 112,
+        "startLine": 93,
         "length": 8,
-        "offset": 53,
-        "surroundingCode": "    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }"
+        "offset": 41,
+        "surroundingCode": "  sourceSets {\n    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n      res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n    }"
       }
     }
   ],
@@ -725,7 +753,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "ec8959a38876f30029cb33e1c00e873e6ef11a92910f103cf2b0d26b0f7469d8"
+  "hash": "16048caf487a1eacbeaf28076a32f8ab02f3f0a4b8969fdff53f7e2f56b76a01"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -738,14 +766,14 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 114,
-      "offset": 22,
+      "line": 95,
+      "offset": 16,
       "length": 7,
       "code": {
-        "startLine": 112,
+        "startLine": 93,
         "length": 7,
-        "offset": 62,
-        "surroundingCode": "    sourceSets {\n        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }"
+        "offset": 50,
+        "surroundingCode": "  sourceSets {\n    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n      res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n    }"
       }
     }
   ],
@@ -753,7 +781,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "de6c3f5c7e23cb1c2d3b11291fd12bd9005dc360def52850ca523c4edd9ff045"
+  "hash": "dc4443b6c9e0a528a6288128c72432012926625ae988917f7b7f3ed7c13dd5f2"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -766,14 +794,14 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 115,
-      "offset": 13,
+      "line": 96,
+      "offset": 7,
       "length": 3,
       "code": {
-        "startLine": 113,
+        "startLine": 94,
         "length": 3,
-        "offset": 104,
-        "surroundingCode": "        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }\n    }"
+        "offset": 88,
+        "surroundingCode": "    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n      res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n    }\n  }"
       }
     }
   ],
@@ -781,7 +809,7 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "498362865ff1a297b01dd7adf1e099023931d470b78e287389f61f4ce26dfec0"
+  "hash": "45f598573a62b5affcd0ab88547e0506e64ee9deb50c02f98d3860d53088810c"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -794,14 +822,14 @@
       "type": "file",
       "path": "common/build.gradle.kts",
       "language": "kotlin",
-      "line": 115,
-      "offset": 17,
+      "line": 96,
+      "offset": 11,
       "length": 7,
       "code": {
-        "startLine": 113,
+        "startLine": 94,
         "length": 7,
-        "offset": 108,
-        "surroundingCode": "        named(\"main\") {\n            manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n            res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n        }\n    }"
+        "offset": 92,
+        "surroundingCode": "    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n      res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n    }\n  }"
       }
     }
   ],
@@ -809,5 +837,5 @@
     "module": "cohesive.common",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "151edf02ea2f7458bb0068774942b5a81e8adb498724e902559fa980f9035e4c"
+  "hash": "26d0d824fa4d30758c81dabd04cc9471c66b4d730b5efe093b24136194af7413"
 }]}
