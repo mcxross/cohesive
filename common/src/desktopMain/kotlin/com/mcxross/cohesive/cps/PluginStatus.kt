@@ -14,25 +14,12 @@ interface PluginKindStatus {
 
 @Serializable
 data class PluginKindsStatusHolder(
-  @SerialName("primary") val primaryKindStatus: PrimaryKindStatus,
-  @SerialName("secondary") val secondaryKindStatus: SecondaryKindStatus,
-  @SerialName("tertiary") val tertiaryKindStatus: TertiaryKindStatus,
+  @SerialName("primary") val kindStatus: KindStatus,
+  @SerialName("secondary") val secondaryKindStatus: KindStatus,
 )
 
 @Serializable
-data class PrimaryKindStatus(
-  @SerialName("enabled") override val enabled: List<String>,
-  @SerialName("disabled") override val disabled: List<String>,
-) : PluginKindStatus
-
-@Serializable
-data class SecondaryKindStatus(
-  @SerialName("enabled") override val enabled: List<String>,
-  @SerialName("disabled") override val disabled: List<String>,
-) : PluginKindStatus
-
-@Serializable
-data class TertiaryKindStatus(
+data class KindStatus(
   @SerialName("enabled") override val enabled: List<String>,
   @SerialName("disabled") override val disabled: List<String>,
 ) : PluginKindStatus
@@ -43,7 +30,7 @@ object PluginStatus {
     return Toml(
       config = TomlConfig(
         // allow/prohibit unknown names during the deserialization, default false
-        ignoreUnknownNames = false,
+        ignoreUnknownNames = true,
         // allow/prohibit empty values like "a = # comment", default true
         allowEmptyValues = true,
         // allow/prohibit escaping of single quotes in literal strings, default true
@@ -55,7 +42,7 @@ object PluginStatus {
     ).partiallyDecodeFromString(
       deserializer = serializer(),
       toml = readFileToStr("config.toml").trimMargin(),
-      tomlTableName = "plugin",
+      tomlTableName = "cohesive",
     )
 
   }

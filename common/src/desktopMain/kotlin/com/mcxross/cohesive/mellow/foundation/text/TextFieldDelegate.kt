@@ -232,7 +232,7 @@ internal class TextFieldDelegate {
      * @param editProcessor The edit processor
      * @param onValueChange The callback called when the new editor state arrives.
      * @param onImeActionPerformed The callback called when the editor action arrives.
-     * @param imeOptions Keyboard configuration such as single line, auto correct etc.
+     * @param imeOptions Keyboard config such as single line, auto correct etc.
      */
     @JvmStatic
     internal fun restartInput(
@@ -259,7 +259,7 @@ internal class TextFieldDelegate {
      * @param editProcessor The edit processor
      * @param onValueChange The callback called when the new editor state arrives.
      * @param onImeActionPerformed The callback called when the editor action arrives.
-     * @param imeOptions Keyboard configuration such as single line, auto correct etc.
+     * @param imeOptions Keyboard config such as single line, auto correct etc.
      */
     @JvmStatic
     internal fun onFocus(

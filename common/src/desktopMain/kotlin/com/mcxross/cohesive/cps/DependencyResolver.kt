@@ -74,9 +74,9 @@ class DependencyResolver(val versionManager: VersionManager) {
   }
 
   /**
-   * Retrieves the plugins ids that the given plugin id directly depends on.
+   * Retrieves the plugins ids that the given corePlugin id directly depends on.
    *
-   * @param pluginId the unique plugin identifier, specified in its metadata
+   * @param pluginId the unique corePlugin identifier, specified in its metadata
    * @return an immutable list of dependencies (new list for each call)
    */
   fun getDependencies(pluginId: String): List<String> {
@@ -87,7 +87,7 @@ class DependencyResolver(val versionManager: VersionManager) {
   /**
    * Retrieves the plugins ids that the given content is a direct dependency of.
    *
-   * @param pluginId the unique plugin identifier, specified in its metadata
+   * @param pluginId the unique corePlugin identifier, specified in its metadata
    * @return an immutable list of dependents (new list for each call)
    */
   fun getDependents(pluginId: String): MutableList<String> {
@@ -96,7 +96,7 @@ class DependencyResolver(val versionManager: VersionManager) {
   }
 
   /**
-   * Check if an existing version of dependency is compatible with the required version (from plugin descriptor).
+   * Check if an existing version of dependency is compatible with the required version (from corePlugin descriptor).
    *
    * @param requiredVersion
    * @param existingVersion
@@ -115,7 +115,7 @@ class DependencyResolver(val versionManager: VersionManager) {
     } else {
       var edgeAdded = false
       for (dependency: PluginDependency in dependencies) {
-        // Don't register optional plugins in the dependency graph to avoid automatic disabling of the plugin,
+        // Don't register optional plugins in the dependency graph to avoid automatic disabling of the corePlugin,
         // if an optional dependency is missing.
         if (!dependency.isOptional) {
           edgeAdded = true
@@ -124,7 +124,7 @@ class DependencyResolver(val versionManager: VersionManager) {
         }
       }
 
-      // Register the plugin without dependencies, if all of its dependencies are optional.
+      // Register the corePlugin without dependencies, if all of its dependencies are optional.
       if (!edgeAdded) {
         dependenciesGraph?.addVertex(pluginId)
         dependentsGraph?.addVertex(pluginId)
@@ -150,7 +150,7 @@ class DependencyResolver(val versionManager: VersionManager) {
     }
     throw IllegalStateException(
       "Cannot find a dependency with id '" + dependencyId +
-        "' for plugin '" + dependent.pluginId + "'",
+        "' for corePlugin '" + dependent.pluginId + "'",
     )
   }
 

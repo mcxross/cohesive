@@ -64,7 +64,7 @@ class DefaultPluginRepository(pluginsRoots: List<Path>) : BasePluginRepository(p
     try {
       FileUtils.expandIfZip(filePath)
     } catch (e: IOException) {
-      Log.e { "Cannot expand plugin zip $filePath" }
+      Log.e { "Cannot expand corePlugin zip $filePath" }
       Log.e { e.message.toString() }
     }
   }

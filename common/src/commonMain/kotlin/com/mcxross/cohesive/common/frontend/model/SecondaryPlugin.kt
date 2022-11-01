@@ -1,5 +1,7 @@
 package com.mcxross.cohesive.common.frontend.model
 
+import java.io.File
+
 data class SecondaryPlugin(
   val id: String,
   val name: String,
@@ -9,3 +11,7 @@ data class SecondaryPlugin(
   val description: String,
   val author: String
 )
+
+fun SecondaryPlugin.isInstalled(): Boolean {
+  return File("plugin/secondary/$name").exists()
+}

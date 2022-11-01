@@ -31,7 +31,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -253,14 +252,12 @@ open class MainScreen {
 
   @Composable
   protected fun Composition() {
-    with(LocalDensity.current) {
-      Crossfade(WindowState.view) { view ->
-        when (view) {
-          View.EXPLORER -> cohesiveView.Explorer()
-          View.WALLET -> cohesiveView.Wallet()
-          View.EDITOR -> cohesiveView.SimpleEditor()
-          else -> {}
-        }
+    Crossfade(WindowState.view) { view ->
+      when (view) {
+        View.EXPLORER -> cohesiveView.Explorer()
+        View.WALLET -> cohesiveView.Wallet()
+        View.EDITOR -> cohesiveView.SimpleEditor()
+        else -> {}
       }
 
       if (WindowState.isOpenDialogOpen) {

@@ -12,7 +12,7 @@ inline fun compositePluginRepository(
 
 /**
  * A [PluginRepository] that delegates to a list of other [PluginRepository]s.
- * A plugin repository that can be used to combine multiple repositories into one.
+ * A corePlugin repository that can be used to combine multiple repositories into one.
  * Think of it as a container for other repositories.
  * The [PluginRepository]s are cached in a [MutableList]. Prefer using the DSL to add repositories.
  */

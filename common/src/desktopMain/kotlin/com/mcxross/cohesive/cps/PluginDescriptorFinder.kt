@@ -4,8 +4,8 @@ import okio.Path
 
 
 /**
- * Find a plugin descriptor for a plugin path.
- * You can find the plugin descriptor in manifest file [ManifestPluginDescriptorFinder],
+ * Find a corePlugin descriptor for a corePlugin path.
+ * You can find the corePlugin descriptor in manifest file [ManifestPluginDescriptorFinder],
  * properties file [PropertiesPluginDescriptorFinder], xml file,
  * java services (with [java.util.ServiceLoader]), etc.
  */

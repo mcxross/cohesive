@@ -134,7 +134,7 @@ import org.jetbrains.skiko.Cursor
  * [CoreTextField].
  * @param onValueChange Called when the input service updates the values in [TextFieldValue].
  * @param modifier optional [Modifier] for this text field.
- * @param textStyle Style configuration that applies at character level such as color, font etc.
+ * @param textStyle Style config that applies at character level such as color, font etc.
  * @param visualTransformation The visual transformation filter for changing the visual
  * representation of the input. By default no visual transformation is applied.
  * @param onTextLayout Callback that is executed when a new text layout is calculated. A
@@ -151,7 +151,7 @@ import org.jetbrains.skiko.Cursor
  * text will be positioned as if there was unlimited horizontal space.
  * @param maxLines The maximum height in terms of maximum number of visible lines. Should be equal
  * or greater than 1.
- * @param imeOptions Contains different IME configuration options.
+ * @param imeOptions Contains different IME config options.
  * @param keyboardActions when the input service emits an IME action, the corresponding callback is
  * called. Note that this IME action may be different from what you specified in
  * [KeyboardOptions.imeAction].

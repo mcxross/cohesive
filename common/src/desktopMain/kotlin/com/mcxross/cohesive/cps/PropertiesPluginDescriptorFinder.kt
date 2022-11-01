@@ -14,7 +14,7 @@ import java.io.IOException
 import java.util.*
 
 /**
- * Find a plugin descriptor in a properties file (in plugin repository).
+ * Find a corePlugin descriptor in a properties file (in corePlugin repository).
  */
 class PropertiesPluginDescriptorFinder @JvmOverloads constructor(protected var propertiesFileName: String = DEFAULT_PROPERTIES_FILE_NAME) :
   PluginDescriptorFinder {
@@ -97,14 +97,14 @@ class PropertiesPluginDescriptorFinder @JvmOverloads constructor(protected var p
   }
 
   companion object {
-    const val DEFAULT_PROPERTIES_FILE_NAME = "plugin.properties"
-    const val PLUGIN_ID = "plugin.id"
-    const val PLUGIN_DESCRIPTION = "plugin.description"
-    const val PLUGIN_CLASS = "plugin.class"
-    const val PLUGIN_VERSION = "plugin.version"
-    const val PLUGIN_PROVIDER = "plugin.provider"
-    const val PLUGIN_DEPENDENCIES = "plugin.dependencies"
-    const val PLUGIN_REQUIRES = "plugin.requires"
-    const val PLUGIN_LICENSE = "plugin.license"
+    const val DEFAULT_PROPERTIES_FILE_NAME = "corePlugin.properties"
+    const val PLUGIN_ID = "corePlugin.id"
+    const val PLUGIN_DESCRIPTION = "corePlugin.description"
+    const val PLUGIN_CLASS = "corePlugin.class"
+    const val PLUGIN_VERSION = "corePlugin.version"
+    const val PLUGIN_PROVIDER = "corePlugin.provider"
+    const val PLUGIN_DEPENDENCIES = "corePlugin.dependencies"
+    const val PLUGIN_REQUIRES = "corePlugin.requires"
+    const val PLUGIN_LICENSE = "corePlugin.license"
   }
 }

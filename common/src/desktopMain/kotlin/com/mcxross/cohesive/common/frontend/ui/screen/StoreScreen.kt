@@ -1,6 +1,7 @@
 package com.mcxross.cohesive.common.frontend.ui.screen
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.*
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
@@ -24,6 +25,7 @@ import androidx.compose.ui.unit.sp
 import com.mcxross.cohesive.common.Context
 import com.mcxross.cohesive.common.Local
 import com.mcxross.cohesive.common.frontend.model.SecondaryPlugin
+import com.mcxross.cohesive.common.frontend.model.isInstalled
 import com.mcxross.cohesive.common.frontend.utils.WindowState
 import com.mcxross.cohesive.common.frontend.utils.loadImageBitmap
 import com.mcxross.cohesive.mellow.*
@@ -31,7 +33,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-private var selected by mutableStateOf("")
+private var selectedPlatform by mutableStateOf("")
+private var showInstallDialog by mutableStateOf(false)
+private var displayInstallError by mutableStateOf(false)
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -67,9 +71,9 @@ internal fun Platform(secondaryPlugin: SecondaryPlugin) {
       Card(
         modifier =
           Modifier.border(
-              width = if (selected == id) 1.dp else 0.dp,
+              width = if (selectedPlatform == id) 1.dp else 0.dp,
               color =
-                if (selected == id) MellowTheme.getColors().primary
+                if (selectedPlatform == id) MellowTheme.getColors().primary
                 else MellowTheme.getColors().surface,
               shape = RoundedCornerShape(15.dp)
             )
@@ -78,8 +82,8 @@ internal fun Platform(secondaryPlugin: SecondaryPlugin) {
               indication = null,
               onDoubleClick = { progress = !progress },
             ) {
-              selected =
-                if (selected == id) {
+              selectedPlatform =
+                if (selectedPlatform == id) {
                   ""
                 } else {
                   id
@@ -91,7 +95,7 @@ internal fun Platform(secondaryPlugin: SecondaryPlugin) {
         Image(
           load = {
             loadImageBitmap(
-              "https://raw.githubusercontent.com/mcxross/cohesives/main/src/res/" +
+              (Context.configuration.asSetFor?.cohesive?.repo) +
                 secondaryPlugin.icon.replace(
                   "\"",
                   "",
@@ -167,16 +171,28 @@ internal fun SkipButton(
 ) {
   val scope = rememberCoroutineScope()
 
+  fun launchMainScreen() {
+    WindowState.isPreAvail = true
+    scope.launch {
+      delay(3000)
+      WindowState.isDelayClose = false
+    }
+  }
+
   OutlinedButton(
     onClick = {
-      WindowState.isPreAvail = true
-      scope.launch {
-        delay(3000)
-        WindowState.isDelayClose = false
+      if (selectedPlatform.isEmpty()) {
+        launchMainScreen()
+      } else {
+        if (Context.secondaryPlugins.find { it.id == selectedPlatform }?.isInstalled() == true) {
+          launchMainScreen()
+        } else {
+          showInstallDialog = true
+        }
       }
     },
     modifier = modifier.offset(x = (-5).dp),
-    text = if (selected.isEmpty()) "Skip" else "Proceed",
+    text = if (selectedPlatform.isEmpty()) "Skip" else "Proceed",
   )
 }
 
@@ -197,8 +213,9 @@ fun StoreScreen() {
             TopMinBar(
               onClose = { WindowState.isStoreWindowOpen = false },
               text =
-                if (selected.isEmpty()) "Select Platform"
-                else Context.secondaryPlugins.find { it.id == selected }!!.name + " Selected",
+                if (selectedPlatform.isEmpty()) "Select Platform"
+                else
+                  Context.secondaryPlugins.find { it.id == selectedPlatform }!!.name + " Selected",
               modifier = Modifier.align(Alignment.TopStart),
             )
           }
@@ -206,6 +223,89 @@ fun StoreScreen() {
           SkipButton(
             modifier = Modifier.align(Alignment.BottomEnd),
           )
+
+          if (showInstallDialog) {
+            androidx.compose.ui.window.Dialog(
+              onCloseRequest = {},
+              resizable = false,
+              undecorated = true,
+              transparent = true,
+            ) {
+              Surface(
+                modifier =
+                  Modifier.fillMaxSize().padding(5.dp).shadow(5.dp, RoundedCornerShape(10.dp)),
+                shape = RoundedCornerShape(10.dp),
+                border = BorderStroke(0.5.dp, MaterialTheme.colors.onSurface.copy(alpha = 0.12f)),
+              ) {
+                Box(modifier = Modifier.fillMaxSize()) {
+                  Column(
+                    Modifier.matchParentSize()
+                      .align(Alignment.Center)
+                      .padding(top = 35.dp, bottom = 57.dp),
+                  ) {
+                    Crossfade(displayInstallError) {
+                      when (it) {
+                        true ->
+                          Text(
+                            text = "Error Occurred While Installing",
+                            modifier = Modifier.align(Alignment.CenterHorizontally),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.W400,
+                          )
+                        false -> {}
+                      }
+                    }
+                  }
+
+                  WindowDraggableArea {
+                    TopMinBar(
+                      onClose = {
+                        displayInstallError = false
+                        showInstallDialog = false
+                      },
+                      text =
+                        "Install ${Context.secondaryPlugins.find { it.id == selectedPlatform }!!.name} Tools",
+                      modifier = Modifier.align(Alignment.TopStart)
+                    )
+                  }
+
+                  Column(
+                    modifier = Modifier.fillMaxWidth().align(Alignment.BottomStart),
+                  ) {
+                    Divider()
+                    Box(
+                      modifier = Modifier.fillMaxWidth().height(55.dp).padding(end = 5.dp),
+                    ) {
+                      Row(
+                        modifier = Modifier.fillMaxHeight().align(Alignment.CenterEnd),
+                      ) {
+                        Button(
+                          onClick = {
+                            if (
+                              Context.secondaryPlugins
+                                .find { it.id == selectedPlatform }!!
+                                .repo
+                                .isEmpty()
+                            ) {
+                              displayInstallError = true
+                            }
+                          },
+                          text = if (displayInstallError) "Retry" else "Install"
+                        )
+                        Button(
+                          onClick = {
+                            displayInstallError = false
+                            showInstallDialog = false
+                          },
+                          text = "Cancel"
+                        )
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

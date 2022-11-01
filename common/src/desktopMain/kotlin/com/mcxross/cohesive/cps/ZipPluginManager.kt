@@ -2,11 +2,11 @@ package com.mcxross.cohesive.cps
 
 
 /**
- * It's a [PluginManager] that loads each plugin from a `zip` file.
+ * It's a [PluginManager] that loads each corePlugin from a `zip` file.
  * The structure of the zip file is:
  *
  *  * `lib` directory that contains all dependencies (as jar files); it's optional (no dependencies)
- *  * `classes` directory that contains all plugin's classes
+ *  * `classes` directory that contains all corePlugin's classes
  */
 class ZipPluginManager : DefaultPluginManager() {
 

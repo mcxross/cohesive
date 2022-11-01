@@ -3,17 +3,17 @@ package com.mcxross.cohesive.cps
 import okio.Path
 
 /**
- * A wrapper over plugin instance.
+ * A wrapper over corePlugin instance.
  */
 class PluginWrapper(
   val pluginManager: PluginManager,
   val descriptor: PluginDescriptor,
   /**
-   * Returns the path of this plugin.
+   * Returns the path of this corePlugin.
    */
   val pluginPath: Path,
   /**
-   * Returns the plugin class pluginLoader used to load classes and resources
+   * Returns the corePlugin class pluginLoader used to load classes and resources
    * for this plug-in. The class pluginLoader can be used to directly access
    * plug-in resources and classes.
    */
@@ -25,15 +25,15 @@ class PluginWrapper(
   var runtimeMode: RuntimeMode = pluginManager.runtimeMode!!
 
   /**
-   * Returns the exception with which the plugin fails to start.
+   * Returns the exception with which the corePlugin fails to start.
    * See @{link PluginStatus#FAILED}.
    */
   var failedException: Throwable? = null
 
-  var plugin: Plugin? = null
+  var corePlugin: CorePlugin? = null
     get() {
       if (field == null) {
-        plugin = pluginFactory!!.create(this)
+        corePlugin = pluginFactory!!.create(this)
       }
       return field
     }

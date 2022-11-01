@@ -18,7 +18,7 @@ class PluginStateEvent(
   }
 
   override fun toString(): String {
-    return "PluginStateEvent [plugin=" + plugin.pluginId +
+    return "PluginStateEvent [corePlugin=" + plugin.pluginId +
       ", newState=" + pluginState +
       ", oldState=" + oldState +
       ']'

@@ -4,18 +4,18 @@ import java.util.*
 
 /**
  * The default implementation of the [PluginDescriptor] interface
- * @param pluginId the plugin id. Defaults to an empty String.
- * @param pluginDescription the plugin description. Defaults to an empty String.
- * @param pluginClass the plugin class. Defaults to [Plugin::class.java.name].
+ * @param pluginId the corePlugin id. Defaults to an empty String.
+ * @param pluginDescription the corePlugin description. Defaults to an empty String.
+ * @param corePluginClass the corePlugin class. Defaults to [CorePlugin::class.java.name].
  * @param version String version of requires. String with requires expression on SemVer format
- * @param requires the plugin dependencies. Defaults to a '*'.
- * @param provider the plugin provider. Defaults to an empty String.
- * @param license the plugin license. Defaults to an empty String.
+ * @param requires the corePlugin dependencies. Defaults to a '*'.
+ * @param provider the corePlugin provider. Defaults to an empty String.
+ * @param license the corePlugin license. Defaults to an empty String.
  * */
 open class DefaultPluginDescriptor(
   override var pluginId: String = "",
   override var pluginDescription: String = "",
-  override var pluginClass: String = Plugin::class.java.name,
+  override var pluginClass: String = CorePlugin::class.java.name,
   override var version: String = "",
   override var requires: String = "*",
   override var provider: String = "",
@@ -25,7 +25,7 @@ open class DefaultPluginDescriptor(
   override var dependencies: MutableList<PluginDependency> = mutableListOf()
 
   override fun toString(): String {
-    return ("PluginDescriptor [pluginId=" + pluginId + ", pluginClass="
+    return ("PluginDescriptor [pluginId=" + pluginId + ", corePluginClass="
       + pluginClass + ", version=" + version + ", provider="
       + provider + ", dependencies=" + dependencies + ", description="
       + pluginDescription + ", requires=" + requires + ", license="

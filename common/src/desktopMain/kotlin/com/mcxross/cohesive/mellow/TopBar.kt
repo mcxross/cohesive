@@ -49,8 +49,8 @@ fun WindowScope.TopBar(
   minimizeIcon: Painter = painterResource("minimize_dark.svg"),
   minimizeIconModifier: Modifier = Modifier,
   minimizeIconDescription: String = "Minimize window",
-  menuContent: @Composable() (RowScope.() -> Unit)? = null,
-  content: @Composable() (RowScope.() -> Unit)? = null,
+  menuContent: @Composable (RowScope.() -> Unit)? = null,
+  content: @Composable (RowScope.() -> Unit)? = null,
 ) = WindowDraggableArea {
   Column(
     modifier = modifier.fillMaxWidth().height(30.dp),

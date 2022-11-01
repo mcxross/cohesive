@@ -36,24 +36,21 @@ fun runDescriptor() {
 fun runConfig() {
 
   // Load configs from file and mutate context obj
-
   fun loadConfig(): Pair<Boolean, Platform> {
     Log.i { "Loading config" }
-    var configuration: com.mcxross.cohesive.common.frontend.model.Configuration
-    val timeInMillis = measureTimeMillis { configuration = load(readFileToStr("config.toml")) }
-    val chains = ArrayList<String>()
-    val chainPaths = ArrayList<String>()
-    configuration.chain.clusterKey.forEachIndexed { index, clusterKey ->
-      chains.add(clusterKey.toString())
-      chainPaths.add(configuration.chain.clusterValue[index])
+
+    val timeInMillis = measureTimeMillis {
+      val configurationContainer: ConfigurationContainer = load(readFileToStr("config.toml"))
+      Context.configuration.asSetFor = configurationContainer
     }
-    Log.i { "Config loaded in $timeInMillis ms" }
+
+    Log.i { "ConfigurationContainer loaded in $timeInMillis ms" }
 
     return Pair(
       true,
       Platform.create(
-        chains = chains,
-        chainPaths = chainPaths,
+        chains = Context.configuration.asSetFor?.platform?.k!!,
+        chainPaths = Context.configuration.asSetFor?.platform?.v!!,
       )
     )
   }

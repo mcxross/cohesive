@@ -2,12 +2,11 @@ package com.mcxross.cohesive.common.frontend.utils
 
 import com.akuleshov7.ktoml.Toml
 import com.akuleshov7.ktoml.TomlConfig
-import com.mcxross.cohesive.common.frontend.model.Configuration
 import kotlinx.serialization.decodeFromString
 
-fun load(
+inline fun <reified T> load(
   tomlString: String,
-): Configuration {
+): T {
   return Toml(
     config = TomlConfig(
       ignoreUnknownNames = true,

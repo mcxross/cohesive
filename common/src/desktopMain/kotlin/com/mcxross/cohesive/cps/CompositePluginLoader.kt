@@ -39,7 +39,7 @@ class CompositePluginLoader : PluginLoader {
   override fun loadPlugin(pluginPath: Path, pluginDescriptor: PluginDescriptor): ClassLoader {
     loaders.forEach {
       if (it.isApplicable(pluginPath)) {
-        Log.d { "$it is applicable for plugin $pluginPath" }
+        Log.d { "$it is applicable for corePlugin $pluginPath" }
         try {
           return it.loadPlugin(pluginPath, pluginDescriptor)!!
         } catch (e: Exception) {
@@ -47,10 +47,10 @@ class CompositePluginLoader : PluginLoader {
           Log.e { e.message.toString() }
         }
       } else {
-        Log.d { "$it is not applicable for plugin $pluginPath" }
+        Log.d { "$it is not applicable for corePlugin $pluginPath" }
       }
     }
-    throw RuntimeException("No PluginLoader for plugin '$pluginPath' and descriptor '$pluginDescriptor'")
+    throw RuntimeException("No PluginLoader for corePlugin '$pluginPath' and descriptor '$pluginDescriptor'")
   }
 
 }

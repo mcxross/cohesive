@@ -4,9 +4,9 @@ import com.mcxross.cohesive.common.utils.Log
 import java.io.IOException
 
 /**
- * An extension finder that attempts to find System and Plugin Extensions.
+ * An extension finder that attempts to find System and CorePlugin Extensions.
  *
- * All extensions declared in a plugin are indexed in various kt files
+ * All extensions declared in a corePlugin are indexed in various kt files
  * `com/mcxross/cohesive/r/{DefaultCohesiveExtension || DefaultExtensionIndex}`. This class looks-up
  * extensions in all extensions index files i.e System and Plugins.
  */
@@ -45,7 +45,7 @@ class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFin
     val result: MutableMap<String, Set<String>> = LinkedHashMap()
     pluginManager.plugins.forEach {
       val pluginId: String = it.pluginId
-      Log.d { "Reading extensions storages from plugin $pluginId" }
+      Log.d { "Reading extensions storages from corePlugin $pluginId" }
       val bucket = mutableSetOf<String>()
       try {
         Log.d { "Read $EXTENSIONS_RESOURCE" }

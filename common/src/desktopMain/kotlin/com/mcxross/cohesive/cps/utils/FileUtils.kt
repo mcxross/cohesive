@@ -80,8 +80,8 @@ object FileUtils {
 
   /**
    * Unzip a zip file in a directory that has the same name as the zip file.
-   * For example if the zip file is `my-plugin.zip` then the resulted directory
-   * is `my-plugin`.
+   * For example if the zip file is `my-corePlugin.zip` then the resulted directory
+   * is `my-corePlugin`.
    *
    * @param filePath the file to evaluate
    * @return Path of unzipped folder or original path if this was not a zip file
@@ -99,7 +99,7 @@ object FileUtils {
       // expand '.zip' file
       val unzip = Unzip(source = filePath.toFile(), destination = pluginDirectory.toFile())
       unzip.extract()
-      Log.i { "Expanded plugin zip ${filePath.name} in ${pluginDirectory.name}" }
+      Log.i { "Expanded corePlugin zip ${filePath.name} in ${pluginDirectory.name}" }
     }
     return pluginDirectory
   }

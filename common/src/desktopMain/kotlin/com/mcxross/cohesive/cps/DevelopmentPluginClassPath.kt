@@ -18,21 +18,21 @@ class DevelopmentPluginClasspath : PluginClasspath() {
 
   companion object {
     /**
-     * The development plugin classpath for [Maven](https://maven.apache.org).
+     * The development corePlugin classpath for [Maven](https://maven.apache.org).
      * The classes directory is `target/classes` and the lib directory is `target/lib`.
      */
     val MAVEN: PluginClasspath =
       PluginClasspath().addClassesDirectories("target/classes").addJarsDirectories("target/lib")
 
     /**
-     * The development plugin classpath for [Gradle](https://gradle.org).
+     * The development corePlugin classpath for [Gradle](https://gradle.org).
      * The classes directories are `build/classes/java/main, build/resources/main`.
      */
     val GRADLE: PluginClasspath =
       PluginClasspath().addClassesDirectories("build/classes/java/main", "build/resources/main")
 
     /**
-     * The development plugin classpath for [Kotlin](https://kotlinlang.org).
+     * The development corePlugin classpath for [Kotlin](https://kotlinlang.org).
      * The classes directories are `build/classes/kotlin/main", build/resources/main, build/tmp/kapt3/classes/main`.
      */
     val KOTLIN: PluginClasspath = PluginClasspath()
@@ -43,7 +43,7 @@ class DevelopmentPluginClasspath : PluginClasspath() {
       )
 
     /**
-     * The development plugin classpath for [IDEA](https://www.jetbrains.com/help/idea/specifying-compilation-settings.html).
+     * The development corePlugin classpath for [IDEA](https://www.jetbrains.com/help/idea/specifying-compilation-settings.html).
      * The classes directories are `out/production/classes", out/production/resource`.
      */
     val IDEA: PluginClasspath =

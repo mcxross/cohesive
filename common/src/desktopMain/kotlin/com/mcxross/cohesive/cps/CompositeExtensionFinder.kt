@@ -53,10 +53,10 @@ open class CompositeExtensionFinder(val pluginManager: PluginManager) : Extensio
   }
 
   /**
-   * Find a list of [ExtensionWrapper]s for the given [com.mcxross.cohesive.csp.annotation.Extension] class and [Plugin] id.
+   * Find a list of [ExtensionWrapper]s for the given [com.mcxross.cohesive.csp.annotation.Extension] class and [CorePlugin] id.
    *
    * @param type the [com.mcxross.cohesive.csp.annotation.Extension] class
-   * @param pluginId the [Plugin] id
+   * @param pluginId the [CorePlugin] id
    * @return a list of [ExtensionWrapper]s
    * @since 0.1.0
    */
@@ -69,9 +69,9 @@ open class CompositeExtensionFinder(val pluginManager: PluginManager) : Extensio
   }
 
   /**
-   * Find a list of [ExtensionWrapper]s for the given [Plugin] id.
+   * Find a list of [ExtensionWrapper]s for the given [CorePlugin] id.
    *
-   * @param pluginId the [Plugin] id
+   * @param pluginId the [CorePlugin] id
    * @return a list of [ExtensionWrapper]s
    * @since 0.1.0
    */
@@ -84,9 +84,9 @@ open class CompositeExtensionFinder(val pluginManager: PluginManager) : Extensio
   }
 
   /**
-   * Find a list of Extension class names for the given plugin id.
+   * Find a list of Extension class names for the given corePlugin id.
    *
-   * @param pluginId the plugin id
+   * @param pluginId the corePlugin id
    * @return a list of Extension class names
    * @since 0.1.0
    */

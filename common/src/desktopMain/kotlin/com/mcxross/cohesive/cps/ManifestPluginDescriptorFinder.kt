@@ -17,7 +17,7 @@ import java.util.jar.Manifest
 import java.util.zip.ZipFile
 
 /**
- * Read the plugin descriptor from the manifest file.
+ * Read the corePlugin descriptor from the manifest file.
  */
 class ManifestPluginDescriptorFinder : PluginDescriptorFinder {
   override fun isApplicable(pluginPath: Path): Boolean {
@@ -45,31 +45,31 @@ class ManifestPluginDescriptorFinder : PluginDescriptorFinder {
 
     // TODO validate !!!
     val attributes = manifest.mainAttributes
-    val id = attributes.getValue(PLUGIN_ID)
+    val id = attributes.getValue(CorePLUGIN_ID)
     pluginDescriptor.pluginId = id
-    val description = attributes.getValue(PLUGIN_DESCRIPTION)
+    val description = attributes.getValue(CorePLUGIN_DESCRIPTION)
     if (description.isNullOrEmpty()) {
       pluginDescriptor.pluginDescription = ""
     } else {
       pluginDescriptor.pluginDescription = description
     }
-    val clazz = attributes.getValue(PLUGIN_CLASS)
+    val clazz = attributes.getValue(CorePLUGIN_CLASS)
     if (clazz.isNotNullOrEmpty()) {
       pluginDescriptor.pluginClass = clazz
     }
-    val version = attributes.getValue(PLUGIN_VERSION)
+    val version = attributes.getValue(CorePLUGIN_VERSION)
     if (version.isNotNullOrEmpty()) {
       pluginDescriptor.version = version
     }
-    val provider = attributes.getValue(PLUGIN_PROVIDER)
+    val provider = attributes.getValue(CorePLUGIN_PROVIDER)
     pluginDescriptor.provider = provider
-    val dependencies = attributes.getValue(PLUGIN_DEPENDENCIES)
+    val dependencies = attributes.getValue(CorePLUGIN_DEPENDENCIES)
     pluginDescriptor.setDependencies(dependencies)
-    val requires = attributes.getValue(PLUGIN_REQUIRES)
+    val requires = attributes.getValue(CorePLUGIN_REQUIRES)
     if (requires.isNotNullOrEmpty()) {
       pluginDescriptor.requires = requires
     }
-    pluginDescriptor.license = attributes.getValue(PLUGIN_LICENSE)
+    pluginDescriptor.license = attributes.getValue(CorePLUGIN_LICENSE)
     return pluginDescriptor
   }
 
@@ -100,7 +100,7 @@ class ManifestPluginDescriptorFinder : PluginDescriptorFinder {
     // legacy (the path is something like "classes/META-INF/MANIFEST.MF")
     val manifestPath: Path = FileUtils.findFile(pluginPath, "MANIFEST.MF")
       ?: throw PluginRuntimeException("Cannot find the manifest path")
-    Log.d { "Lookup plugin descriptor in $manifestPath" }
+    Log.d { "Lookup corePlugin descriptor in $manifestPath" }
     if (notExists(manifestPath)) {
       throw PluginRuntimeException("Cannot find '{}' path", manifestPath)
     }
@@ -112,13 +112,13 @@ class ManifestPluginDescriptorFinder : PluginDescriptorFinder {
   }
 
   companion object {
-    const val PLUGIN_ID = "Plugin-Id"
-    const val PLUGIN_DESCRIPTION = "Plugin-Description"
-    const val PLUGIN_CLASS = "Plugin-Class"
-    const val PLUGIN_VERSION = "Plugin-Version"
-    const val PLUGIN_PROVIDER = "Plugin-Provider"
-    const val PLUGIN_DEPENDENCIES = "Plugin-Dependencies"
-    const val PLUGIN_REQUIRES = "Plugin-Requires"
-    const val PLUGIN_LICENSE = "Plugin-License"
+    const val CorePLUGIN_ID = "CorePlugin-Id"
+    const val CorePLUGIN_DESCRIPTION = "CorePlugin-Description"
+    const val CorePLUGIN_CLASS = "CorePlugin-Class"
+    const val CorePLUGIN_VERSION = "CorePlugin-Version"
+    const val CorePLUGIN_PROVIDER = "CorePlugin-Provider"
+    const val CorePLUGIN_DEPENDENCIES = "CorePlugin-Dependencies"
+    const val CorePLUGIN_REQUIRES = "CorePlugin-Requires"
+    const val CorePLUGIN_LICENSE = "CorePlugin-License"
   }
 }

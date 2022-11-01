@@ -8,7 +8,7 @@ import com.mcxross.cohesive.common.utils.Log
  */
 class LoggingPluginStateListener : PluginStateListener {
   override fun pluginStateChanged(event: PluginStateEvent) {
-    Log.d { "The state of plugin ${event.plugin.pluginId} has changed from ${event.oldState} to ${event.pluginState}" }
+    Log.d { "The state of corePlugin ${event.plugin.pluginId} has changed from ${event.oldState} to ${event.pluginState}" }
   }
 
 }

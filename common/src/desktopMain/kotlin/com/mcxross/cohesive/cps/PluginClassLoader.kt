@@ -8,8 +8,8 @@ import java.net.URLClassLoader
 import java.util.*
 
 /**
- * One instance of this class should be created by plugin manager for every available plug-in.
- * By default, this class pluginLoader is a Parent Last ClassLoader - it loads the classes from the plugin's jars
+ * One instance of this class should be created by corePlugin manager for every available plug-in.
+ * By default, this class pluginLoader is a Parent Last ClassLoader - it loads the classes from the corePlugin's jars
  * before delegating to the parent class pluginLoader.
  * Use [.classLoadingStrategy] to change the loading strategy.
  */
@@ -50,7 +50,7 @@ class PluginClassLoader @JvmOverloads constructor(
         return findSystemClass(className)
       }
 
-      // if the class is part of the plugin engine use parent class pluginLoader
+      // if the class is part of the corePlugin engine use parent class pluginLoader
       if (className.startsWith(PLUGIN_PACKAGE_PREFIX) && !className.startsWith("demo") && !className.startsWith(
           "test",
         )
@@ -91,8 +91,8 @@ class PluginClassLoader @JvmOverloads constructor(
   }
 
   /**
-   * Load the named resource from this plugin.
-   * By default, this implementation checks the plugin's classpath first then delegates to the parent.
+   * Load the named resource from this corePlugin.
+   * By default, this implementation checks the corePlugin's classpath first then delegates to the parent.
    * Use [.classLoadingStrategy] to change the loading strategy.
    *
    * @param name the name of the resource.

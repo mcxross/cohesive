@@ -9,13 +9,13 @@ import java.lang.reflect.Modifier
  */
 class DefaultPluginFactory : PluginFactory {
   /**
-   * Creates a plugin instance. If an e occurs than that e is logged and the method returns null.
+   * Creates a corePlugin instance. If an e occurs than that e is logged and the method returns null.
    * @param pluginWrapper
    * @return
    */
-  override fun create(pluginWrapper: PluginWrapper): Plugin? {
+  override fun create(pluginWrapper: PluginWrapper): CorePlugin? {
     val pluginClassName: String = pluginWrapper.descriptor.pluginClass!!
-    Log.d { "Creating plugin instance for $pluginClassName" }
+    Log.d { "Creating corePlugin instance for $pluginClassName" }
     val pluginClass: Class<*> = try {
       pluginWrapper.pluginClassLoader.loadClass(pluginClassName)
     } catch (e: ClassNotFoundException) {
@@ -24,19 +24,19 @@ class DefaultPluginFactory : PluginFactory {
     }
 
     // once we have the class, we can do some checks on it to ensure
-    // that it is a valid implementation of a plugin.
+    // that it is a valid implementation of a corePlugin.
     val modifiers = pluginClass.modifiers
     if (Modifier.isAbstract(modifiers) || Modifier.isInterface(modifiers)
-      || !Plugin::class.java.isAssignableFrom(pluginClass)
+      || !CorePlugin::class.java.isAssignableFrom(pluginClass)
     ) {
-      Log.e { "Plugin class $pluginClassName is not a valid implementation of a plugin" }
+      Log.e { "CorePlugin class $pluginClassName is not a valid implementation of a corePlugin" }
       return null
     }
 
-    // create the plugin instance
+    // create the corePlugin instance
     try {
       val constructor = pluginClass.getConstructor(PluginWrapper::class.java)
-      return constructor.newInstance(pluginWrapper) as Plugin
+      return constructor.newInstance(pluginWrapper) as CorePlugin
     } catch (e: Exception) {
       Log.e { e.message.toString() }
 

@@ -49,7 +49,7 @@ class ServiceProviderExtensionFinder(pluginManager: PluginManager) :
     val plugins: List<PluginWrapper> = (pluginManager.plugins as List<PluginWrapper>?)!!
     for (plugin in plugins) {
       val pluginId: String = plugin.descriptor.pluginId
-      Log.d { "Reading extensions storages from plugin $pluginId" }
+      Log.d { "Reading extensions storages from corePlugin $pluginId" }
       val bucket: MutableSet<String> = HashSet()
       try {
         val urls: Enumeration<URL> =
@@ -64,9 +64,9 @@ class ServiceProviderExtensionFinder(pluginManager: PluginManager) :
         debugExtensions(bucket)
         result[pluginId] = bucket
       } catch (e: IOException) {
-        Log.e { "Error reading extensions from plugin $pluginId ${e.message.toString()}" }
+        Log.e { "Error reading extensions from corePlugin $pluginId ${e.message.toString()}" }
       } catch (e: URISyntaxException) {
-        Log.e { "Error reading extensions from plugin $pluginId ${e.message.toString()}" }
+        Log.e { "Error reading extensions from corePlugin $pluginId ${e.message.toString()}" }
       }
     }
     return result

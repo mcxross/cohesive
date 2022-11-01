@@ -6,8 +6,8 @@ import okio.Path
 import java.io.File
 
 /**
- * Load all information needed by a plugin.
- * This means plus to the plugin's [ClassLoader] all the jar files and
+ * Load all information needed by a corePlugin.
+ * This means plus to the corePlugin's [ClassLoader] all the jar files and
  * all the class files specified in the [PluginClasspath].
  */
 open class BasePluginLoader(
@@ -36,7 +36,7 @@ open class BasePluginLoader(
 
   /**
    * Add all `*.class` files from [PluginClasspath.getClassesDirectories]
-   * to the plugin's [ClassLoader].
+   * to the corePlugin's [ClassLoader].
    */
   protected fun loadClasses(pluginPath: Path, pluginClassLoader: PluginClassLoader) {
     pluginClasspath.classesDirectories.forEach {
@@ -49,7 +49,7 @@ open class BasePluginLoader(
 
   /**
    * Add all `*.jar` files from [PluginClasspath.getJarsDirectories]
-   * to the plugin's [ClassLoader].
+   * to the corePlugin's [ClassLoader].
    */
   protected fun loadJars(pluginPath: Path, pluginClassLoader: PluginClassLoader) {
     pluginClasspath.jarsDirectories.forEach {

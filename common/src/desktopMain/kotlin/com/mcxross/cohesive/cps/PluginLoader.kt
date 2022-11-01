@@ -3,7 +3,7 @@ package com.mcxross.cohesive.cps
 import okio.Path
 
 /**
- * Load all information (classes) needed by a plugin.
+ * Load all information (classes) needed by a corePlugin.
  */
 interface PluginLoader {
   /**

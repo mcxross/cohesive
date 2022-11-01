@@ -10,7 +10,7 @@ import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 
 /**
- * This class extracts the content of the plugin zip into a directory.
+ * This class extracts the content of the corePlugin zip into a directory.
  * It's a class for only the internal use.
  */
 class Unzip(

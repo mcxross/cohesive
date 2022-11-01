@@ -7,7 +7,7 @@ import com.mcxross.cohesive.csp.annotation.ExtensionPoint
  * This is the main entry point for the Cohesive UI.
  *
  * Extend this class to create your own declarative UI implementation of the Cohesive View UI.
- * The Cohesive Plugin System will instantiate this class and inject the various implementations
+ * The Cohesive CorePlugin System will instantiate this class and inject the various implementations
  * defaulting to System implementations otherwise.
  *
  * Note: This class doesn't support overriding the Cohesive Screen(s), it's for Views only.

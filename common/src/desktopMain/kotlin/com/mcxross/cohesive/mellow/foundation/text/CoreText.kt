@@ -90,7 +90,7 @@ private typealias InlineContentRange = AnnotatedString.Range<@Composable (String
  *
  * @param text AnnotatedString encoding a styled text.
  * @param modifier Modifier to apply to this layout node.
- * @param style Style configuration for the text such as color, font, line height etc.
+ * @param style Style config for the text such as color, font, line height etc.
  * @param softWrap Whether the text should break at soft line breaks. If false, the glyphs in the
  * text will be positioned as if there was unlimited horizontal space. If [softWrap] is false,
  * [overflow] and [TextAlign] may have unexpected effects.

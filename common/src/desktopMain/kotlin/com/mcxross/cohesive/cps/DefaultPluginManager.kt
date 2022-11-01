@@ -98,10 +98,10 @@ open class DefaultPluginManager : AbstractPluginManager {
   }
 
   /**
-   * Load a plugin from disk. If the path is a zip file, first unpack.
+   * Load a corePlugin from disk. If the path is a zip file, first unpack.
    *
-   * @param pluginPath plugin location on disk
-   * @return PluginWrapper for the loaded plugin or null if not loaded
+   * @param pluginPath corePlugin location on disk
+   * @return PluginWrapper for the loaded corePlugin or null if not loaded
    * @throws PluginRuntimeException if problems during load
    */
   override fun loadPluginFromPath(pluginPath: Path): PluginWrapper? {

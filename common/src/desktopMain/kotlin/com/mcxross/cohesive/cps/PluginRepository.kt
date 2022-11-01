@@ -4,20 +4,20 @@ import okio.Path
 
 
 /**
- * Directory that contains plugins. A plugin could be a `directory`, @code zip} or `jar` file.
+ * Directory that contains plugins. A corePlugin could be a `directory`, @code zip} or `jar` file.
  */
 interface PluginRepository {
   /**
-   * List all plugin paths.
+   * List all corePlugin paths.
    *
    * @return a list with paths
    */
   val pluginPaths: List<Path>
 
   /**
-   * Removes a plugin from the repository.
+   * Removes a corePlugin from the repository.
    *
-   * @param pluginPath the plugin path
+   * @param pluginPath the corePlugin path
    * @return true if deleted
    * @throws PluginRuntimeException if something goes wrong
    */
