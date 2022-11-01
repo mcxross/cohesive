@@ -106,6 +106,37 @@
       "type": "file",
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Scrollbar.kt",
       "language": "kotlin",
+      "line": 38,
+      "offset": 1,
+      "length": 6,
+      "code": {
+        "startLine": 36,
+        "length": 6,
+        "offset": 13,
+        "surroundingCode": "\n@Composable\nactual fun HorizontalScrollbar(\n  modifier: Modifier,\n  scrollState: ScrollState,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "fe2a3fad4bf4ec5652edc69b5d550ddf2c4f8593034d984a16ef411dcb44aa91"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Scrollbar.kt",
+      "language": "kotlin",
       "line": 20,
       "offset": 1,
       "length": 6,
@@ -122,37 +153,6 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "46f3c5c9bcd0bc0d800db055158882d3ed3ac835faaafe1642e14b06f0f052be"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Scrollbar.kt",
-      "language": "kotlin",
-      "line": 11,
-      "offset": 1,
-      "length": 6,
-      "code": {
-        "startLine": 9,
-        "length": 6,
-        "offset": 13,
-        "surroundingCode": "\n@Composable\nactual fun VerticalScrollbar(\n  modifier: Modifier,\n  scrollState: ScrollState,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "c25681d6493423d07bb8cc2fa3cd5b6c47e897eeb8e57b2b596890787e76d029"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -199,14 +199,14 @@
       "type": "file",
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Scrollbar.kt",
       "language": "kotlin",
-      "line": 38,
+      "line": 11,
       "offset": 1,
       "length": 6,
       "code": {
-        "startLine": 36,
+        "startLine": 9,
         "length": 6,
         "offset": 13,
-        "surroundingCode": "\n@Composable\nactual fun HorizontalScrollbar(\n  modifier: Modifier,\n  scrollState: ScrollState,"
+        "surroundingCode": "\n@Composable\nactual fun VerticalScrollbar(\n  modifier: Modifier,\n  scrollState: ScrollState,"
       }
     }
   ],
@@ -214,7 +214,7 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "fe2a3fad4bf4ec5652edc69b5d550ddf2c4f8593034d984a16ef411dcb44aa91"
+  "hash": "c25681d6493423d07bb8cc2fa3cd5b6c47e897eeb8e57b2b596890787e76d029"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -261,37 +261,6 @@
       "type": "file",
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/Network.kt",
       "language": "kotlin",
-      "line": 22,
-      "offset": 1,
-      "length": 6,
-      "code": {
-        "startLine": 20,
-        "length": 6,
-        "offset": 36,
-        "surroundingCode": "val ktorHttpClient = HttpClient {}\n\nactual fun isInternetAvailable(): Boolean {\n  return runBlocking {\n    try {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "f6ab335d5a4e03462d95290d2e448258f5f4f58015f4e6e64e566de74bcc17a6"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/Network.kt",
-      "language": "kotlin",
       "line": 34,
       "offset": 1,
       "length": 6,
@@ -308,6 +277,37 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "17b9c651268d4b7d5cd6b50bd0f346424d420429152bffb790f5b59965895454"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/Network.kt",
+      "language": "kotlin",
+      "line": 22,
+      "offset": 1,
+      "length": 6,
+      "code": {
+        "startLine": 20,
+        "length": 6,
+        "offset": 36,
+        "surroundingCode": "val ktorHttpClient = HttpClient {}\n\nactual fun isInternetAvailable(): Boolean {\n  return runBlocking {\n    try {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "f6ab335d5a4e03462d95290d2e448258f5f4f58015f4e6e64e566de74bcc17a6"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -447,37 +447,6 @@
       "type": "file",
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Mouse.kt",
       "language": "kotlin",
-      "line": 18,
-      "offset": 1,
-      "length": 6,
-      "code": {
-        "startLine": 16,
-        "length": 6,
-        "offset": 91,
-        "surroundingCode": "): Modifier = this.pointerMoveFilter(onEnter = onEnter, onExit = onExit, onMove = onMove)\n\nactual fun Modifier.cursorForHorizontalResize(): Modifier =\n  this.pointerHoverIcon(PointerIcon(Cursor(Cursor.E_RESIZE_CURSOR)))\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "241559ddf8c3f9754610ee078127b1d0753070639638e2aedbd1c79ac647b760"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Mouse.kt",
-      "language": "kotlin",
       "line": 12,
       "offset": 1,
       "length": 6,
@@ -494,6 +463,37 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "8bc1a5aa7916495ef07789c4b3210ae0a5d0a956d3f4459c38f16c8b665eced7"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Mouse.kt",
+      "language": "kotlin",
+      "line": 18,
+      "offset": 1,
+      "length": 6,
+      "code": {
+        "startLine": 16,
+        "length": 6,
+        "offset": 91,
+        "surroundingCode": "): Modifier = this.pointerMoveFilter(onEnter = onEnter, onExit = onExit, onMove = onMove)\n\nactual fun Modifier.cursorForHorizontalResize(): Modifier =\n  this.pointerHoverIcon(PointerIcon(Cursor(Cursor.E_RESIZE_CURSOR)))\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "241559ddf8c3f9754610ee078127b1d0753070639638e2aedbd1c79ac647b760"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -882,12 +882,12 @@
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ds/tree/PreOrderTreeIterator.kt",
       "language": "kotlin",
       "line": 26,
-      "offset": 38,
+      "offset": 1,
       "length": 6,
       "code": {
         "startLine": 24,
         "length": 6,
-        "offset": 42,
+        "offset": 5,
         "surroundingCode": " */\n\nactual class PreOrderTreeIterator<T> actual constructor(root: TreeNode<T>) :\n  Iterator<TreeNode<T>> {\n  private val stack = Stack<TreeNode<T>>()"
       }
     }
@@ -896,7 +896,7 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "c547750ef705093d37b12afcd6f79b80a345018861fb47cdb051df66bd2b03a0"
+  "hash": "5eec8a2dbe200fa4ba149057a108728e8f7c4daec03d64e162737fbb8a44b76e"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -913,12 +913,12 @@
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/ds/tree/PreOrderTreeIterator.kt",
       "language": "kotlin",
       "line": 26,
-      "offset": 1,
+      "offset": 38,
       "length": 6,
       "code": {
         "startLine": 24,
         "length": 6,
-        "offset": 5,
+        "offset": 42,
         "surroundingCode": " */\n\nactual class PreOrderTreeIterator<T> actual constructor(root: TreeNode<T>) :\n  Iterator<TreeNode<T>> {\n  private val stack = Stack<TreeNode<T>>()"
       }
     }
@@ -927,7 +927,7 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "5eec8a2dbe200fa4ba149057a108728e8f7c4daec03d64e162737fbb8a44b76e"
+  "hash": "c547750ef705093d37b12afcd6f79b80a345018861fb47cdb051df66bd2b03a0"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -1353,7 +1353,7 @@
         "startLine": 21,
         "length": 6,
         "offset": 89,
-        "surroundingCode": "data class Screen(var scope: WindowScope? = null, var pdtm: PlatformDropTargetModifier)\n\nactual object Context {\n\n  var secondaryPlugins: List<SecondaryPlugin> = emptyList()"
+        "surroundingCode": "data class Screen(var scope: WindowScope? = null, var pdtm: PlatformDropTargetModifier)\n\nactual object Context {\n  var secondaryPlugins: List<SecondaryPlugin> = emptyList()\n  lateinit var platform: Platform"
       }
     }
   ],
@@ -1361,7 +1361,7 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "01cc8f34fe9ee6735c1762f4eb03278cefc93f7c7d072916c59b75134f835355"
+  "hash": "6d2d3773fe05cac995c48926cba4d2b465a8188d6c1f1aeb2bb1d24d47b10e19"
 },{
   "tool": "Code Inspection",
   "category": "General",
