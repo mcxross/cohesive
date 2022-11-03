@@ -17,8 +17,6 @@ class CohesiveProcessor(private val environment: SymbolProcessorEnvironment) :
 
     if (!symbols.iterator().hasNext()) {
       return emptyList()
-    } else if (symbols.toList().isEmpty()) {
-      e("No symbols found. One class must be annotated with @Cohesive")
     } else if (symbols.toList().size > 1) {
       e(
         "More than one class annotated with @Cohesive found. Only one class can be annotated with @Cohesive"

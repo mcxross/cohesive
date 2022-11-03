@@ -1,23 +1,21 @@
 package com.mcxross.cohesive.cps
 
-import com.mcxross.cohesive.common.frontend.openapi.ui.view.CohesiveView
+import com.mcxross.cohesive.common.frontend.api.ui.view.CohesiveView
 import com.mcxross.cohesive.common.frontend.utils.isNotDirectory
 import com.mcxross.cohesive.common.frontend.utils.notExists
 import com.mcxross.cohesive.common.utils.Log
-import okio.FileSystem
-import okio.Path
-import okio.Path.Companion.toPath
 import java.io.Closeable
 import java.io.IOException
 import java.util.*
 import java.util.function.Consumer
 import java.util.stream.Collectors
-
+import okio.FileSystem
+import okio.Path
+import okio.Path.Companion.toPath
 
 /**
- * This class implements the boilerplate corePlugin code that any [PluginManager]
- * implementation would have to support.
- * It helps cut the noise out of the subclass that handles corePlugin management.
+ * This class implements the boilerplate Plugin code that any [PluginManager] implementation would
+ * have to support. It helps cut the noise out of the subclass that handles Plugin management.
  */
 abstract class AbstractPluginManager : PluginManager {
 
@@ -32,64 +30,46 @@ abstract class AbstractPluginManager : PluginManager {
 
   protected open lateinit var pluginDescriptorFinder: PluginDescriptorFinder
 
-  /**
-   * A map of plugins this manager is responsible for (the key is the 'pluginId').
-   */
+  /** A map of plugins this manager is responsible for (the key is the 'pluginId'). */
   protected var pluginsMap: MutableMap<String?, PluginWrapper> = HashMap<String?, PluginWrapper>()
 
-  /**
-   * Retrieve all plugins.
-   * */
+  /** Retrieve all plugins. */
   override val plugins: List<PluginWrapper>
     get() = ArrayList(pluginsMap.values)
 
-  /**
-   * A map of corePlugin class loaders (the key is the 'pluginId').
-   */
+  /** A map of Plugin class loaders (the key is the 'pluginId'). */
   protected var pluginClassLoaders: MutableMap<String?, ClassLoader> = HashMap()
 
-  /**
-   * A list with unresolved plugins (unresolved dependency).
-   */
+  /** A list with unresolved plugins (unresolved dependency). */
   override var unresolvedPlugins: MutableList<PluginWrapper> = ArrayList<PluginWrapper>()
 
-  /**
-   * A list with all resolved plugins (resolved dependency).
-   */
+  /** A list with all resolved plugins (resolved dependency). */
   override var resolvedPlugins: MutableList<PluginWrapper> = ArrayList<PluginWrapper>()
 
-  /**
-   * A list with started plugins.
-   */
+  /** A list with started plugins. */
   override var startedPlugins: MutableList<PluginWrapper> = ArrayList<PluginWrapper>()
 
-  /**
-   * The registered [PluginStateListener]s.
-   */
+  /** The registered [PluginStateListener]s. */
   protected var pluginStateListeners: MutableList<PluginStateListener> =
     ArrayList<PluginStateListener>()
 
-  /**
-   * Cache value for the runtime mode.
-   * No need to re-read it because it won't change at runtime.
-   */
+  /** Cache value for the runtime mode. No need to re-read it because it won't change at runtime. */
   override var runtimeMode: RuntimeMode? = null
     get() {
       if (field == null) {
         // retrieves the runtime mode from system properties
-        runtimeMode = RuntimeMode.byName(
-          System.getProperty(
-            MODE_PROPERTY_NAME,
-            RuntimeMode.DEPLOYMENT.toString(),
-          ),
-        )
+        runtimeMode =
+          RuntimeMode.byName(
+            System.getProperty(
+              MODE_PROPERTY_NAME,
+              RuntimeMode.DEPLOYMENT.toString(),
+            ),
+          )
       }
       return field
     }
 
-  /**
-   * The system version used for comparisons to the corePlugin requires attribute.
-   */
+  /** The system version used for comparisons to the Plugin requires attribute. */
   final override var systemVersion: String = "0.0.0"
   protected open lateinit var pluginRepo: PluginRepository
   protected open lateinit var pluginFactory: PluginFactory
@@ -101,18 +81,16 @@ abstract class AbstractPluginManager : PluginManager {
     get() = super.isDevelopment
 
   /**
-   * Set to true to allow requires expression to be exactly x.y.z.
-   * The default is false, meaning that using an exact version x.y.z will
-   * implicitly mean the same as >=x.y.z
+   * Set to true to allow requires expression to be exactly x.y.z. The default is false, meaning
+   * that using an exact version x.y.z will implicitly mean the same as >=x.y.z
    *
    * @param exactVersionAllowed set to true or false
    */
   var isExactVersionAllowed: Boolean = false
   override lateinit var versionManager: VersionManager
   override val pluginsRoot: Path
-    get() = pluginsRoots.stream()
-      .findFirst()
-      .orElseThrow {
+    get() =
+      pluginsRoots.stream().findFirst().orElseThrow {
         IllegalStateException(
           "pluginsRoots have not been initialized, yet.",
         )
@@ -146,9 +124,7 @@ abstract class AbstractPluginManager : PluginManager {
     this.pluginsRoots.plus((pluginsRoots))
   }
 
-  /**
-   * Returns a copy of plugins with that state.
-   */
+  /** Returns a copy of plugins with that state. */
   override fun pluginsWithState(pluginState: PluginState): List<PluginWrapper> {
 
     val plugins: MutableList<PluginWrapper> = ArrayList<PluginWrapper>()
@@ -158,7 +134,6 @@ abstract class AbstractPluginManager : PluginManager {
       }
     }
     return plugins
-
   }
 
   override fun getPlugin(pluginId: String): PluginWrapper {
@@ -169,23 +144,22 @@ abstract class AbstractPluginManager : PluginManager {
     if (!FileSystem.SYSTEM.exists(pluginPath)) {
       throw IllegalArgumentException(
         String.format(
-          "Specified corePlugin %s does not exist!",
+          "Specified Plugin %s does not exist!",
           pluginPath,
         ),
       )
     }
 
-    Log.d { "Loading corePlugin from $pluginPath" }
+    Log.d { "Loading Plugin from $pluginPath" }
     val pluginWrapper: PluginWrapper? = loadPluginFromPath(pluginPath)
 
-    // try to resolve  the loaded corePlugin together with other possible plugins that depend on this corePlugin
+    // try to resolve  the loaded Plugin together with other possible plugins that depend on this
+    // Plugin
     resolvePlugins()
     return pluginWrapper?.descriptor!!.pluginId
   }
 
-  /**
-   * Load plugins.
-   */
+  /** Load plugins. */
   override fun loadPlugins() {
     Log.d { "Lookup plugins in $pluginsRoots" }
     // check for plugins roots
@@ -201,7 +175,7 @@ abstract class AbstractPluginManager : PluginManager {
       },
     )
 
-    // get all corePlugin paths from repository
+    // get all Plugin paths from repository
     val pluginPaths: List<Path> = pluginRepo.pluginPaths
 
     // check for no plugins
@@ -211,7 +185,7 @@ abstract class AbstractPluginManager : PluginManager {
     }
     Log.d { "Found ${pluginPaths.size} possible plugins: $pluginPaths" }
 
-    // load plugins from corePlugin paths
+    // load plugins from Plugin paths
     pluginPaths.forEach {
       try {
         loadPluginFromPath(it)
@@ -228,20 +202,13 @@ abstract class AbstractPluginManager : PluginManager {
     }
   }
 
-  /**
-   * Unload all plugins
-   */
+  /** Unload all plugins */
   override fun unloadPlugins() {
     // wrap resolvedPlugins in new list because of concurrent modification
-    resolvedPlugins.forEach {
-      unloadPlugin(it.pluginId)
-    }
-
+    resolvedPlugins.forEach { unloadPlugin(it.pluginId) }
   }
 
-  /**
-   * Unload the specified corePlugin and it's dependents.
-   */
+  /** Unload the specified Plugin and it's dependents. */
   override fun unloadPlugin(pluginId: String): Boolean {
     return unloadPlugin(pluginId, true)
   }
@@ -261,16 +228,15 @@ abstract class AbstractPluginManager : PluginManager {
         return false
       }
       val pluginWrapper: PluginWrapper = getPlugin(pluginId)
-      Log.i { "Unload corePlugin ${getPluginLabel(pluginWrapper.descriptor)}" }
+      Log.i { "Unload Plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
 
-      // remove the corePlugin
+      // remove the Plugin
       pluginsMap.remove(pluginId)
       resolvedPlugins.remove(pluginWrapper)
       firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
 
       // remove the classloader
-      val pluginClassLoaders: MutableMap<String?, ClassLoader> =
-        pluginClassLoaders
+      val pluginClassLoaders: MutableMap<String?, ClassLoader> = pluginClassLoaders
       if (pluginClassLoaders.containsKey(pluginId)) {
         val classLoader: ClassLoader? = pluginClassLoaders.remove(pluginId)
         if (classLoader is Closeable) {
@@ -291,36 +257,34 @@ abstract class AbstractPluginManager : PluginManager {
   override fun deletePlugin(pluginId: String): Boolean {
     checkPluginId(pluginId)
     val pluginWrapper: PluginWrapper = getPlugin(pluginId)
-    // stop the corePlugin if it's started
+    // stop the Plugin if it's started
     val pluginState: PluginState = stopPlugin(pluginId)
     if (PluginState.STARTED == pluginState) {
-      Log.e { "Failed to stop corePlugin $pluginId on delete" }
+      Log.e { "Failed to stop Plugin $pluginId on delete" }
       return false
     }
 
-    // get an instance of corePlugin before the corePlugin is unloaded
+    // get an instance of Plugin before the Plugin is unloaded
     // for reason see https://github.com/pf4j/pf4j/issues/309
-    val corePlugin: CorePlugin? = pluginWrapper.corePlugin
+    val Plugin: CorePlugin? = pluginWrapper.corePlugin
     if (!unloadPlugin(pluginId)) {
-      Log.e { "Failed to unload corePlugin $pluginId on delete" }
+      Log.e { "Failed to unload Plugin $pluginId on delete" }
       return false
     }
 
-    // notify the corePlugin as it's deleted
-    corePlugin!!.delete()
+    // notify the Plugin as it's deleted
+    Plugin!!.delete()
     val pluginPath: Path = pluginWrapper.pluginPath
     return pluginRepo.deletePluginPath(pluginPath)
   }
 
-  /**
-   * Start all active plugins.
-   */
+  /** Start all active plugins. */
   override fun startPlugins() {
     for (pluginWrapper: PluginWrapper in resolvedPlugins) {
       val pluginState: PluginState = pluginWrapper.pluginState
       if ((PluginState.DISABLED != pluginState) && (PluginState.STARTED != pluginState)) {
         try {
-          Log.i { "Start corePlugin ${getPluginLabel(pluginWrapper.descriptor)}" }
+          Log.i { "Start Plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
           pluginWrapper.corePlugin!!.start()
           pluginWrapper.pluginState = PluginState.STARTED
           pluginWrapper.failedException = null
@@ -328,11 +292,11 @@ abstract class AbstractPluginManager : PluginManager {
         } catch (e: Exception) {
           pluginWrapper.pluginState = PluginState.FAILED
           pluginWrapper.failedException = e
-          Log.e { "Unable to start corePlugin ${getPluginLabel(pluginWrapper.descriptor)}" }
+          Log.e { "Unable to start Plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
         } catch (e: LinkageError) {
           pluginWrapper.pluginState = PluginState.FAILED
           pluginWrapper.failedException = e
-          Log.e { "Unable to start corePlugin ${getPluginLabel(pluginWrapper.descriptor)}" }
+          Log.e { "Unable to start Plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
         } finally {
           firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
         }
@@ -340,24 +304,22 @@ abstract class AbstractPluginManager : PluginManager {
     }
   }
 
-  /**
-   * Start the specified corePlugin and its dependencies.
-   */
+  /** Start the specified Plugin and its dependencies. */
   override fun startPlugin(pluginId: String): PluginState {
     checkPluginId(pluginId)
     val pluginWrapper: PluginWrapper = getPlugin(pluginId)
     val pluginDescriptor: PluginDescriptor = pluginWrapper.descriptor
     val pluginState: PluginState = pluginWrapper.pluginState
     if (PluginState.STARTED == pluginState) {
-      Log.d { "Already started corePlugin ${getPluginLabel(pluginDescriptor)}" }
+      Log.d { "Already started Plugin ${getPluginLabel(pluginDescriptor)}" }
       return PluginState.STARTED
     }
     if (!resolvedPlugins.contains(pluginWrapper)) {
-      Log.w { "Cannot start an unresolved corePlugin ${getPluginLabel(pluginDescriptor)}" }
+      Log.w { "Cannot start an unresolved Plugin ${getPluginLabel(pluginDescriptor)}" }
       return pluginState
     }
     if (PluginState.DISABLED == pluginState) {
-      // automatically enable corePlugin on manual corePlugin start
+      // automatically enable Plugin on manual Plugin start
       if (!enablePlugin(pluginId)) {
         return pluginState
       }
@@ -368,7 +330,7 @@ abstract class AbstractPluginManager : PluginManager {
         dependency.pluginId?.let { startPlugin(it) }
       }
     }
-    Log.i { "Start corePlugin ${getPluginLabel(pluginDescriptor)}" }
+    Log.i { "Start Plugin ${getPluginLabel(pluginDescriptor)}" }
     pluginWrapper.corePlugin!!.start()
     pluginWrapper.pluginState = PluginState.STARTED
     startedPlugins.add(pluginWrapper)
@@ -376,9 +338,7 @@ abstract class AbstractPluginManager : PluginManager {
     return pluginWrapper.pluginState
   }
 
-  /**
-   * Stop all active plugins.
-   */
+  /** Stop all active plugins. */
   override fun stopPlugins() {
     // stop started plugins in reverse order
     startedPlugins.reversed()
@@ -389,7 +349,7 @@ abstract class AbstractPluginManager : PluginManager {
       val pluginState: PluginState = pluginWrapper.pluginState
       if (PluginState.STARTED == pluginState) {
         try {
-          Log.i { "Stop corePlugin ${getPluginLabel(pluginWrapper.descriptor)}" }
+          Log.i { "Stop Plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
           pluginWrapper.corePlugin?.stop()
           pluginWrapper.pluginState = PluginState.STOPPED
           itr.remove()
@@ -401,9 +361,7 @@ abstract class AbstractPluginManager : PluginManager {
     }
   }
 
-  /**
-   * Stop the specified corePlugin and it's dependents.
-   */
+  /** Stop the specified Plugin and it's dependents. */
   override fun stopPlugin(pluginId: String): PluginState {
     return stopPlugin(pluginId, true)
   }
@@ -414,11 +372,11 @@ abstract class AbstractPluginManager : PluginManager {
     val pluginDescriptor: PluginDescriptor = pluginWrapper.descriptor
     val pluginState: PluginState = pluginWrapper.pluginState
     if (PluginState.STOPPED == pluginState) {
-      Log.d { "Already stopped corePlugin ${getPluginLabel(pluginDescriptor)}" }
+      Log.d { "Already stopped Plugin ${getPluginLabel(pluginDescriptor)}" }
       return PluginState.STOPPED
     }
 
-    // test for disabled corePlugin
+    // test for disabled Plugin
     if (PluginState.DISABLED == pluginState) {
       // do nothing
       return pluginState
@@ -431,7 +389,7 @@ abstract class AbstractPluginManager : PluginManager {
         dependents.addAll(0, dependencyResolver.getDependents(dependent))
       }
     }
-    Log.i { "Stop corePlugin ${getPluginLabel(pluginDescriptor)}" }
+    Log.i { "Stop Plugin ${getPluginLabel(pluginDescriptor)}" }
     pluginWrapper.corePlugin?.stop()
     pluginWrapper.pluginState = PluginState.STOPPED
     startedPlugins.remove(pluginWrapper)
@@ -451,14 +409,14 @@ abstract class AbstractPluginManager : PluginManager {
     val pluginDescriptor: PluginDescriptor = pluginWrapper.descriptor
     val pluginState: PluginState = pluginWrapper.pluginState
     if (PluginState.DISABLED == pluginState) {
-      Log.d { "Already disabled corePlugin ${getPluginLabel(pluginDescriptor)}" }
+      Log.d { "Already disabled Plugin ${getPluginLabel(pluginDescriptor)}" }
       return true
     }
     if (PluginState.STOPPED == stopPlugin(pluginId)) {
       pluginWrapper.pluginState = PluginState.DISABLED
       firePluginStateEvent(PluginStateEvent(this, pluginWrapper, PluginState.STOPPED))
       pluginStatusProvider.disablePlugin(pluginId)
-      Log.i { "Disabled corePlugin ${getPluginLabel(pluginDescriptor)}" }
+      Log.i { "Disabled Plugin ${getPluginLabel(pluginDescriptor)}" }
       return true
     }
     return false
@@ -468,25 +426,23 @@ abstract class AbstractPluginManager : PluginManager {
     checkPluginId(pluginId)
     val pluginWrapper: PluginWrapper = getPlugin(pluginId)
     if (!isPluginValid(pluginWrapper)) {
-      Log.w { "CorePlugin ${getPluginLabel(pluginWrapper.descriptor)} can not be enabled" }
+      Log.w { "Plugin ${getPluginLabel(pluginWrapper.descriptor)} can not be enabled" }
       return false
     }
     val pluginDescriptor: PluginDescriptor = pluginWrapper.descriptor
     val pluginState: PluginState = pluginWrapper.pluginState
     if (PluginState.DISABLED != pluginState) {
-      Log.d { "CorePlugin ${getPluginLabel(pluginDescriptor)} is not disabled" }
+      Log.d { "Plugin ${getPluginLabel(pluginDescriptor)} is not disabled" }
       return true
     }
     pluginStatusProvider.enablePlugin(pluginId)
     pluginWrapper.pluginState = PluginState.CREATED
     firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
-    Log.i { "Enabled corePlugin ${getPluginLabel(pluginDescriptor)}" }
+    Log.i { "Enabled Plugin ${getPluginLabel(pluginDescriptor)}" }
     return true
   }
 
-  /**
-   * Get the [ClassLoader] for corePlugin.
-   */
+  /** Get the [ClassLoader] for Plugin. */
   override fun getPluginClassLoader(pluginId: String): ClassLoader {
     return (pluginClassLoaders[pluginId])!!
   }
@@ -557,12 +513,11 @@ abstract class AbstractPluginManager : PluginManager {
     pluginStateListeners.remove(listener)
   }
 
-
   /**
-   * Add the possibility to override the plugins roots.
-   * If a [.PLUGINS_DIR_PROPERTY_NAME] system property is defined than this method returns that roots.
-   * If [.getRuntimeMode] returns [RuntimeMode.DEVELOPMENT] than [.DEVELOPMENT_PLUGINS_DIR]
-   * is returned else this method returns [.DEFAULT_PLUGINS_DIR].
+   * Add the possibility to override the plugins roots. If a [PLUGINS_DIR_PROPERTY_NAME] system
+   * property is defined then this method returns that roots. If [runtimeMode] returns
+   * [RuntimeMode.DEVELOPMENT] then [DEVELOPMENT_PLUGINS_DIR] is returned else this method returns
+   * [DEFAULT_PLUGINS_DIR].
    *
    * @return the plugins root
    */
@@ -570,13 +525,10 @@ abstract class AbstractPluginManager : PluginManager {
     var pluginsDir: String? = System.getProperty(PLUGINS_DIR_PROPERTY_NAME)
     if (!pluginsDir.isNullOrEmpty()) {
       return Arrays.stream(
-        pluginsDir.split(",".toRegex()).dropLastWhile { it.isEmpty() }
-          .toTypedArray(),
-      )
+          pluginsDir.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray(),
+        )
         .map { obj: String -> obj.trim { it <= ' ' } }
-        .map { first: String ->
-          first.toPath()
-        }
+        .map { first: String -> first.toPath() }
         .collect(Collectors.toList())
     }
     pluginsDir = if (isDevelopment) DEVELOPMENT_PLUGINS_DIR else DEFAULT_PLUGINS_DIR
@@ -584,26 +536,31 @@ abstract class AbstractPluginManager : PluginManager {
   }
 
   /**
-   * Check if this corePlugin is valid (satisfies "requires" param) for a given system version.
+   * Check if this Plugin is valid (satisfies "requires" param) for a given system version.
    *
-   * @param pluginWrapper the corePlugin to check
-   * @return true if corePlugin satisfies the "requires" or if requires was left blank
+   * @param pluginWrapper the Plugin to check
+   * @return true if Plugin satisfies the "requires" or if requires was left blank
    */
   protected fun isPluginValid(pluginWrapper: PluginWrapper): Boolean {
     var requires: String = pluginWrapper.descriptor.requires!!.trim { it <= ' ' }
-    //TODO: fix regex
+    // TODO: fix regex
     if (!isExactVersionAllowed && requires.matches(Regex("^init+//.init+.init+$"))) {
       // If exact versions are not allowed in requires, rewrite to >= expression
       requires = ">=$requires"
     }
-    if ((systemVersion == "0.0.0") || versionManager.checkVersionConstraint(
-        systemVersion,
-        requires,
-      )) {
+    if (
+      (systemVersion == "0.0.0") ||
+        versionManager.checkVersionConstraint(
+          systemVersion,
+          requires,
+        )
+    ) {
       return true
     }
     val pluginDescriptor: PluginDescriptor = pluginWrapper.descriptor
-    Log.w { "CorePlugin ${getPluginLabel(pluginDescriptor)} requires a minimum system version of $requires, and you have $systemVersion" }
+    Log.w {
+      "Plugin ${getPluginLabel(pluginDescriptor)} requires a minimum system version of $requires, and you have $systemVersion"
+    }
     return false
   }
 
@@ -641,11 +598,10 @@ abstract class AbstractPluginManager : PluginManager {
           pluginWrapper.pluginState = PluginState.RESOLVED
         }
         resolvedPlugins.add(pluginWrapper)
-        Log.i { "CorePlugin ${getPluginLabel(pluginWrapper.descriptor)} resolved" }
+        Log.i { "Plugin ${getPluginLabel(pluginWrapper.descriptor)} resolved" }
         firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
       }
     }
-
   }
 
   @Synchronized
@@ -657,16 +613,16 @@ abstract class AbstractPluginManager : PluginManager {
   }
 
   protected open fun loadPluginFromPath(pluginPath: Path): PluginWrapper? {
-    // Test for corePlugin path duplication
+    // Test for Plugin path duplication
     var pluginId: String? = idForPath(pluginPath)
     if (pluginId != null) {
       throw PluginAlreadyLoadedException(pluginId, pluginPath)
     }
 
-    // Retrieve and validate the corePlugin descriptor
+    // Retrieve and validate the Plugin descriptor
     val pluginDescriptorFinder: PluginDescriptorFinder = pluginDescriptorFinder
     Log.d { "Use $pluginDescriptorFinder to find plugins descriptors" }
-    Log.d { "Finding corePlugin descriptor for corePlugin $pluginPath" }
+    Log.d { "Finding Plugin descriptor for Plugin $pluginPath" }
     val pluginDescriptor: PluginDescriptor = pluginDescriptorFinder.find(pluginPath)!!
     validatePluginDescriptor(pluginDescriptor)
 
@@ -675,50 +631,53 @@ abstract class AbstractPluginManager : PluginManager {
     if (pluginsMap.containsKey(pluginId)) {
       val loadedPlugin: PluginWrapper = getPlugin(pluginId)
       throw PluginRuntimeException(
-        ("There is an already loaded corePlugin ({}) "
-          + "with the same id ({}) as the corePlugin at path '{}'. Simultaneous loading "
-          + "of plugins with the same PluginId is not currently supported.\n"
-          + "As a workaround you may include PluginVersion and PluginProvider "
-          + "in PluginId."),
-        loadedPlugin, pluginId, pluginPath,
+        ("There is an already loaded Plugin ({}) " +
+          "with the same id ({}) as the Plugin at path '{}'. Simultaneous loading " +
+          "of plugins with the same PluginId is not currently supported.\n" +
+          "As a workaround you may include PluginVersion and PluginProvider " +
+          "in PluginId."),
+        loadedPlugin,
+        pluginId,
+        pluginPath,
       )
     }
     Log.d { "Found descriptor $pluginDescriptor" }
     val pluginClassName: String? = pluginDescriptor.pluginClass
-    Log.d { "Class $pluginClassName for corePlugin $pluginPath" }
+    Log.d { "Class $pluginClassName for Plugin $pluginPath" }
 
-    // load corePlugin
-    Log.d { "Loading corePlugin $pluginPath" }
+    // load Plugin
+    Log.d { "Loading Plugin $pluginPath" }
     val pluginClassLoader: ClassLoader = pluginLoader.loadPlugin(pluginPath, pluginDescriptor)!!
-    Log.d { "Loaded corePlugin $pluginPath with class pluginLoader $pluginClassLoader" }
+    Log.d { "Loaded Plugin $pluginPath with class pluginLoader $pluginClassLoader" }
     val pluginWrapper: PluginWrapper =
       createPluginWrapper(pluginDescriptor, pluginPath, pluginClassLoader)
 
-    // test for disabled corePlugin
+    // test for disabled Plugin
     if (isPluginDisabled(pluginDescriptor.pluginId)) {
-      Log.i { "CorePlugin $pluginPath is disabled" }
+      Log.i { "Plugin $pluginPath is disabled" }
       pluginWrapper.pluginState = PluginState.DISABLED
     }
 
-    // validate the corePlugin
+    // validate the Plugin
     if (!isPluginValid(pluginWrapper)) {
-      Log.w { "CorePlugin $pluginPath is invalid and it will be disabled" }
+      Log.w { "Plugin $pluginPath is invalid and it will be disabled" }
       pluginWrapper.pluginState = PluginState.DISABLED
     }
-    Log.d { "Created wrapper $pluginWrapper for corePlugin $pluginPath" }
+    Log.d { "Created wrapper $pluginWrapper for Plugin $pluginPath" }
     pluginId = pluginDescriptor.pluginId
 
-    // plus corePlugin to the list with plugins
+    // plus Plugin to the list with plugins
     pluginsMap[pluginId] = pluginWrapper
     unresolvedPlugins.add(pluginWrapper)
 
-    // plus corePlugin class pluginLoader to the list with class loaders
+    // plus Plugin class pluginLoader to the list with class loaders
     pluginClassLoaders[pluginId] = pluginClassLoader
     return pluginWrapper
   }
 
   /**
-   * creates the corePlugin wrapper. override this if you want to prevent plugins having full access to the corePlugin manager
+   * creates the Plugin wrapper. override this if you want to prevent plugins having full access to
+   * the Plugin manager
    *
    * @return
    */
@@ -727,8 +686,8 @@ abstract class AbstractPluginManager : PluginManager {
     pluginPath: Path,
     pluginClassLoader: ClassLoader,
   ): PluginWrapper {
-    // create the corePlugin wrapper
-    Log.d { "Creating wrapper for corePlugin $pluginPath" }
+    // create the Plugin wrapper
+    Log.d { "Creating wrapper for Plugin $pluginPath" }
     val pluginWrapper = PluginWrapper(this, pluginDescriptor, pluginPath, pluginClassLoader)
     pluginWrapper.pluginFactory = pluginFactory
     return pluginWrapper
@@ -738,7 +697,7 @@ abstract class AbstractPluginManager : PluginManager {
    * Tests for already loaded plugins on given path.
    *
    * @param pluginPath the path to investigate
-   * @return id of corePlugin or null if not loaded
+   * @return id of Plugin or null if not loaded
    */
   protected fun idForPath(pluginPath: Path): String? {
     for (plugin: PluginWrapper in pluginsMap.values) {
@@ -752,7 +711,7 @@ abstract class AbstractPluginManager : PluginManager {
   /**
    * Override this to change the validation criteria.
    *
-   * @param descriptor the corePlugin descriptor to validate
+   * @param descriptor the Plugin descriptor to validate
    * @throws PluginRuntimeException if validation fails
    */
   protected fun validatePluginDescriptor(descriptor: PluginDescriptor) {
@@ -761,14 +720,14 @@ abstract class AbstractPluginManager : PluginManager {
     }
   }
 
-  /**
-   * The corePlugin label is used in logging, and it's a string in format `pluginId@pluginVersion`.
-   */
+  /** The Plugin label is used in logging, and it's a string in format `pluginId@pluginVersion`. */
   protected fun getPluginLabel(pluginDescriptor: PluginDescriptor): String {
     return pluginDescriptor.pluginId + "@" + pluginDescriptor.version
   }
 
-  protected fun <T> getExtensionClasses(extensionsWrapper: List<ExtensionWrapper<T>?>): List<Class<out T>> {
+  protected fun <T> getExtensionClasses(
+    extensionsWrapper: List<ExtensionWrapper<T>?>
+  ): List<Class<out T>> {
     val extensionClasses: MutableList<Class<out T>> = ArrayList(extensionsWrapper.size)
     for (extensionWrapper: ExtensionWrapper<T>? in extensionsWrapper) {
       extensionClasses.plus(extensionWrapper?.descriptor!!.extensionClass)
@@ -789,9 +748,9 @@ abstract class AbstractPluginManager : PluginManager {
   }
 
   companion object {
-    const val PLUGINS_DIR_PROPERTY_NAME: String = "pf4j.pluginsDir"
-    const val MODE_PROPERTY_NAME: String = "pf4j.mode"
-    const val DEFAULT_PLUGINS_DIR: String = "plugins"
-    const val DEVELOPMENT_PLUGINS_DIR: String = "../plugins"
+    const val PLUGINS_DIR_PROPERTY_NAME: String = "cps.pluginDir"
+    const val MODE_PROPERTY_NAME: String = "cps.mode"
+    const val DEFAULT_PLUGINS_DIR: String = "plugin"
+    const val DEVELOPMENT_PLUGINS_DIR: String = "../plugin"
   }
 }

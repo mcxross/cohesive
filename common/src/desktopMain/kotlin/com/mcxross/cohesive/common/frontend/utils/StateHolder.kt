@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.window.WindowState
 import com.mcxross.cohesive.common.Daemon
-import com.mcxross.cohesive.common.frontend.ui.view.View
+import com.mcxross.cohesive.common.frontend.impl.ui.view.View
 import com.mcxross.cohesive.common.utils.Log
 import com.mcxross.cohesive.mellow.HomeFolder
 import kotlinx.coroutines.launch

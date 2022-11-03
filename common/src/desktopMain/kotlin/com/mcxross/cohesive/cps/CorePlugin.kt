@@ -4,7 +4,7 @@ package com.mcxross.cohesive.cps
  * This class will be extended by all plugins and
  * serve as the common class between a corePlugin and the application.
  */
-class CorePlugin(wrapper: PluginWrapper?) {
+abstract class CorePlugin(wrapper: PluginWrapper?) {
 
   /**
    * Wrapper of the corePlugin.
@@ -25,17 +25,17 @@ class CorePlugin(wrapper: PluginWrapper?) {
    * This method is called by the application when the corePlugin is started.
    * See [PluginManager.startPlugin].
    */
-  fun start() {}
+  abstract fun start()
 
   /**
    * This method is called by the application when the corePlugin is stopped.
    * See [PluginManager.stopPlugin].
    */
-  fun stop() {}
+  abstract fun stop()
 
   /**
    * This method is called by the application when the corePlugin is deleted.
    * See [PluginManager.deletePlugin].
    */
-  fun delete() {}
+  abstract fun delete()
 }

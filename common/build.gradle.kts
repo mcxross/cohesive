@@ -40,6 +40,7 @@ kotlin {
         implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.5")
         implementation("org.jetbrains:markdown:0.3.1")
         implementation("org.kodein.di:kodein-di:7.15.0")
+        implementation("io.github.z4kn4fein:semver:1.3.3")
       }
     }
     val commonTest by getting {

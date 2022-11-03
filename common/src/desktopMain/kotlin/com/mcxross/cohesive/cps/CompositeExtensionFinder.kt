@@ -1,6 +1,6 @@
 package com.mcxross.cohesive.cps
 
-import com.mcxross.cohesive.common.frontend.openapi.ui.view.CohesiveView
+import com.mcxross.cohesive.common.frontend.api.ui.view.CohesiveView
 
 /**
  * The default implementation for [ExtensionFinder].
