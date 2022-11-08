@@ -8,17 +8,20 @@ import java.net.URLClassLoader
 import java.util.*
 
 /**
- * One instance of this class should be created by corePlugin manager for every available plug-in.
- * By default, this class pluginLoader is a Parent Last ClassLoader - it loads the classes from the corePlugin's jars
- * before delegating to the parent class pluginLoader.
- * Use [.classLoadingStrategy] to change the loading strategy.
+ * One instance of this class should be created by Plugin manager for every available plug-in. By
+ * default, this class pluginLoader is a Parent Last ClassLoader - it loads the classes from the
+ * Plugin's jars before delegating to the parent class pluginLoader. Use [.classLoadingStrategy] to
+ * change the loading strategy.
  */
-class PluginClassLoader @JvmOverloads constructor(
+class PluginClassLoader
+@JvmOverloads
+constructor(
   val pluginManager: PluginManager,
   val pluginDescriptor: PluginDescriptor,
   parent: ClassLoader?,
   val parentFirst: Boolean = false,
-  val classLoadingStrategy: ClassLoadingStrategy = if (parentFirst) ClassLoadingStrategy.APD else ClassLoadingStrategy.PDA,
+  val classLoadingStrategy: ClassLoadingStrategy =
+    if (parentFirst) ClassLoadingStrategy.APD else ClassLoadingStrategy.PDA,
 ) : URLClassLoader(arrayOfNulls(0), parent) {
 
   public override fun addURL(url: URL) {
@@ -30,16 +33,16 @@ class PluginClassLoader @JvmOverloads constructor(
     try {
       addURL(file.canonicalFile.toURI().toURL())
     } catch (e: IOException) {
-//            throw new RuntimeException(e);
+      //            throw new RuntimeException(e);
       Log.e { e.message.toString() }
     }
   }
 
   /**
-   * By default, it uses a child first delegation model rather than the standard parent first.
-   * If the requested class cannot be found in this class pluginLoader, the parent class pluginLoader will be consulted
-   * via the standard [ClassLoader.loadClass] mechanism.
-   * Use [.classLoadingStrategy] to change the loading strategy.
+   * By default, it uses a child first delegation model rather than the standard parent first. If
+   * the requested class cannot be found in this class pluginLoader, the parent class pluginLoader
+   * will be consulted via the standard [ClassLoader.loadClass] mechanism. Use
+   * [.classLoadingStrategy] to change the loading strategy.
    */
   @Throws(ClassNotFoundException::class)
   override fun loadClass(className: String): Class<*> {
@@ -50,12 +53,15 @@ class PluginClassLoader @JvmOverloads constructor(
         return findSystemClass(className)
       }
 
-      // if the class is part of the corePlugin engine use parent class pluginLoader
-      if (className.startsWith(PLUGIN_PACKAGE_PREFIX) && !className.startsWith("demo") && !className.startsWith(
-          "test",
-        )
+      // if the class is part of the Plugin engine use parent class pluginLoader
+      if (
+        className.startsWith(PLUGIN_PACKAGE_PREFIX) &&
+          !className.startsWith("demo") &&
+          !className.startsWith(
+            "test",
+          )
       ) {
-//                log.trace("Delegate the loading of PF4J class '{}' to parent", className);
+        //                log.trace("Delegate the loading of PF4J class '{}' to parent", className);
         return parent.loadClass(className)
       }
       Log.v { "Received request to load class $className" }
@@ -75,8 +81,7 @@ class PluginClassLoader @JvmOverloads constructor(
             ClassLoadingStrategy.Source.PLUGIN -> c = findClass(className)
             ClassLoadingStrategy.Source.DEPENDENCIES -> c = loadClassFromDependencies(className)
           }
-        } catch (ignored: ClassNotFoundException) {
-        }
+        } catch (ignored: ClassNotFoundException) {}
         if (c != null) {
           Log.v { "Found class $className in $it classpath" }
           return c
@@ -85,15 +90,13 @@ class PluginClassLoader @JvmOverloads constructor(
         }
       }
       throw ClassNotFoundException(className)
-
-
     }
   }
 
   /**
-   * Load the named resource from this corePlugin.
-   * By default, this implementation checks the corePlugin's classpath first then delegates to the parent.
-   * Use [.classLoadingStrategy] to change the loading strategy.
+   * Load the named resource from this Plugin. By default, this implementation checks the Plugin's
+   * classpath first then delegates to the parent. Use [.classLoadingStrategy] to change the loading
+   * strategy.
    *
    * @param name the name of the resource.
    * @return the URL to the resource, `null` if the resource was not found.
@@ -101,11 +104,12 @@ class PluginClassLoader @JvmOverloads constructor(
   override fun getResource(name: String): URL? {
     Log.v { "Received request to load resource $name" }
     classLoadingStrategy.sources.forEach {
-      val url: URL? = when (it) {
-        ClassLoadingStrategy.Source.APPLICATION -> super.getResource(name)
-        ClassLoadingStrategy.Source.PLUGIN -> findResource(name)
-        ClassLoadingStrategy.Source.DEPENDENCIES -> findResourceFromDependencies(name)
-      }
+      val url: URL? =
+        when (it) {
+          ClassLoadingStrategy.Source.APPLICATION -> super.getResource(name)
+          ClassLoadingStrategy.Source.PLUGIN -> findResource(name)
+          ClassLoadingStrategy.Source.DEPENDENCIES -> findResourceFromDependencies(name)
+        }
       if (url != null) {
         Log.v { "Found resource $name in $it classpath" }
         return url
@@ -122,16 +126,18 @@ class PluginClassLoader @JvmOverloads constructor(
     Log.v { "Received request to load resources $name" }
     classLoadingStrategy.sources.forEach {
       when (it) {
-        ClassLoadingStrategy.Source.APPLICATION -> if (parent != null) {
-          resources.addAll(Collections.list(parent.getResources(name)))
-        }
-
-        ClassLoadingStrategy.Source.PLUGIN -> resources.addAll(Collections.list(findResources(name)))
-        ClassLoadingStrategy.Source.DEPENDENCIES -> resources.addAll(
-          findResourcesFromDependencies(
-            name,
-          ),
-        )
+        ClassLoadingStrategy.Source.APPLICATION ->
+          if (parent != null) {
+            resources.addAll(Collections.list(parent.getResources(name)))
+          }
+        ClassLoadingStrategy.Source.PLUGIN ->
+          resources.addAll(Collections.list(findResources(name)))
+        ClassLoadingStrategy.Source.DEPENDENCIES ->
+          resources.addAll(
+            findResourcesFromDependencies(
+              name,
+            ),
+          )
       }
     }
     return Collections.enumeration(resources)

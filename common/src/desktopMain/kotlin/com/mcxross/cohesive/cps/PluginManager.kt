@@ -4,33 +4,22 @@ import com.mcxross.cohesive.common.frontend.api.ui.view.CohesiveView
 import okio.Path
 
 /**
- * Provides the functionality for corePlugin management such as load,
- * start and stop the plugins.
+ * Provides the functionality for corePlugin management such as load, start and stop the plugins.
  */
 interface PluginManager {
-  /**
-   * Retrieves all plugins.
-   */
+  /** Retrieves all plugins. */
   val plugins: List<PluginWrapper>
 
-  /**
-   * Retrieves all plugins with this state.
-   */
+  /** Retrieves all plugins with this state. */
   fun pluginsWithState(pluginState: PluginState): List<PluginWrapper>
 
-  /**
-   * Retrieves all resolved plugins (with resolved dependency).
-   */
+  /** Retrieves all resolved plugins (with resolved dependency). */
   val resolvedPlugins: List<Any>
 
-  /**
-   * Retrieves all unresolved plugins (with unresolved dependency).
-   */
+  /** Retrieves all unresolved plugins (with unresolved dependency). */
   val unresolvedPlugins: List<Any>
 
-  /**
-   * Retrieves all started plugins.
-   */
+  /** Retrieves all started plugins. */
   val startedPlugins: List<Any>
 
   /**
@@ -41,23 +30,20 @@ interface PluginManager {
    */
   fun getPlugin(pluginId: String): PluginWrapper
 
-  /**
-   * Load plugins.
-   */
+  /** Load plugins. */
   fun loadPlugins()
 
   /**
    * Load a corePlugin.
    *
    * @param pluginPath the corePlugin location
-   * @return the pluginId of the installed corePlugin as specified in its [metadata][PluginDescriptor]
+   * @return the pluginId of the installed corePlugin as specified in its [metadata]
+   * [PluginDescriptor]
    * @throws PluginRuntimeException if something goes wrong
    */
   fun loadPlugin(pluginPath: Path): String?
 
-  /**
-   * Start all active plugins.
-   */
+  /** Start all active plugins. */
   fun startPlugins()
 
   /**
@@ -68,9 +54,7 @@ interface PluginManager {
    */
   fun startPlugin(pluginId: String): PluginState?
 
-  /**
-   * Stop all active plugins.
-   */
+  /** Stop all active plugins. */
   fun stopPlugins()
 
   /**
@@ -81,9 +65,7 @@ interface PluginManager {
    */
   fun stopPlugin(pluginId: String): PluginState?
 
-  /**
-   * Unload all plugins
-   */
+  /** Unload all plugins */
   fun unloadPlugins()
 
   /**
@@ -132,26 +114,18 @@ interface PluginManager {
   fun getExtensionClassNames(pluginId: String): Set<String?>
   val extensionFactory: ExtensionFactory
 
-  /**
-   * The runtime mode. Must currently be either DEVELOPMENT or DEPLOYMENT.
-   */
+  /** The runtime mode. Must currently be either DEVELOPMENT or DEPLOYMENT. */
   var runtimeMode: RuntimeMode?
 
-  /**
-   * Returns `true` if the runtime mode is `RuntimeMode.DEVELOPMENT`.
-   */
+  /** Returns `true` if the runtime mode is `RuntimeMode.DEVELOPMENT`. */
   val isDevelopment: Boolean
     get() = RuntimeMode.DEVELOPMENT == runtimeMode
 
-  /**
-   * Returns `true` if the runtime mode is not `RuntimeMode.DEVELOPMENT`.
-   */
+  /** Returns `true` if the runtime mode is not `RuntimeMode.DEVELOPMENT`. */
   val isNotDevelopment: Boolean
     get() = !isDevelopment
 
-  /**
-   * Retrieves the [PluginWrapper] that loaded the given class 'clazz'.
-   */
+  /** Retrieves the [PluginWrapper] that loaded the given class 'clazz'. */
   fun whichPlugin(clazz: Class<*>): PluginWrapper?
   fun addPluginStateListener(listener: PluginStateListener)
   fun removePluginStateListener(listener: PluginStateListener)
@@ -161,9 +135,8 @@ interface PluginManager {
    * @return the system version
    */
   /**
-   * Set the system version.  This is used to compare against the corePlugin
-   * requires attribute.  The default system version is 0.0.0 which
-   * disables all version checking.
+   * Set the system version. This is used to compare against the corePlugin requires attribute. The
+   * default system version is 0.0.0 which disables all version checking.
    *
    * @default 0.0.0
    * @param version

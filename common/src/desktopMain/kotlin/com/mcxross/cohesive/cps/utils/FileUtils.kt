@@ -3,21 +3,21 @@ package com.mcxross.cohesive.cps.utils
 import com.mcxross.cohesive.common.frontend.utils.delete
 import com.mcxross.cohesive.common.frontend.utils.exists
 import com.mcxross.cohesive.common.frontend.utils.isDirectory
-import com.mcxross.cohesive.common.frontend.utils.isZipFile
+import com.mcxross.cohesive.common.frontend.utils.isZip
 import com.mcxross.cohesive.common.frontend.utils.isZipOrJarFile
 import com.mcxross.cohesive.common.frontend.utils.lastModified
 import com.mcxross.cohesive.common.frontend.utils.notExists
 import com.mcxross.cohesive.common.frontend.utils.toUri
 import com.mcxross.cohesive.common.utils.Log
-import okio.IOException
-import okio.Path
-import okio.Path.Companion.toOkioPath
 import java.io.File
 import java.io.FileFilter
 import java.net.URI
 import java.nio.file.FileSystem
 import java.nio.file.FileSystemNotFoundException
 import java.nio.file.FileSystems
+import okio.IOException
+import okio.Path
+import okio.Path.Companion.toOkioPath
 
 object FileUtils {
 
@@ -66,7 +66,6 @@ object FileUtils {
     return null
   }
 
-
   fun optimisticDelete(path: Path?) {
     if (path == null) {
       return
@@ -79,9 +78,8 @@ object FileUtils {
   }
 
   /**
-   * Unzip a zip file in a directory that has the same name as the zip file.
-   * For example if the zip file is `my-corePlugin.zip` then the resulted directory
-   * is `my-corePlugin`.
+   * Unzip a zip file in a directory that has the same name as the zip file. For example if the zip
+   * file is `my-Plugin.zip` then the resulted directory is `my-Plugin`.
    *
    * @param filePath the file to evaluate
    * @return Path of unzipped folder or original path if this was not a zip file
@@ -89,7 +87,7 @@ object FileUtils {
    */
   @Throws(IOException::class)
   fun expandIfZip(filePath: Path): Path {
-    if (!isZipFile(filePath)) {
+    if (!filePath.isZip()) {
       return filePath
     }
     val fileName = filePath.name
@@ -99,11 +97,11 @@ object FileUtils {
       // expand '.zip' file
       val unzip = Unzip(source = filePath.toFile(), destination = pluginDirectory.toFile())
       unzip.extract()
-      Log.i { "Expanded corePlugin zip ${filePath.name} in ${pluginDirectory.name}" }
+      Log.d { "Expanded Plugin Zip ${filePath.name} in ${pluginDirectory.name}" }
     }
+    Log.d { "Returning: $pluginDirectory" }
     return pluginDirectory
   }
-
 
   @Throws(IOException::class)
   fun getPath(path: Path, first: String, vararg more: String?): Path {

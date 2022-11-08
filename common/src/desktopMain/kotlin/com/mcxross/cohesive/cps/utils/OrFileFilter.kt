@@ -8,13 +8,9 @@ import java.io.FileFilter
  * This filter returns `true` if one filter in the list return `true`. Otherwise, it returns `false`.
  * Checking of the file filter list stops when the first filter returns `true`.
  */
-class OrFileFilter @JvmOverloads constructor(fileFilters: List<FileFilter> = ArrayList()) :
+class OrFileFilter @JvmOverloads constructor(val fileFilters: MutableList<FileFilter> = ArrayList()) :
   FileFilter {
-
-  /** The list of file filters.  */
-  var fileFilters = ArrayList(fileFilters)
-
-  constructor(vararg fileFilters: FileFilter) : this(listOf<FileFilter>(*fileFilters)) {}
+  constructor(vararg fileFilters: FileFilter) : this(mutableListOf<FileFilter>(*fileFilters))
 
   override fun accept(file: File): Boolean {
     if (fileFilters.isEmpty()) {

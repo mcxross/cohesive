@@ -14,9 +14,9 @@ import com.mcxross.cohesive.common.Cohesive
 import com.mcxross.cohesive.common.Context
 import com.mcxross.cohesive.common.Local.LocalScreen
 import com.mcxross.cohesive.common.Screen
-import com.mcxross.cohesive.common.frontend.ui.screen.MainScreen
-import com.mcxross.cohesive.common.frontend.ui.screen.StoreScreen
-import com.mcxross.cohesive.common.frontend.ui.view.splash.SplashScreen
+import com.mcxross.cohesive.common.frontend.impl.ui.screen.MainScreen
+import com.mcxross.cohesive.common.frontend.impl.ui.screen.StoreScreen
+import com.mcxross.cohesive.common.frontend.impl.ui.view.splash.SplashScreen
 import com.mcxross.cohesive.common.frontend.utils.WindowState
 import com.mcxross.cohesive.common.frontend.utils.getPreferredWindowSize
 import com.mcxross.cohesive.common.utils.Log.e

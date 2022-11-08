@@ -41,14 +41,18 @@ class Unzip(
       deleteRecursively(destination.absolutePath)
     }
     ZipInputStream(FileInputStream(source)).use { zipInputStream ->
-      var zipEntry: ZipEntry
-      while (zipInputStream.nextEntry.also { zipEntry = it } != null) {
-        val file = File(destination, zipEntry.name)
+      var zipEntry: ZipEntry? = null
+      while (zipInputStream.nextEntry.also {
+          if (it != null) {
+            zipEntry = it
+          }
+        } != null) {
+        val file = File(destination, zipEntry!!.name)
 
         // create intermediary directories - sometimes zip don't plus them
         val dir = File(file.parent)
         mkdirsOrThrow(dir)
-        if (zipEntry.isDirectory) {
+        if (zipEntry!!.isDirectory) {
           mkdirsOrThrow(file)
         } else {
           val buffer = ByteArray(1024)

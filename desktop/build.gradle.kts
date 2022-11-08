@@ -31,7 +31,6 @@ kotlin {
 
 compose.desktop {
   application {
-    System.setProperty("cps.pluginDir", pluginDirDesktop.absolutePath)
     mainClass = "com.mcxross.cohesive.desktop.MainKt"
     nativeDistributions {
       targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
@@ -40,3 +39,7 @@ compose.desktop {
     }
   }
 }
+
+/*tasks.named("run") {
+  //systemProperty("cps.mode", "development")
+}*/

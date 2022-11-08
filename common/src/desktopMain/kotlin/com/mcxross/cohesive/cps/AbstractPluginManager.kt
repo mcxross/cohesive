@@ -12,6 +12,7 @@ import java.util.stream.Collectors
 import okio.FileSystem
 import okio.Path
 import okio.Path.Companion.toPath
+import kotlin.collections.ArrayList
 
 /**
  * This class implements the boilerplate Plugin code that any [PluginManager] implementation would
@@ -24,13 +25,19 @@ abstract class AbstractPluginManager : PluginManager {
    *
    * @return Paths of plugins roots
    */
-  final override val pluginsRoots = ArrayList<Path>()
+  final override val pluginsRoots : MutableList<Path> = ArrayList()
+    get() {
+      if (field.isEmpty()) {
+        field.addAll(createPluginsRoot())
+      }
+     return field
+    }
 
   protected open lateinit var extensionFinder: ExtensionFinder
 
   protected open lateinit var pluginDescriptorFinder: PluginDescriptorFinder
 
-  /** A map of plugins this manager is responsible for (the key is the 'pluginId'). */
+  /** A map of Plugins this manager is responsible for (the key is the 'pluginId'). */
   protected var pluginsMap: MutableMap<String?, PluginWrapper> = HashMap<String?, PluginWrapper>()
 
   /** Retrieve all plugins. */
@@ -70,7 +77,7 @@ abstract class AbstractPluginManager : PluginManager {
     }
 
   /** The system version used for comparisons to the Plugin requires attribute. */
-  final override var systemVersion: String = "0.0.0"
+  final override var systemVersion: String = "0.1.0"
   protected open lateinit var pluginRepo: PluginRepository
   protected open lateinit var pluginFactory: PluginFactory
   override lateinit var extensionFactory: ExtensionFactory
@@ -92,7 +99,7 @@ abstract class AbstractPluginManager : PluginManager {
     get() =
       pluginsRoots.stream().findFirst().orElseThrow {
         IllegalStateException(
-          "pluginsRoots have not been initialized, yet.",
+          "Plugins' roots have not been initialized, yet.",
         )
       }
   val version: String
@@ -100,11 +107,7 @@ abstract class AbstractPluginManager : PluginManager {
       return "Cohesive.VERSION"
     }
 
-  init {
-    if (pluginsRoots.isEmpty()) {
-      pluginsRoots.addAll(createPluginsRoot())
-    }
-  }
+  init {}
 
   constructor()
 
@@ -127,13 +130,13 @@ abstract class AbstractPluginManager : PluginManager {
   /** Returns a copy of plugins with that state. */
   override fun pluginsWithState(pluginState: PluginState): List<PluginWrapper> {
 
-    val plugins: MutableList<PluginWrapper> = ArrayList<PluginWrapper>()
+    val pluginsWithState: MutableList<PluginWrapper> = ArrayList<PluginWrapper>()
     plugins.forEach {
       if (it.pluginState == pluginState) {
-        plugins.add(it)
+        pluginsWithState.add(it)
       }
     }
-    return plugins
+    return pluginsWithState
   }
 
   override fun getPlugin(pluginId: String): PluginWrapper {
@@ -161,10 +164,10 @@ abstract class AbstractPluginManager : PluginManager {
 
   /** Load plugins. */
   override fun loadPlugins() {
-    Log.d { "Lookup plugins in $pluginsRoots" }
+    Log.d { "Looking Up Plugins in $pluginsRoots" }
     // check for plugins roots
     if (pluginsRoots.isEmpty()) {
-      Log.w { "No plugins roots configured" }
+      Log.w { "No Plugins' roots configured" }
       return
     }
     pluginsRoots.forEach(
@@ -180,10 +183,10 @@ abstract class AbstractPluginManager : PluginManager {
 
     // check for no plugins
     if (pluginPaths.isEmpty()) {
-      Log.i { "No plugins" }
+      Log.i { "No Plugins" }
       return
     }
-    Log.d { "Found ${pluginPaths.size} possible plugins: $pluginPaths" }
+    Log.d { "Found ${pluginPaths.size} possible Plugin(s): $pluginPaths" }
 
     // load plugins from Plugin paths
     pluginPaths.forEach {
@@ -243,7 +246,7 @@ abstract class AbstractPluginManager : PluginManager {
           try {
             (classLoader as Closeable).close()
           } catch (e: IOException) {
-            throw PluginRuntimeException(e, "Cannot close classloader")
+            throw PluginRuntimeException(e, "Cannot close Classloader")
           }
         }
       }
@@ -372,7 +375,7 @@ abstract class AbstractPluginManager : PluginManager {
     val pluginDescriptor: PluginDescriptor = pluginWrapper.descriptor
     val pluginState: PluginState = pluginWrapper.pluginState
     if (PluginState.STOPPED == pluginState) {
-      Log.d { "Already stopped Plugin ${getPluginLabel(pluginDescriptor)}" }
+      Log.d { "Already Stopped Plugin ${getPluginLabel(pluginDescriptor)}" }
       return PluginState.STOPPED
     }
 
@@ -544,7 +547,7 @@ abstract class AbstractPluginManager : PluginManager {
   protected fun isPluginValid(pluginWrapper: PluginWrapper): Boolean {
     var requires: String = pluginWrapper.descriptor.requires!!.trim { it <= ' ' }
     // TODO: fix regex
-    if (!isExactVersionAllowed && requires.matches(Regex("^init+//.init+.init+$"))) {
+    if (!isExactVersionAllowed && requires.matches(Regex("^\\d+\\.\\d+\\.\\d+$"))) {
       // If exact versions are not allowed in requires, rewrite to >= expression
       requires = ">=$requires"
     }
@@ -621,7 +624,7 @@ abstract class AbstractPluginManager : PluginManager {
 
     // Retrieve and validate the Plugin descriptor
     val pluginDescriptorFinder: PluginDescriptorFinder = pluginDescriptorFinder
-    Log.d { "Use $pluginDescriptorFinder to find plugins descriptors" }
+    Log.d { "Use $pluginDescriptorFinder to find Plugins' descriptors" }
     Log.d { "Finding Plugin descriptor for Plugin $pluginPath" }
     val pluginDescriptor: PluginDescriptor = pluginDescriptorFinder.find(pluginPath)!!
     validatePluginDescriptor(pluginDescriptor)
@@ -648,7 +651,7 @@ abstract class AbstractPluginManager : PluginManager {
     // load Plugin
     Log.d { "Loading Plugin $pluginPath" }
     val pluginClassLoader: ClassLoader = pluginLoader.loadPlugin(pluginPath, pluginDescriptor)!!
-    Log.d { "Loaded Plugin $pluginPath with class pluginLoader $pluginClassLoader" }
+    Log.d { "Loaded Plugin $pluginPath with Class pluginLoader $pluginClassLoader" }
     val pluginWrapper: PluginWrapper =
       createPluginWrapper(pluginDescriptor, pluginPath, pluginClassLoader)
 
@@ -663,7 +666,7 @@ abstract class AbstractPluginManager : PluginManager {
       Log.w { "Plugin $pluginPath is invalid and it will be disabled" }
       pluginWrapper.pluginState = PluginState.DISABLED
     }
-    Log.d { "Created wrapper $pluginWrapper for Plugin $pluginPath" }
+    Log.d { "Created Wrapper $pluginWrapper for Plugin $pluginPath" }
     pluginId = pluginDescriptor.pluginId
 
     // plus Plugin to the list with plugins
@@ -750,7 +753,7 @@ abstract class AbstractPluginManager : PluginManager {
   companion object {
     const val PLUGINS_DIR_PROPERTY_NAME: String = "cps.pluginDir"
     const val MODE_PROPERTY_NAME: String = "cps.mode"
-    const val DEFAULT_PLUGINS_DIR: String = "plugin"
-    const val DEVELOPMENT_PLUGINS_DIR: String = "../plugin"
+    const val DEFAULT_PLUGINS_DIR: String = "build/plugin/sec"
+    const val DEVELOPMENT_PLUGINS_DIR: String = "build/plugin/sec"
   }
 }

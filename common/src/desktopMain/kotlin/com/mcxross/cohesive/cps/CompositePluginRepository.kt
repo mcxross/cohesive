@@ -1,5 +1,6 @@
 package com.mcxross.cohesive.cps
 
+import com.mcxross.cohesive.common.utils.Log
 import okio.Path
 
 inline fun compositePluginRepository(
@@ -11,10 +12,10 @@ inline fun compositePluginRepository(
 }
 
 /**
- * A [PluginRepository] that delegates to a list of other [PluginRepository]s.
- * A corePlugin repository that can be used to combine multiple repositories into one.
- * Think of it as a container for other repositories.
- * The [PluginRepository]s are cached in a [MutableList]. Prefer using the DSL to add repositories.
+ * A [PluginRepository] that delegates to a list of other [PluginRepository]s. A corePlugin
+ * repository that can be used to combine multiple repositories into one. Think of it as a container
+ * for other repositories. The [PluginRepository]s are cached in a [MutableList]. Prefer using the
+ * DSL to add repositories.
  */
 class CompositePluginRepository : PluginRepository {
 
@@ -23,18 +24,19 @@ class CompositePluginRepository : PluginRepository {
     get() {
       val paths: MutableSet<Path> = LinkedHashSet()
       repositories.forEach {
+        Log.d { "CompositePluginRepository: pluginPaths: ${it.pluginPaths}" }
         paths.addAll(it.pluginPaths)
       }
       return ArrayList(paths)
     }
 
   /**
-   * Add a [PluginRepository] to this [CompositePluginRepository] only if `condition` in container is true.
+   * Add a [PluginRepository] to this [CompositePluginRepository] only if `condition` in container
+   * is true.
    * @param container The [PluginRepositoryContainer] to add.
    */
   operator fun plus(container: PluginRepositoryContainer) {
-    if (container.condition.asBoolean)
-      repositories.add(container.repo)
+    if (container.condition.asBoolean) repositories.add(container.repo)
   }
 
   /**

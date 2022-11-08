@@ -1,13 +1,10 @@
 package com.mcxross.cohesive.cps
 
-/**
- * A wrapper over extension instance.
- */
+/** A wrapper over extension instance. */
 class ExtensionWrapper<T>(
   val descriptor: ExtensionDescriptor,
   private val extensionFactory: ExtensionFactory
-) :
-  Comparable<ExtensionWrapper<T>?> {
+) : Comparable<ExtensionWrapper<T>?> {
 
   var extension: T? = null // cache extension instance
     get() {

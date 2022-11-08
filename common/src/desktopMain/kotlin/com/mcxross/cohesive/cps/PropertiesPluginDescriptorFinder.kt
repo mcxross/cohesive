@@ -9,19 +9,21 @@ import com.mcxross.cohesive.common.frontend.utils.notExists
 import com.mcxross.cohesive.common.utils.Log
 import com.mcxross.cohesive.cps.utils.FileUtils
 import com.mcxross.cohesive.cps.utils.isNotNullOrEmpty
-import okio.Path
 import java.io.IOException
 import java.util.*
+import okio.Path
 
-/**
- * Find a corePlugin descriptor in a properties file (in corePlugin repository).
- */
-class PropertiesPluginDescriptorFinder @JvmOverloads constructor(protected var propertiesFileName: String = DEFAULT_PROPERTIES_FILE_NAME) :
+/** Find a Plugin descriptor in a properties file (in Plugin repository). */
+class PropertiesPluginDescriptorFinder
+@JvmOverloads
+constructor(protected var propertiesFileName: String = DEFAULT_PROPERTIES_FILE_NAME) :
   PluginDescriptorFinder {
   override fun isApplicable(pluginPath: Path): Boolean {
-    return exists(pluginPath) && (isDirectory(pluginPath) || isZipOrJarFile(
-      pluginPath,
-    ))
+    return exists(pluginPath) &&
+      (isDirectory(pluginPath) ||
+        isZipOrJarFile(
+          pluginPath,
+        ))
   }
 
   override fun find(pluginPath: Path): PluginDescriptor {
@@ -51,11 +53,12 @@ class PropertiesPluginDescriptorFinder @JvmOverloads constructor(protected var p
   protected fun getPropertiesPath(pluginPath: Path, propertiesFileName: String): Path {
     return if (pluginPath.isDir()) {
       pluginPath.resolve(propertiesFileName)
-    } else try {
-      FileUtils.getPath(pluginPath, propertiesFileName)
-    } catch (e: IOException) {
-      throw PluginRuntimeException(e)
-    }
+    } else
+      try {
+        FileUtils.getPath(pluginPath, propertiesFileName)
+      } catch (e: IOException) {
+        throw PluginRuntimeException(e)
+      }
 
     // it's a zip or jar file
   }
@@ -97,14 +100,14 @@ class PropertiesPluginDescriptorFinder @JvmOverloads constructor(protected var p
   }
 
   companion object {
-    const val DEFAULT_PROPERTIES_FILE_NAME = "corePlugin.properties"
-    const val PLUGIN_ID = "corePlugin.id"
-    const val PLUGIN_DESCRIPTION = "corePlugin.description"
-    const val PLUGIN_CLASS = "corePlugin.class"
-    const val PLUGIN_VERSION = "corePlugin.version"
-    const val PLUGIN_PROVIDER = "corePlugin.provider"
-    const val PLUGIN_DEPENDENCIES = "corePlugin.dependencies"
-    const val PLUGIN_REQUIRES = "corePlugin.requires"
-    const val PLUGIN_LICENSE = "corePlugin.license"
+    const val DEFAULT_PROPERTIES_FILE_NAME = "Plugin.properties"
+    const val PLUGIN_ID = "Plugin.id"
+    const val PLUGIN_DESCRIPTION = "Plugin.description"
+    const val PLUGIN_CLASS = "Plugin.class"
+    const val PLUGIN_VERSION = "Plugin.version"
+    const val PLUGIN_PROVIDER = "Plugin.provider"
+    const val PLUGIN_DEPENDENCIES = "Plugin.dependencies"
+    const val PLUGIN_REQUIRES = "Plugin.requires"
+    const val PLUGIN_LICENSE = "Plugin.license"
   }
 }

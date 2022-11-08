@@ -19,8 +19,7 @@ class CompositePluginLoader : PluginLoader {
    * @param container [PluginLoaderContainer]
    */
   operator fun plus(container: PluginLoaderContainer) {
-    if (container.condition.asBoolean)
-      loaders.add(container.loader)
+    if (container.condition.asBoolean) loaders.add(container.loader)
   }
 
   fun size(): Int {
@@ -39,7 +38,7 @@ class CompositePluginLoader : PluginLoader {
   override fun loadPlugin(pluginPath: Path, pluginDescriptor: PluginDescriptor): ClassLoader {
     loaders.forEach {
       if (it.isApplicable(pluginPath)) {
-        Log.d { "$it is applicable for corePlugin $pluginPath" }
+        Log.d { "$it is applicable for Plugin $pluginPath" }
         try {
           return it.loadPlugin(pluginPath, pluginDescriptor)!!
         } catch (e: Exception) {
@@ -47,10 +46,11 @@ class CompositePluginLoader : PluginLoader {
           Log.e { e.message.toString() }
         }
       } else {
-        Log.d { "$it is not applicable for corePlugin $pluginPath" }
+        Log.d { "$it is not applicable for Plugin $pluginPath" }
       }
     }
-    throw RuntimeException("No PluginLoader for corePlugin '$pluginPath' and descriptor '$pluginDescriptor'")
+    throw RuntimeException(
+      "No Plugin Loader for Plugin '$pluginPath' and descriptor '$pluginDescriptor'"
+    )
   }
-
 }

@@ -8,12 +8,12 @@ import java.io.IOException
  *
  * All extensions declared in a corePlugin are indexed in various kt files
  * `com/mcxross/cohesive/r/{DefaultCohesiveExtension || DefaultExtensionIndex}`. This class looks-up
- * extensions in all extensions index files i.e System and Plugins.
+ * extensions in all extensions index files i.e. System and Plugins.
  */
 class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFinder(pluginManager) {
 
   override fun readSystemExtensionIndex(): MutableMap<String, Set<String>> {
-    Log.d { "Reading extensions storages from classpath" }
+    Log.d { "Reading extensions' storages from System Classpath" }
     val result: MutableMap<String, Set<String>> = LinkedHashMap()
     val bucket = mutableSetOf<String>()
     try {
@@ -41,7 +41,7 @@ class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFin
   }
 
   override fun readPluginExtensionIndex(): Map<String, Set<String>> {
-    Log.d { "Reading extensions storages from plugins" }
+    Log.d { "Reading extensions storages from Plugins" }
     val result: MutableMap<String, Set<String>> = LinkedHashMap()
     pluginManager.plugins.forEach {
       val pluginId: String = it.pluginId

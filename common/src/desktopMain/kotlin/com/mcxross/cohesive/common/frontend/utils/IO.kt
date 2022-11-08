@@ -345,3 +345,7 @@ fun extractFile(zipIn: ZipInputStream, filePath: Path) {
 fun Path.toUri(): URI {
   return this.toFile().toURI()
 }
+
+fun Path.isZip(): Boolean {
+  return isZipFile(this)
+}

@@ -2,13 +2,11 @@ package com.mcxross.cohesive.cps
 
 import java.util.*
 
-
 class PluginStateEvent(
   source: PluginManager,
   val plugin: PluginWrapper,
   val oldState: PluginState
-) :
-  EventObject(source) {
+) : EventObject(source) {
 
   val pluginState: PluginState
     get() = plugin.pluginState
@@ -18,9 +16,12 @@ class PluginStateEvent(
   }
 
   override fun toString(): String {
-    return "PluginStateEvent [corePlugin=" + plugin.pluginId +
-      ", newState=" + pluginState +
-      ", oldState=" + oldState +
+    return "PluginStateEvent [Plugin=" +
+      plugin.pluginId +
+      ", newState=" +
+      pluginState +
+      ", oldState=" +
+      oldState +
       ']'
   }
 }

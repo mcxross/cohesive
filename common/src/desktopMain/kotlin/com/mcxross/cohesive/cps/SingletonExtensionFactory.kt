@@ -1,8 +1,8 @@
 package com.mcxross.cohesive.cps
 
 /**
- * An [ExtensionFactory] that always returns a specific instance.
- * Optional, you can specify the extension classes for which you want singletons.
+ * An [ExtensionFactory] that always returns a specific instance. Optional, you can specify the
+ * extension classes for which you want singletons.
  */
 class SingletonExtensionFactory(pluginManager: PluginManager, vararg extensionClassNames: String) :
   DefaultExtensionFactory() {

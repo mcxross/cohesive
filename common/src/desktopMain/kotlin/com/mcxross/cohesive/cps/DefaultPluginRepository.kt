@@ -8,11 +8,11 @@ import com.mcxross.cohesive.cps.utils.HiddenFilter
 import com.mcxross.cohesive.cps.utils.NotFileFilter
 import com.mcxross.cohesive.cps.utils.OrFileFilter
 import com.mcxross.cohesive.cps.utils.ZipFileFilter
-import okio.Path
-import okio.Path.Companion.toPath
 import java.io.File
 import java.io.FileFilter
 import java.io.IOException
+import okio.Path
+import okio.Path.Companion.toPath
 
 class DefaultPluginRepository(pluginsRoots: List<Path>) : BasePluginRepository(pluginsRoots) {
 
@@ -49,11 +49,12 @@ class DefaultPluginRepository(pluginsRoots: List<Path>) : BasePluginRepository(p
 
   private fun extractZipFiles() {
     // expand plugins zip files
-
-    pluginsRoots.stream()
+    pluginsRoots
+      .stream()
       .flatMap { path: Path? ->
         streamFiles(
-          path!!, ZipFileFilter,
+          path!!,
+          ZipFileFilter,
         )
       }
       .map { obj: File -> obj.absolutePath.toPath() }
@@ -64,9 +65,8 @@ class DefaultPluginRepository(pluginsRoots: List<Path>) : BasePluginRepository(p
     try {
       FileUtils.expandIfZip(filePath)
     } catch (e: IOException) {
-      Log.e { "Cannot expand corePlugin zip $filePath" }
+      Log.e { "Cannot expand Plugin Zip $filePath" }
       Log.e { e.message.toString() }
     }
   }
-
 }

@@ -1,11 +1,11 @@
 package com.mcxross.cohesive.cps
 
-
 enum class RuntimeMode(
-// deployment
-  private val names: String, vararg val aliases: String,
+  // deployment
+  private val names: String,
+  vararg val aliases: String,
 ) {
-  DEVELOPMENT("development", "dev"),  // development
+  DEVELOPMENT("development", "dev"), // development
   DEPLOYMENT("deployment", "prod");
 
   override fun toString(): String {
@@ -29,8 +29,12 @@ enum class RuntimeMode(
         return map[name]
       }
       throw NoSuchElementException(
-        "Cannot find CPS runtime mode with name '" + name + "'." +
-          "Must be one value from '" + map.keys + ".",
+        "Cannot find CPS runtime mode with name '" +
+          name +
+          "'." +
+          "Must be one value from '" +
+          map.keys +
+          ".",
       )
     }
   }

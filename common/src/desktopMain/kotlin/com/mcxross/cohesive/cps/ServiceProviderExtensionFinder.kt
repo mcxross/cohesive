@@ -2,7 +2,6 @@ package com.mcxross.cohesive.cps
 
 import com.mcxross.cohesive.common.utils.Log
 import com.mcxross.cohesive.cps.utils.FileUtils
-import okio.Path.Companion.toOkioPath
 import java.io.IOException
 import java.net.URISyntaxException
 import java.net.URL
@@ -14,11 +13,11 @@ import java.nio.file.SimpleFileVisitor
 import java.nio.file.attribute.BasicFileAttributes
 import java.util.*
 import kotlin.io.path.toPath
-
+import okio.Path.Companion.toOkioPath
 
 /**
- * The [java.util.ServiceLoader] base implementation for [ExtensionFinder].
- * This class lookup extensions in all extensions index files `META-INF/services`.
+ * The [java.util.ServiceLoader] base implementation for [ExtensionFinder]. This class lookup
+ * extensions in all extensions index files `META-INF/services`.
  */
 class ServiceProviderExtensionFinder(pluginManager: PluginManager) :
   AbstractExtensionFinder(pluginManager) {
@@ -83,11 +82,12 @@ class ServiceProviderExtensionFinder(pluginManager: PluginManager) :
 
   @Throws(URISyntaxException::class, IOException::class)
   private fun collectExtensions(url: URL, bucket: MutableSet<String>) {
-    val extensionPath: Path = if (url.toURI().scheme == "jar") {
-      FileUtils.getPath(url.toURI(), EXTENSIONS_RESOURCE).toNioPath()
-    } else {
-      url.toURI().toPath()
-    }
+    val extensionPath: Path =
+      if (url.toURI().scheme == "jar") {
+        FileUtils.getPath(url.toURI(), EXTENSIONS_RESOURCE).toNioPath()
+      } else {
+        url.toURI().toPath()
+      }
     try {
       bucket.addAll(readExtensions(extensionPath))
     } finally {
@@ -99,7 +99,9 @@ class ServiceProviderExtensionFinder(pluginManager: PluginManager) :
   private fun readExtensions(extensionPath: Path): Set<String> {
     val result: Set<String> = HashSet()
     Files.walkFileTree(
-      extensionPath, emptySet(), 1,
+      extensionPath,
+      emptySet(),
+      1,
       object : SimpleFileVisitor<Path?>() {
         @Throws(IOException::class)
         override fun visitFile(file: Path?, attrs: BasicFileAttributes?): FileVisitResult {

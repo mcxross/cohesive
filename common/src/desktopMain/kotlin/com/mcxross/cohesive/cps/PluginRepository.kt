@@ -2,7 +2,6 @@ package com.mcxross.cohesive.cps
 
 import okio.Path
 
-
 /**
  * Directory that contains plugins. A corePlugin could be a `directory`, @code zip} or `jar` file.
  */

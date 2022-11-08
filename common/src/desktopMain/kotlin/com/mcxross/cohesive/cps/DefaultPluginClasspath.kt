@@ -1,8 +1,6 @@
 package com.mcxross.cohesive.cps
 
-/**
- * The default values are [.CLASSES_DIR] and `#LIB_DIR`.
- */
+/** The default values are [.CLASSES_DIR] and `#LIB_DIR`. */
 class DefaultPluginClasspath : PluginClasspath() {
   init {
     addClassesDirectories(CLASSES_DIR)

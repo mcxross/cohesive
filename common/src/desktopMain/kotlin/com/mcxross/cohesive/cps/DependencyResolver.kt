@@ -5,14 +5,14 @@ import com.mcxross.cohesive.cps.DependencyResolver.Result
 import com.mcxross.cohesive.cps.utils.DirectedGraph
 
 /**
- * This class builds a dependency graph for a list of plugins (descriptors).
- * The entry point is the [.resolve] method, method that returns a [Result] object.
- * The `Result` class contains nice information about the result of resolve operation (if it's a cyclic dependency,
- * they are not found dependencies, they are dependencies with wrong version).
- * This class is very useful for if-else scenarios.
+ * This class builds a dependency graph for a list of plugins (descriptors). The entry point is the
+ * [.resolve] method, method that returns a [Result] object. The `Result` class contains nice
+ * information about the result of resolve operation (if it's a cyclic dependency, they are not
+ * found dependencies, they are dependencies with wrong version). This class is very useful for
+ * if-else scenarios.
  *
- * Only some attributes (pluginId, dependencies and pluginVersion) from [PluginDescriptor] are used in
- * the process of `resolve` operation.
+ * Only some attributes (pluginId, dependencies and pluginVersion) from [PluginDescriptor] are used
+ * in the process of `resolve` operation.
  */
 class DependencyResolver(val versionManager: VersionManager) {
   // the value is 'pluginId'
@@ -96,7 +96,8 @@ class DependencyResolver(val versionManager: VersionManager) {
   }
 
   /**
-   * Check if an existing version of dependency is compatible with the required version (from corePlugin descriptor).
+   * Check if an existing version of dependency is compatible with the required version (from
+   * corePlugin descriptor).
    *
    * @param requiredVersion
    * @param existingVersion
@@ -115,7 +116,8 @@ class DependencyResolver(val versionManager: VersionManager) {
     } else {
       var edgeAdded = false
       for (dependency: PluginDependency in dependencies) {
-        // Don't register optional plugins in the dependency graph to avoid automatic disabling of the corePlugin,
+        // Don't register optional plugins in the dependency graph to avoid automatic disabling of
+        // the corePlugin,
         // if an optional dependency is missing.
         if (!dependency.isOptional) {
           edgeAdded = true
@@ -149,8 +151,11 @@ class DependencyResolver(val versionManager: VersionManager) {
       }
     }
     throw IllegalStateException(
-      "Cannot find a dependency with id '" + dependencyId +
-        "' for corePlugin '" + dependent.pluginId + "'",
+      "Cannot find a dependency with id '" +
+        dependencyId +
+        "' for corePlugin '" +
+        dependent.pluginId +
+        "'",
     )
   }
 
@@ -162,16 +167,14 @@ class DependencyResolver(val versionManager: VersionManager) {
 
     val wrongVersionDependencies: MutableList<WrongDependencyVersion> = ArrayList()
 
-    /**
-     * Returns true is a cyclic dependency was detected.
-     */
+    /** Returns true is a cyclic dependency was detected. */
     fun hasCyclicDependency(): Boolean {
       return cyclicDependency
     }
-
   }
 
-  class WrongDependencyVersion internal constructor(
+  class WrongDependencyVersion
+  internal constructor(
     val dependencyId: String, // value is "pluginId"
     var dependentId: String,
     val existingVersion: String,
@@ -180,29 +183,30 @@ class DependencyResolver(val versionManager: VersionManager) {
 
     override fun toString(): String {
       return ("WrongDependencyVersion{" +
-        "dependencyId='" + dependencyId + '\'' +
-        ", dependentId='" + dependentId + '\'' +
-        ", existingVersion='" + existingVersion + '\'' +
-        ", requiredVersion='" + requiredVersion + '\'' +
+        "dependencyId='" +
+        dependencyId +
+        '\'' +
+        ", dependentId='" +
+        dependentId +
+        '\'' +
+        ", existingVersion='" +
+        existingVersion +
+        '\'' +
+        ", requiredVersion='" +
+        requiredVersion +
+        '\'' +
         '}')
     }
   }
 
-  /**
-   * It will be thrown if a cyclic dependency is detected.
-   */
+  /** It will be thrown if a cyclic dependency is detected. */
   class CyclicDependencyException : PluginRuntimeException("Cyclic dependencies")
 
-  /**
-   * Indicates that the dependencies required were not found.
-   */
+  /** Indicates that the dependencies required were not found. */
   class DependenciesNotFoundException(val dependencies: List<String>) :
     PluginRuntimeException("Dependencies '{}' not found", dependencies)
 
-  /**
-   * Indicates that some dependencies have wrong version.
-   */
+  /** Indicates that some dependencies have wrong version. */
   class DependenciesWrongVersionException(val dependencies: List<WrongDependencyVersion>) :
     PluginRuntimeException("Dependencies '{}' have wrong version", dependencies)
-
 }

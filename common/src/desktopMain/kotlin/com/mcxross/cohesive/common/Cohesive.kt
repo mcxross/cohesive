@@ -34,17 +34,14 @@ fun runDescriptor() {
 }
 
 fun runConfig() {
-
   // Load configs from file and mutate context obj
   fun loadConfig(): Pair<Boolean, Platform> {
-    Log.i { "Loading config" }
-
+    Log.d { "Loading config" }
     val timeInMillis = measureTimeMillis {
       val configurationContainer: ConfigurationContainer = load(readFileToStr("config.toml"))
       Context.configuration.asSetFor = configurationContainer
     }
-
-    Log.i { "ConfigurationContainer loaded in $timeInMillis ms" }
+    Log.d { "Loaded in $timeInMillis ms" }
 
     return Pair(
       true,
@@ -70,15 +67,16 @@ fun runPlugins() {
   // Load and start plugins and mutate context obj
   Log.d { "Working on plugins" }
   val time = measureTimeMillis {
-    Context.pluginManager.loadPlugins()
-    Context.pluginManager.startPlugins()
+    Context.pluginManager = pluginManager {
+      loadPlugins()
+      startPlugins()
+    }
   }
-  Log.d { "Done Took $time ms" }
+  Log.d { "Done! Took $time ms" }
 }
 
 object Cohesive {
 
-  private val pluginManager = pluginManager {}
   private lateinit var applicationScope: ApplicationScope
 
   init {
@@ -93,7 +91,6 @@ object Cohesive {
     content: @Composable (ApplicationScope.() -> Unit),
   ) = application {
     applicationScope = this
-    Context.pluginManager = pluginManager
 
     // The MainWindow State Must be remembered
     WindowState.state =

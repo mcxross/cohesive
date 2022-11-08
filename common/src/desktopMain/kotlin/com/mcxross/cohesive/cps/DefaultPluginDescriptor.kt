@@ -6,12 +6,12 @@ import java.util.*
  * The default implementation of the [PluginDescriptor] interface
  * @param pluginId the corePlugin id. Defaults to an empty String.
  * @param pluginDescription the corePlugin description. Defaults to an empty String.
- * @param corePluginClass the corePlugin class. Defaults to [CorePlugin::class.java.name].
+ * @param pluginClass the corePlugin class. Defaults to [CorePlugin::class.java.name].
  * @param version String version of requires. String with requires expression on SemVer format
  * @param requires the corePlugin dependencies. Defaults to a '*'.
  * @param provider the corePlugin provider. Defaults to an empty String.
  * @param license the corePlugin license. Defaults to an empty String.
- * */
+ */
 open class DefaultPluginDescriptor(
   override var pluginId: String = "",
   override var pluginDescription: String = "",
@@ -25,18 +25,29 @@ open class DefaultPluginDescriptor(
   override var dependencies: MutableList<PluginDependency> = mutableListOf()
 
   override fun toString(): String {
-    return ("PluginDescriptor [pluginId=" + pluginId + ", corePluginClass="
-      + pluginClass + ", version=" + version + ", provider="
-      + provider + ", dependencies=" + dependencies + ", description="
-      + pluginDescription + ", requires=" + requires + ", license="
-      + license + "]")
+    return ("PluginDescriptor [pluginId=" +
+      pluginId +
+      ", corePluginClass=" +
+      pluginClass +
+      ", version=" +
+      version +
+      ", provider=" +
+      provider +
+      ", dependencies=" +
+      dependencies +
+      ", description=" +
+      pluginDescription +
+      ", requires=" +
+      requires +
+      ", license=" +
+      license +
+      "]")
   }
 
   fun setDependencies(dependencies: String) {
     dependencies.trim { it <= ' ' }
     if (dependencies.isNotEmpty()) {
-      val tokens = dependencies.split(",".toRegex()).dropLastWhile { it.isEmpty() }
-        .toTypedArray()
+      val tokens = dependencies.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
       for (dependency in tokens) {
         dependency.trim { it <= ' ' }
         if (dependency.isNotEmpty()) {
@@ -49,7 +60,14 @@ open class DefaultPluginDescriptor(
   override fun equals(other: Any?): Boolean {
     if (this === other) return true
     if (other !is DefaultPluginDescriptor) return false
-    return (pluginId == other.pluginId) && (pluginDescription == other.pluginDescription) && (pluginClass == other.pluginClass) && (version == other.version) && (requires == other.requires) && (provider == other.provider) && (dependencies == other.dependencies) && (license == other.license)
+    return (pluginId == other.pluginId) &&
+      (pluginDescription == other.pluginDescription) &&
+      (pluginClass == other.pluginClass) &&
+      (version == other.version) &&
+      (requires == other.requires) &&
+      (provider == other.provider) &&
+      (dependencies == other.dependencies) &&
+      (license == other.license)
   }
 
   override fun hashCode(): Int {

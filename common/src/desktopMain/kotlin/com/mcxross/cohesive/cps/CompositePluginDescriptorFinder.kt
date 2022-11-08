@@ -11,9 +11,7 @@ inline fun compositePluginDescriptorFinder(
   return compositePluginDescriptorFinder
 }
 
-/**
- * A [PluginDescriptorFinder] that delegates to a list of other [PluginDescriptorFinder]s.
- * */
+/** A [PluginDescriptorFinder] that delegates to a list of other [PluginDescriptorFinder]s. */
 class CompositePluginDescriptorFinder : PluginDescriptorFinder {
 
   private val finders: MutableList<PluginDescriptorFinder> = ArrayList()
@@ -57,5 +55,4 @@ class CompositePluginDescriptorFinder : PluginDescriptorFinder {
     }
     throw PluginRuntimeException("No PluginDescriptorFinder for corePlugin '{}'", pluginPath)
   }
-
 }

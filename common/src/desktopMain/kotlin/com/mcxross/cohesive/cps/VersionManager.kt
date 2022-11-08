@@ -1,13 +1,9 @@
 package com.mcxross.cohesive.cps
 
-
-/**
- * Manager responsible for versions of plugins.
- */
+/** Manager responsible for versions of plugins. */
 interface VersionManager {
   /**
-   * Check if a `constraint` and a `version` match.
-   * A possible constrain can be `>=1.0.0 & <2.0.0`.
+   * Check if a `constraint` and a `version` match. A possible constrain can be `>=1.0.0 & <2.0.0`.
    *
    * @param version
    * @param constraint
