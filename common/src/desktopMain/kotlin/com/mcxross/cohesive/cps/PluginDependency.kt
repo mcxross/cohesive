@@ -19,7 +19,7 @@ class PluginDependency(dependency: String) {
       }
     }
 
-    // A dependency is considered as optional, if the corePlugin id ends with a question mark.
+    // A dependency is considered as optional, if the Plugin id ends with a question mark.
     isOptional = pluginId!!.endsWith("?")
     if (isOptional) {
       pluginId = pluginId!!.substring(0, pluginId!!.length - 1)

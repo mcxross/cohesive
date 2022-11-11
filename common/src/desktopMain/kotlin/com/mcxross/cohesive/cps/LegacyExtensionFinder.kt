@@ -6,7 +6,7 @@ import java.io.IOException
 /**
  * An extension finder that attempts to find System and Plugin Extensions.
  *
- * All extensions declared in a corePlugin are indexed in various kt files
+ * All extensions declared in a Plugin are indexed in various kt files
  * `com/mcxross/cohesive/r/{DefaultCohesiveExtension || DefaultExtensionIndex}`. This class looks-up
  * extensions in all extensions index files i.e. System and Plugins.
  */

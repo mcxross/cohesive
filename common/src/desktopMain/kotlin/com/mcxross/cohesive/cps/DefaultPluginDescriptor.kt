@@ -4,13 +4,13 @@ import java.util.*
 
 /**
  * The default implementation of the [PluginDescriptor] interface
- * @param pluginId the corePlugin id. Defaults to an empty String.
- * @param pluginDescription the corePlugin description. Defaults to an empty String.
- * @param pluginClass the corePlugin class. Defaults to [CorePlugin::class.java.name].
+ * @param pluginId the Plugin id. Defaults to an empty String.
+ * @param pluginDescription the Plugin description. Defaults to an empty String.
+ * @param pluginClass the Plugin class. Defaults to [Plugin::class.java.name].
  * @param version String version of requires. String with requires expression on SemVer format
- * @param requires the corePlugin dependencies. Defaults to a '*'.
- * @param provider the corePlugin provider. Defaults to an empty String.
- * @param license the corePlugin license. Defaults to an empty String.
+ * @param requires the Plugin dependencies. Defaults to a '*'.
+ * @param provider the Plugin provider. Defaults to an empty String.
+ * @param license the Plugin license. Defaults to an empty String.
  */
 open class DefaultPluginDescriptor(
   override var pluginId: String = "",

@@ -78,9 +78,9 @@ open class CompositeExtensionFinder(val pluginManager: PluginManager) :
   }
 
   /**
-   * Find a list of Extension class names for the given corePlugin id.
+   * Find a list of Extension class names for the given Plugin id.
    *
-   * @param pluginId the corePlugin id
+   * @param pluginId the Plugin id
    * @return a list of Extension class names
    * @since 0.1.0
    */

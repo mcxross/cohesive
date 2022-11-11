@@ -2,27 +2,27 @@ package com.mcxross.cohesive.cps
 
 enum class PluginState(private val status: String) {
   /**
-   * The runtime knows the corePlugin is there. It knows about the corePlugin path, the corePlugin
+   * The runtime knows the Plugin is there. It knows about the Plugin path, the Plugin
    * descriptor.
    */
   CREATED("CREATED"),
 
-  /** The corePlugin cannot be used. */
+  /** The Plugin cannot be used. */
   DISABLED("DISABLED"),
 
   /**
-   * The corePlugin is created. All the dependencies are created and resolved. The corePlugin is
+   * The Plugin is created. All the dependencies are created and resolved. The Plugin is
    * ready to be started.
    */
   RESOLVED("RESOLVED"),
 
-  /** The [Plugin.start] has executed. A started corePlugin may contribute extensions. */
+  /** The [Plugin.start] has executed. A started Plugin may contribute extensions. */
   STARTED("STARTED"),
 
   /** The [Plugin.stop] has executed. */
   STOPPED("STOPPED"),
 
-  /** CorePlugin failed to start. */
+  /** Plugin failed to start. */
   FAILED("FAILED");
 
   fun equals(status: String?): Boolean {

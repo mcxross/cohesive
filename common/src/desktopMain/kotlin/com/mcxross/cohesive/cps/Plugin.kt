@@ -1,16 +1,16 @@
 package com.mcxross.cohesive.cps
 
 /**
- * This class will be extended by all plugins and serve as the common class between a corePlugin and
+ * This class will be extended by all plugins and serve as the common class between a Plugin and
  * the application.
  */
 abstract class Plugin(wrapper: PluginWrapper?) {
 
-  /** Wrapper of the corePlugin. */
+  /** Wrapper of the Plugin. */
   var wrapper: PluginWrapper
 
   /**
-   * Constructor to be used by corePlugin manager for corePlugin instantiation. Your plugins have to
+   * Constructor to be used by Plugin manager for Plugin instantiation. Your plugins have to
    * provide constructor with this exact signature to be successfully loaded by manager.
    */
   init {
@@ -19,19 +19,19 @@ abstract class Plugin(wrapper: PluginWrapper?) {
   }
 
   /**
-   * This method is called by the application when the corePlugin is started. See
+   * This method is called by the application when the Plugin is started. See
    * [PluginManager.startPlugin].
    */
   abstract fun start()
 
   /**
-   * This method is called by the application when the corePlugin is stopped. See
+   * This method is called by the application when the Plugin is stopped. See
    * [PluginManager.stopPlugin].
    */
   abstract fun stop()
 
   /**
-   * This method is called by the application when the corePlugin is deleted. See
+   * This method is called by the application when the Plugin is deleted. See
    * [PluginManager.deletePlugin].
    */
   abstract fun delete()

@@ -3,7 +3,7 @@ package com.mcxross.cohesive.cps
 import okio.Path
 
 /**
- * Find a corePlugin descriptor for a corePlugin path. You can find the corePlugin descriptor in
+ * Find a Plugin descriptor for a Plugin path. You can find the Plugin descriptor in
  * manifest file [ManifestPluginDescriptorFinder], properties file
  * [PropertiesPluginDescriptorFinder], xml file, java services (with [java.util.ServiceLoader]),
  * etc.

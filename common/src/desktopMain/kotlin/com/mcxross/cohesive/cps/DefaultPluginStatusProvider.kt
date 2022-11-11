@@ -33,12 +33,12 @@ class DefaultPluginStatusProvider(private val pluginsRoot: Path) : PluginStatusP
       plugins.roll(config.secondaryKindStatus)
       // plugins.role(config.tertiaryKindStatus)
 
-      // create a list with corePlugin identifiers that should be only accepted by this manager
+      // create a list with Plugin identifiers that should be only accepted by this manager
       // (whitelist from plugins/enabled.txt file)
       // enabledPlugins = FileUtils.readLines(enabledFilePath, true).toMutableList()
       Log.i { "Enabled plugins: ${plugins.enabled}" }
 
-      // create a list with corePlugin identifiers that should not be accepted by this manager
+      // create a list with Plugin identifiers that should not be accepted by this manager
       // (blacklist from plugins/disabled.txt file)
       // disabledPlugins = FileUtils.readLines(disabledFilePath, true).toMutableList()
       Log.i { "Disabled plugins: ${plugins.disabled}" }
@@ -61,7 +61,7 @@ class DefaultPluginStatusProvider(private val pluginsRoot: Path) : PluginStatusP
     if (exists(enabledFilePath)) {
       plugins.enabled.remove(pluginId)
       try {
-        // TODO: disable corePlugin in config
+        // TODO: disable Plugin in config
         // FileUtils.writeLines(plugins.enabled, enabledFilePath)
       } catch (e: IOException) {
         throw PluginRuntimeException(e)
@@ -70,7 +70,7 @@ class DefaultPluginStatusProvider(private val pluginsRoot: Path) : PluginStatusP
       plugins.disabled.add(pluginId)
       try {
         // FileUtils.writeLines(plugins.disabled, disabledFilePath)
-        // TODO: disable corePlugin in config
+        // TODO: disable Plugin in config
       } catch (e: IOException) {
         throw PluginRuntimeException(e)
       }
@@ -86,7 +86,7 @@ class DefaultPluginStatusProvider(private val pluginsRoot: Path) : PluginStatusP
       plugins.enabled.add(pluginId)
       try {
         // FileUtils.writeLines(plugins.enabled, enabledFilePath)
-        // TODO: enable corePlugin in config
+        // TODO: enable Plugin in config
       } catch (e: IOException) {
         throw PluginRuntimeException(e)
       }
@@ -94,7 +94,7 @@ class DefaultPluginStatusProvider(private val pluginsRoot: Path) : PluginStatusP
       plugins.disabled.remove(pluginId)
       try {
         // FileUtils.writeLines(plugins.disabled, disabledFilePath)
-        // TODO: enable corePlugin in config
+        // TODO: enable Plugin in config
       } catch (e: IOException) {
         throw PluginRuntimeException(e)
       }
