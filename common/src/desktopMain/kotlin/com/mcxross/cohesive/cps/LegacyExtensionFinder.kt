@@ -4,7 +4,7 @@ import com.mcxross.cohesive.common.utils.Log
 import java.io.IOException
 
 /**
- * An extension finder that attempts to find System and CorePlugin Extensions.
+ * An extension finder that attempts to find System and Plugin Extensions.
  *
  * All extensions declared in a corePlugin are indexed in various kt files
  * `com/mcxross/cohesive/r/{DefaultCohesiveExtension || DefaultExtensionIndex}`. This class looks-up
@@ -13,7 +13,7 @@ import java.io.IOException
 class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFinder(pluginManager) {
 
   override fun readSystemExtensionIndex(): MutableMap<String, Set<String>> {
-    Log.d { "Reading extensions' storages from System Classpath" }
+    Log.d { "Reading Extensions' Storages from System Classpath" }
     val result: MutableMap<String, Set<String>> = LinkedHashMap()
     val bucket = mutableSetOf<String>()
     try {
@@ -41,23 +41,34 @@ class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFin
   }
 
   override fun readPluginExtensionIndex(): Map<String, Set<String>> {
-    Log.d { "Reading extensions storages from Plugins" }
+    Log.d { "Reading Extensions Storages from Plugins" }
     val result: MutableMap<String, Set<String>> = LinkedHashMap()
     pluginManager.plugins.forEach {
       val pluginId: String = it.pluginId
-      Log.d { "Reading extensions storages from corePlugin $pluginId" }
+      Log.d { "Reading Extensions Storages from Plugin $pluginId" }
       val bucket = mutableSetOf<String>()
       try {
-        Log.d { "Read $EXTENSIONS_RESOURCE" }
-        (javaClass.classLoader.loadClass(EXTENSIONS_RESOURCE).getDeclaredConstructor().newInstance()
+        Log.d { "Determining if $pluginId is Secondary Plugin" }
+        Log.d { "Read $COHESIVE_RESOURCE" }
+        (javaClass.classLoader.loadClass(COHESIVE_RESOURCE).getDeclaredConstructor().newInstance()
             as ExtensionIndex)
           .extensions
           .forEach { ext -> bucket.add(ext) }
-        debugExtensions(bucket)
-        result[pluginId] = bucket
       } catch (e: IOException) {
-        Log.e { e.message.toString() }
+        Log.d { "$pluginId is Not a Secondary Plugin" }
+        try {
+          (javaClass.classLoader
+              .loadClass(EXTENSIONS_RESOURCE)
+              .getDeclaredConstructor()
+              .newInstance() as ExtensionIndex)
+            .extensions
+            .forEach { ext -> bucket.add(ext) }
+        } catch (e: IOException) {
+          Log.e { e.message.toString() }
+        }
       }
+      debugExtensions(bucket)
+      result[pluginId] = bucket
     }
 
     return result

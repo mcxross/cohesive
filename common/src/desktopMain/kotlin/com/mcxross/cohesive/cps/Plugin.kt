@@ -4,7 +4,7 @@ package com.mcxross.cohesive.cps
  * This class will be extended by all plugins and serve as the common class between a corePlugin and
  * the application.
  */
-abstract class CorePlugin(wrapper: PluginWrapper?) {
+abstract class Plugin(wrapper: PluginWrapper?) {
 
   /** Wrapper of the corePlugin. */
   var wrapper: PluginWrapper

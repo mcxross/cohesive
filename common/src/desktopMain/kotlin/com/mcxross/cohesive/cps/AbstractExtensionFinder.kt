@@ -27,9 +27,9 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
   abstract fun readPluginExtensionIndex(): Map<String, Set<String>>
 
   /**
-   * Attempts to read the [CorePlugin]s for the extension index file.
+   * Attempts to read the [Plugin]s for the extension index file.
    *
-   * The key is the corePlugin id, and the value is the set of extension classes as strings (e.g. 'com.mcxross.cohesive.cps.CohesivePlugin')
+   * The key is the Plugin id, and the value is the set of extension classes as strings (e.g. 'com.mcxross.cohesive.cps.CohesivePlugin')
    * @return a [Map] of extensions or an empty [Map] if the file is not found
    */
   abstract fun readSystemExtensionIndex(): MutableMap<String, Set<String>>
@@ -72,7 +72,7 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
   }
 
   override fun <T> find(type: Class<T>, pluginId: String): List<ExtensionWrapper<T>> {
-    Log.d { "Finding extensions of extension point ${type.name} for corePlugin $pluginId" }
+    Log.d { "Finding extensions of extension point ${type.name} for Plugin $pluginId" }
     val result = ArrayList<ExtensionWrapper<T>>()
 
     // classpath's extensions <=> pluginId = null
@@ -87,7 +87,7 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
       if (com.mcxross.cohesive.cps.PluginState.STARTED != pluginWrapper.pluginState) {
         return result
       }
-      Log.i { "Checking CorePlugin extensions from corePlugin $pluginId" }
+      Log.i { "Checking Plugin extensions from Plugin $pluginId" }
 
     } else {
       Log.d { "Checking System extensions from classpath" }
@@ -159,7 +159,7 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
   }
 
   override fun <T> find(pluginId: String): List<ExtensionWrapper<T>> {
-    Log.d { "Finding extensions from corePlugin $pluginId" }
+    Log.d { "Finding extensions from Plugin $pluginId" }
     val result: MutableList<ExtensionWrapper<T>> = ArrayList()
     val classNames = findClassNames(pluginId)
     if (classNames.isEmpty()) {
@@ -169,7 +169,7 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
     if (com.mcxross.cohesive.cps.PluginState.STARTED != pluginWrapper.pluginState) {
       return result
     }
-    Log.d { "Checking extensions from corePlugin $pluginId" }
+    Log.d { "Checking extensions from Plugin $pluginId" }
     val classLoader = pluginManager.getPluginClassLoader(pluginId)
     classNames.forEach {
       try {
@@ -186,9 +186,9 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
     }
 
     if (result.isEmpty()) {
-      Log.d { "No extensions found for corePlugin $pluginId" }
+      Log.d { "No extensions found for Plugin $pluginId" }
     } else {
-      Log.d { "Found ${result.size} extensions for corePlugin $pluginId" }
+      Log.d { "Found ${result.size} extensions for Plugin $pluginId" }
     }
 
     // sort by "ordinal" property
@@ -207,10 +207,10 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
 
     // By default, we're assuming, that no checks for extension dependencies are necessary.
     //
-    // A corePlugin, that has an optional dependency to other plugins, might lead to un-loadable
+    // A Plugin, that has an optional dependency to other plugins, might lead to un-loadable
     // Java classes (NoClassDefFoundError) at application runtime due to possibly missing
     // dependencies. Therefore, we're enabling the check for optional extensions, if the
-    // started corePlugin contains at least one optional corePlugin dependency.
+    // started Plugin contains at least one optional Plugin dependency.
     if (checkForExtensionDependencies == null && com.mcxross.cohesive.cps.PluginState.STARTED == event.pluginState) {
       for (dependency in event.plugin.descriptor.dependencies!!) {
         if (dependency.isOptional) {
@@ -228,8 +228,8 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
    * [Extension.plugins] configured by an extension.
    *
    *
-   * This feature is enabled by default, if at least one available corePlugin makes use of
-   * optional corePlugin dependencies. Those optional plugins might not be available at runtime.
+   * This feature is enabled by default, if at least one available Plugin makes use of
+   * optional Plugin dependencies. Those optional plugins might not be available at runtime.
    * Therefore, any extension is checked by default against available plugins before its
    * instantiation.
    *
@@ -244,13 +244,13 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
   }
 
   /**
-   * CorePlugin developers may enable / disable checks for required plugins of an extension.
+   * Plugin developers may enable / disable checks for required plugins of an extension.
    * This feature has to be enabled, in order check the availability of
    * [Extension.plugins] configured by an extension.
    *
    *
-   * This feature is enabled by default, if at least one available corePlugin makes use of
-   * optional corePlugin dependencies. Those optional plugins might not be available at runtime.
+   * This feature is enabled by default, if at least one available Plugin makes use of
+   * optional Plugin dependencies. Those optional plugins might not be available at runtime.
    * Therefore, any extension is checked by default against available plugins before its
    * instantiation.
    *

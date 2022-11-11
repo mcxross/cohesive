@@ -6,7 +6,7 @@ import com.mcxross.cohesive.common.utils.Log
 open class DefaultExtensionFactory : ExtensionFactory {
   /** Creates an extension instance. */
   override fun <T> create(extensionClass: Class<T>): T {
-    Log.d { "Creating extension instance for $extensionClass" }
+    Log.d { "Creating Extension instance for $extensionClass" }
     return try {
       extensionClass.getDeclaredConstructor().newInstance()
     } catch (e: Exception) {

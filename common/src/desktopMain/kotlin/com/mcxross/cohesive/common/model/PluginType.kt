@@ -1,5 +1,5 @@
 package com.mcxross.cohesive.common.model
 
-enum class Plugin {
+enum class PluginType {
   PRIMARY, SECONDARY, TERTIARY
 }

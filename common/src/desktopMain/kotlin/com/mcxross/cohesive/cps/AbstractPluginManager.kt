@@ -48,13 +48,13 @@ abstract class AbstractPluginManager : PluginManager {
   protected var pluginClassLoaders: MutableMap<String?, ClassLoader> = HashMap()
 
   /** A list with unresolved plugins (unresolved dependency). */
-  override var unresolvedPlugins: MutableList<PluginWrapper> = ArrayList<PluginWrapper>()
+  override var unresolvedPlugins: MutableList<PluginWrapper> = ArrayList()
 
   /** A list with all resolved plugins (resolved dependency). */
-  override var resolvedPlugins: MutableList<PluginWrapper> = ArrayList<PluginWrapper>()
+  override var resolvedPlugins: MutableList<PluginWrapper> = ArrayList()
 
   /** A list with started plugins. */
-  override var startedPlugins: MutableList<PluginWrapper> = ArrayList<PluginWrapper>()
+  override var startedPlugins: MutableList<PluginWrapper> = ArrayList()
 
   /** The registered [PluginStateListener]s. */
   protected var pluginStateListeners: MutableList<PluginStateListener> =
@@ -269,14 +269,14 @@ abstract class AbstractPluginManager : PluginManager {
 
     // get an instance of Plugin before the Plugin is unloaded
     // for reason see https://github.com/pf4j/pf4j/issues/309
-    val Plugin: CorePlugin? = pluginWrapper.corePlugin
+    val plugin: Plugin? = pluginWrapper.plugin
     if (!unloadPlugin(pluginId)) {
       Log.e { "Failed to unload Plugin $pluginId on delete" }
       return false
     }
 
-    // notify the Plugin as it's deleted
-    Plugin!!.delete()
+    // notify the plugin as it's deleted
+    plugin!!.delete()
     val pluginPath: Path = pluginWrapper.pluginPath
     return pluginRepo.deletePluginPath(pluginPath)
   }
@@ -288,7 +288,7 @@ abstract class AbstractPluginManager : PluginManager {
       if ((PluginState.DISABLED != pluginState) && (PluginState.STARTED != pluginState)) {
         try {
           Log.i { "Start Plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
-          pluginWrapper.corePlugin!!.start()
+          pluginWrapper.plugin!!.start()
           pluginWrapper.pluginState = PluginState.STARTED
           pluginWrapper.failedException = null
           startedPlugins.add(pluginWrapper)
@@ -334,7 +334,7 @@ abstract class AbstractPluginManager : PluginManager {
       }
     }
     Log.i { "Start Plugin ${getPluginLabel(pluginDescriptor)}" }
-    pluginWrapper.corePlugin!!.start()
+    pluginWrapper.plugin!!.start()
     pluginWrapper.pluginState = PluginState.STARTED
     startedPlugins.add(pluginWrapper)
     firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
@@ -353,7 +353,7 @@ abstract class AbstractPluginManager : PluginManager {
       if (PluginState.STARTED == pluginState) {
         try {
           Log.i { "Stop Plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
-          pluginWrapper.corePlugin?.stop()
+          pluginWrapper.plugin?.stop()
           pluginWrapper.pluginState = PluginState.STOPPED
           itr.remove()
           firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
@@ -393,7 +393,7 @@ abstract class AbstractPluginManager : PluginManager {
       }
     }
     Log.i { "Stop Plugin ${getPluginLabel(pluginDescriptor)}" }
-    pluginWrapper.corePlugin?.stop()
+    pluginWrapper.plugin?.stop()
     pluginWrapper.pluginState = PluginState.STOPPED
     startedPlugins.remove(pluginWrapper)
     firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))

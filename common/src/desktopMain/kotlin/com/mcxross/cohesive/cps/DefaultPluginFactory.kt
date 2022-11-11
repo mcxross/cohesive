@@ -11,7 +11,7 @@ class DefaultPluginFactory : PluginFactory {
    * @param pluginWrapper
    * @return
    */
-  override fun create(pluginWrapper: PluginWrapper): CorePlugin? {
+  override fun create(pluginWrapper: PluginWrapper): Plugin? {
     val pluginClassName: String = pluginWrapper.descriptor.pluginClass!!
     Log.d { "Creating corePlugin instance for $pluginClassName" }
     val pluginClass: Class<*> =
@@ -28,16 +28,16 @@ class DefaultPluginFactory : PluginFactory {
     if (
       Modifier.isAbstract(modifiers) ||
         Modifier.isInterface(modifiers) ||
-        !CorePlugin::class.java.isAssignableFrom(pluginClass)
+        !Plugin::class.java.isAssignableFrom(pluginClass)
     ) {
-      Log.e { "CorePlugin class $pluginClassName is not a valid implementation of a corePlugin" }
+      Log.e { "Plugin class $pluginClassName is not a valid implementation of a corePlugin" }
       return null
     }
 
     // create the corePlugin instance
     try {
       val constructor = pluginClass.getConstructor(PluginWrapper::class.java)
-      return constructor.newInstance(pluginWrapper) as CorePlugin
+      return constructor.newInstance(pluginWrapper) as Plugin
     } catch (e: Exception) {
       Log.e { e.message.toString() }
     }

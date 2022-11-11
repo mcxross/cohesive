@@ -25,10 +25,10 @@ class PluginWrapper(
    */
   var failedException: Throwable? = null
 
-  var corePlugin: CorePlugin? = null
+  var plugin: Plugin? = null
     get() {
       if (field == null) {
-        corePlugin = pluginFactory!!.create(this)
+        plugin = pluginFactory!!.create(this)
       }
       return field
     }

@@ -1,5 +1,5 @@
 package com.mcxross.cohesive.cps
 
-/** Load all information needed by a corePlugin from [DevelopmentPluginClasspath]. */
+/** Load all information needed by a Plugin from [DevelopmentPluginClasspath]. */
 class DevelopmentPluginLoader(pluginManager: PluginManager) :
   BasePluginLoader(pluginManager, DevelopmentPluginClasspath())

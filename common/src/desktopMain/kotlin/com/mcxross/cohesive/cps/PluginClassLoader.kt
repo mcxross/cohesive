@@ -64,12 +64,12 @@ constructor(
         //                log.trace("Delegate the loading of PF4J class '{}' to parent", className);
         return parent.loadClass(className)
       }
-      Log.v { "Received request to load class $className" }
+      Log.v { "Received request to Load Class $className" }
 
       // second check whether it's already been loaded
       val loadedClass = findLoadedClass(className)
       if (loadedClass != null) {
-        Log.v { "Found loaded class $className" }
+        Log.v { "Found Loaded Class $className" }
         return loadedClass
       }
 
@@ -83,10 +83,10 @@ constructor(
           }
         } catch (ignored: ClassNotFoundException) {}
         if (c != null) {
-          Log.v { "Found class $className in $it classpath" }
+          Log.v { "Found class $className in $it ClassPath" }
           return c
         } else {
-          Log.v { "Couldn't find class $className in $it classpath" }
+          Log.v { "Couldn't find class $className in $it ClassPath" }
         }
       }
       throw ClassNotFoundException(className)
@@ -95,7 +95,7 @@ constructor(
 
   /**
    * Load the named resource from this Plugin. By default, this implementation checks the Plugin's
-   * classpath first then delegates to the parent. Use [.classLoadingStrategy] to change the loading
+   * ClassPath first then delegates to the parent. Use [.classLoadingStrategy] to change the loading
    * strategy.
    *
    * @param name the name of the resource.
@@ -111,7 +111,7 @@ constructor(
           ClassLoadingStrategy.Source.DEPENDENCIES -> findResourceFromDependencies(name)
         }
       if (url != null) {
-        Log.v { "Found resource $name in $it classpath" }
+        Log.v { "Found resource $name in $it ClassPath" }
         return url
       } else {
         Log.v { "Couldn't find resource $name in $it" }
@@ -123,7 +123,7 @@ constructor(
   @Throws(IOException::class)
   override fun getResources(name: String): Enumeration<URL> {
     val resources: MutableList<URL> = ArrayList()
-    Log.v { "Received request to load resources $name" }
+    Log.v { "Received request to load Resources $name" }
     classLoadingStrategy.sources.forEach {
       when (it) {
         ClassLoadingStrategy.Source.APPLICATION ->

@@ -4,7 +4,7 @@ import com.mcxross.cohesive.common.frontend.api.ui.view.CohesiveView
 import okio.Path
 
 /**
- * Provides the functionality for corePlugin management such as load, start and stop the plugins.
+ * Provides the functionality for plugin management such as load, start and stop the plugins.
  */
 interface PluginManager {
   /** Retrieves all plugins. */
@@ -14,19 +14,19 @@ interface PluginManager {
   fun pluginsWithState(pluginState: PluginState): List<PluginWrapper>
 
   /** Retrieves all resolved plugins (with resolved dependency). */
-  val resolvedPlugins: List<Any>
+  val resolvedPlugins: List<PluginWrapper>
 
   /** Retrieves all unresolved plugins (with unresolved dependency). */
-  val unresolvedPlugins: List<Any>
+  val unresolvedPlugins: List<PluginWrapper>
 
   /** Retrieves all started plugins. */
-  val startedPlugins: List<Any>
+  val startedPlugins: List<PluginWrapper>
 
   /**
-   * Retrieves the corePlugin with this id, or null if the corePlugin does not exist.
+   * Retrieves the plugin with this id, or null if the plugin does not exist.
    *
-   * @param pluginId the unique corePlugin identifier, specified in its metadata
-   * @return A PluginWrapper object for this corePlugin, or null if it does not exist.
+   * @param pluginId the unique plugin identifier, specified in its metadata
+   * @return A [PluginWrapper] object for this plugin, or null if it does not exist.
    */
   fun getPlugin(pluginId: String): PluginWrapper
 
@@ -34,10 +34,10 @@ interface PluginManager {
   fun loadPlugins()
 
   /**
-   * Load a corePlugin.
+   * Load a plugin.
    *
-   * @param pluginPath the corePlugin location
-   * @return the pluginId of the installed corePlugin as specified in its [metadata]
+   * @param pluginPath the plugin location
+   * @return the pluginId of the installed plugin as specified in its [metadata]
    * [PluginDescriptor]
    * @throws PluginRuntimeException if something goes wrong
    */
@@ -47,9 +47,9 @@ interface PluginManager {
   fun startPlugins()
 
   /**
-   * Start the specified corePlugin and its dependencies.
+   * Start the specified plugin and its dependencies.
    *
-   * @return the corePlugin state
+   * @return the plugin state
    * @throws PluginRuntimeException if something goes wrong
    */
   fun startPlugin(pluginId: String): PluginState?
@@ -58,9 +58,9 @@ interface PluginManager {
   fun stopPlugins()
 
   /**
-   * Stop the specified corePlugin and its dependencies.
+   * Stop the specified plugin and its dependencies.
    *
-   * @return the corePlugin state
+   * @return the plugin state
    * @throws PluginRuntimeException if something goes wrong
    */
   fun stopPlugin(pluginId: String): PluginState?
@@ -69,37 +69,37 @@ interface PluginManager {
   fun unloadPlugins()
 
   /**
-   * Unload a corePlugin.
+   * Unload a plugin.
    *
-   * @param pluginId the unique corePlugin identifier, specified in its metadata
-   * @return true if the corePlugin was unloaded
+   * @param pluginId the unique plugin identifier, specified in its metadata
+   * @return true if the plugin was unloaded
    * @throws PluginRuntimeException if something goes wrong
    */
   fun unloadPlugin(pluginId: String): Boolean
 
   /**
-   * Disables a corePlugin from being loaded.
+   * Disables a plugin from being loaded.
    *
-   * @param pluginId the unique corePlugin identifier, specified in its metadata
-   * @return true if corePlugin is disabled
+   * @param pluginId the unique plugin identifier, specified in its metadata
+   * @return true if plugin is disabled
    * @throws PluginRuntimeException if something goes wrong
    */
   fun disablePlugin(pluginId: String): Boolean
 
   /**
-   * Enables a corePlugin that has previously been disabled.
+   * Enables a plugin that has previously been disabled.
    *
-   * @param pluginId the unique corePlugin identifier, specified in its metadata
-   * @return true if corePlugin is enabled
+   * @param pluginId the unique plugin identifier, specified in its metadata
+   * @return true if plugin is enabled
    * @throws PluginRuntimeException if something goes wrong
    */
   fun enablePlugin(pluginId: String): Boolean
 
   /**
-   * Deletes a corePlugin.
+   * Deletes a plugin.
    *
-   * @param pluginId the unique corePlugin identifier, specified in its metadata
-   * @return true if the corePlugin was deleted
+   * @param pluginId the unique plugin identifier, specified in its metadata
+   * @return true if the plugin was deleted
    * @throws PluginRuntimeException if something goes wrong
    */
   fun deletePlugin(pluginId: String): Boolean
@@ -135,7 +135,7 @@ interface PluginManager {
    * @return the system version
    */
   /**
-   * Set the system version. This is used to compare against the corePlugin requires attribute. The
+   * Set the system version. This is used to compare against the plugin requires attribute. The
    * default system version is 0.0.0 which disables all version checking.
    *
    * @default 0.0.0

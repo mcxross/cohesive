@@ -16,10 +16,10 @@ enum class PluginState(private val status: String) {
    */
   RESOLVED("RESOLVED"),
 
-  /** The [CorePlugin.start] has executed. A started corePlugin may contribute extensions. */
+  /** The [Plugin.start] has executed. A started corePlugin may contribute extensions. */
   STARTED("STARTED"),
 
-  /** The [CorePlugin.stop] has executed. */
+  /** The [Plugin.stop] has executed. */
   STOPPED("STOPPED"),
 
   /** CorePlugin failed to start. */

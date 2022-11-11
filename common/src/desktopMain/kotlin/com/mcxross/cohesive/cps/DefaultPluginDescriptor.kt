@@ -15,7 +15,7 @@ import java.util.*
 open class DefaultPluginDescriptor(
   override var pluginId: String = "",
   override var pluginDescription: String = "",
-  override var pluginClass: String = CorePlugin::class.java.name,
+  override var pluginClass: String = Plugin::class.java.name,
   override var version: String = "",
   override var requires: String = "*",
   override var provider: String = "",
@@ -27,7 +27,7 @@ open class DefaultPluginDescriptor(
   override fun toString(): String {
     return ("PluginDescriptor [pluginId=" +
       pluginId +
-      ", corePluginClass=" +
+      ", pluginClass=" +
       pluginClass +
       ", version=" +
       version +
