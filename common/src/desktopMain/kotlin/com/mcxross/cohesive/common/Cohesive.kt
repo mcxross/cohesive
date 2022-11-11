@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 
 fun runDescriptor() {
   // Run descriptor and mutate obj
-  Log.d { "Working on descriptor..." }
+  Log.d { "Working on Descriptor..." }
   val time = measureTimeMillis {
     Context.descriptor = Descriptor.run()
     Context.secondaryPlugins = Context.descriptor.getPlugins()
@@ -36,7 +36,7 @@ fun runDescriptor() {
 fun runConfig() {
   // Load configs from file and mutate context obj
   fun loadConfig(): Pair<Boolean, Platform> {
-    Log.d { "Loading config" }
+    Log.d { "Loading Config" }
     val timeInMillis = measureTimeMillis {
       val configurationContainer: ConfigurationContainer = load(readFileToStr("config.toml"))
       Context.configuration.asSetFor = configurationContainer
@@ -52,7 +52,7 @@ fun runConfig() {
     )
   }
 
-  Log.d { "Working on config..." }
+  Log.d { "Working on Config..." }
   val time = measureTimeMillis {
     val config = loadConfig()
     if (config.first) {
@@ -65,7 +65,7 @@ fun runConfig() {
 
 fun runPlugins() {
   // Load and start plugins and mutate context obj
-  Log.d { "Working on plugins" }
+  Log.d { "Working on Plugins" }
   val time = measureTimeMillis {
     Context.pluginManager = pluginManager {
       loadPlugins()
@@ -102,7 +102,7 @@ object Cohesive {
 
     // This is an expensive op in terms of time, and compute and therefore must run once
     val loadResources by rememberUpdatedState {
-      Log.i { "Loading resources" }
+      Log.i { "Loading Resources" }
       val timeLoadingResources = measureTimeMillis {
         val runs = listOf(::runDescriptor, ::runConfig, ::runPlugins)
         runBlocking {
