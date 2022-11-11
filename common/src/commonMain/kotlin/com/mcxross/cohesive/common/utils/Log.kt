@@ -2,7 +2,6 @@ package com.mcxross.cohesive.common.utils
 
 import io.github.aakira.napier.Napier
 
-
 object Log {
 
   private const val TAG = "Cohesive"

@@ -51,11 +51,11 @@ Cohesive is a modular meta-tool, i.e., a tool for tools, with a bias towards mem
 class MainView : CohesiveView {
     @Composable
     override fun Explorer() {
-        
+        //TODO Your Ethereum Explorer implementation goes here
     }
     @Composable
     override fun Wallet() {
-        
+        //TODO Your Ethereum Wallet implementation goes here
     }
 }
 ```
