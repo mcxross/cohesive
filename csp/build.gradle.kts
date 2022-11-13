@@ -3,7 +3,7 @@ val okioVersion: String by project
 
 plugins {
   kotlin("jvm")
-  kotlin("plugin.serialization") version "1.7.10"
+  kotlin("plugin.serialization") version "1.7.20"
   id("org.jetbrains.dokka")
 }
 
@@ -15,7 +15,7 @@ repositories { mavenCentral() }
 
 dependencies {
   implementation(kotlin("stdlib"))
-  implementation("com.google.devtools.ksp:symbol-processing-api:1.7.10-1.0.6")
+  implementation("com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8")
   implementation(kotlin("reflect"))
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 }

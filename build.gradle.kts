@@ -38,7 +38,7 @@ subprojects {
 
   plugins.withId("org.jetbrains.kotlin.multiplatform") {
     tasks.withType<KotlinCompile> {
-      kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+      kotlinOptions.freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
     }
   }
 }
