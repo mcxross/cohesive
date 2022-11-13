@@ -2,190 +2,6 @@
   "gradleJvm": "#JAVA_HOME",
   "libraries": [
     {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
-      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlin",
-      "artifactId": "kotlin-stdlib-jdk8",
-      "version": "1.7.10"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
-      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlin",
-      "artifactId": "kotlin-stdlib-jdk7",
-      "version": "1.7.10"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
-      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlin",
-      "artifactId": "kotlin-stdlib",
-      "version": "1.7.10"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.material:material-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.material:material-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.material",
-      "artifactId": "material-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.foundation:foundation-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.foundation",
-      "artifactId": "foundation-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui-tooling-preview-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.material:material-icons-extended-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.material",
-      "artifactId": "material-icons-extended-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.runtime:runtime-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.runtime",
-      "artifactId": "runtime-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.2.0",
-      "gradleName": "org.jetbrains.compose.desktop:desktop-jvm:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.desktop",
-      "artifactId": "desktop-jvm",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains:annotations:13.0",
-      "gradleName": "org.jetbrains:annotations:13.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains",
-      "artifactId": "annotations",
-      "version": "13.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.material:material-ripple-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.material",
-      "artifactId": "material-ripple-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.material:material-icons-core-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.material",
-      "artifactId": "material-icons-core-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.animation:animation-core-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.animation",
-      "artifactId": "animation-core-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-text-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui-text-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.animation:animation-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.animation",
-      "artifactId": "animation-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.34",
-      "gradleName": "org.jetbrains.skiko:skiko-awt:0.7.34",
-      "unresolved": false,
-      "groupId": "org.jetbrains.skiko",
-      "artifactId": "skiko-awt",
-      "version": "0.7.34"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1",
-      "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlinx",
-      "artifactId": "kotlinx-coroutines-core-jvm",
-      "version": "1.6.1"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.runtime",
-      "artifactId": "runtime-saveable-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-graphics-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui-graphics-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-unit-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui-unit-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-geometry-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui-geometry-desktop",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.foundation",
-      "artifactId": "foundation-layout-desktop",
-      "version": "1.2.0"
-    },
-    {
       "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
       "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
       "unresolved": false,
@@ -194,36 +10,12 @@
       "version": "1.7.20"
     },
     {
-      "ideaName": "Gradle: com.squareup:kotlinpoet-ksp:1.12.0",
-      "gradleName": "com.squareup:kotlinpoet-ksp:1.12.0",
-      "unresolved": false,
-      "groupId": "com.squareup",
-      "artifactId": "kotlinpoet-ksp",
-      "version": "1.12.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.10",
-      "gradleName": "org.jetbrains.kotlin:kotlin-reflect:1.7.10",
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
       "unresolved": false,
       "groupId": "org.jetbrains.kotlin",
-      "artifactId": "kotlin-reflect",
-      "version": "1.7.10"
-    },
-    {
-      "ideaName": "Gradle: org.ow2.asm:asm:9.4",
-      "gradleName": "org.ow2.asm:asm:9.4",
-      "unresolved": false,
-      "groupId": "org.ow2.asm",
-      "artifactId": "asm",
-      "version": "9.4"
-    },
-    {
-      "ideaName": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.10-1.0.6",
-      "gradleName": "com.google.devtools.ksp:symbol-processing-api:1.7.10-1.0.6",
-      "unresolved": false,
-      "groupId": "com.google.devtools.ksp",
-      "artifactId": "symbol-processing-api",
-      "version": "1.7.10-1.0.6"
+      "artifactId": "kotlin-stdlib-jdk7",
+      "version": "1.7.20"
     },
     {
       "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
@@ -234,20 +26,204 @@
       "version": "1.7.20"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.34",
-      "gradleName": "org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.34",
+      "ideaName": "Gradle: org.jetbrains.compose.material:material-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.material:material-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.material",
+      "artifactId": "material-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.foundation:foundation-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.foundation",
+      "artifactId": "foundation-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.ui",
+      "artifactId": "ui-tooling-preview-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.material:material-icons-extended-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.material",
+      "artifactId": "material-icons-extended-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.runtime:runtime-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.runtime",
+      "artifactId": "runtime-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.2.1",
+      "gradleName": "org.jetbrains.compose.desktop:desktop-jvm:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.desktop",
+      "artifactId": "desktop-jvm",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains:annotations:13.0",
+      "gradleName": "org.jetbrains:annotations:13.0",
+      "unresolved": false,
+      "groupId": "org.jetbrains",
+      "artifactId": "annotations",
+      "version": "13.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.material:material-ripple-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.material",
+      "artifactId": "material-ripple-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.material:material-icons-core-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.material",
+      "artifactId": "material-icons-core-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.ui:ui-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.ui",
+      "artifactId": "ui-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.animation:animation-core-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.animation",
+      "artifactId": "animation-core-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.ui:ui-text-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.ui",
+      "artifactId": "ui-text-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.animation:animation-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.animation",
+      "artifactId": "animation-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.37",
+      "gradleName": "org.jetbrains.skiko:skiko-awt:0.7.37",
+      "unresolved": false,
+      "groupId": "org.jetbrains.skiko",
+      "artifactId": "skiko-awt",
+      "version": "0.7.37"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-coroutines-core-jvm",
+      "version": "1.6.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.runtime",
+      "artifactId": "runtime-saveable-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.ui:ui-graphics-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.ui",
+      "artifactId": "ui-graphics-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.ui:ui-unit-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.ui",
+      "artifactId": "ui-unit-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.ui:ui-geometry-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.ui",
+      "artifactId": "ui-geometry-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.foundation",
+      "artifactId": "foundation-layout-desktop",
+      "version": "1.2.1"
+    },
+    {
+      "ideaName": "Gradle: com.squareup:kotlinpoet-ksp:1.12.0",
+      "gradleName": "com.squareup:kotlinpoet-ksp:1.12.0",
+      "unresolved": false,
+      "groupId": "com.squareup",
+      "artifactId": "kotlinpoet-ksp",
+      "version": "1.12.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+      "gradleName": "org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlin",
+      "artifactId": "kotlin-reflect",
+      "version": "1.7.20"
+    },
+    {
+      "ideaName": "Gradle: org.ow2.asm:asm:9.4",
+      "gradleName": "org.ow2.asm:asm:9.4",
+      "unresolved": false,
+      "groupId": "org.ow2.asm",
+      "artifactId": "asm",
+      "version": "9.4"
+    },
+    {
+      "ideaName": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
+      "gradleName": "com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
+      "unresolved": false,
+      "groupId": "com.google.devtools.ksp",
+      "artifactId": "symbol-processing-api",
+      "version": "1.7.20-1.0.8"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.37",
+      "gradleName": "org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.37",
       "unresolved": false,
       "groupId": "org.jetbrains.skiko",
       "artifactId": "skiko-awt-runtime-linux-x64",
-      "version": "0.7.34"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
-      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlin",
-      "artifactId": "kotlin-stdlib-jdk7",
-      "version": "1.7.20"
+      "version": "0.7.37"
     },
     {
       "ideaName": "Gradle: com.squareup:kotlinpoet:1.12.0",
@@ -450,12 +426,12 @@
       "version": "2.2.1-kotlin-1.7.20-RC"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-util-desktop:1.2.0",
+      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.2.1",
+      "gradleName": "org.jetbrains.compose.ui:ui-util-desktop:1.2.1",
       "unresolved": false,
       "groupId": "org.jetbrains.compose.ui",
       "artifactId": "ui-util-desktop",
-      "version": "1.2.0"
+      "version": "1.2.1"
     },
     {
       "ideaName": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
@@ -498,220 +474,44 @@
       "version": "2.1.0"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.compose.material:material:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.material:material:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.material",
-      "artifactId": "material",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.foundation:foundation:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.foundation:foundation:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.foundation",
-      "artifactId": "foundation",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.foundation:foundation:skikoMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.foundation:foundation:skikoMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.foundation",
-      "artifactId": "foundation",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.material:material-icons-extended:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.material:material-icons-extended:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.material",
-      "artifactId": "material-icons-extended",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.runtime:runtime:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.runtime:runtime:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.runtime",
-      "artifactId": "runtime",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.material:material-ripple:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.material:material-ripple:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.material",
-      "artifactId": "material-ripple",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.animation:animation:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.animation:animation:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.animation",
-      "artifactId": "animation",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.foundation:foundation-layout:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.foundation:foundation-layout:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.foundation",
-      "artifactId": "foundation-layout",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.animation:animation-core:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.animation:animation-core:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.animation",
-      "artifactId": "animation-core",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.material:material-icons-core:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.material:material-icons-core:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.material",
-      "artifactId": "material-icons-core",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui:skikoMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui:skikoMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-text:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-text:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui-text",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-text:skikoMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-text:skikoMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui-text",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.skiko:skiko:commonMain:0.7.34",
-      "gradleName": "org.jetbrains.skiko:skiko:commonMain:0.7.34",
-      "unresolved": false,
-      "groupId": "org.jetbrains.skiko",
-      "artifactId": "skiko",
-      "version": "0.7.34"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:commonMain:1.6.1",
-      "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-core:commonMain:1.6.1",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlinx",
-      "artifactId": "kotlinx-coroutines-core",
-      "version": "1.6.1"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:concurrentMain:1.6.1",
-      "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-core:concurrentMain:1.6.1",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlinx",
-      "artifactId": "kotlinx-coroutines-core",
-      "version": "1.6.1"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-geometry:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-geometry:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui-geometry",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-unit:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-unit:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui-unit",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-graphics:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-graphics:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui-graphics",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-graphics:skikoMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-graphics:skikoMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui-graphics",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.runtime:runtime-saveable:commonMain:1.2.0",
-      "gradleName": "org.jetbrains.compose.runtime:runtime-saveable:commonMain:1.2.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.runtime",
-      "artifactId": "runtime-saveable",
-      "version": "1.2.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
-      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
       "unresolved": false,
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-stdlib-common",
-      "version": "1.7.10"
+      "version": "1.7.20"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.7.10",
-      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-js:1.7.10",
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.7.20",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-js:1.7.20",
       "unresolved": false,
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-stdlib-js",
-      "version": "1.7.10"
+      "version": "1.7.20"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.compose.web:web-core-js:klib:1.2.0",
-      "gradleName": "org.jetbrains.compose.web:web-core-js:klib:1.2.0",
+      "ideaName": "Gradle: org.jetbrains.compose.web:web-core-js:klib:1.2.1",
+      "gradleName": "org.jetbrains.compose.web:web-core-js:klib:1.2.1",
       "unresolved": false,
       "groupId": "org.jetbrains.compose.web",
       "artifactId": "web-core-js",
-      "version": "1.2.0"
+      "version": "1.2.1"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.compose.runtime:runtime-js:klib:1.2.0",
-      "gradleName": "org.jetbrains.compose.runtime:runtime-js:klib:1.2.0",
+      "ideaName": "Gradle: org.jetbrains.compose.runtime:runtime-js:klib:1.2.1",
+      "gradleName": "org.jetbrains.compose.runtime:runtime-js:klib:1.2.1",
       "unresolved": false,
       "groupId": "org.jetbrains.compose.runtime",
       "artifactId": "runtime-js",
-      "version": "1.2.0"
+      "version": "1.2.1"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.2.0",
-      "gradleName": "org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.2.0",
+      "ideaName": "Gradle: org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.2.1",
+      "gradleName": "org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.2.1",
       "unresolved": false,
       "groupId": "org.jetbrains.compose.web",
       "artifactId": "internal-web-core-runtime-js",
-      "version": "1.2.0"
+      "version": "1.2.1"
     },
     {
       "ideaName": "Gradle: org.jetbrains.kotlinx:atomicfu-js:klib:0.17.2",
@@ -730,14 +530,6 @@
       "version": "1.6.1"
     },
     {
-      "ideaName": "Gradle: io.ktor:ktor-client-cio:jvmAndNixMain:2.1.0",
-      "gradleName": "io.ktor:ktor-client-cio:jvmAndNixMain:2.1.0",
-      "unresolved": false,
-      "groupId": "io.ktor",
-      "artifactId": "ktor-client-cio",
-      "version": "2.1.0"
-    },
-    {
       "ideaName": "Gradle: org.jetbrains:markdown:0.3.1",
       "gradleName": "org.jetbrains:markdown:0.3.1",
       "unresolved": false,
@@ -746,36 +538,12 @@
       "version": "0.3.1"
     },
     {
-      "ideaName": "Gradle: io.ktor:ktor-http-cio:commonMain:2.1.0",
-      "gradleName": "io.ktor:ktor-http-cio:commonMain:2.1.0",
-      "unresolved": false,
-      "groupId": "io.ktor",
-      "artifactId": "ktor-http-cio",
-      "version": "2.1.0"
-    },
-    {
-      "ideaName": "Gradle: io.ktor:ktor-network-tls:jvmAndNixMain:2.1.0",
-      "gradleName": "io.ktor:ktor-network-tls:jvmAndNixMain:2.1.0",
-      "unresolved": false,
-      "groupId": "io.ktor",
-      "artifactId": "ktor-network-tls",
-      "version": "2.1.0"
-    },
-    {
-      "ideaName": "Gradle: io.ktor:ktor-network:jvmAndNixMain:2.1.0",
-      "gradleName": "io.ktor:ktor-network:jvmAndNixMain:2.1.0",
-      "unresolved": false,
-      "groupId": "io.ktor",
-      "artifactId": "ktor-network",
-      "version": "2.1.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-test:1.7.10",
-      "gradleName": "org.jetbrains.kotlin:kotlin-test:1.7.10",
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-test:1.7.20",
+      "gradleName": "org.jetbrains.kotlin:kotlin-test:1.7.20",
       "unresolved": false,
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-test",
-      "version": "1.7.10"
+      "version": "1.7.20"
     },
     {
       "ideaName": "Gradle: io.ktor:ktor-client-mock-jvm:2.1.0",
@@ -794,12 +562,12 @@
       "version": "3.2.0"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-test-junit:1.7.10",
-      "gradleName": "org.jetbrains.kotlin:kotlin-test-junit:1.7.10",
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-test-junit:1.7.20",
+      "gradleName": "org.jetbrains.kotlin:kotlin-test-junit:1.7.20",
       "unresolved": false,
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-test-junit",
-      "version": "1.7.10"
+      "version": "1.7.20"
     },
     {
       "ideaName": "Gradle: junit:junit:4.13.2",
