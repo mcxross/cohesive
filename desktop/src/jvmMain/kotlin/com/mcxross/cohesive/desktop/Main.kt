@@ -19,7 +19,7 @@ import com.mcxross.cohesive.common.frontend.impl.ui.screen.StoreScreen
 import com.mcxross.cohesive.common.frontend.impl.ui.view.splash.SplashScreen
 import com.mcxross.cohesive.common.frontend.utils.WindowState
 import com.mcxross.cohesive.common.frontend.utils.getPreferredWindowSize
-import com.mcxross.cohesive.common.utils.Log.e
+import com.mcxross.cohesive.common.utils.Log.d
 import com.mcxross.cohesive.mellow.PlatformDropTargetModifier
 
 @Composable
@@ -71,7 +71,6 @@ fun main() =
                   window = window,
                 )
               }
-
             Context.pluginManager.getCohesiveView().let { View ->
               BrewScreenCompositionLocal(
                 windowScope = this,
@@ -80,7 +79,9 @@ fun main() =
                 if (View != null) {
                   MainScreen() Ingest View
                 } else {
-                  e { "View is null. Ensure you've defined View and built with CSP" }
+                  d {
+                    "View is null. Ensure you've defined View and built with CSP. \n Defaulting to EditorView"
+                  }
                 }
               }
             }

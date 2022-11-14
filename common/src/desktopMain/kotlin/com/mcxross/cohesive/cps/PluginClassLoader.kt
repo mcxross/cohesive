@@ -47,24 +47,20 @@ constructor(
   @Throws(ClassNotFoundException::class)
   override fun loadClass(className: String): Class<*> {
     synchronized(getClassLoadingLock(className)) {
-
       // first check whether it's a system class, delegate to the system pluginLoader
       if (className.startsWith(JAVA_PACKAGE_PREFIX)) {
         return findSystemClass(className)
       }
-
       // if the class is part of the Plugin engine use parent class pluginLoader
       if (
         className.startsWith(PLUGIN_PACKAGE_PREFIX) &&
           !className.startsWith("demo") &&
-          !className.startsWith(
-            "test",
-          )
+          !className.startsWith("test")
       ) {
         //                log.trace("Delegate the loading of PF4J class '{}' to parent", className);
         return parent.loadClass(className)
       }
-      Log.v { "Received request to Load Class $className" }
+      Log.d { "Received request to Load Class $className" }
 
       // second check whether it's already been loaded
       val loadedClass = findLoadedClass(className)
@@ -76,11 +72,12 @@ constructor(
       classLoadingStrategy.sources.forEach {
         var c: Class<*>? = null
         try {
-          when (it) {
-            ClassLoadingStrategy.Source.APPLICATION -> c = super.loadClass(className)
-            ClassLoadingStrategy.Source.PLUGIN -> c = findClass(className)
-            ClassLoadingStrategy.Source.DEPENDENCIES -> c = loadClassFromDependencies(className)
-          }
+          c =
+            when (it) {
+              ClassLoadingStrategy.Source.APPLICATION -> super.loadClass(className)
+              ClassLoadingStrategy.Source.PLUGIN -> findClass(className)
+              ClassLoadingStrategy.Source.DEPENDENCIES -> loadClassFromDependencies(className)
+            }
         } catch (ignored: ClassNotFoundException) {}
         if (c != null) {
           Log.v { "Found class $className in $it ClassPath" }
@@ -201,6 +198,6 @@ constructor(
 
   companion object {
     private const val JAVA_PACKAGE_PREFIX = "java."
-    private const val PLUGIN_PACKAGE_PREFIX = ""
+    private const val PLUGIN_PACKAGE_PREFIX = "com.mcxross.cohesive.cps."
   }
 }

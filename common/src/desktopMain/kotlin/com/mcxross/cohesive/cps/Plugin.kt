@@ -32,7 +32,7 @@ abstract class Plugin(wrapper: PluginWrapper?) {
 
   /**
    * This method is called by the application when the Plugin is deleted. See
-   * [PluginManager.deletePlugin].
+   * [PluginManager.uninstallPlugin].
    */
-  abstract fun delete()
+  abstract fun uninstall()
 }

@@ -102,7 +102,7 @@ interface PluginManager {
    * @return true if the plugin was deleted
    * @throws PluginRuntimeException if something goes wrong
    */
-  fun deletePlugin(pluginId: String): Boolean
+  fun uninstallPlugin(pluginId: String): Boolean
   fun getCohesiveView(): CohesiveView?
   fun getPluginClassLoader(pluginId: String): ClassLoader
   fun getExtensionClasses(pluginId: String): List<Class<*>?>

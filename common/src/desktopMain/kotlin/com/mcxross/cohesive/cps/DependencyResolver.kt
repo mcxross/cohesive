@@ -22,16 +22,16 @@ class DependencyResolver(val versionManager: VersionManager) {
   private var dependentsGraph: DirectedGraph<String>? = null
   private var resolved = false
 
-  fun resolve(plugins: List<PluginDescriptor>): Result {
+  fun resolve(descriptors: List<PluginDescriptor>): Result {
     // create graphs
     dependenciesGraph = DirectedGraph()
     dependentsGraph = DirectedGraph()
 
     // populate graphs
-    val pluginByIds: MutableMap<String, PluginDescriptor> = HashMap()
-    plugins.forEach {
+    val descriptorById: MutableMap<String, PluginDescriptor> = HashMap()
+    descriptors.forEach {
       addPlugin(it)
-      pluginByIds[it.pluginId] = it
+      descriptorById[it.pluginId] = it
     }
     Log.d { "Graph: $dependenciesGraph" }
 
@@ -43,19 +43,19 @@ class DependencyResolver(val versionManager: VersionManager) {
     val result = Result(sortedPlugins)
     resolved = true
     sortedPlugins.forEach { pluginId ->
-      if (!pluginByIds.containsKey(pluginId)) {
+      if (!descriptorById.containsKey(pluginId)) {
         pluginId.let { result.notFoundDependencies.add(it) }
       }
     }
 
     // check dependencies versions
-    for (plugin: PluginDescriptor in plugins) {
+    for (plugin: PluginDescriptor in descriptors) {
       val pluginId: String = plugin.pluginId
       val existingVersion: String = plugin.version
       val dependents = getDependents(pluginId)
       while (dependents.isNotEmpty()) {
         val dependentId: String = dependents.removeAt(0)
-        val dependent: PluginDescriptor? = pluginByIds[dependentId]
+        val dependent: PluginDescriptor? = descriptorById[dependentId]
         val requiredVersion = getDependencyVersionSupport(dependent, pluginId)
         val ok = checkDependencyVersion(requiredVersion, existingVersion)
         if (!ok) {
@@ -96,8 +96,8 @@ class DependencyResolver(val versionManager: VersionManager) {
   }
 
   /**
-   * Check if an existing version of dependency is compatible with the required version (from
-   * Plugin descriptor).
+   * Check if an existing version of dependency is compatible with the required version (from Plugin
+   * descriptor).
    *
    * @param requiredVersion
    * @param existingVersion
@@ -111,6 +111,7 @@ class DependencyResolver(val versionManager: VersionManager) {
     val pluginId: String = descriptor.pluginId
     val dependencies: List<PluginDependency>? = descriptor.dependencies
     if (dependencies!!.isEmpty()) {
+      Log.d { "Plugin $pluginId has no dependencies" }
       dependenciesGraph!!.addVertex(pluginId)
       dependentsGraph!!.addVertex(pluginId)
     } else {

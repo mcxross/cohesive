@@ -12,7 +12,6 @@ import java.util.stream.Collectors
 import okio.FileSystem
 import okio.Path
 import okio.Path.Companion.toPath
-import kotlin.collections.ArrayList
 
 /**
  * This class implements the boilerplate Plugin code that any [PluginManager] implementation would
@@ -25,12 +24,12 @@ abstract class AbstractPluginManager : PluginManager {
    *
    * @return Paths of plugins roots
    */
-  final override val pluginsRoots : MutableList<Path> = ArrayList()
+  final override val pluginsRoots: MutableList<Path> = ArrayList()
     get() {
       if (field.isEmpty()) {
         field.addAll(createPluginsRoot())
       }
-     return field
+      return field
     }
 
   protected open lateinit var extensionFinder: ExtensionFinder
@@ -57,8 +56,7 @@ abstract class AbstractPluginManager : PluginManager {
   override var startedPlugins: MutableList<PluginWrapper> = ArrayList()
 
   /** The registered [PluginStateListener]s. */
-  protected var pluginStateListeners: MutableList<PluginStateListener> =
-    ArrayList<PluginStateListener>()
+  protected var pluginStateListeners: MutableList<PluginStateListener> = ArrayList()
 
   /** Cache value for the runtime mode. No need to re-read it because it won't change at runtime. */
   override var runtimeMode: RuntimeMode? = null
@@ -104,10 +102,8 @@ abstract class AbstractPluginManager : PluginManager {
       }
   val version: String
     get() {
-      return "Cohesive.VERSION"
+      return "0.1.0"
     }
-
-  init {}
 
   constructor()
 
@@ -141,25 +137,6 @@ abstract class AbstractPluginManager : PluginManager {
 
   override fun getPlugin(pluginId: String): PluginWrapper {
     return pluginsMap[pluginId]!!
-  }
-
-  override fun loadPlugin(pluginPath: Path): String {
-    if (!FileSystem.SYSTEM.exists(pluginPath)) {
-      throw IllegalArgumentException(
-        String.format(
-          "Specified Plugin %s does not exist!",
-          pluginPath,
-        ),
-      )
-    }
-
-    Log.d { "Loading Plugin from $pluginPath" }
-    val pluginWrapper: PluginWrapper? = loadPluginFromPath(pluginPath)
-
-    // try to resolve  the loaded Plugin together with other possible plugins that depend on this
-    // Plugin
-    resolvePlugins()
-    return pluginWrapper?.descriptor!!.pluginId
   }
 
   /** Load plugins. */
@@ -203,6 +180,25 @@ abstract class AbstractPluginManager : PluginManager {
     } catch (e: PluginRuntimeException) {
       Log.e { e.message.toString() }
     }
+  }
+
+  override fun loadPlugin(pluginPath: Path): String {
+    if (!FileSystem.SYSTEM.exists(pluginPath)) {
+      throw IllegalArgumentException(
+        String.format(
+          "Specified Plugin %s does not exist!",
+          pluginPath,
+        ),
+      )
+    }
+
+    Log.d { "Loading Plugin from $pluginPath" }
+    val pluginWrapper: PluginWrapper? = loadPluginFromPath(pluginPath)
+
+    // try to resolve  the loaded Plugin together with other possible plugins that depend on this
+    // Plugin
+    resolvePlugins()
+    return pluginWrapper?.descriptor!!.pluginId
   }
 
   /** Unload all plugins */
@@ -257,30 +253,6 @@ abstract class AbstractPluginManager : PluginManager {
     return false
   }
 
-  override fun deletePlugin(pluginId: String): Boolean {
-    checkPluginId(pluginId)
-    val pluginWrapper: PluginWrapper = getPlugin(pluginId)
-    // stop the Plugin if it's started
-    val pluginState: PluginState = stopPlugin(pluginId)
-    if (PluginState.STARTED == pluginState) {
-      Log.e { "Failed to stop Plugin $pluginId on delete" }
-      return false
-    }
-
-    // get an instance of Plugin before the Plugin is unloaded
-    // for reason see https://github.com/pf4j/pf4j/issues/309
-    val plugin: Plugin? = pluginWrapper.plugin
-    if (!unloadPlugin(pluginId)) {
-      Log.e { "Failed to unload Plugin $pluginId on delete" }
-      return false
-    }
-
-    // notify the plugin as it's deleted
-    plugin!!.delete()
-    val pluginPath: Path = pluginWrapper.pluginPath
-    return pluginRepo.deletePluginPath(pluginPath)
-  }
-
   /** Start all active plugins. */
   override fun startPlugins() {
     for (pluginWrapper: PluginWrapper in resolvedPlugins) {
@@ -295,11 +267,11 @@ abstract class AbstractPluginManager : PluginManager {
         } catch (e: Exception) {
           pluginWrapper.pluginState = PluginState.FAILED
           pluginWrapper.failedException = e
-          Log.e { "Unable to start Plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
+          Log.e { "Unable to start Plugin ${getPluginLabel(pluginWrapper.descriptor)} \n Reason: ${e.message}" }
         } catch (e: LinkageError) {
           pluginWrapper.pluginState = PluginState.FAILED
           pluginWrapper.failedException = e
-          Log.e { "Unable to start Plugin ${getPluginLabel(pluginWrapper.descriptor)}" }
+          Log.e { "Unable to start Plugin ${getPluginLabel(pluginWrapper.descriptor)} \n Reason: ${e.message}" }
         } finally {
           firePluginStateEvent(PluginStateEvent(this, pluginWrapper, pluginState))
         }
@@ -445,6 +417,30 @@ abstract class AbstractPluginManager : PluginManager {
     return true
   }
 
+  override fun uninstallPlugin(pluginId: String): Boolean {
+    checkPluginId(pluginId)
+    val pluginWrapper: PluginWrapper = getPlugin(pluginId)
+    // stop the Plugin if it's started
+    val pluginState: PluginState = stopPlugin(pluginId)
+    if (PluginState.STARTED == pluginState) {
+      Log.e { "Failed to Stop Plugin $pluginId on uninstall" }
+      return false
+    }
+
+    // get an instance of Plugin before the Plugin is unloaded
+    // for reason see https://github.com/pf4j/pf4j/issues/309
+    val plugin: Plugin? = pluginWrapper.plugin
+    if (!unloadPlugin(pluginId)) {
+      Log.e { "Failed to unload Plugin $pluginId on uninstall" }
+      return false
+    }
+
+    // notify the plugin as it's deleted
+    plugin!!.uninstall()
+    val pluginPath: Path = pluginWrapper.pluginPath
+    return pluginRepo.deletePluginPath(pluginPath)
+  }
+
   /** Get the [ClassLoader] for Plugin. */
   override fun getPluginClassLoader(pluginId: String): ClassLoader {
     return (pluginClassLoaders[pluginId])!!
@@ -544,9 +540,8 @@ abstract class AbstractPluginManager : PluginManager {
    * @param pluginWrapper the Plugin to check
    * @return true if Plugin satisfies the "requires" or if requires was left blank
    */
-  protected fun isPluginValid(pluginWrapper: PluginWrapper): Boolean {
+  private fun isPluginValid(pluginWrapper: PluginWrapper): Boolean {
     var requires: String = pluginWrapper.descriptor.requires!!.trim { it <= ' ' }
-    // TODO: fix regex
     if (!isExactVersionAllowed && requires.matches(Regex("^\\d+\\.\\d+\\.\\d+$"))) {
       // If exact versions are not allowed in requires, rewrite to >= expression
       requires = ">=$requires"
@@ -573,7 +568,7 @@ abstract class AbstractPluginManager : PluginManager {
 
   protected fun resolvePlugins() {
     // retrieves the plugins descriptors
-    val descriptors: MutableList<PluginDescriptor> = ArrayList<PluginDescriptor>()
+    val descriptors: MutableList<PluginDescriptor> = ArrayList()
     for (plugin: PluginWrapper in pluginsMap.values) {
       descriptors.add(plugin.descriptor)
     }
@@ -591,7 +586,6 @@ abstract class AbstractPluginManager : PluginManager {
       throw DependencyResolver.DependenciesWrongVersionException(wrongVersionDependencies)
     }
     val sortedPlugins: List<String> = result.sortedPlugins
-
     // move plugins from "unresolved" to "resolved"
     sortedPlugins.forEach {
       val pluginWrapper: PluginWrapper = pluginsMap[it]!!
@@ -624,7 +618,7 @@ abstract class AbstractPluginManager : PluginManager {
 
     // Retrieve and validate the Plugin descriptor
     val pluginDescriptorFinder: PluginDescriptorFinder = pluginDescriptorFinder
-    Log.d { "Use $pluginDescriptorFinder to find Plugins' descriptors" }
+    Log.d { "Use ${pluginDescriptorFinder::class} to find Plugins' descriptors" }
     Log.d { "Finding Plugin descriptor for Plugin $pluginPath" }
     val pluginDescriptor: PluginDescriptor = pluginDescriptorFinder.find(pluginPath)!!
     validatePluginDescriptor(pluginDescriptor)
@@ -651,7 +645,7 @@ abstract class AbstractPluginManager : PluginManager {
     // load Plugin
     Log.d { "Loading Plugin $pluginPath" }
     val pluginClassLoader: ClassLoader = pluginLoader.loadPlugin(pluginPath, pluginDescriptor)!!
-    Log.d { "Loaded Plugin $pluginPath with Class pluginLoader $pluginClassLoader" }
+    Log.d { "Loaded Plugin $pluginPath with Class pluginLoader ${pluginClassLoader::class}" }
     val pluginWrapper: PluginWrapper =
       createPluginWrapper(pluginDescriptor, pluginPath, pluginClassLoader)
 

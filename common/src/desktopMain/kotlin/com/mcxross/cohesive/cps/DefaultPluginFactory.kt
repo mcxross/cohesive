@@ -6,8 +6,7 @@ import java.lang.reflect.Modifier
 /** The default implementation for [PluginFactory]. It uses [Class.newInstance] method. */
 class DefaultPluginFactory : PluginFactory {
   /**
-   * Creates a Plugin instance. If an e occurs than that e is logged and the method returns
-   * null.
+   * Creates a Plugin instance. If an e occurs than that e is logged and the method returns null.
    * @param pluginWrapper
    * @return
    */
@@ -18,7 +17,7 @@ class DefaultPluginFactory : PluginFactory {
       try {
         pluginWrapper.pluginClassLoader.loadClass(pluginClassName)
       } catch (e: ClassNotFoundException) {
-        Log.e { e.message.toString() }
+        Log.e { "Plugin Class $pluginClassName not found \n Reason: $e" }
         return null
       }
 
@@ -30,16 +29,18 @@ class DefaultPluginFactory : PluginFactory {
         Modifier.isInterface(modifiers) ||
         !Plugin::class.java.isAssignableFrom(pluginClass)
     ) {
-      Log.e { "Plugin class $pluginClassName is not a valid implementation of a Plugin" }
+      Log.e { "Plugin Class $pluginClassName is not a valid implementation of a Plugin" }
       return null
     }
 
     // create the Plugin instance
     try {
-      val constructor = pluginClass.getConstructor(PluginWrapper::class.java)
-      return constructor.newInstance(pluginWrapper) as Plugin
+      return pluginClass.getConstructor(PluginWrapper::class.java).newInstance(pluginWrapper)
+        as Plugin
     } catch (e: Exception) {
-      Log.e { e.message.toString() }
+      Log.d {
+        "Plugin Class $pluginClassName does not have a constructor with a single parameter of type PluginWrapper"
+      }
     }
     return null
   }

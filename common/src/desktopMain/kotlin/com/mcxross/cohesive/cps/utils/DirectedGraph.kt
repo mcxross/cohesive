@@ -2,28 +2,24 @@ package com.mcxross.cohesive.cps.utils
 
 import java.util.*
 
-
 /**
+ * A directed graph implementation.
+ *
  * See [Wikipedia](https://en.wikipedia.org/wiki/Directed_graph) for more information.
  */
 class DirectedGraph<V> {
 
   /**
-   * The implementation here is basically an adjacency list, but instead
-   * of an array of lists, a Map is used to map each vertex to its list of
-   * adjacent vertices.
+   * The implementation here is basically an adjacency list, but instead of an array of lists, a Map
+   * is used to map each vertex to its list of adjacent vertices.
    */
   private val neighbors: MutableMap<V, MutableList<V>> = HashMap()
 
-  /**
-   * True if graph is a dag (directed acyclic graph).
-   */
+  /** True if graph is a dag (directed acyclic graph). */
   val isDag: Boolean
-    get() = topologicalSort() != null
+    get() = topologicalSort().isNotEmpty()
 
-  /**
-   * Add a vertex to the graph. Nothing happens if vertex is already in graph.
-   */
+  /** Add a vertex to the graph. Nothing happens if vertex is already in graph. */
   fun addVertex(vertex: V) {
     if (containsVertex(vertex)) {
       return
@@ -31,20 +27,19 @@ class DirectedGraph<V> {
     neighbors[vertex] = ArrayList()
   }
 
-  /**
-   * True if graph contains vertex.
-   */
+  /** True if graph contains vertex. */
   fun containsVertex(vertex: V): Boolean {
     return neighbors.containsKey(vertex)
   }
 
+  /** Remove a vertex from the graph. Also removes any edges adjacent to vertex. */
   fun removeVertex(vertex: V) {
     neighbors.remove(vertex)
   }
 
   /**
-   * Add an edge to the graph; if either vertex does not exist, it's added.
-   * This implementation allows the creation of multi-edges and self-loops.
+   * Add an edge to the graph; if either vertex does not exist, it's added. This implementation
+   * allows the creation of multi-edges and self-loops.
    */
   fun addEdge(from: V, to: V) {
     addVertex(from)
@@ -71,14 +66,13 @@ class DirectedGraph<V> {
    */
   fun outDegree(): Map<V, Int> {
     val result: MutableMap<V, Int> = HashMap()
-    neighbors.keys.forEach {
-      result[it] = neighbors[it]!!.size
-    }
+    neighbors.keys.forEach { result[it] = neighbors[it]!!.size }
     return result
   }
 
   /**
-   * Report (as a [Map]) the in-degree (the number of head ends adjacent to a vertex) of each vertex.
+   * Report (as a [Map]) the in-degree (the number of head ends adjacent to a vertex) of each
+   * vertex.
    */
   fun inDegree(): MutableMap<V, Int> {
     val result: MutableMap<V, Int> = HashMap()
@@ -94,10 +88,10 @@ class DirectedGraph<V> {
   }
 
   /**
-   * Report (as a List) the topological sort of the vertices; null for no such sort.
-   * See [this](https://en.wikipedia.org/wiki/Topological_sorting) for more information.
+   * Report (as a List) the topological sort of the vertices; null for no such sort. See
+   * [this](https://en.wikipedia.org/wiki/Topological_sorting) for more information.
    */
-  fun topologicalSort(): List<V?>? {
+  fun topologicalSort(): List<V> {
     val degree = inDegree()
 
     // determine all vertices with zero in-degree
@@ -108,7 +102,7 @@ class DirectedGraph<V> {
       }
     }
     // determine the topological order
-    val result: MutableList<V?> = ArrayList()
+    val result: MutableList<V> = ArrayList()
     while (!zeroVertices.isEmpty()) {
       val vertex = zeroVertices.pop() // choose a vertex with zero in-degree
       result.add(vertex) // vertex 'v' is next in topological order
@@ -120,32 +114,23 @@ class DirectedGraph<V> {
           zeroVertices.push(neighbor)
         }
       }
-
     }
 
     // check that we have used the entire graph (if not, there was a cycle)
     return if (result.size != neighbors.size) {
-      null
+      emptyList()
     } else result
   }
 
-  /**
-   * Report (as a List) the reverse topological sort of the vertices; null for no such sort.
-   */
+  /** Report (as a List) the reverse topological sort of the vertices; null for no such sort. */
   fun reverseTopologicalSort(): List<V> {
-    val list = topologicalSort() ?: return emptyList()
-    list.reversed()
-    return emptyList()
+    return topologicalSort().reversed()
   }
 
-  /**
-   * String representation of graph.
-   */
+  /** String representation of graph. */
   override fun toString(): String {
     val sb = StringBuilder()
-    neighbors.keys.forEach {
-      sb.append("\n   ").append(it).append(" -> ").append(neighbors[it])
-    }
+    neighbors.keys.forEach { sb.append("\n   ").append(it).append(" -> ").append(neighbors[it]) }
     return sb.toString()
   }
 }
