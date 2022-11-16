@@ -43,7 +43,6 @@ open class DefaultPluginManager : AbstractPluginManager {
     this + PropertiesPluginDescriptorFinder()
     this + ManifestPluginDescriptorFinder()
   }
-  override var extensionFinder: ExtensionFinder = extensionFinder()
   override var pluginStatusProvider: PluginStatusProvider = statusProvider()
   override var pluginLoader: PluginLoader = compositePluginLoader {
     this +
@@ -64,6 +63,7 @@ open class DefaultPluginManager : AbstractPluginManager {
   }
   override var versionManager: VersionManager = DefaultVersionManager()
   override var dependencyResolver: DependencyResolver = dependencyResolver()
+  override var extensionFinder: ExtensionFinder = extensionFinder()
   init {
     Log.i { "CPS version $version in $runtimeMode mode" }
     if (isDevelopment) {

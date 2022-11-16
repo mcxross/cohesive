@@ -6,22 +6,20 @@ import com.mcxross.cohesive.cps.asm.ExtensionInfo
 import com.mcxross.cohesive.cps.utils.ClassUtils
 import com.mcxross.cohesive.csp.annotation.Extension
 
-abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : ExtensionFinder,
-  PluginStateListener {
+abstract class AbstractExtensionFinder(val pluginManager: PluginManager) :
+  ExtensionFinder, PluginStateListener {
 
-  @Volatile
-  protected var extensions: MutableMap<String, Set<String>> = readStorages()
+  @Volatile protected var extensions: MutableMap<String, Set<String>> = readStorages()
 
   // cache extension infos by class name
-  @Volatile
-  protected lateinit var extensionInfos: MutableMap<String, ExtensionInfo?>
+  @Volatile protected lateinit var extensionInfos: MutableMap<String, ExtensionInfo?>
   protected var checkForExtensionDependencies: Boolean? = null
 
   /**
    * Attempts to read the class path for the extension index file.
    *
-   * The key is always 'cohesive', and the value is the set of extension classes as strings (e.g. 'com.mcxross.cohesive.cps.CohesivePlugin')
-   * It's responsible for System Plugins
+   * The key is always 'cohesive', and the value is the set of extension classes as strings (e.g.
+   * 'com.mcxross.cohesive.cps.CohesivePlugin') It's responsible for System Plugins
    * @return a [Map] of extensions or an empty [Map] if the file is not found
    */
   abstract fun readPluginExtensionIndex(): Map<String, Set<String>>
@@ -29,22 +27,29 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
   /**
    * Attempts to read the [Plugin]s for the extension index file.
    *
-   * The key is the Plugin id, and the value is the set of extension classes as strings (e.g. 'com.mcxross.cohesive.cps.CohesivePlugin')
+   * The key is the Plugin id, and the value is the set of extension classes as strings (e.g.
+   * 'com.mcxross.cohesive.cps.CohesivePlugin')
    * @return a [Map] of extensions or an empty [Map] if the file is not found
    */
   abstract fun readSystemExtensionIndex(): MutableMap<String, Set<String>>
   override fun find(): CohesiveView? {
-    extensions.values.forEach { set ->
+    readStorages().values.forEach { set ->
       set.toList().forEach {
         if (it.endsWith("$")) {
           Log.d { "Found Cohesive extension: $it" }
-          return javaClass.classLoader.loadClass(it.replace("$", "")).getDeclaredConstructor()
-            .newInstance() as CohesiveView
+          try {
+            return pluginManager.plugins[0]
+              .pluginClassLoader
+              .loadClass(it.replace("$", ""))
+              .getDeclaredConstructor()
+              .newInstance() as CohesiveView
+          } catch (e: Exception) {
+            Log.e { "Failed to load Cohesive extension: $it" }
+          }
         } else {
           Log.d { "No found Cohesive extension" }
         }
       }
-
     }
     return null
   }
@@ -88,13 +93,13 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
         return result
       }
       Log.i { "Checking Plugin extensions from Plugin $pluginId" }
-
     } else {
       Log.d { "Checking System extensions from classpath" }
     }
 
     val classLoader =
-      if (pluginId != "cohesive") pluginManager.getPluginClassLoader(pluginId) else javaClass.classLoader
+      if (pluginId != "cohesive") pluginManager.getPluginClassLoader(pluginId)
+      else javaClass.classLoader
 
     for (className in classNames) {
       try {
@@ -211,7 +216,10 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
     // Java classes (NoClassDefFoundError) at application runtime due to possibly missing
     // dependencies. Therefore, we're enabling the check for optional extensions, if the
     // started Plugin contains at least one optional Plugin dependency.
-    if (checkForExtensionDependencies == null && com.mcxross.cohesive.cps.PluginState.STARTED == event.pluginState) {
+    if (
+      checkForExtensionDependencies == null &&
+        com.mcxross.cohesive.cps.PluginState.STARTED == event.pluginState
+    ) {
       for (dependency in event.plugin.descriptor.dependencies!!) {
         if (dependency.isOptional) {
           Log.d { "Enable check for extension dependencies via ASM." }
@@ -223,19 +231,16 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
   }
 
   /**
-   * Returns true, if the extension finder checks extensions for its required plugins.
-   * This feature has to be enabled, in order check the availability of
-   * [Extension.plugins] configured by an extension.
+   * Returns true, if the extension finder checks extensions for its required plugins. This feature
+   * has to be enabled, in order check the availability of [Extension.plugins] configured by an
+   * extension.
    *
+   * This feature is enabled by default, if at least one available Plugin makes use of optional
+   * Plugin dependencies. Those optional plugins might not be available at runtime. Therefore, any
+   * extension is checked by default against available plugins before its instantiation.
    *
-   * This feature is enabled by default, if at least one available Plugin makes use of
-   * optional Plugin dependencies. Those optional plugins might not be available at runtime.
-   * Therefore, any extension is checked by default against available plugins before its
-   * instantiation.
-   *
-   *
-   * Notice: This feature requires the optional [ASM library](https://asm.ow2.io/)
-   * to be available on the applications classpath.
+   * Notice: This feature requires the optional [ASM library](https://asm.ow2.io/) to be available
+   * on the applications classpath.
    *
    * @return true, if the extension finder checks extensions for its required plugins
    */
@@ -244,21 +249,19 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
   }
 
   /**
-   * Plugin developers may enable / disable checks for required plugins of an extension.
-   * This feature has to be enabled, in order check the availability of
-   * [Extension.plugins] configured by an extension.
+   * Plugin developers may enable / disable checks for required plugins of an extension. This
+   * feature has to be enabled, in order check the availability of [Extension.plugins] configured by
+   * an extension.
    *
+   * This feature is enabled by default, if at least one available Plugin makes use of optional
+   * Plugin dependencies. Those optional plugins might not be available at runtime. Therefore, any
+   * extension is checked by default against available plugins before its instantiation.
    *
-   * This feature is enabled by default, if at least one available Plugin makes use of
-   * optional Plugin dependencies. Those optional plugins might not be available at runtime.
-   * Therefore, any extension is checked by default against available plugins before its
-   * instantiation.
+   * Notice: This feature requires the optional [ASM library](https://asm.ow2.io/) to be available
+   * on the applications classpath.
    *
-   *
-   * Notice: This feature requires the optional [ASM library](https://asm.ow2.io/)
-   * to be available on the applications classpath.
-   *
-   * @param checkForExtensionDependencies true to enable checks for optional extensions, otherwise false
+   * @param checkForExtensionDependencies true to enable checks for optional extensions, otherwise
+   * false
    */
   fun setCheckForExtensionDependencies(checkForExtensionDependencies: Boolean) {
     this.checkForExtensionDependencies = checkForExtensionDependencies
@@ -270,12 +273,8 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
       Log.d { "No extensions found" }
     } else {
       Log.d { "Found possible ${extensions.size} extensions:" }
-      extensions.forEach {
-        Log.d { it }
-      }
-
+      extensions.forEach { Log.d { it } }
     }
-
   }
 
   private fun readStorages(): MutableMap<String, Set<String>> {
@@ -285,15 +284,14 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
     return result
   }
 
-
   /**
-   * Returns the parameters of an [Extension] annotation without loading
-   * the corresponding class into the class pluginLoader.
+   * Returns the parameters of an [Extension] annotation without loading the corresponding class
+   * into the class pluginLoader.
    *
    * @param className name of the class, that holds the requested [Extension] annotation
    * @param classLoader class pluginLoader to access the class
-   * @return the contents of the [Extension] annotation or null, if the class does not
-   * have an [Extension] annotation
+   * @return the contents of the [Extension] annotation or null, if the class does not have an
+   * [Extension] annotation
    */
   private fun getExtensionInfo(className: String, classLoader: ClassLoader): ExtensionInfo {
     if (!extensionInfos.containsKey(className)) {
@@ -322,7 +320,8 @@ abstract class AbstractExtensionFinder(val pluginManager: PluginManager) : Exten
     val match: Boolean = ClassUtils.getAllInterfacesNames(extensionClass).contains(type.simpleName)
     if (match && extensionClassLoader != typeClassLoader) {
       // in this scenario the method 'isAssignableFrom' returns only FALSE
-      // see http://www.coderanch.com/t/557846/java/java/FWIW-FYI-isAssignableFrom-isInstance-differing
+      // see
+      // http://www.coderanch.com/t/557846/java/java/FWIW-FYI-isAssignableFrom-isInstance-differing
       Log.e { "Different class loaders: $extensionClassLoader (E) and $typeClassLoader (EP)" }
     }
   }

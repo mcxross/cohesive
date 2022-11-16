@@ -50,13 +50,13 @@ class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFin
       try {
         Log.d { "Determining if $pluginId is Secondary Plugin" }
         Log.d { "Read $COHESIVE_RESOURCE" }
-        (javaClass.classLoader.loadClass(COHESIVE_RESOURCE).getDeclaredConstructor().newInstance()
+        (it.pluginClassLoader.loadClass(COHESIVE_RESOURCE).getDeclaredConstructor().newInstance()
             as ExtensionIndex)
           .extensions
           .forEach { ext -> bucket.add(ext) }
       } catch (e: IOException) {
         Log.d { "$pluginId is Not a Secondary Plugin" }
-        try {
+      /*try {
           (javaClass.classLoader
               .loadClass(EXTENSIONS_RESOURCE)
               .getDeclaredConstructor()
@@ -65,7 +65,7 @@ class LegacyExtensionFinder(pluginManager: PluginManager) : AbstractExtensionFin
             .forEach { ext -> bucket.add(ext) }
         } catch (e: IOException) {
           Log.e { e.message.toString() }
-        }
+        }*/
       }
       debugExtensions(bucket)
       result[pluginId] = bucket

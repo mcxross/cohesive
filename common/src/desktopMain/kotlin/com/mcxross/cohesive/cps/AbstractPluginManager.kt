@@ -446,7 +446,9 @@ abstract class AbstractPluginManager : PluginManager {
     return (pluginClassLoaders[pluginId])!!
   }
 
-  override fun getCohesiveView(): CohesiveView? = extensionFinder.find()
+  override fun getCohesiveView(): CohesiveView? {
+    return extensionFinder.find()
+  }
 
   override fun getExtensionClasses(pluginId: String): List<Class<*>> {
     val extensionsWrapper: List<ExtensionWrapper<Any>?> = extensionFinder.find(pluginId)
