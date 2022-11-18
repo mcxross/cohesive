@@ -12,7 +12,15 @@
 
 <img src="artwork/readme/preview.png" alt="Cohesive Preview" width="100%" height="100%">
 
+---
+
 > Convention: We'll use "Platform" and "Blockchain" interchangeably herein - and rarely, "Chain"
+
+# Why?
+
+Blockchain Development introduces a new development paradigm that requires a new set of tools and workflows i.e. Explorer, Wallet and Editor (IDE). Context switching between these tools is expensive in terms of time and space which is a major productivity killer. Cohesive is a single application that provides a unified development environment for Blockchain development.
+
+# How?
 
 Cohesive is a modular meta-tool, i.e., a tool for tools, with a bias towards memory efficiency, performance, and (developer) ease of use. It is Multiplatform, and Blockchain-agnostic with a base implementation of/and, core functionality including but not limited to UI framework, Plugin Store, Simple Editor, and IDE. You'll need it when you need a comprehensive toolset for your Blockchain development needs or use.
 
