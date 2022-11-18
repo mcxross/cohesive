@@ -14,7 +14,7 @@
 
 ---
 
-> Convention: We'll use "Platform" and "Blockchain" interchangeably herein - and rarely, "Chain"
+> Convention: We'll use _Platform_ and _Blockchain_ interchangeably herein - and rarely, _Chain_
 
 # Why?
 
@@ -68,16 +68,28 @@ class MainView : CohesiveView {
 }
 ```
 
-### Running Base desktop application
+### Running Base Desktop Application
 ```
 ./gradlew :desktop:run
 ```
 
-### Building Base native desktop distribution
+#### Building Base native desktop distribution
 ```
 ./gradlew :desktop:package
 # outputs are written to desktop/build/compose/binaries
 ```
+
+### Running Base Web Application
+```
+./gradlew :web:jsBrowserRun
+```
+
+#### Distribute Base Web Application
+```
+./gradlew :web:jsBrowserDistribution 
+# and then open index.html (build/distributions)
+```
+
 ## Status
 
 [![Qodana](https://github.com/mcxross/cohesive/actions/workflows/code_quality.yml/badge.svg)](https://github.com/mcxross/cohesive/actions/workflows/code_quality.yml)
