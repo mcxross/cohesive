@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 
 private operator fun TextUnit.minus(other: TextUnit) = (value - other.value).sp
+
 private operator fun TextUnit.div(other: TextUnit) = value / other.value
 
 @Composable
@@ -29,22 +30,22 @@ fun EditorComposite(
 
     EditorCompositeContainer(
       editorManager = editorManager,
-      fileTreeModel = FileTreeModel(file) {
-        editorManager.open(it)
-      },
+      fileTreeModel = FileTreeModel(file) { editorManager.open(it) },
     )
   }
 
   val panelState = remember { PanelState() }
 
-  val animatedSize = if (panelState.splitter.isResizing) {
-    if (panelState.isExpanded) panelState.expandedSize else panelState.collapsedSize
-  } else {
-    animateDpAsState(
-      if (panelState.isExpanded) panelState.expandedSize else panelState.collapsedSize,
-      SpringSpec(stiffness = Spring.StiffnessLow),
-    ).value
-  }
+  val animatedSize =
+    if (panelState.splitter.isResizing) {
+      if (panelState.isExpanded) panelState.expandedSize else panelState.collapsedSize
+    } else {
+      animateDpAsState(
+          if (panelState.isExpanded) panelState.expandedSize else panelState.collapsedSize,
+          SpringSpec(stiffness = Spring.StiffnessLow),
+        )
+        .value
+    }
 
   VerticalSplittable(
     modifier = Modifier.fillMaxSize(),
@@ -74,7 +75,7 @@ fun EditorComposite(
             modifier = Modifier.weight(1f),
           ) {
             Crossfade(targetState = editorCompositeContainer.editorManager.active) {
-              it?.let { it1 -> Editor(model = it1) }
+              it?.let { model -> Editor(model = model) }
             }
           }
         }

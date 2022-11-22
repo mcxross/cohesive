@@ -12,7 +12,9 @@
 
 <img src="artwork/readme/preview.png" alt="Cohesive Preview" width="100%" height="100%">
 
----
+[![Qodana](https://github.com/mcxross/cohesive/actions/workflows/code_quality.yml/badge.svg)](https://github.com/mcxross/cohesive/actions/workflows/code_quality.yml)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+<hr />
 
 > Convention: We'll use _Platform_ and _Blockchain_ interchangeably herein - and rarely, _Chain_
 
@@ -26,9 +28,8 @@ Cohesive is a modular meta-tool, i.e., a tool for tools, with a bias towards mem
 
 ## Table of contents
 - [Quick start](#quick-start)
-- [Status](#status)
+- [Build locally](#build-locally)
 - [What's included](#whats-included)
-- [Documentation](#documentation)
 - [Features](#features)
 - [Roadmap](#roadmap)
 - [Design Philosophy](#design-philosophy)
@@ -36,9 +37,11 @@ Cohesive is a modular meta-tool, i.e., a tool for tools, with a bias towards mem
 
 **Note:** This project is in its early stages of development. The project is not yet ready for production use.
 
-## Quick start
+## Quick Start
 
-### Building a Secondary Plugin for a Specific Platform (Blockchain)
+### Build a Secondary Plugin for a Specific Platform (Blockchain)
+
+The quickest way to get started is to use this [template](https://github.com/mcxross/x-cohesive) project. It contains all the necessary files and configurations to get you started.
 
 ```kotlin
 @Cohesive(
@@ -68,6 +71,8 @@ class MainView : CohesiveView {
 }
 ```
 
+## Build locally
+
 ### Running Base Desktop Application
 ```
 ./gradlew :desktop:run
@@ -90,10 +95,6 @@ class MainView : CohesiveView {
 # and then open index.html (build/distributions)
 ```
 
-## Status
-
-[![Qodana](https://github.com/mcxross/cohesive/actions/workflows/code_quality.yml/badge.svg)](https://github.com/mcxross/cohesive/actions/workflows/code_quality.yml)
-
 ## What's included
 Above everything, this repo is a Kotlin Multiplatform project containing apps and libraries for the following platforms:
 
@@ -101,9 +102,6 @@ Above everything, this repo is a Kotlin Multiplatform project containing apps an
 * Desktop Application
 * Android Application
 * iOS Application (WIP)
-
-## Documentation
-
 
 ## Features
 - [x] Multiplatform

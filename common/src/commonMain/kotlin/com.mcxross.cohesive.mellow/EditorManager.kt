@@ -8,7 +8,8 @@ class EditorManager {
   internal var editorModels = mutableStateListOf<EditorModel>()
     private set
 
-  internal val active: EditorModel? get() = selection.selected as EditorModel?
+  internal val active: EditorModel?
+    get() = selection.selected as EditorModel?
 
   fun isActiveNonNull() = active != null
 
@@ -26,9 +27,7 @@ class EditorManager {
     if (activeEditorModel == null) {
       activeEditorModel = createEditorModel(file)
       activeEditorModel!!.selection = selection
-      activeEditorModel!!.close = {
-        close(activeEditorModel!!)
-      }
+      activeEditorModel!!.close = { close(activeEditorModel!!) }
       editorModels.add(activeEditorModel!!)
     }
 

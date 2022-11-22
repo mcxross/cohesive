@@ -89,7 +89,7 @@ internal actual fun Lines(
       ) {
 
         TextField(
-          text = "Code",
+          text = lines.toString(),
           fontSize = fontSize,
           modifier = Modifier.fillMaxWidth().wrapContentHeight(),
         )

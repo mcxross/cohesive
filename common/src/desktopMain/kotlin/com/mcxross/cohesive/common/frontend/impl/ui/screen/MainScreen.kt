@@ -56,6 +56,7 @@ import com.mcxross.cohesive.mellow.MenuTree
 import com.mcxross.cohesive.mellow.TopBar
 import com.mcxross.cohesive.mellow.WindowButton
 import com.mcxross.cohesive.mellow.WindowScaffold
+import java.util.*
 
 open class MainScreen {
 
@@ -89,7 +90,7 @@ open class MainScreen {
 
         child(
           CMenuItem(
-            text = "Switch Chain",
+            text = "Switch Platform",
             menuInterface =
               object : MenuInterface {
                 override fun onClick() {
@@ -170,7 +171,12 @@ open class MainScreen {
   @Composable
   protected fun ClusterMenu() {
     var expanded by remember { mutableStateOf(false) }
-    val suggestions = cohesive.nets.map { it.k }
+    val suggestions =
+      cohesive.nets.map {
+        it.k.replaceFirstChar { c ->
+          if (c.isLowerCase()) c.titlecase(Locale.ROOT) else c.toString()
+        }
+      }
     var setCluster by remember { mutableStateOf(suggestions[0]) }
     Box {
       Button(
@@ -256,7 +262,7 @@ open class MainScreen {
       when (view) {
         View.EXPLORER -> cohesiveView.Explorer()
         View.WALLET -> cohesiveView.Wallet()
-        View.EDITOR -> cohesiveView.SimpleEditor()
+        View.EDITOR -> Editor()
         else -> {}
       }
 
