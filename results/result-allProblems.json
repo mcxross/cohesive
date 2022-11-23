@@ -38,90 +38,6 @@
       "type": "file",
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
       "language": "kotlin",
-      "line": 98,
-      "offset": 12,
-      "length": 17,
-      "code": {
-        "startLine": 96,
-        "length": 17,
-        "offset": 74,
-        "surroundingCode": "    awaitPointerEventScope {\n      val down = awaitFirstDown()\n      down.consumeDownChange()\n      pressScope.reset()\n      if (onPress !== NoPressGesture) launch {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "f52b3518a8ce8419c7cf9894abb4421e4f7d1b8ad411edb04a80a82eac3c5aed"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 115,
-      "offset": 22,
-      "length": 17,
-      "code": {
-        "startLine": 113,
-        "length": 17,
-        "offset": 91,
-        "surroundingCode": "          pressScope.cancel() // tap-up was canceled\n        } else {\n          upOrCancel.consumeDownChange()\n          pressScope.release()\n        }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "f3019a8745dd37233436b827d23fb976d63c2254397419979ec210f95166f0d7"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 146,
-      "offset": 28,
-      "length": 17,
-      "code": {
-        "startLine": 144,
-        "length": 17,
-        "offset": 124,
-        "surroundingCode": "                val secondUp = waitForUpOrCancellation()\n                if (secondUp != null) {\n                  secondUp.consumeDownChange()\n                  pressScope.release()\n                  onDoubleTap(secondUp.position)"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "70799d5e5571756a54851c4c10d6fc4f94db0ca41889cbd35dc11a835c2b4988"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
       "line": 213,
       "offset": 47,
       "length": 17,
@@ -166,6 +82,62 @@
     "inspectionName": "KotlinDeprecation"
   },
   "hash": "3ec2eefec81a8bd1adf63ff5ec508694795b08f39bfe5a34cf5b0c96989b1f36"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'consumeAllChanges(): Unit' is deprecated. Use consume() instead",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 178,
+      "offset": 36,
+      "length": 17,
+      "code": {
+        "startLine": 176,
+        "length": 17,
+        "offset": 78,
+        "surroundingCode": "  do {\n    val event = awaitPointerEvent()\n    event.changes.fastForEach { it.consumeAllChanges() }\n  } while (event.changes.fastAny { it.pressed })\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "eb0fddc8bef0041ee827772e792393b66fbc47f091bea2f58fd6dc4c9398374c"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'positionChangeConsumed(): Boolean' is deprecated. Partial consumption has been deprecated. Use isConsumed instead",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 275,
+      "offset": 43,
+      "length": 22,
+      "code": {
+        "startLine": 273,
+        "length": 22,
+        "offset": 192,
+        "surroundingCode": "    // existing pointer event because it comes after the Main pass we checked above.\n    val consumeCheck = awaitPointerEvent(PointerEventPass.Final)\n    if (consumeCheck.changes.fastAny { it.positionChangeConsumed() }) {\n      return null\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "c7a6736ea97da34f9c294744156e3318c503da4858fdd34f4f2b0e3f1b1928f0"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -255,21 +227,21 @@
   "category": "Migration",
   "type": "Usage of redundant or deprecated syntax or deprecated symbols",
   "severity": "High",
-  "comment": "'consumeAllChanges(): Unit' is deprecated. Use consume() instead",
+  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
   "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
   "sources": [
     {
       "type": "file",
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
       "language": "kotlin",
-      "line": 178,
-      "offset": 36,
+      "line": 98,
+      "offset": 12,
       "length": 17,
       "code": {
-        "startLine": 176,
+        "startLine": 96,
         "length": 17,
-        "offset": 78,
-        "surroundingCode": "  do {\n    val event = awaitPointerEvent()\n    event.changes.fastForEach { it.consumeAllChanges() }\n  } while (event.changes.fastAny { it.pressed })\n}"
+        "offset": 74,
+        "surroundingCode": "    awaitPointerEventScope {\n      val down = awaitFirstDown()\n      down.consumeDownChange()\n      pressScope.reset()\n      if (onPress !== NoPressGesture) launch {"
       }
     }
   ],
@@ -277,27 +249,27 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "KotlinDeprecation"
   },
-  "hash": "eb0fddc8bef0041ee827772e792393b66fbc47f091bea2f58fd6dc4c9398374c"
+  "hash": "f52b3518a8ce8419c7cf9894abb4421e4f7d1b8ad411edb04a80a82eac3c5aed"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
   "type": "Usage of redundant or deprecated syntax or deprecated symbols",
   "severity": "High",
-  "comment": "'positionChangeConsumed(): Boolean' is deprecated. Partial consumption has been deprecated. Use isConsumed instead",
+  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
   "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
   "sources": [
     {
       "type": "file",
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
       "language": "kotlin",
-      "line": 275,
-      "offset": 43,
-      "length": 22,
+      "line": 115,
+      "offset": 22,
+      "length": 17,
       "code": {
-        "startLine": 273,
-        "length": 22,
-        "offset": 192,
-        "surroundingCode": "    // existing pointer event because it comes after the Main pass we checked above.\n    val consumeCheck = awaitPointerEvent(PointerEventPass.Final)\n    if (consumeCheck.changes.fastAny { it.positionChangeConsumed() }) {\n      return null\n    }"
+        "startLine": 113,
+        "length": 17,
+        "offset": 91,
+        "surroundingCode": "          pressScope.cancel() // tap-up was canceled\n        } else {\n          upOrCancel.consumeDownChange()\n          pressScope.release()\n        }"
       }
     }
   ],
@@ -305,7 +277,35 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "KotlinDeprecation"
   },
-  "hash": "c7a6736ea97da34f9c294744156e3318c503da4858fdd34f4f2b0e3f1b1928f0"
+  "hash": "f3019a8745dd37233436b827d23fb976d63c2254397419979ec210f95166f0d7"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 146,
+      "offset": 28,
+      "length": 17,
+      "code": {
+        "startLine": 144,
+        "length": 17,
+        "offset": 124,
+        "surroundingCode": "                val secondUp = waitForUpOrCancellation()\n                if (secondUp != null) {\n                  secondUp.consumeDownChange()\n                  pressScope.release()\n                  onDoubleTap(secondUp.position)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "70799d5e5571756a54851c4c10d6fc4f94db0ca41889cbd35dc11a835c2b4988"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -339,34 +339,6 @@
   "category": "Migration",
   "type": "Usage of redundant or deprecated syntax or deprecated symbols",
   "severity": "High",
-  "comment": "'pointerMoveFilter((position: Offset) -> Boolean = ..., () -> Boolean = ..., () -> Boolean = ...): Modifier' is deprecated. Use onPointerEvent or hoverable",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Mouse.kt",
-      "language": "kotlin",
-      "line": 16,
-      "offset": 20,
-      "length": 17,
-      "code": {
-        "startLine": 14,
-        "length": 17,
-        "offset": 74,
-        "surroundingCode": "  onExit: () -> Boolean,\n  onMove: (Offset) -> Boolean\n): Modifier = this.pointerMoveFilter(onEnter = onEnter, onExit = onExit, onMove = onMove)\n\nactual fun Modifier.cursorForHorizontalResize(): Modifier ="
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "79e743a1c1429ecdaeaa90e92f8ffe04c0e130374dde3e24683f0ed35f458744"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
   "comment": "Remove deprecated symbol import",
   "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
   "sources": [
@@ -390,6 +362,34 @@
     "inspectionName": "KotlinDeprecation"
   },
   "hash": "e83919f227a832b5f407990675b8c5f982d2b14442261bf126fba1b4b1aea508"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'pointerMoveFilter((position: Offset) -> Boolean = ..., () -> Boolean = ..., () -> Boolean = ...): Modifier' is deprecated. Use onPointerEvent or hoverable",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Mouse.kt",
+      "language": "kotlin",
+      "line": 16,
+      "offset": 20,
+      "length": 17,
+      "code": {
+        "startLine": 14,
+        "length": 17,
+        "offset": 74,
+        "surroundingCode": "  onExit: () -> Boolean,\n  onMove: (Offset) -> Boolean\n): Modifier = this.pointerMoveFilter(onEnter = onEnter, onExit = onExit, onMove = onMove)\n\nactual fun Modifier.cursorForHorizontalResize(): Modifier ="
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "79e743a1c1429ecdaeaa90e92f8ffe04c0e130374dde3e24683f0ed35f458744"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
