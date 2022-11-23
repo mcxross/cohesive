@@ -43,6 +43,8 @@ Cohesive is a modular meta-tool, i.e., a tool for tools, with a bias towards mem
 
 The quickest way to get started is to use this [template](https://github.com/mcxross/x-cohesive) project. It contains all the necessary files and configurations to get you started.
 
+Cohesive uses _encapsulated slot APIs_, a pattern akin to Compose _slot APIs_ for its customization. Slots leave an empty space in the UI for the developer to fill as they wish for the specific Platform implementation. The template project contains a sample implementation of the _encapsulated slot APIs_ for the Ethereum Platform.
+
 ```kotlin
 @Cohesive(
   platform = "Ethereum",
