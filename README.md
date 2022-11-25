@@ -117,6 +117,6 @@ Above everything, this repo is a Kotlin Multiplatform project containing apps an
 _Always building, always improving._
 ## Design Philosophy
 Simple, intuitive, and powerful.
- 
+
 ## Contribution
 All contributions to Cohesive are welcome. Before opening a PR, please submit an issue detailing the bug or feature. When opening a PR, please ensure that your contribution builds on the KMM toolchain, has been linted with `ktfmt <GOOGLE (INTERNAL)>`, and contains tests when applicable. For more information, please see the [contribution guidelines](CONTRIBUTING.md).

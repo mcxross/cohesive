@@ -1,84 +1,112 @@
 package com.mcxross.cohesive.common.common.platform
 
+import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import com.mcxross.cohesive.mellow.File
 import com.mcxross.cohesive.mellow.TextLines
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import java.io.FileInputStream
 import java.io.IOException
 import java.io.RandomAccessFile
 import java.nio.channels.FileChannel
 import java.nio.charset.StandardCharsets
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-fun java.io.File.toProjectFile(): File = object : File {
-  override val name: String get() = this@toProjectFile.name
-  override val path: String get() = this@toProjectFile.path
-  override val absolutePath: String get() = this@toProjectFile.absolutePath
-  override val canonicalPath: String get() = this@toProjectFile.canonicalPath
-  override val isDirectory: Boolean get() = this@toProjectFile.isDirectory
+fun java.io.File.toProjectFile(): File =
+  object : File {
+    override val name: String
+      get() = this@toProjectFile.name
+    override val path: String
+      get() = this@toProjectFile.path
+    override val absolutePath: String
+      get() = this@toProjectFile.absolutePath
+    override val canonicalPath: String
+      get() = this@toProjectFile.canonicalPath
+    override val isDirectory: Boolean
+      get() = this@toProjectFile.isDirectory
 
-  override val children: List<File>
-    get() = this@toProjectFile
-      .listFiles { _, name -> !name.startsWith(".") }
-      .orEmpty()
-      .map { it.toProjectFile() }
+    override val children: List<File>
+      get() =
+        this@toProjectFile.listFiles { _, name -> !name.startsWith(".") }
+          .orEmpty()
+          .map { it.toProjectFile() }
 
-  override val hasChildren: Boolean get() = isDirectory && (listFiles()?.size ?: 0) > 0
+    override val hasChildren: Boolean
+      get() = isDirectory && (listFiles()?.size ?: 0) > 0
 
-  override fun readLines(scope: CoroutineScope): TextLines {
-    var byteBufferSize: Int
-    val byteBuffer = RandomAccessFile(this@toProjectFile, "r").use { file ->
-      byteBufferSize = file.length().toInt()
-      file.channel.map(FileChannel.MapMode.READ_ONLY, 0, file.length())
-    }
+    override fun readLines(scope: CoroutineScope): TextLines {
+      var byteBufferSize: Int
+      val byteBuffer =
+        RandomAccessFile(this@toProjectFile, "r").use { file ->
+          byteBufferSize = file.length().toInt()
+          file.channel.map(FileChannel.MapMode.READ_ONLY, 0, file.length())
+        }
 
-    val lineStartPositions = IntList()
+      val lineStartPositions = IntList()
 
-    var size by mutableStateOf(0)
+      var size by mutableStateOf(0)
 
-    val refreshJob = scope.launch {
-      delay(100)
-      size = lineStartPositions.size
-      while (true) {
-        delay(1000)
+      val refreshJob =
+        scope.launch {
+          delay(100)
+          size = lineStartPositions.size
+          while (true) {
+            delay(1000)
+            size = lineStartPositions.size
+          }
+        }
+
+      scope.launch(Dispatchers.IO) {
+        readLinePositions(lineStartPositions)
+        refreshJob.cancel()
         size = lineStartPositions.size
       }
-    }
 
-    scope.launch(Dispatchers.IO) {
-      readLinePositions(lineStartPositions)
-      refreshJob.cancel()
-      size = lineStartPositions.size
-    }
+      return object : TextLines {
+        override val size
+          get() = size
+        override var isCode : Boolean = name.endsWith(".kt", ignoreCase = true)
+        override val text: State<String>
+          get() {
+            return if (byteBuffer.hasArray()) {
+              mutableStateOf(String(byteBuffer.array(), StandardCharsets.UTF_8))
+            } else {
+              try {
+                mutableStateOf(
+                  String(
+                    ByteArray(byteBufferSize).also { byteBuffer.get(it) },
+                    StandardCharsets.UTF_8
+                  )
+                )
+              } catch (e: Exception) {
+                mutableStateOf("")
+              }
+            }
+          }
 
-    return object : TextLines {
-      override val size get() = size
-
-      override fun get(index: Int): String {
-        val startPosition = lineStartPositions[index]
-        val length = if (index + 1 < size) lineStartPositions[index + 1] - startPosition else
-          byteBufferSize - startPosition
-        // Only JDK since 13 has slice() method we need, so do ugly for now.
-        byteBuffer.position(startPosition)
-        val slice = byteBuffer.slice()
-        slice.limit(length)
-        return StandardCharsets.UTF_8.decode(slice).toString()
+        override fun get(index: Int): String {
+          val startPosition = lineStartPositions[index]
+          val length =
+            if (index + 1 < size) lineStartPositions[index + 1] - startPosition
+            else byteBufferSize - startPosition
+          // Only JDK since 13 has slice() method we need, so do ugly for now.
+          byteBuffer.position(startPosition)
+          val slice = byteBuffer.slice()
+          slice.limit(length)
+          return StandardCharsets.UTF_8.decode(slice).toString()
+        }
       }
     }
   }
-}
 
 private fun java.io.File.readLinePositions(
   starts: IntList,
 ) {
-  require(length() <= Int.MAX_VALUE) {
-    "Files with size over ${Int.MAX_VALUE} aren't supported"
-  }
+  require(length() <= Int.MAX_VALUE) { "Files with size over ${Int.MAX_VALUE} aren't supported" }
 
   val averageLineLength = 200
   starts.clear(length().toInt() / averageLineLength)
@@ -86,9 +114,12 @@ private fun java.io.File.readLinePositions(
   try {
     FileInputStream(this@readLinePositions).use {
       val channel = it.channel
-      val ib = channel.map(
-        FileChannel.MapMode.READ_ONLY, 0, channel.size(),
-      )
+      val ib =
+        channel.map(
+          FileChannel.MapMode.READ_ONLY,
+          0,
+          channel.size(),
+        )
       var isBeginOfLine = true
       var position = 0L
       while (ib.hasRemaining()) {
@@ -110,12 +141,9 @@ private fun java.io.File.readLinePositions(
   starts.compact()
 }
 
-/**
- * Compact version of List<Int> (without unboxing Int and using IntArray under the hood)
- */
+/** Compact version of List<Int> (without unboxing Int and using IntArray under the hood) */
 private class IntList(initialCapacity: Int = 16) {
-  @Volatile
-  private var array = IntArray(initialCapacity)
+  @Volatile private var array = IntArray(initialCapacity)
 
   @Volatile
   var size: Int = 0

@@ -70,7 +70,7 @@ fun EditorComposite(
         Column(
           modifier = Modifier.fillMaxSize(),
         ) {
-          EditorTabs(editorManager = editorCompositeContainer.editorManager)
+          EditorTabs(editorCompositeContainer = editorCompositeContainer, panelState = panelState)
           Box(
             modifier = Modifier.weight(1f),
           ) {

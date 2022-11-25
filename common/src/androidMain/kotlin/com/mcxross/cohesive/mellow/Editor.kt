@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.TextUnit
 
 @Composable
 actual fun Lines(
-  lines: EditorModel.Lines,
+  textLines: TextLines,
   fontSize: TextUnit,
 ) {
 
@@ -17,6 +17,7 @@ actual fun Lines(
 @Composable
 actual fun TextField(
   text: String,
+  isCode: Boolean,
   modifier: Modifier,
   fontSize: TextUnit,
 ) {

@@ -9,7 +9,7 @@ class EditorManager {
     private set
 
   internal val active: EditorModel?
-    get() = selection.selected as EditorModel?
+    get() = selection.selected
 
   fun isActiveNonNull() = active != null
 

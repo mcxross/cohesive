@@ -37,6 +37,26 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun EditorTabs(
+  editorCompositeContainer: EditorCompositeContainer,
+  panelState: PanelState,
+) =
+  Row(
+    modifier = Modifier.horizontalScroll(state = rememberScrollState()),
+  ) {
+    val editorManager = editorCompositeContainer.editorManager
+    for (editor in editorManager.editorModels) {
+      RectTab(
+        text = editor.file.name,
+        active = editor.isActive,
+        onActivate = { editor.activate() },
+        onDoubleClick = { panelState.isExpanded = !panelState.isExpanded },
+        onClose = { editor.close?.let { it() } },
+      )
+    }
+  }
+
+@Composable
+fun EditorTabs(
   editorManager: EditorManager,
 ) = Row(
   modifier = Modifier.horizontalScroll(state = rememberScrollState()),
@@ -57,38 +77,37 @@ fun Editor(
   modifier: Modifier = Modifier,
   fontSize: TextUnit = 13.sp,
   maxLineSymbols: Int = 120,
-) = key(model) {
-  with(LocalDensity.current) {
-    SelectionContainer {
-      Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colors.background,
-      ) {
-        val lines by loadableScoped(model.lines)
-        if (lines != null) {
-          Box {
-            Lines(lines = lines!!, fontSize = fontSize)
-            Box(
-              modifier = Modifier
-                .offset(x = fontSize.toDp() * 0.5f * maxLineSymbols)
-                .width(1.dp)
-                .fillMaxHeight()
-                .background(MaterialTheme.colors.onSurface),
-            )
-          }
-        } else {
-          Box {
-            Progress(modifier = Modifier.align(Alignment.Center))
+) =
+  key(model) {
+    with(LocalDensity.current) {
+      SelectionContainer {
+        Surface(
+          modifier = Modifier.fillMaxSize(),
+          color = MaterialTheme.colors.background,
+        ) {
+          val textLines by loadableScoped(model.lines)
+          if (textLines != null) {
+            Box {
+              Lines(textLines = textLines!!, fontSize = fontSize)
+              Box(
+                modifier =
+                  Modifier.offset(x = fontSize.toDp() * 0.5f * maxLineSymbols)
+                    .width(1.dp)
+                    .fillMaxHeight()
+                    .background(MaterialTheme.colors.onSurface),
+              )
+            }
+          } else {
+            Box { Progress(modifier = Modifier.align(Alignment.Center)) }
           }
         }
       }
     }
   }
-}
 
 @Composable
 internal expect fun Lines(
-  lines: EditorModel.Lines,
+  textLines: TextLines,
   fontSize: TextUnit,
 )
 
@@ -96,12 +115,11 @@ internal expect fun Lines(
 internal fun LineNumber(
   modifier: Modifier,
   maxNum: String,
-  line: EditorModel.Line,
+  line: Int,
   fontSize: TextUnit,
 ) = DisableSelection {
-
   Box(
-    modifier = modifier.padding(end = 28.dp),
+    modifier = modifier,
   ) {
     Number(
       number = maxNum,
@@ -109,45 +127,41 @@ internal fun LineNumber(
       fontSize = fontSize,
     )
     Number(
-      number = line.number.toString(),
+      number = line.toString(),
       modifier = Modifier.align(Alignment.Center),
       fontSize = fontSize,
     )
-
   }
 }
-
 
 @Composable
 private fun Number(
   number: String,
   modifier: Modifier,
   fontSize: TextUnit,
-) = Text(
-  text = number,
-  fontSize = fontSize,
-  fontFamily = Fonts.jetbrainsMono(),
-  color = LocalContentColor.current.copy(alpha = 0.30f),
-  modifier = modifier.padding(start = 12.dp),
-)
+) =
+  Text(
+    text = number,
+    fontSize = fontSize,
+    fontFamily = Fonts.jetbrainsMono(),
+    color = LocalContentColor.current.copy(alpha = 0.30f),
+    modifier = modifier.padding(start = 12.dp),
+  )
 
 @Composable
 expect fun TextField(
   text: String,
+  isCode: Boolean,
   modifier: Modifier,
   fontSize: TextUnit,
 )
 
-//content: EditorModel.TextField
+// content: EditorModel.TextField
 fun highlight(text: String, isCode: Boolean): AnnotatedString {
   return if (isCode) {
     codeString(text)
   } else {
-    buildAnnotatedString {
-      withStyle(MellowTheme.code.simple) {
-        append(text)
-      }
-    }
+    buildAnnotatedString { withStyle(MellowTheme.code.simple) { append(text) } }
   }
 }
 
@@ -203,28 +217,28 @@ private fun AnnotatedString.Builder.addStyle(
   }
 }
 
-
 @Composable
 fun EditorEmpty(
   text: String = "No file opened",
-) = Box(
-  modifier = Modifier.fillMaxSize().background(MaterialTheme.colors.background),
-) {
-  Column(
-    modifier = Modifier.align(Alignment.Center),
+) =
+  Box(
+    modifier = Modifier.fillMaxSize().background(MaterialTheme.colors.background),
   ) {
-    Icon(
-      Icons.Default.Code,
-      contentDescription = null,
-      tint = LocalContentColor.current.copy(alpha = 0.60f),
-      modifier = Modifier.align(Alignment.CenterHorizontally),
-    )
+    Column(
+      modifier = Modifier.align(Alignment.Center),
+    ) {
+      Icon(
+        Icons.Default.Code,
+        contentDescription = null,
+        tint = LocalContentColor.current.copy(alpha = 0.60f),
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+      )
 
-    Text(
-      text = text,
-      color = LocalContentColor.current.copy(alpha = 0.60f),
-      fontSize = 20.sp,
-      modifier = Modifier.align(Alignment.CenterHorizontally).padding(16.dp),
-    )
+      Text(
+        text = text,
+        color = LocalContentColor.current.copy(alpha = 0.60f),
+        fontSize = 20.sp,
+        modifier = Modifier.align(Alignment.CenterHorizontally).padding(16.dp),
+      )
+    }
   }
-}

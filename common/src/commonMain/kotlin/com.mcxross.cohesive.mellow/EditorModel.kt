@@ -2,11 +2,12 @@ package com.mcxross.cohesive.mellow
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import com.mcxross.cohesive.common.utils.Log
 import kotlinx.coroutines.CoroutineScope
 
 class EditorModel(
   val file: File,
-  val lines: (backgroundScope: CoroutineScope) -> Lines,
+  val lines: (backgroundScope: CoroutineScope) -> TextLines,
 ) {
   var close: (() -> Unit)? = null
   lateinit var selection: SingleSelection
@@ -24,6 +25,9 @@ class EditorModel(
 
   class Line(val number: Int, val content: Content)
 
+  var textLines: TextLines? = null
+    private set
+
   interface Lines {
     val lineNumberDigitCount: Int get() = size.toString().length
     val size: Int
@@ -39,13 +43,14 @@ internal fun createEditorModel(file: File) = EditorModel(
   val textLines = try {
     file.readLines(backgroundScope)
   } catch (e: Throwable) {
+    Log.e { "Failed to read file: $file" }
     e.printStackTrace()
     EmptyTextLines
   }
-  println(textLines)
-  val isCode = file.name.endsWith(".kt", ignoreCase = true)
 
-  fun content(
+  textLines
+
+  /*fun content(
     index: Int,
   ): EditorModel.Content {
     val text = textLines.get(index)
@@ -62,5 +67,5 @@ internal fun createEditorModel(file: File) = EditorModel(
       number = index + 1,
       content = content(index),
     )
-  }
+  }*/
 }

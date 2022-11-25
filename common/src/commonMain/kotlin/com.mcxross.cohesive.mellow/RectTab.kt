@@ -26,45 +26,49 @@ fun RectTab(
   text: String,
   active: Boolean,
   onActivate: () -> Unit,
+  onDoubleClick: (() -> Unit)? = null,
   onClose: (() -> Unit?)? = null,
-) = Surface(
-  color = if (active) {
-    MaterialTheme.colors.background
-  } else {
-    Color.Transparent
-  },
-) {
-  Row(
-    modifier = Modifier
-      .clickable(
-        interactionSource = remember(::MutableInteractionSource),
-        indication = null,
-      ) {
-        onActivate()
-      }.padding(4.dp),
-    verticalAlignment = Alignment.CenterVertically,
+) =
+  Surface(
+    color =
+      if (active) {
+        MaterialTheme.colors.background
+      } else {
+        Color.Transparent
+      },
   ) {
-    Text(
-      text = text,
-      color = LocalContentColor.current,
-      fontSize = 12.sp,
-      modifier = Modifier.padding(horizontal = 4.dp),
-      maxLines = 1,
-    )
+    val interactionSource = remember { MutableInteractionSource() }
 
-    if (onClose != null) {
-      Icon(
-        imageVector = Icons.Default.Close,
-        tint = LocalContentColor.current,
-        contentDescription = "Close",
-        modifier = Modifier.size(24.dp).padding(4.dp).clickable {
-          onClose()
-        },
+    Row(
+      modifier =
+        Modifier.combinedClickableNoInteraction(
+            interactionSource = interactionSource,
+            indication = null,
+            onClick = onActivate,
+            onDoubleClick = onDoubleClick,
+          )
+          .padding(4.dp),
+      verticalAlignment = Alignment.CenterVertically,
+    ) {
+      Text(
+        text = text,
+        color = LocalContentColor.current,
+        fontSize = 12.sp,
+        modifier = Modifier.padding(horizontal = 4.dp),
+        maxLines = 1,
       )
-    } else {
-      Box(
-        modifier = Modifier.size(24.dp, 24.dp).padding(4.dp),
-      )
+
+      if (onClose != null) {
+        Icon(
+          imageVector = Icons.Default.Close,
+          tint = LocalContentColor.current,
+          contentDescription = "Close",
+          modifier = Modifier.size(24.dp).padding(4.dp).clickable { onClose() },
+        )
+      } else {
+        Box(
+          modifier = Modifier.size(24.dp, 24.dp).padding(4.dp),
+        )
+      }
     }
   }
-}
