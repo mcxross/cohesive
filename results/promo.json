@@ -1,51 +1,219 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Constructor parameter is never used as a property",
-  "severity": "High",
-  "comment": "Constructor parameter is never used as a property",
-  "detailsInfo": "Reports primary constructor parameters that can have `val` or `var` removed.\n\n\nClass properties declared in the constructor increase memory consumption.\nIf the parameter value is only used in the constructor, you can omit them.\n\nNote that the referenced object might be garbage-collected earlier.\n\n**Example:**\n\n\n      class Task(val name: String) {\n          init {\n              print(\"Task created: $name\")\n          }\n      }\n\nA quick-fix removes the extra `val` or `var` keyword:\n\n\n      class Task(name: String) {\n          init {\n              print(\"Task created: $name\")\n          }\n      }\n",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'Text' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "csp/src/main/kotlin/com/mcxross/cohesive/csp/processor/ExtensionProcessor.kt",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/widget/md/markup/Text.kt",
       "language": "kotlin",
-      "line": 11,
-      "offset": 34,
-      "length": 3,
+      "line": 15,
+      "offset": 5,
+      "length": 4,
       "code": {
-        "startLine": 9,
-        "length": 3,
-        "offset": 62,
-        "surroundingCode": "import java.io.OutputStream\n\nclass ExtensionProcessor(private val environment: SymbolProcessorEnvironment) :\n  BaseProcessor(environment) {\n"
+        "startLine": 13,
+        "length": 4,
+        "offset": 51,
+        "surroundingCode": "@OptIn(ExperimentalUnitApi::class)\n@Composable\nfun Text(\n  text: String,\n  color: Color,"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.csp.main",
-    "inspectionName": "CanBeParameter"
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
   },
-  "hash": "78512f753ce729d32553539c94e2ffb915fd820915611da496298742e5c43063"
+  "hash": "67ff74b7487b574cfc9c4db3ef760c231101d354b4e4f21542947800d2c06c53"
 },{
   "tool": "Code Inspection",
   "category": "Naming conventions",
   "type": "Function naming convention",
   "severity": "Moderate",
-  "comment": "Function name 'SimpleLayout' should start with a lowercase letter",
+  "comment": "Function name 'ProgressIndicator' should start with a lowercase letter",
   "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/selection/SimpleLayout.kt",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/ProgressIndicator.kt",
       "language": "kotlin",
-      "line": 32,
+      "line": 13,
       "offset": 14,
+      "length": 17,
+      "code": {
+        "startLine": 11,
+        "length": 17,
+        "offset": 26,
+        "surroundingCode": "\n@Composable\ninternal fun ProgressIndicator(\n  modifier: Modifier,\n  size: Dp,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "176895809031ee31cc6e268f3b97e9d68b192ccdf54666135f6c3756dccd6d56"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'FileTreeTab' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/FileTree.kt",
+      "language": "kotlin",
+      "line": 47,
+      "offset": 5,
+      "length": 11,
+      "code": {
+        "startLine": 45,
+        "length": 11,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun FileTreeTab(\n  text: String,\n) = Surface {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "272d4ef0547ab90f8f5bc1b06a274a1d639ad04ea5165771d604740ceec1dc5f"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'FileTreeItem' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/FileTree.kt",
+      "language": "kotlin",
+      "line": 111,
+      "offset": 13,
       "length": 12,
       "code": {
-        "startLine": 30,
+        "startLine": 109,
         "length": 12,
-        "offset": 29,
-        "surroundingCode": " */\n@Composable\ninternal fun SimpleLayout(modifier: Modifier = Modifier, content: @Composable () -> Unit) {\n  Layout(modifier = modifier, content = content) { measurables, constraints ->\n    val placeables = measurables.fastMap { measurable ->"
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun FileTreeItem(\n  text: String,\n  modifier: Modifier,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "9b87177c22b5f3a8234a2cc16b0e7a67477e464042f7d037132de8bd3bb353c8"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'FileItemIcon' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/FileTree.kt",
+      "language": "kotlin",
+      "line": 152,
+      "offset": 13,
+      "length": 12,
+      "code": {
+        "startLine": 150,
+        "length": 12,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun FileItemIcon(\n  modifier: Modifier,\n  model: FileTreeModel.Item,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "f9c26ba89a7af372e8c22b8b72297bf5333b4a96116b1dcf82d59f185cde5285"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'FileTree' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/FileTree.kt",
+      "language": "kotlin",
+      "line": 64,
+      "offset": 5,
+      "length": 8,
+      "code": {
+        "startLine": 62,
+        "length": 8,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun FileTree(\n  model: FileTreeModel,\n  onItemClick: (File) -> Unit = {},"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "f9694742eb887da955ab6e7207048db05ed4446db5602c0f7b0ee9566f250468"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'ResizablePanel' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/ResizablePanel.kt",
+      "language": "kotlin",
+      "line": 34,
+      "offset": 5,
+      "length": 14,
+      "code": {
+        "startLine": 32,
+        "length": 14,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun ResizablePanel(\n  modifier: Modifier,\n  state: PanelState,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "a17a35b8c878f07336e9bac28f5a54417be7214c21e6a00f2165df01e77c090b"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'BottomBar' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Dialog.kt",
+      "language": "kotlin",
+      "line": 39,
+      "offset": 13,
+      "length": 9,
+      "code": {
+        "startLine": 37,
+        "length": 9,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun BottomBar(\n  modifier: Modifier,\n  negativeText: String,"
       }
     }
   ],
@@ -53,83 +221,223 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "FunctionName"
   },
-  "hash": "b8eb093e6cb7ed810bb542e6679b604a74beaa98919f8c15e06b299993c99c88"
+  "hash": "2917106b199313b609d86af54a9132de8aa3bbecd698fd689e149e96b1640b53"
 },{
   "tool": "Code Inspection",
   "category": "Naming conventions",
   "type": "Function naming convention",
   "severity": "Moderate",
-  "comment": "Function name 'OutlinedButton' should start with a lowercase letter",
+  "comment": "Function name 'Dialog' should start with a lowercase letter",
   "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Button.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Dialog.kt",
       "language": "kotlin",
-      "line": 78,
-      "offset": 5,
-      "length": 14,
-      "code": {
-        "startLine": 76,
-        "length": 14,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun OutlinedButton(\n  onClick: () -> Unit,\n  modifier: Modifier = Modifier,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "69d80b2501a52c770647cfee25a59a4069d43436091fc04aabdf119865443881"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'Button' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Button.kt",
-      "language": "kotlin",
-      "line": 27,
+      "line": 92,
       "offset": 5,
       "length": 6,
       "code": {
-        "startLine": 25,
+        "startLine": 90,
         "length": 6,
         "offset": 17,
-        "surroundingCode": "\n@Composable\nfun Button(\n  onClick: () -> Unit,\n  modifier: Modifier = Modifier,"
+        "surroundingCode": "\n@Composable\nfun Dialog(\n  onClose: () -> Unit,\n  text: String,"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.common.commonMain",
+    "module": "cohesive.common.desktopMain",
     "inspectionName": "FunctionName"
   },
-  "hash": "5c0008677555c40096a65c4ba12bf563e6ba40a6df38ac94a2d4ad1f86f331a7"
+  "hash": "f1728f799670333bb745f0d962b9c9e1f284ef4d09d8245649d162d958d4d6d9"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'Content' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Dialog.kt",
+      "language": "kotlin",
+      "line": 29,
+      "offset": 13,
+      "length": 7,
+      "code": {
+        "startLine": 27,
+        "length": 7,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun Content(\n  modifier: Modifier,\n  content: @Composable () -> Unit,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "1928a37191f084423d39d67a9eed369e78e56f1498492ba20962a8fca2a68852"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'StoreScreen' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/screen/StoreScreen.kt",
+      "language": "kotlin",
+      "line": 200,
+      "offset": 5,
+      "length": 11,
+      "code": {
+        "startLine": 198,
+        "length": 11,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun StoreScreen() {\n  DisableSelection {\n    MellowTheme.Theme {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "4b8ec37fcc0e1132f2c35a094f8fb1f74f4c231b5db281028d03a8ea012a2e1f"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'SkipButton' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/screen/StoreScreen.kt",
+      "language": "kotlin",
+      "line": 169,
+      "offset": 14,
+      "length": 10,
+      "code": {
+        "startLine": 167,
+        "length": 10,
+        "offset": 26,
+        "surroundingCode": "\n@Composable\ninternal fun SkipButton(\n  modifier: Modifier,\n) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "4e128c3a3b0025512786affea319df5bf5eaea071e8727b74cb73357e63d920d"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'Platform' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/screen/StoreScreen.kt",
+      "language": "kotlin",
+      "line": 42,
+      "offset": 14,
+      "length": 8,
+      "code": {
+        "startLine": 40,
+        "length": 8,
+        "offset": 66,
+        "surroundingCode": "@OptIn(ExperimentalFoundationApi::class)\n@Composable\ninternal fun Platform(secondaryPlugin: SecondaryPlugin) {\n  Column(\n    modifier = Modifier.width(120.dp).wrapContentHeight(),"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "100d002fc152da879febd80a16aff136089ddd0f135ecf33d76a18f8a59e7131"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'StoreViewLoading' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/screen/StoreScreen.kt",
+      "language": "kotlin",
+      "line": 162,
+      "offset": 14,
+      "length": 16,
+      "code": {
+        "startLine": 160,
+        "length": 16,
+        "offset": 26,
+        "surroundingCode": "\n@Composable\ninternal fun StoreViewLoading(\n  modifier: Modifier = Modifier.padding(top = 30.dp).fillMaxWidth().height(1.dp),\n) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "17de15673ed02f090413935d2659e61ca2ce2363be339a781cbf510c8ae49751"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'Platforms' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/screen/StoreScreen.kt",
+      "language": "kotlin",
+      "line": 146,
+      "offset": 14,
+      "length": 9,
+      "code": {
+        "startLine": 144,
+        "length": 9,
+        "offset": 26,
+        "surroundingCode": "\n@Composable\ninternal fun Platforms(\n  modifier: Modifier,\n) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "6ab7a9d41de68bce632b2b9a7ce8a6eec747278e16fac3be8cf5751333ab8f3d"
 },{
   "tool": "Code Inspection",
   "category": "Probable bugs",
   "type": "Unresolved reference in KDoc",
   "severity": "High",
-  "comment": "Cannot resolve symbol 'Expression'",
+  "comment": "Cannot resolve symbol 'text'",
   "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/DefaultVersionManager.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/selection/SelectionHandles.kt",
       "language": "kotlin",
-      "line": 13,
-      "offset": 58,
-      "length": 10,
+      "line": 28,
+      "offset": 23,
+      "length": 4,
       "code": {
-        "startLine": 11,
-        "length": 10,
-        "offset": 110,
-        "surroundingCode": "class DefaultVersionManager : VersionManager {\n  /**\n   * Checks if a version satisfies the specified SemVer [Expression] string. If the constraint is\n   * empty or null then the method returns true. Constraint examples: `>2.0.0` (simple), `\">=1.4.0 &\n   * <1.6.0\"` (range). See https://github.com/zafarkhaja/jsemver#semver-expressions-api-ranges for"
+        "startLine": 26,
+        "length": 4,
+        "offset": 70,
+        "surroundingCode": " * Adjust coordinates for given text offset.\n *\n * Currently [android.text.Layout.getLineBottom] returns y coordinates of the next\n * line's top offset, which is not included in current line's hit area. To be able to\n * hit current line, move up this y coordinates by 1 pixel."
       }
     }
   ],
@@ -137,139 +445,139 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "cae848e48d53c7c21c5c5c4d3c71e81081c14d6bb0e629ac5992b6c7a56c74e5"
+  "hash": "7a3bce06027a4d12363167332f6c749341926245291df234efee7baa051da43d"
 },{
   "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Remove unnecessary parentheses",
-  "severity": "Moderate",
-  "comment": "Parentheses should be removed",
-  "detailsInfo": "Reports redundant empty parentheses in annotation entries.\n\nUse the 'Remove unnecessary parentheses' quick-fix to clean up the code.\n\n**Examples:**\n\n\n      annotation class MyAnnotationA\n      annotation class MyAnnotationB(val x: Int)\n      annotation class MyAnnotationC(val x: Int = 10) // default value is present\n\n      @MyAnnotationA() // <== parentheses are redundant\n      fun testA() {\n      }\n\n      @MyAnnotationB() // <== missing argument, parentheses are required\n      fun testB() {\n      }\n\n      @MyAnnotationC() // <== parentheses are redundant\n      fun testC() {\n      }\n",
+  "category": "Probable bugs",
+  "type": "Unresolved reference in KDoc",
+  "severity": "High",
+  "comment": "Cannot resolve symbol 'Layout'",
+  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/TopBar.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/selection/SelectionHandles.kt",
       "language": "kotlin",
-      "line": 125,
-      "offset": 23,
-      "length": 2,
+      "line": 28,
+      "offset": 28,
+      "length": 6,
       "code": {
-        "startLine": 123,
-        "length": 2,
-        "offset": 97,
-        "surroundingCode": "  iconAlpha: Float = DefaultAlpha,\n  iconColorFilter: ColorFilter? = null,\n  content: @Composable() (BoxScope.() -> Unit)? = null\n) = Column(\n  modifier = modifier.fillMaxWidth().height(30.dp),"
+        "startLine": 26,
+        "length": 6,
+        "offset": 75,
+        "surroundingCode": " * Adjust coordinates for given text offset.\n *\n * Currently [android.text.Layout.getLineBottom] returns y coordinates of the next\n * line's top offset, which is not included in current line's hit area. To be able to\n * hit current line, move up this y coordinates by 1 pixel."
       }
     }
   ],
   "attributes": {
     "module": "cohesive.common.desktopMain",
-    "inspectionName": "RemoveEmptyParenthesesFromAnnotationEntry"
+    "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "c0b33c4396677fcbb7f89f5c79aefdca5e042a79f1d059acc207c48000cc2e76"
+  "hash": "5ce4ffaeb7df592e57838ae2ac96c5a0de7f042325edd4049f4a5c80d888a7a3"
 },{
   "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "severity": "Info",
-  "comment": "Function 'loadJars' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "category": "Probable bugs",
+  "type": "Unresolved reference in KDoc",
+  "severity": "High",
+  "comment": "Cannot resolve symbol 'getLineBottom'",
+  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/BasePluginLoader.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/selection/SelectionHandles.kt",
       "language": "kotlin",
-      "line": 65,
-      "offset": 3,
-      "length": 9,
+      "line": 28,
+      "offset": 35,
+      "length": 13,
       "code": {
-        "startLine": 63,
-        "length": 9,
-        "offset": 104,
-        "surroundingCode": "\n  /** Add all `*.jar` files from [PluginClasspath.jarsDirectories] to the Plugin's [ClassLoader]. */\n  protected fun loadJars(pluginPath: Path, pluginClassLoader: PluginClassLoader) {\n    pluginClasspath.jarsDirectories.forEach {\n      val file = pluginPath.resolve(it)"
+        "startLine": 26,
+        "length": 13,
+        "offset": 82,
+        "surroundingCode": " * Adjust coordinates for given text offset.\n *\n * Currently [android.text.Layout.getLineBottom] returns y coordinates of the next\n * line's top offset, which is not included in current line's hit area. To be able to\n * hit current line, move up this y coordinates by 1 pixel."
       }
     }
   ],
   "attributes": {
     "module": "cohesive.common.desktopMain",
-    "inspectionName": "MemberVisibilityCanBePrivate"
+    "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "8d9987ed00bf145324b29c4d4105b7d78d66116e40a43fda077d422727e01ecd"
+  "hash": "0c705a5431f9e30a972fd1fb6b439d7ffd5d1424677d8f6930ee6fab9a7f4545"
 },{
   "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "severity": "Info",
-  "comment": "Property 'pluginClasspath' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "category": "Probable bugs",
+  "type": "Unresolved reference in KDoc",
+  "severity": "High",
+  "comment": "Cannot resolve symbol 'KeyboardOptions'",
+  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/BasePluginLoader.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/CoreTextField.kt",
       "language": "kotlin",
-      "line": 15,
-      "offset": 7,
+      "line": 157,
+      "offset": 5,
       "length": 15,
       "code": {
-        "startLine": 13,
+        "startLine": 155,
         "length": 15,
-        "offset": 71,
-        "surroundingCode": "open class BasePluginLoader(\n  var pluginManager: PluginManager,\n  var pluginClasspath: PluginClasspath\n) : PluginLoader {\n"
+        "offset": 185,
+        "surroundingCode": " * @param keyboardActions when the input service emits an IME action, the corresponding callback is\n * called. Note that this IME action may be different from what you specified in\n * [KeyboardOptions.imeAction].\n * @param enabled controls the enabled state of the text field. When `false`, the text field will be\n * neither editable nor focusable, the input of the text field will not be selectable"
       }
     }
   ],
   "attributes": {
     "module": "cohesive.common.desktopMain",
-    "inspectionName": "MemberVisibilityCanBePrivate"
+    "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "ccc91a34dd258b9207cb3cb3196181e7a53afc4db7490fc2907703ed7dc8f30d"
+  "hash": "e8893f9a2d2db37de2acfd4f21ae83e1d6581eb47b7d406ada3d37f54b6d7672"
 },{
   "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "severity": "Info",
-  "comment": "Function 'loadClasses' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "category": "Probable bugs",
+  "type": "Unresolved reference in KDoc",
+  "severity": "High",
+  "comment": "Cannot resolve symbol 'imeAction'",
+  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/BasePluginLoader.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/CoreTextField.kt",
       "language": "kotlin",
-      "line": 55,
-      "offset": 3,
+      "line": 157,
+      "offset": 21,
       "length": 9,
       "code": {
-        "startLine": 53,
+        "startLine": 155,
         "length": 9,
-        "offset": 15,
-        "surroundingCode": "   * .\n   */\n  protected fun loadClasses(pluginPath: Path, pluginClassLoader: PluginClassLoader) {\n    pluginClasspath.classesDirectories.forEach {\n      val file = pluginPath.resolve(it).toFile()"
+        "offset": 201,
+        "surroundingCode": " * @param keyboardActions when the input service emits an IME action, the corresponding callback is\n * called. Note that this IME action may be different from what you specified in\n * [KeyboardOptions.imeAction].\n * @param enabled controls the enabled state of the text field. When `false`, the text field will be\n * neither editable nor focusable, the input of the text field will not be selectable"
       }
     }
   ],
   "attributes": {
     "module": "cohesive.common.desktopMain",
-    "inspectionName": "MemberVisibilityCanBePrivate"
+    "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "770215490def9497a92c056ead1a2bc32b12aa34bd451c67814622c0c21ee399"
+  "hash": "f3a993bea82fddcc039c9a9b17d55c0bddf95bf75840ee3daff9d3ab4c5d7376"
 },{
   "tool": "Code Inspection",
   "category": "Style issues",
   "type": "Class member can have 'private' visibility",
   "severity": "Info",
-  "comment": "Function 'createPluginClassLoader' could be private",
+  "comment": "Function 'serialize' could be private",
   "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/BasePluginLoader.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/StateHolder.kt",
       "language": "kotlin",
-      "line": 44,
-      "offset": 3,
+      "line": 47,
+      "offset": 17,
       "length": 9,
       "code": {
-        "startLine": 42,
+        "startLine": 45,
         "length": 9,
-        "offset": 7,
-        "surroundingCode": "  }\n\n  protected fun createPluginClassLoader(\n    pluginPath: Path,\n    pluginDescriptor: PluginDescriptor,"
+        "offset": 23,
+        "surroundingCode": "    }\n\n    suspend fun serialize() {\n      /*windowPOJOKStore.set(\n        WindowPOJO("
       }
     }
   ],
@@ -277,307 +585,111 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "MemberVisibilityCanBePrivate"
   },
-  "hash": "225773e82e5b03c3ca1925156f07377c17badaa61fdec124ef944b0fc3de1fae"
+  "hash": "4f08cfe68080afc6c7fee06dd31cbf417caa34aaa8a6e0e527a29db1ac9e0b0c"
 },{
   "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "severity": "Info",
-  "comment": "Property 'comparator' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"VerticalScrollbar\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/BasePluginRepository.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Scrollbar.kt",
+      "language": "kotlin",
+      "line": 11,
+      "offset": 12,
+      "length": 17,
+      "code": {
+        "startLine": 9,
+        "length": 17,
+        "offset": 24,
+        "surroundingCode": "\n@Composable\nactual fun VerticalScrollbar(\n  modifier: Modifier,\n  scrollState: ScrollState,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "08deaae9010c36691ec5e358d19c9ec17e655ba76b33af90eae46a658e930575"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"HorizontalScrollbar\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Scrollbar.kt",
+      "language": "kotlin",
+      "line": 47,
+      "offset": 12,
+      "length": 19,
+      "code": {
+        "startLine": 45,
+        "length": 19,
+        "offset": 24,
+        "surroundingCode": "\n@Composable\nactual fun HorizontalScrollbar(\n  modifier: Modifier,\n  scrollState: LazyListState,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "5bfc65dc4b0f31281ecedb8b4224bcf677325065db390b026cc0bbb32f4929b4"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Class \"Table\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/widget/md/markup/Table.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 12,
+      "length": 5,
+      "code": {
+        "startLine": 1,
+        "length": 5,
+        "offset": 82,
+        "surroundingCode": "package com.mcxross.cohesive.common.frontend.impl.ui.widget.md.markup\n\ndata class Table(val table: LinkedHashMap<String, String>) : Element\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "3834620a446c80bbf495732c245ad1c65c8bbab483667b163219db269510fddc"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Property \"runtimeMode\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/PluginWrapper.kt",
       "language": "kotlin",
       "line": 20,
       "offset": 7,
-      "length": 10,
-      "code": {
-        "startLine": 18,
-        "length": 10,
-        "offset": 30,
-        "surroundingCode": ") : PluginRepository {\n\n  var comparator: Comparator<File>? = Comparator.comparingLong { obj: File -> obj.lastModified() }\n  override val pluginPaths: List<Path>\n    get() ="
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "MemberVisibilityCanBePrivate"
-  },
-  "hash": "80fdcfe94b22bb3f01907d56951e45fbdd58069fba9ab1682fbf22dbb752f925"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "severity": "Info",
-  "comment": "Property 'backgroundWhiteMedium' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/MellowTheme.kt",
-      "language": "kotlin",
-      "line": 44,
-      "offset": 9,
-      "length": 21,
-      "code": {
-        "startLine": 42,
-        "length": 21,
-        "offset": 60,
-        "surroundingCode": "\n    val backgroundWhite: Color = Color(0xFFFFFFFF)\n    val backgroundWhiteMedium: Color = Color(0xFFF2F2F2)\n\n    val materialWhite: androidx.compose.material.Colors = lightColors("
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "MemberVisibilityCanBePrivate"
-  },
-  "hash": "395a45b06a9e29dd155d8693ecf2282fc9c949e9edf702f32af68e9a025bdf2b"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "severity": "Info",
-  "comment": "Property 'backgroundWhite' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/MellowTheme.kt",
-      "language": "kotlin",
-      "line": 43,
-      "offset": 9,
-      "length": 15,
-      "code": {
-        "startLine": 41,
-        "length": 15,
-        "offset": 15,
-        "surroundingCode": "    )\n\n    val backgroundWhite: Color = Color(0xFFFFFFFF)\n    val backgroundWhiteMedium: Color = Color(0xFFF2F2F2)\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.commonMain",
-    "inspectionName": "MemberVisibilityCanBePrivate"
-  },
-  "hash": "47aa9e005700bb14f2c45e3ec223d2ad663d52604c9ef67aa05d3e6a811915cd"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "'protected' visibility is effectively 'private' in a final class",
-  "severity": "Moderate",
-  "comment": "'protected' visibility is effectively 'private' in a final class",
-  "detailsInfo": "Reports `protected` visibility used inside of a `final` class. In such cases `protected` members are accessible only in the class itself, so they are effectively `private`.\n\n**Example:**\n\n\n      class FinalClass {\n          protected fun foo() {}\n      }\n\nAfter the quick-fix is applied:\n\n\n      class FinalClass {\n          private fun foo() {}\n      }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/DependencyResolver.kt",
-      "language": "kotlin",
-      "line": 106,
-      "offset": 3,
-      "length": 9,
-      "code": {
-        "startLine": 104,
-        "length": 9,
-        "offset": 21,
-        "surroundingCode": "   * @return\n   */\n  protected fun checkDependencyVersion(requiredVersion: String, existingVersion: String): Boolean {\n    return versionManager.checkVersionConstraint(existingVersion, requiredVersion)\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "ProtectedInFinal"
-  },
-  "hash": "3e455f12864252c6432265d18799e3ced3d929b597b9d404329351db67cf549f"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "'protected' visibility is effectively 'private' in a final class",
-  "severity": "Moderate",
-  "comment": "'protected' visibility is effectively 'private' in a final class",
-  "detailsInfo": "Reports `protected` visibility used inside of a `final` class. In such cases `protected` members are accessible only in the class itself, so they are effectively `private`.\n\n**Example:**\n\n\n      class FinalClass {\n          protected fun foo() {}\n      }\n\nAfter the quick-fix is applied:\n\n\n      class FinalClass {\n          private fun foo() {}\n      }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/PropertiesPluginDescriptorFinder.kt",
-      "language": "kotlin",
-      "line": 34,
-      "offset": 3,
-      "length": 9,
-      "code": {
-        "startLine": 32,
-        "length": 9,
-        "offset": 7,
-        "surroundingCode": "  }\n\n  protected fun readProperties(pluginPath: Path): Properties {\n    val propertiesPath = getPropertiesPath(pluginPath, propertiesFileName)\n    val properties = Properties()"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "ProtectedInFinal"
-  },
-  "hash": "d7c0d82bead8bc267eaa99ab4f9a689b8aa0e671908eb75d537104e0e8e5f79e"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "'protected' visibility is effectively 'private' in a final class",
-  "severity": "Moderate",
-  "comment": "'protected' visibility is effectively 'private' in a final class",
-  "detailsInfo": "Reports `protected` visibility used inside of a `final` class. In such cases `protected` members are accessible only in the class itself, so they are effectively `private`.\n\n**Example:**\n\n\n      class FinalClass {\n          protected fun foo() {}\n      }\n\nAfter the quick-fix is applied:\n\n\n      class FinalClass {\n          private fun foo() {}\n      }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/PropertiesPluginDescriptorFinder.kt",
-      "language": "kotlin",
-      "line": 19,
-      "offset": 13,
-      "length": 9,
-      "code": {
-        "startLine": 17,
-        "length": 9,
-        "offset": 65,
-        "surroundingCode": "class PropertiesPluginDescriptorFinder\n@JvmOverloads\nconstructor(protected var propertiesFileName: String = DEFAULT_PROPERTIES_FILE_NAME) :\n  PluginDescriptorFinder {\n  override fun isApplicable(pluginPath: Path): Boolean {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "ProtectedInFinal"
-  },
-  "hash": "37cc47c56a146df3928c6cb7d908fdf055604bff7522fff748f39c23c1f42402"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "'protected' visibility is effectively 'private' in a final class",
-  "severity": "Moderate",
-  "comment": "'protected' visibility is effectively 'private' in a final class",
-  "detailsInfo": "Reports `protected` visibility used inside of a `final` class. In such cases `protected` members are accessible only in the class itself, so they are effectively `private`.\n\n**Example:**\n\n\n      class FinalClass {\n          protected fun foo() {}\n      }\n\nAfter the quick-fix is applied:\n\n\n      class FinalClass {\n          private fun foo() {}\n      }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/PropertiesPluginDescriptorFinder.kt",
-      "language": "kotlin",
-      "line": 53,
-      "offset": 3,
-      "length": 9,
-      "code": {
-        "startLine": 51,
-        "length": 9,
-        "offset": 7,
-        "surroundingCode": "  }\n\n  protected fun getPropertiesPath(pluginPath: Path, propertiesFileName: String): Path {\n    return if (pluginPath.isDir()) {\n      pluginPath.resolve(propertiesFileName)"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "ProtectedInFinal"
-  },
-  "hash": "8ac39270cf120c0537e2a7380f6c13b6dee1b98334965d5c21fdd8153914a236"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "'protected' visibility is effectively 'private' in a final class",
-  "severity": "Moderate",
-  "comment": "'protected' visibility is effectively 'private' in a final class",
-  "detailsInfo": "Reports `protected` visibility used inside of a `final` class. In such cases `protected` members are accessible only in the class itself, so they are effectively `private`.\n\n**Example:**\n\n\n      class FinalClass {\n          protected fun foo() {}\n      }\n\nAfter the quick-fix is applied:\n\n\n      class FinalClass {\n          private fun foo() {}\n      }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/PropertiesPluginDescriptorFinder.kt",
-      "language": "kotlin",
-      "line": 66,
-      "offset": 3,
-      "length": 9,
-      "code": {
-        "startLine": 64,
-        "length": 9,
-        "offset": 7,
-        "surroundingCode": "  }\n\n  protected fun createPluginDescriptor(properties: Properties): PluginDescriptor {\n    val pluginDescriptor: DefaultPluginDescriptor = createPluginDescriptorInstance()\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "ProtectedInFinal"
-  },
-  "hash": "1c707bab21c3a24695a707c8322323c56730e64f402251f787edb5d4f932639b"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "'protected' visibility is effectively 'private' in a final class",
-  "severity": "Moderate",
-  "comment": "'protected' visibility is effectively 'private' in a final class",
-  "detailsInfo": "Reports `protected` visibility used inside of a `final` class. In such cases `protected` members are accessible only in the class itself, so they are effectively `private`.\n\n**Example:**\n\n\n      class FinalClass {\n          protected fun foo() {}\n      }\n\nAfter the quick-fix is applied:\n\n\n      class FinalClass {\n          private fun foo() {}\n      }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/PropertiesPluginDescriptorFinder.kt",
-      "language": "kotlin",
-      "line": 98,
-      "offset": 3,
-      "length": 9,
-      "code": {
-        "startLine": 96,
-        "length": 9,
-        "offset": 7,
-        "surroundingCode": "  }\n\n  protected fun createPluginDescriptorInstance(): DefaultPluginDescriptor {\n    return DefaultPluginDescriptor()\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "ProtectedInFinal"
-  },
-  "hash": "c64a30d306c2f18b628f8e0f53e9a5de6e70a95db735ba53488b400282022168"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Function \"serializeStash\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/StateHolder.kt",
-      "language": "kotlin",
-      "line": 64,
-      "offset": 9,
-      "length": 14,
-      "code": {
-        "startLine": 62,
-        "length": 14,
-        "offset": 15,
-        "surroundingCode": "    }\n\n    fun serializeStash() {}\n    /*private suspend fun deserialize(): WindowPOJO {\n      return windowPOJOKStore.get()"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "a82884823f2ec2a80adc2235071b1e526610e292d3e984bc207fabe2107ebe68"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Type alias \"WindowState\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/StateHolder.kt",
-      "language": "kotlin",
-      "line": 15,
-      "offset": 11,
       "length": 11,
       "code": {
-        "startLine": 13,
+        "startLine": 18,
         "length": 11,
-        "offset": 51,
-        "surroundingCode": "import kotlin.concurrent.fixedRateTimer\n\ntypealias WindowState = StatesHolder.Window\n\n@Serializable"
+        "offset": 102,
+        "surroundingCode": "  var pluginFactory: PluginFactory? = null\n  var pluginState: PluginState = PluginState.CREATED\n  var runtimeMode: RuntimeMode = pluginManager.runtimeMode!!\n\n  /**"
       }
     }
   ],
@@ -585,91 +697,35 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "49b90b44c474089129582fba9322112071fb9d76b9783c6725dcec114f67ae1f"
+  "hash": "c2b21603df59017e0861ca0cc8a56404a3186ea20be90f8773749faf07b4ee74"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
   "type": "Unused symbol",
   "severity": "High",
-  "comment": "Class \"WindowPOJO\" is never used",
+  "comment": "Function \"withoutWidthConstraints\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/StateHolder.kt",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Modifiers.kt",
       "language": "kotlin",
-      "line": 89,
-      "offset": 12,
-      "length": 10,
+      "line": 15,
+      "offset": 14,
+      "length": 23,
       "code": {
-        "startLine": 87,
-        "length": 10,
-        "offset": 26,
-        "surroundingCode": "\n@Serializable\ndata class WindowPOJO(\n  val state: WindowState,\n  val view: View,"
+        "startLine": 13,
+        "length": 23,
+        "offset": 56,
+        "surroundingCode": "import androidx.compose.ui.semantics.Role\n\nfun Modifier.withoutWidthConstraints() = layout { measurable, constraints ->\n  val placeable = measurable.measure(constraints.copy(maxWidth = Int.MAX_VALUE))\n  layout(constraints.maxWidth, placeable.height) {"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.common.desktopMain",
+    "module": "cohesive.common.commonMain",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "90dd426e5b7887cf05fabfcf7a90e1f8bfb1d30d8f737f6e346935415b866846"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Function \"deserializeUnStash\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/StateHolder.kt",
-      "language": "kotlin",
-      "line": 69,
-      "offset": 9,
-      "length": 18,
-      "code": {
-        "startLine": 67,
-        "length": 18,
-        "offset": 17,
-        "surroundingCode": "    }*/\n\n    fun deserializeUnStash() {\n\n    }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "0d4bedd14c0443ad158862b8784ac8be3f8e68f7ecb9162a475221d359ce9bf7"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Property \"disabledFilePath\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/DefaultPluginStatusProvider.kt",
-      "language": "kotlin",
-      "line": 25,
-      "offset": 7,
-      "length": 16,
-      "code": {
-        "startLine": 23,
-        "length": 16,
-        "offset": 78,
-        "surroundingCode": "  val enabledFilePath: Path\n    get() = getEnabledFilePath(pluginsRoot)\n  val disabledFilePath: Path\n    get() = getDisabledFilePath(pluginsRoot)\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "afc600062bd6c0b3207a84e5dcc9d653e522b769708ff811f5cf77bb0ffc464c"
+  "hash": "8cb218638c821655da0e7394bdd6ce0ef3da1bfed1116631f7e266a6210f14f0"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
@@ -703,21 +759,49 @@
   "category": "Redundant constructs",
   "type": "Unused symbol",
   "severity": "High",
-  "comment": "Property \"backgroundDarkLight\" is never used",
+  "comment": "Function \"getFileFromPath\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/MellowTheme.kt",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/File.kt",
       "language": "kotlin",
-      "line": 30,
-      "offset": 9,
-      "length": 19,
+      "line": 10,
+      "offset": 5,
+      "length": 15,
       "code": {
-        "startLine": 28,
-        "length": 19,
-        "offset": 126,
-        "surroundingCode": "    private val backgroundDark: Color = Color(0xFF2B2B2B)\n    private val onBackgroundDark: Color = Color(0xFFA9A9A9)\n    val backgroundDarkLight: Color = Color(0xFF4E5254)\n    private val surfaceDark: Color = Color(0xFF3C3F41)\n    private val onSurfaceDark: Color = Color(0xFFA9A9A9)"
+        "startLine": 8,
+        "length": 15,
+        "offset": 77,
+        "surroundingCode": "  get() = java.io.File(System.getProperty(\"user.home\")).toProjectFile()\n\nfun getFileFromPath(path: String): File = java.io.File(path).toProjectFile()\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "8caad6252d2a92789b05884fa7a54b708fdb6b612d152fd9706f735655952020"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"loadable\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Loadable.kt",
+      "language": "kotlin",
+      "line": 13,
+      "offset": 15,
+      "length": 8,
+      "code": {
+        "startLine": 11,
+        "length": 8,
+        "offset": 27,
+        "surroundingCode": "\n@Composable\nfun <T : Any> loadable(\n  load: () -> T,\n): MutableState<T?> {"
       }
     }
   ],
@@ -725,5 +809,89 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "0b632bfe83d7a302e0d05efdab187934d47355cdd9c9e6112f490b41cf89c6a8"
+  "hash": "044100698c038822756e04ab001ebcbb1c4be36eaca8c8f2bdece0061564849a"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Property \"maxLineSymbols\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/view/editor/Settings.kt",
+      "language": "kotlin",
+      "line": 10,
+      "offset": 7,
+      "length": 14,
+      "code": {
+        "startLine": 8,
+        "length": 14,
+        "offset": 63,
+        "surroundingCode": "class Settings {\n  var fontSize by mutableStateOf(13.sp)\n  val maxLineSymbols = 120\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "553846b94acb11da33d418ed550d773c539606c6b2d560a18460da05ac593b7b"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Class \"Settings\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/view/editor/Settings.kt",
+      "language": "kotlin",
+      "line": 8,
+      "offset": 7,
+      "length": 8,
+      "code": {
+        "startLine": 6,
+        "length": 8,
+        "offset": 42,
+        "surroundingCode": "import androidx.compose.ui.unit.sp\n\nclass Settings {\n  var fontSize by mutableStateOf(13.sp)\n  val maxLineSymbols = 120"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.commonMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "71bcc7d25fe75c4eaf57c525801849c2c76e76008de3afe512ebec5e08f09ee8"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"Compose\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/api/ui/UI.kt",
+      "language": "kotlin",
+      "line": 7,
+      "offset": 7,
+      "length": 7,
+      "code": {
+        "startLine": 5,
+        "length": 7,
+        "offset": 35,
+        "surroundingCode": "interface UI {\n  @Composable\n  fun Compose()\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "3a6a0d9a686fdc59b4a221e205f6b13bfa387d0c20abb50a0cce24a3f08fb06b"
 }]}
