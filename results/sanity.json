@@ -106,37 +106,6 @@
       "type": "file",
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Scrollbar.kt",
       "language": "kotlin",
-      "line": 38,
-      "offset": 1,
-      "length": 6,
-      "code": {
-        "startLine": 36,
-        "length": 6,
-        "offset": 13,
-        "surroundingCode": "\n@Composable\nactual fun HorizontalScrollbar(\n  modifier: Modifier,\n  scrollState: ScrollState,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "fe2a3fad4bf4ec5652edc69b5d550ddf2c4f8593034d984a16ef411dcb44aa91"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Scrollbar.kt",
-      "language": "kotlin",
       "line": 11,
       "offset": 1,
       "length": 6,
@@ -184,6 +153,37 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "2efc0412ea4ce907c322af5bc6e3167d9e7c839701f4426a5af8dff9e790efd4"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Scrollbar.kt",
+      "language": "kotlin",
+      "line": 38,
+      "offset": 1,
+      "length": 6,
+      "code": {
+        "startLine": 36,
+        "length": 6,
+        "offset": 13,
+        "surroundingCode": "\n@Composable\nactual fun HorizontalScrollbar(\n  modifier: Modifier,\n  scrollState: ScrollState,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "fe2a3fad4bf4ec5652edc69b5d550ddf2c4f8593034d984a16ef411dcb44aa91"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -726,6 +726,37 @@
       "type": "file",
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/utils/DebugAntilog.kt",
       "language": "kotlin",
+      "line": 15,
+      "offset": 1,
+      "length": 6,
+      "code": {
+        "startLine": 13,
+        "length": 6,
+        "offset": 27,
+        "surroundingCode": "\nactual class DebugAntilog\nactual constructor(private val defaultTag: String, private val handler: List<Handler>) : Antilog() {\n  actual constructor(defaultTag: String) : this(defaultTag, handler = listOf())\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "73958ef026870af4b35a500b6de3b9ffe0f0b41c248d0ceb43b5dea37b6eec3d"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/utils/DebugAntilog.kt",
+      "language": "kotlin",
       "line": 14,
       "offset": 1,
       "length": 6,
@@ -773,37 +804,6 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "309e08709b7aab743812499c0789504ab80639d99eb5342f9ecea6984672b292"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/common/utils/DebugAntilog.kt",
-      "language": "kotlin",
-      "line": 15,
-      "offset": 1,
-      "length": 6,
-      "code": {
-        "startLine": 13,
-        "length": 6,
-        "offset": 27,
-        "surroundingCode": "\nactual class DebugAntilog\nactual constructor(private val defaultTag: String, private val handler: List<Handler>) : Antilog() {\n  actual constructor(defaultTag: String) : this(defaultTag, handler = listOf())\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "73958ef026870af4b35a500b6de3b9ffe0f0b41c248d0ceb43b5dea37b6eec3d"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -1005,14 +1005,14 @@
       "type": "file",
       "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Editor.kt",
       "language": "kotlin",
-      "line": 109,
-      "offset": 10,
+      "line": 153,
+      "offset": 1,
       "length": 6,
       "code": {
-        "startLine": 107,
+        "startLine": 151,
         "length": 6,
-        "offset": 22,
-        "surroundingCode": "\n@Composable\ninternal expect fun Lines(\n  textLines: TextLines,\n  fontSize: TextUnit,"
+        "offset": 13,
+        "surroundingCode": "\n@Composable\nexpect fun TextField(\n  text: String,\n  isCode: Boolean,"
       }
     }
   ],
@@ -1020,7 +1020,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "9066f670bba06750803fb250e84a9a5e2a98be67f4c194e73fc0501d75ac95a7"
+  "hash": "bcaa13fa84b936bfc37f3e474e766fafd123cb4f3a668af960f2d85fccf112b0"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -1036,14 +1036,14 @@
       "type": "file",
       "path": "common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Editor.kt",
       "language": "kotlin",
-      "line": 152,
-      "offset": 1,
+      "line": 110,
+      "offset": 10,
       "length": 6,
       "code": {
-        "startLine": 150,
+        "startLine": 108,
         "length": 6,
-        "offset": 13,
-        "surroundingCode": "\n@Composable\nexpect fun TextField(\n  text: String,\n  isCode: Boolean,"
+        "offset": 22,
+        "surroundingCode": "\n@Composable\ninternal expect fun Lines(\n  textLines: TextLines,\n  fontSize: TextUnit,"
       }
     }
   ],
@@ -1051,7 +1051,7 @@
     "module": "cohesive.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "cd3a3dde232c568f025c7d065a2723abd61f86ae8018aa54898398f36da7a92b"
+  "hash": "9312301476aaa0ffb5dd21973be315897811aac8d69c72c6be4540ff4d6ac2e5"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -1191,11 +1191,11 @@
       "type": "file",
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Editor.kt",
       "language": "kotlin",
-      "line": 26,
+      "line": 28,
       "offset": 10,
       "length": 6,
       "code": {
-        "startLine": 24,
+        "startLine": 26,
         "length": 6,
         "offset": 22,
         "surroundingCode": "\n@Composable\ninternal actual fun Lines(\n  textLines: TextLines,\n  fontSize: TextUnit,"
@@ -1206,7 +1206,7 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "c2ac25217e60de977b07510bafd021d56a7c9787ca40e05243c69e4f953c4ef1"
+  "hash": "27e7aa4716a8ea4c64d1b98f960c96fbb7d2c9031e67be62334aeb6bf771deef"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -1222,11 +1222,11 @@
       "type": "file",
       "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Editor.kt",
       "language": "kotlin",
-      "line": 133,
+      "line": 141,
       "offset": 1,
       "length": 6,
       "code": {
-        "startLine": 131,
+        "startLine": 139,
         "length": 6,
         "offset": 13,
         "surroundingCode": "\n@Composable\nactual fun TextField(\n  text: String,\n  isCode: Boolean,"
@@ -1237,7 +1237,7 @@
     "module": "cohesive.common.desktopMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "be2d2c28af004273c1966c44292ad106e8630e2bec333a273ab32b4a43258cc7"
+  "hash": "e9f6ede1f33907000eed8f9619fb50292065e7e3272a41572e83f810da3d7041"
 },{
   "tool": "Code Inspection",
   "category": "General",
