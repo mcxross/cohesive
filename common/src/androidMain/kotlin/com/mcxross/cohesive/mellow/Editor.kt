@@ -20,6 +20,7 @@ actual fun TextField(
   isCode: Boolean,
   modifier: Modifier,
   fontSize: TextUnit,
+  onScroll: (Float) -> Unit,
 ) {
 
 }

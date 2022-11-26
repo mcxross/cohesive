@@ -58,18 +58,19 @@ fun EditorTabs(
 @Composable
 fun EditorTabs(
   editorManager: EditorManager,
-) = Row(
-  modifier = Modifier.horizontalScroll(state = rememberScrollState()),
-) {
-  for (editor in editorManager.editorModels) {
-    RectTab(
-      text = editor.file.name,
-      active = editor.isActive,
-      onActivate = { editor.activate() },
-      onClose = { editor.close?.let { it() } },
-    )
+) =
+  Row(
+    modifier = Modifier.horizontalScroll(state = rememberScrollState()),
+  ) {
+    for (editor in editorManager.editorModels) {
+      RectTab(
+        text = editor.file.name,
+        active = editor.isActive,
+        onActivate = { editor.activate() },
+        onClose = { editor.close?.let { it() } },
+      )
+    }
   }
-}
 
 @Composable
 fun Editor(
@@ -154,6 +155,7 @@ expect fun TextField(
   isCode: Boolean,
   modifier: Modifier,
   fontSize: TextUnit,
+  onScroll: (Float) -> Unit,
 )
 
 // content: EditorModel.TextField

@@ -3,10 +3,12 @@
 package com.mcxross.cohesive.mellow
 
 import androidx.compose.foundation.ScrollbarAdapter
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
@@ -44,23 +46,18 @@ internal actual fun Lines(
       // We need to launch a coroutine to update the scroll position
       val coroutineScope = rememberCoroutineScope()
 
-      Row(
-        modifier = Modifier.fillMaxSize()
-      ) {
-
+      Row(modifier = Modifier.fillMaxSize()) {
         Row(
           modifier = Modifier.fillMaxHeight(),
         ) {
           LazyColumn(
-            modifier = Modifier
-              .fillMaxHeight()
-              .width(81.dp),
+            modifier = Modifier.fillMaxHeight().width(81.dp),
             state = lazyListScrollState,
             contentPadding = PaddingValues(top = 2.dp),
           ) {
             items(textLines.size) { index ->
               LineNumber(
-                modifier = Modifier.height(20.dp),
+                modifier = Modifier.height(24.dp),
                 maxNum = maxNum,
                 line = index + 1,
                 fontSize = fontSize,
@@ -74,14 +71,25 @@ internal actual fun Lines(
         }
 
         Box(
-          modifier = Modifier.fillMaxSize(),
+          modifier =
+            Modifier.verticalScroll(textFieldVerticalScrollState)
+              .fillMaxHeight()
+              .padding(start = 3.dp),
         ) {
+          TextField(
+            text = textLines.text.value,
+            onScroll = {},
+            isCode = textLines.isCode,
+            fontSize = fontSize,
+            modifier = Modifier.fillMaxHeight(),
+          )
 
+          /*HorizontalScrollbar(
+            scrollState = textFieldHorizontalScrollState,
+            modifier = Modifier.padding(end = 10.dp).align(Alignment.BottomStart),
+          )*/
         }
-
       }
-
-
 
       /*  Row(
         modifier = Modifier.padding(0.dp).fillMaxSize(),
@@ -135,6 +143,7 @@ actual fun TextField(
   isCode: Boolean,
   modifier: Modifier,
   fontSize: TextUnit,
+  onScroll: (Float) -> Unit,
 ) {
 
   var textFieldValue by remember {
@@ -151,12 +160,13 @@ actual fun TextField(
   CoreTextField(
     value = textFieldValue,
     onValueChange = { textFieldValue = it.copy(annotatedString = codeString(it.text)) },
-    modifier = modifier,
+    onScroll = onScroll,
+    modifier = modifier.paddingFromBaseline(top = 0.dp, bottom = 12.dp).focusable(true),
     textStyle =
       TextStyle(
         fontFamily = Fonts.jetbrainsMono(),
         fontSize = fontSize,
-        lineHeight = 28.sp,
+        lineHeight = 24.sp,
       ),
     cursorBrush = SolidColor(MaterialTheme.colors.onBackground),
     softWrap = false,
