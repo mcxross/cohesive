@@ -2,13 +2,10 @@
 
 package com.mcxross.cohesive.mellow
 
-import androidx.compose.foundation.ScrollbarAdapter
-import androidx.compose.foundation.focusable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
@@ -72,54 +69,25 @@ internal actual fun Lines(
 
         Box(
           modifier =
-            Modifier.verticalScroll(textFieldVerticalScrollState)
-              .fillMaxHeight()
-              .padding(start = 3.dp),
+            Modifier.weight(1f)
+              .horizontalScroll(state = textFieldHorizontalScrollState)
+              .verticalScroll(state = textFieldVerticalScrollState)
+              .padding(start = 3.dp, end = 30.dp),
         ) {
           TextField(
             text = textLines.text.value,
             onScroll = {},
             isCode = textLines.isCode,
             fontSize = fontSize,
-            modifier = Modifier.fillMaxHeight(),
+            modifier = Modifier.fillMaxSize(),
           )
-
-          /*HorizontalScrollbar(
-            scrollState = textFieldHorizontalScrollState,
-            modifier = Modifier.padding(end = 10.dp).align(Alignment.BottomStart),
-          )*/
         }
       }
 
-      /*  Row(
-        modifier = Modifier.padding(0.dp).fillMaxSize(),
-      ) {
-        //LineNumber numbers' section
-
-
-        //Editor section
-        Box(
-          modifier = Modifier
-            .verticalScroll(textFieldVerticalScrollState).fillMaxSize(),
-        ) {
-
-          */
-      /*TextField(
-        text = textLines.text.value,
-        isCode = textLines.isCode,
-        fontSize = fontSize,
-        modifier = Modifier.fillMaxWidth().wrapContentHeight(),
-      )
-
       HorizontalScrollbar(
         scrollState = textFieldHorizontalScrollState,
-        modifier = Modifier.align(Alignment.BottomStart),
-      )*/
-      /*
-
-        }
-
-      }*/
+        modifier = Modifier.padding(start = 90.dp, end = 15.dp).align(Alignment.BottomStart),
+      )
 
       // This is actually a listener switch
       if (lazyListScrollState.isScrollInProgress) {
