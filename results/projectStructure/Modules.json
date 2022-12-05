@@ -58,10 +58,10 @@
       ]
     },
     {
-      "name": "cohesive.plugin",
+      "name": "cohesive.csp",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/plugin",
+          "path": "file://$PROJECT_DIR$/csp",
           "sourceFolders": []
         }
       ],
@@ -96,10 +96,67 @@
       ]
     },
     {
+      "name": "cohesive.plugin",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/plugin",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        }
+      ]
+    },
+    {
       "name": "cohesive.web",
       "contentEntries": [
         {
           "path": "file://$PROJECT_DIR$/web",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        }
+      ]
+    },
+    {
+      "name": "cohesive.plugin.desktop",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/plugin/desktop",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        }
+      ]
+    },
+    {
+      "name": "cohesive.plugin.desktop.cohesive-cohesive",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive",
           "sourceFolders": []
         }
       ],
@@ -1416,10 +1473,10 @@
       ]
     },
     {
-      "name": "cohesive.plugin.desktop",
+      "name": "cohesive.csp.test",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/plugin/desktop",
+          "path": "file://$PROJECT_DIR$/csp/src/test",
           "sourceFolders": []
         }
       ],
@@ -1431,15 +1488,62 @@
         {
           "name": "<Module source>",
           "type": "Own sources"
+        },
+        {
+          "name": "cohesive.csp.main",
+          "type": "Module"
+        },
+        {
+          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains:annotations:13.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21",
+          "type": "Library"
         }
       ]
     },
     {
-      "name": "cohesive.plugin.desktop.cohesive-cohesive",
+      "name": "cohesive.csp.main",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive",
-          "sourceFolders": []
+          "path": "file://$PROJECT_DIR$/csp/src/main",
+          "sourceFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/csp/src/main/kotlin",
+              "type": "Source",
+              "packagePrefix": ""
+            },
+            {
+              "path": "file://$PROJECT_DIR$/csp/src/main/resources",
+              "type": "Resource",
+              "packagePrefix": ""
+            }
+          ]
         }
       ],
       "orderEntries": [
@@ -1450,6 +1554,38 @@
         {
           "name": "<Module source>",
           "type": "Own sources"
+        },
+        {
+          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains:annotations:13.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21",
+          "type": "Library"
         }
       ]
     },
@@ -1488,11 +1624,6 @@
           "path": "file://$PROJECT_DIR$/desktop/src/jvmMain",
           "sourceFolders": [
             {
-              "path": "file://$PROJECT_DIR$/desktop/src/jvmMain/java",
-              "type": "Source",
-              "packagePrefix": ""
-            },
-            {
               "path": "file://$PROJECT_DIR$/desktop/src/jvmMain/kotlin",
               "type": "Source",
               "packagePrefix": ""
@@ -1520,6 +1651,10 @@
         },
         {
           "name": "cohesive.common.desktopMain",
+          "type": "Module"
+        },
+        {
+          "name": "cohesive.common.commonMain",
           "type": "Module"
         },
         {
@@ -2074,6 +2209,10 @@
         },
         {
           "name": "cohesive.common.desktopMain",
+          "type": "Module"
+        },
+        {
+          "name": "cohesive.common.commonMain",
           "type": "Module"
         },
         {
@@ -2788,142 +2927,6 @@
         },
         {
           "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
-          "type": "Library"
-        }
-      ]
-    },
-    {
-      "name": "cohesive.csp",
-      "contentEntries": [
-        {
-          "path": "file://$PROJECT_DIR$/csp",
-          "sourceFolders": []
-        }
-      ],
-      "orderEntries": [
-        {
-          "name": "jbr-11",
-          "type": "SDK"
-        },
-        {
-          "name": "<Module source>",
-          "type": "Own sources"
-        }
-      ]
-    },
-    {
-      "name": "cohesive.csp.test",
-      "contentEntries": [
-        {
-          "path": "file://$PROJECT_DIR$/csp/src/test",
-          "sourceFolders": []
-        }
-      ],
-      "orderEntries": [
-        {
-          "name": "jbr-11",
-          "type": "SDK"
-        },
-        {
-          "name": "<Module source>",
-          "type": "Own sources"
-        },
-        {
-          "name": "cohesive.csp.main",
-          "type": "Module"
-        },
-        {
-          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains:annotations:13.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21",
-          "type": "Library"
-        }
-      ]
-    },
-    {
-      "name": "cohesive.csp.main",
-      "contentEntries": [
-        {
-          "path": "file://$PROJECT_DIR$/csp/src/main",
-          "sourceFolders": [
-            {
-              "path": "file://$PROJECT_DIR$/csp/src/main/kotlin",
-              "type": "Source",
-              "packagePrefix": ""
-            },
-            {
-              "path": "file://$PROJECT_DIR$/csp/src/main/resources",
-              "type": "Resource",
-              "packagePrefix": ""
-            }
-          ]
-        }
-      ],
-      "orderEntries": [
-        {
-          "name": "jbr-11",
-          "type": "SDK"
-        },
-        {
-          "name": "<Module source>",
-          "type": "Own sources"
-        },
-        {
-          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains:annotations:13.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21",
           "type": "Library"
         }
       ]

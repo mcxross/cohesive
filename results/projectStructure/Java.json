@@ -13,7 +13,7 @@
       "languageLevel": 11
     },
     {
-      "name": "cohesive.plugin",
+      "name": "cohesive.csp",
       "languageLevel": 11
     },
     {
@@ -21,7 +21,19 @@
       "languageLevel": 11
     },
     {
+      "name": "cohesive.plugin",
+      "languageLevel": 11
+    },
+    {
       "name": "cohesive.web",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.plugin.desktop",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.plugin.desktop.cohesive-cohesive",
       "languageLevel": 11
     },
     {
@@ -69,11 +81,11 @@
       "languageLevel": 11
     },
     {
-      "name": "cohesive.plugin.desktop",
+      "name": "cohesive.csp.test",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.plugin.desktop.cohesive-cohesive",
+      "name": "cohesive.csp.main",
       "languageLevel": 11
     },
     {
@@ -114,18 +126,6 @@
     },
     {
       "name": "cohesive.web.commonTest",
-      "languageLevel": 11
-    },
-    {
-      "name": "cohesive.csp",
-      "languageLevel": 11
-    },
-    {
-      "name": "cohesive.csp.test",
-      "languageLevel": 11
-    },
-    {
-      "name": "cohesive.csp.main",
       "languageLevel": 11
     },
     {
