@@ -23,6 +23,7 @@ import androidx.compose.material.icons.filled.Code
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -34,6 +35,8 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Composable
 fun EditorTabs(
@@ -44,12 +47,19 @@ fun EditorTabs(
     modifier = Modifier.horizontalScroll(state = rememberScrollState()),
   ) {
     val editorManager = editorCompositeContainer.editorManager
+    val coroutineScope = rememberCoroutineScope()
     for (editor in editorManager.editorModels) {
       RectTab(
         text = editor.file.name,
         active = editor.isActive,
         onActivate = { editor.activate() },
-        onDoubleClick = { panelState.isExpanded = !panelState.isExpanded },
+        onDoubleClick = {
+          editor.activate()
+          coroutineScope.launch {
+            delay(400)
+            panelState.toggle()
+          }
+        },
         onClose = { editor.close?.let { it() } },
       )
     }
@@ -89,7 +99,7 @@ fun Editor(
           val textLines by loadableScoped(model.lines)
           if (textLines != null) {
             Box {
-              Lines(textLines = textLines!!, fontSize = fontSize)
+              EditorMap(textLines = textLines!!, fontSize = fontSize)
               Box(
                 modifier =
                   Modifier.offset(x = fontSize.toDp() * 0.5f * maxLineSymbols)
@@ -107,7 +117,7 @@ fun Editor(
   }
 
 @Composable
-internal expect fun Lines(
+internal expect fun EditorMap(
   textLines: TextLines,
   fontSize: TextUnit,
 )

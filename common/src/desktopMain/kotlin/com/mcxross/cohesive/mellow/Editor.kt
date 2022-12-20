@@ -22,7 +22,7 @@ import com.mcxross.cohesive.mellow.foundation.text.CoreTextField
 import kotlinx.coroutines.launch
 
 @Composable
-internal actual fun Lines(
+internal actual fun EditorMap(
   textLines: TextLines,
   fontSize: TextUnit,
 ) =
@@ -125,6 +125,7 @@ actual fun TextField(
       ),
     )
   }
+
   CoreTextField(
     value = textFieldValue,
     onValueChange = { textFieldValue = it.copy(annotatedString = codeString(it.text)) },

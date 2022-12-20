@@ -13,7 +13,7 @@ fun EditorSimple(
   file: File,
 ) {
   val editorManager = remember { EditorManager() }
-  //onCLose recomposes with the file, not closing
+  // onCLose recomposes with the file, not closing
   editorManager.open(file)
   if (editorManager.isActiveNonNull()) {
     Column(
@@ -27,10 +27,8 @@ fun EditorSimple(
           )
         }
       }
-
     }
   } else {
     EditorEmpty()
   }
-
 }

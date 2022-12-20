@@ -1,5 +1,14 @@
 package com.mcxross.cohesive.csp.annotation
 
+/**
+ * Annotation for marking a class as a Cohesive extension.
+ *
+ * It must be used only once per Secondary Plugin Module.
+ *
+ * @param platform The platform for which this extension is intended.
+ * @param version The version of the platform for which this extension is intended.
+ * @param nets The networks for which this extension is intended.
+ */
 @Retention(AnnotationRetention.RUNTIME)
 @Target(AnnotationTarget.ANNOTATION_CLASS, AnnotationTarget.CLASS)
 @MustBeDocumented

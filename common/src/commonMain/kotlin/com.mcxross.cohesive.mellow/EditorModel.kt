@@ -58,7 +58,7 @@ internal fun createEditorModel(file: File) = EditorModel(
     return EditorModel.Content(state, isCode)
   }
 
-  object : EditorModel.Lines {
+  object : EditorModel.EditorMap {
     override val size get() = textLines.size
 
     override fun get(

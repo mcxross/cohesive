@@ -64,48 +64,46 @@ fun FileTreeTab(
 fun FileTree(
   model: FileTreeModel,
   onItemClick: (File) -> Unit = {},
-) = Surface(
-  modifier = Modifier.fillMaxSize().padding(end = 5.dp),
-) {
-  val activePath = remember { mutableStateOf("") }
-  with(LocalDensity.current) {
-    Box {
-      val horizontalScrollState = rememberScrollState(0)
-      val verticalScrollState = rememberLazyListState()
-      LazyColumn(
-        modifier = Modifier.matchParentSize().horizontalScroll(horizontalScrollState),
-        state = verticalScrollState,
-        contentPadding = PaddingValues(bottom = 8.dp),
-      ) {
-        items(count = model.items.size) { it ->
-
-          FileTreeItem(
-            text = model.items[it].file.absolutePath,
-            modifier = Modifier.height(height = 14.sp.toDp() * 1.5f),
-            activePath = activePath,
-            fontSize = 14.sp,
-            model = model.items[it],
-          ) {
-            activePath.value = it.absolutePath
-            onItemClick(it)
+) =
+  Surface(
+    modifier = Modifier.fillMaxSize().padding(end = 5.dp),
+  ) {
+    val activePath = remember { mutableStateOf("") }
+    with(LocalDensity.current) {
+      Box {
+        val horizontalScrollState = rememberScrollState(0)
+        val verticalScrollState = rememberLazyListState()
+        LazyColumn(
+          modifier = Modifier.matchParentSize().horizontalScroll(horizontalScrollState),
+          state = verticalScrollState,
+          contentPadding = PaddingValues(bottom = 8.dp),
+        ) {
+          items(count = model.items.size) { it ->
+            FileTreeItem(
+              text = model.items[it].file.absolutePath,
+              modifier = Modifier.height(height = 14.sp.toDp() * 1.5f),
+              activePath = activePath,
+              fontSize = 14.sp,
+              model = model.items[it],
+            ) {
+              activePath.value = it.absolutePath
+              onItemClick(it)
+            }
           }
-
         }
+
+        HorizontalScrollbar(
+          modifier = Modifier.align(Alignment.BottomCenter),
+          scrollState = horizontalScrollState,
+        )
+
+        VerticalScrollbar(
+          modifier = Modifier.align(Alignment.CenterEnd),
+          scrollState = verticalScrollState,
+        )
       }
-
-      HorizontalScrollbar(
-        modifier = Modifier.align(Alignment.BottomCenter),
-        scrollState = horizontalScrollState,
-      )
-
-      VerticalScrollbar(
-        modifier = Modifier.align(Alignment.CenterEnd),
-        scrollState = verticalScrollState,
-      )
     }
   }
-}
-
 
 @Composable
 private fun FileTreeItem(
@@ -120,21 +118,25 @@ private fun FileTreeItem(
   val interactionSource = remember { MutableInteractionSource() }
 
   Row(
-    modifier = modifier.combinedClickableNoInteraction(
-      interactionSource = interactionSource,
-      indication = null,
-      onDoubleClick = {
-        model.open()
-      },
-    ) { onClick(model.file) }.padding(start = 24.dp * model.level).background(
-        if (activePath.value == "") {
-          MaterialTheme.colors.surface
-        } else {
-          if (activePath.value == text) MaterialTheme.colors.primaryVariant else MaterialTheme.colors.surface
-        },
-      ),
+    modifier =
+      modifier
+        .combinedClickableNoInteraction(
+          interactionSource = interactionSource,
+          indication = null,
+          onDoubleClick = { model.open() },
+        ) {
+          onClick(model.file)
+        }
+        .padding(start = 24.dp * model.level)
+        .background(
+          if (activePath.value == "") {
+            MaterialTheme.colors.surface
+          } else {
+            if (activePath.value == text) MaterialTheme.colors.primaryVariant
+            else MaterialTheme.colors.surface
+          },
+        ),
   ) {
-
     FileItemIcon(Modifier.align(Alignment.CenterVertically), model)
     Text(
       text = model.name,
@@ -145,96 +147,95 @@ private fun FileTreeItem(
       maxLines = 1,
     )
   }
-
 }
 
 @Composable
 private fun FileItemIcon(
   modifier: Modifier,
   model: FileTreeModel.Item,
-) = Box(modifier.size(24.dp).padding(4.dp)) {
-  when (val type = model.type) {
-    is FileTreeModel.ItemType.Folder -> when {
-      !type.canExpand -> Unit
-      type.isExpanded -> Icon(
-        Icons.Default.KeyboardArrowDown,
-        contentDescription = null,
-        tint = LocalContentColor.current,
-        modifier = Modifier.clickable {
-          model.open()
-        },
-      )
-
-      else -> Icon(
-        Icons.Default.KeyboardArrowRight,
-        contentDescription = null,
-        tint = LocalContentColor.current,
-        modifier = Modifier.clickable {
-          model.open()
-        },
-      )
-    }
-
-    is FileTreeModel.ItemType.File -> when (type.ext) {
-      "kt" -> Icon(
-        imageVector = Icons.Default.Code,
-        contentDescription = null,
-        tint = Color(0xFF3E86A0),
-      )
-
-      "xml" -> Icon(
-        imageVector = Icons.Default.Code,
-        contentDescription = null,
-        tint = Color(0xFFC19C5F),
-      )
-
-      "txt" -> Icon(
-        imageVector = Icons.Default.Description,
-        contentDescription = null,
-        tint = Color(0xFF87939A),
-      )
-
-      "md" -> Icon(
-        imageVector = Icons.Default.Description,
-        contentDescription = null,
-        tint = Color(0xFF87939A),
-      )
-
-      "gitignore" -> Icon(
-        imageVector = Icons.Default.BrokenImage,
-        contentDescription = null,
-        tint = Color(0xFF87939A),
-      )
-
-      "gradle" -> Icon(
-        imageVector = Icons.Default.Build,
-        contentDescription = null,
-        tint = Color(0xFF87939A),
-      )
-
-      "kts" -> Icon(
-        imageVector = Icons.Default.Build,
-        contentDescription = null,
-        tint = Color(0xFF3E86A0),
-      )
-
-      "properties" -> Icon(
-        imageVector = Icons.Default.Settings,
-        contentDescription = null,
-        tint = Color(0xFF62B543),
-      )
-
-      "bat" -> Icon(
-        imageVector = Icons.Default.Launch,
-        contentDescription = null,
-        tint = Color(0xFF87939A),
-      )
-
-      else -> Icon(
-        imageVector = Icons.Default.TextSnippet,
-        contentDescription = null,
-        tint = Color(0xFF87939A),
-      )
+) =
+  Box(modifier.size(24.dp).padding(4.dp)) {
+    when (val type = model.type) {
+      is FileTreeModel.ItemType.Folder ->
+        when {
+          !type.canExpand -> Unit
+          type.isExpanded ->
+            Icon(
+              Icons.Default.KeyboardArrowDown,
+              contentDescription = null,
+              tint = LocalContentColor.current,
+              modifier = Modifier.clickable { model.open() },
+            )
+          else ->
+            Icon(
+              Icons.Default.KeyboardArrowRight,
+              contentDescription = null,
+              tint = LocalContentColor.current,
+              modifier = Modifier.clickable { model.open() },
+            )
+        }
+      is FileTreeModel.ItemType.File ->
+        when (type.ext) {
+          "kt" ->
+            Icon(
+              imageVector = Icons.Default.Code,
+              contentDescription = null,
+              tint = Color(0xFF3E86A0),
+            )
+          "xml" ->
+            Icon(
+              imageVector = Icons.Default.Code,
+              contentDescription = null,
+              tint = Color(0xFFC19C5F),
+            )
+          "txt" ->
+            Icon(
+              imageVector = Icons.Default.Description,
+              contentDescription = null,
+              tint = Color(0xFF87939A),
+            )
+          "md" ->
+            Icon(
+              imageVector = Icons.Default.Description,
+              contentDescription = null,
+              tint = Color(0xFF87939A),
+            )
+          "gitignore" ->
+            Icon(
+              imageVector = Icons.Default.BrokenImage,
+              contentDescription = null,
+              tint = Color(0xFF87939A),
+            )
+          "gradle" ->
+            Icon(
+              imageVector = Icons.Default.Build,
+              contentDescription = null,
+              tint = Color(0xFF87939A),
+            )
+          "kts" ->
+            Icon(
+              imageVector = Icons.Default.Build,
+              contentDescription = null,
+              tint = Color(0xFF3E86A0),
+            )
+          "properties" ->
+            Icon(
+              imageVector = Icons.Default.Settings,
+              contentDescription = null,
+              tint = Color(0xFF62B543),
+            )
+          "bat" ->
+            Icon(
+              imageVector = Icons.Default.Launch,
+              contentDescription = null,
+              tint = Color(0xFF87939A),
+            )
+          else ->
+            Icon(
+              imageVector = Icons.Default.TextSnippet,
+              contentDescription = null,
+              tint = Color(0xFF87939A),
+            )
+        }
     }
   }
-}

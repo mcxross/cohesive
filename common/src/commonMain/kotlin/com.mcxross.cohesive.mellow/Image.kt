@@ -27,22 +27,22 @@ fun <T> Image(
 ) {
   var loading: Boolean by remember { mutableStateOf(true) }
   if (loading) {
-    Box {
-      Progress(modifier = Modifier.align(Alignment.Center))
-    }
+    Box { Progress(modifier = Modifier.align(Alignment.Center)) }
   }
 
-  val image: T? by produceState<T?>(null) {
-    value = withContext(coroutineDispatcher) {
-      try {
-        load()
-      } catch (e: IOException) {
-        loading = false
-        e.printStackTrace()
-        null
-      }
+  val image: T? by
+    produceState<T?>(null) {
+      value =
+        withContext(coroutineDispatcher) {
+          try {
+            load()
+          } catch (e: IOException) {
+            loading = false
+            e.printStackTrace()
+            null
+          }
+        }
     }
-  }
 
   if (image != null) {
     loading = false
@@ -54,6 +54,3 @@ fun <T> Image(
     )
   }
 }
-
-
-

@@ -9,16 +9,18 @@ class ExpandableFile(
   val level: Int,
 ) {
   var children: List<ExpandableFile> by mutableStateOf(emptyList())
-  val canExpand: Boolean get() = file.hasChildren
+  val canExpand: Boolean
+    get() = file.hasChildren
   fun toggleExpanded() {
-    children = if (children.isEmpty()) {
-      file.children
-        .map { ExpandableFile(it, level + 1) }
-        .sortedWith(compareBy({ it.file.isDirectory }, { it.file.name }))
-        .sortedBy { !it.file.isDirectory }
-    } else {
-      emptyList()
-    }
+    children =
+      if (children.isEmpty()) {
+        file.children
+          .map { ExpandableFile(it, level + 1) }
+          .sortedWith(compareBy({ it.file.isDirectory }, { it.file.name }))
+          .sortedBy { !it.file.isDirectory }
+      } else {
+        emptyList()
+      }
   }
 }
 
@@ -27,35 +29,39 @@ class FileTreeModel(
   private val onFolderClicked: (file: File) -> Unit = {},
   private val onFileClicked: (file: File) -> Unit = {},
 ) {
-  private val expandableRoot = ExpandableFile(root, 0).apply {
-    toggleExpanded()
-  }
-  val items: List<Item> get() = expandableRoot.toItems()
+  private val expandableRoot = ExpandableFile(root, 0).apply { toggleExpanded() }
+  val items: List<Item>
+    get() = expandableRoot.toItems()
 
-  inner class Item constructor(
+  inner class Item
+  constructor(
     private val expandableFile: ExpandableFile,
   ) {
-    val name: String get() = expandableFile.file.name
-    val file: File get() = expandableFile.file
-    val level: Int get() = expandableFile.level
+    val name: String
+      get() = expandableFile.file.name
+    val file: File
+      get() = expandableFile.file
+    val level: Int
+      get() = expandableFile.level
     val type: ItemType
-      get() = if (expandableFile.file.isDirectory) {
-        ItemType.Folder(
-          isExpanded = expandableFile.children.isNotEmpty(),
-          canExpand = expandableFile.canExpand,
-        )
-      } else {
-        ItemType.File(ext = expandableFile.file.name.substringAfterLast(".").lowercase())
-      }
+      get() =
+        if (expandableFile.file.isDirectory) {
+          ItemType.Folder(
+            isExpanded = expandableFile.children.isNotEmpty(),
+            canExpand = expandableFile.canExpand,
+          )
+        } else {
+          ItemType.File(ext = expandableFile.file.name.substringAfterLast(".").lowercase())
+        }
 
-    fun open() = when (type) {
-      is ItemType.Folder -> {
-        onFolderClicked(expandableFile.file)
-        expandableFile.toggleExpanded()
+    fun open() =
+      when (type) {
+        is ItemType.Folder -> {
+          onFolderClicked(expandableFile.file)
+          expandableFile.toggleExpanded()
+        }
+        is ItemType.File -> onFileClicked(expandableFile.file)
       }
-
-      is ItemType.File -> onFileClicked(expandableFile.file)
-    }
   }
 
   sealed class ItemType {

@@ -36,24 +36,28 @@ fun Progress(
 
   val duration = startDelay + animationDuration + animationDelay
 
-  val fraction = mutableListOf<Float>().apply {
-    for (i in 0 until ballCount) {
-      val delay = startDelay + if (ballCount > 1) animationDelay / (ballCount - 1) * i else 0
-      val fraction by transition.animateFloat(
-        initialValue = 0f,
-        targetValue = 1f,
-        animationSpec = infiniteRepeatable(
-          animation = keyframes {
-            durationMillis = duration
-            0f at delay with LinearOutSlowInEasing
-            1f at animationDuration + delay
-            1f at duration
-          },
-        ),
-      )
-      add(fraction)
+  val fraction =
+    mutableListOf<Float>().apply {
+      for (i in 0 until ballCount) {
+        val delay = startDelay + if (ballCount > 1) animationDelay / (ballCount - 1) * i else 0
+        val fraction by
+          transition.animateFloat(
+            initialValue = 0f,
+            targetValue = 1f,
+            animationSpec =
+              infiniteRepeatable(
+                animation =
+                  keyframes {
+                    durationMillis = duration
+                    0f at delay with LinearOutSlowInEasing
+                    1f at animationDuration + delay
+                    1f at duration
+                  },
+              ),
+          )
+        add(fraction)
+      }
     }
-  }
 
   ProgressIndicator(modifier, diameter) {
     drawIndeterminateBallScaleMultipleIndicator(

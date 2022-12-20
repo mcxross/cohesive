@@ -28,6 +28,9 @@ class PanelState {
   val expandedSizeMin = 90.dp
   var isExpanded by mutableStateOf(true)
   val splitter = SplitterState()
+  fun toggle() {
+    isExpanded = !isExpanded
+  }
 }
 
 @Composable
@@ -36,10 +39,11 @@ fun ResizablePanel(
   state: PanelState,
   content: @Composable () -> Unit,
 ) {
-  val alpha by animateFloatAsState(
-    if (state.isExpanded) 1f else 0f,
-    SpringSpec(stiffness = Spring.StiffnessLow),
-  )
+  val alpha by
+    animateFloatAsState(
+      if (state.isExpanded) 1f else 0f,
+      SpringSpec(stiffness = Spring.StiffnessLow),
+    )
 
   Box(
     modifier = modifier,
@@ -54,14 +58,12 @@ fun ResizablePanel(
       imageVector = if (state.isExpanded) Icons.Default.ArrowBack else Icons.Default.ArrowForward,
       contentDescription = if (state.isExpanded) "Collapse" else "Expand",
       tint = LocalContentColor.current,
-      modifier = Modifier
-        .padding(top = 4.dp)
-        .width(24.dp)
-        .clickable {
-          state.isExpanded = !state.isExpanded
-        }
-        .padding(4.dp)
-        .align(Alignment.TopEnd),
+      modifier =
+        Modifier.padding(top = 4.dp)
+          .width(24.dp)
+          .clickable { state.toggle() }
+          .padding(4.dp)
+          .align(Alignment.TopEnd),
     )
   }
 }

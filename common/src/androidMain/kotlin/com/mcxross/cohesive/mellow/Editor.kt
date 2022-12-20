@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.TextUnit
 
 @Composable
-actual fun Lines(
+actual fun EditorMap(
   textLines: TextLines,
   fontSize: TextUnit,
 ) {
