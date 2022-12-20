@@ -45,6 +45,18 @@ The quickest way to get started is to use this [template](https://github.com/mcx
 Cohesive uses _encapsulated slot APIs_, a pattern akin to Compose' Material components' _slot APIs_ for its customization. Slots leave gaps in the UI for the developer to fill as they wish for the specific Platform implementation. The template project contains a sample implementation of the _encapsulated slot APIs_ for the Ethereum Platform.
 
 ```kotlin
+/**
+ * This code defines a [MainView] class that extends the [CohesiveView] class and is annotated with the [Cohesive] annotation.
+ * The [Cohesive] annotation takes three arguments:
+ *
+ * - [platform]: a string specifying the platform that the view is designed for. In this case, the platform is "Ethereum".
+ * - [version]: a string specifying the version of the platform. In this case, the version is "1.0.0".
+ * - [nets]: an array of [Net] objects, each of which specifies a network and its corresponding URL.
+ *   In this case, there are two networks specified: "mainnet" and "ropsten".
+ *
+ * The [MainView] class also has four abstract methods: [Explorer], [Wallet] and others, which can be implemented by any class that extends [MainView].
+ * These methods are annotated with the [Composable] annotation, which indicates that they are meant to be used with the Compose framework.
+ */
 @Cohesive(
   platform = "Ethereum",
   version = "1.0.0",
