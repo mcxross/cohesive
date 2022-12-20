@@ -3,10 +3,10 @@
     "Kotlin",
     "SPI",
     "HTML",
-    "XML",
     "Plain text",
-    "Properties",
+    "XML",
     ".gitignore (GitIgnore)",
+    "Properties",
     "EditorConfig"
   ]
 }
