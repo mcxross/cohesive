@@ -20,6 +20,7 @@ import com.mcxross.cohesive.common.frontend.impl.ui.view.splash.SplashScreen
 import com.mcxross.cohesive.common.frontend.utils.WindowState
 import com.mcxross.cohesive.common.frontend.utils.getPreferredWindowSize
 import com.mcxross.cohesive.common.utils.Log.d
+import com.mcxross.cohesive.common.utils.splashScreenSize
 import com.mcxross.cohesive.mellow.PlatformDropTargetModifier
 
 @Composable
@@ -38,7 +39,6 @@ fun BrewScreenCompositionLocal(
 fun main() =
   Cohesive.run {
     if (Context.isLoadingResource) {
-
       Window(
         onCloseRequest = ::exitApplication,
         undecorated = true,
@@ -46,7 +46,7 @@ fun main() =
         state =
           WindowState(
             position = WindowPosition.Aligned(Alignment.Center),
-            size = getPreferredWindowSize(400, 300),
+            size = getPreferredWindowSize(splashScreenSize().width, splashScreenSize().height),
           ),
       ) {
         SplashScreen()
