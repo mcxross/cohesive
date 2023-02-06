@@ -81,6 +81,10 @@
       "languageLevel": 11
     },
     {
+      "name": "cohesive.common.generatedByKspKotlinDesktop",
+      "languageLevel": 11
+    },
+    {
       "name": "cohesive.csp.test",
       "languageLevel": 11
     },

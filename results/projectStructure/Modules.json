@@ -214,11 +214,19 @@
           "type": "Module"
         },
         {
+          "name": "cohesive.common.generatedByKspKotlinDesktop",
+          "type": "Module"
+        },
+        {
           "name": "Gradle: com.squareup:kotlinpoet-ksp:1.12.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+          "name": "Gradle: org.jetbrains:markdown:0.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
         {
@@ -226,11 +234,7 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains:markdown:0.3.1",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.8.0",
           "type": "Library"
         },
         {
@@ -238,39 +242,47 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup:kotlinpoet:1.12.0",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.1.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.2.3",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.2.3",
           "type": "Library"
         },
         {
           "name": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.4.0-RC",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
           "type": "Library"
         },
         {
@@ -282,7 +294,19 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: io.github.aakira:napier-jvm:2.6.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-cli-jvm:0.3.5",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: org.jetbrains.kotlinx:kotlinx-benchmark-runtime-jvm:0.4.5",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains:markdown-jvm:0.3.1",
           "type": "Library"
         },
         {
@@ -294,31 +318,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
+          "name": "Gradle: com.squareup:kotlinpoet:1.12.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
           "type": "Library"
         },
         {
-          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: io.github.aakira:napier-jvm:2.6.1",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-cli-jvm:0.3.5",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains:markdown-jvm:0.3.1",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
         {
@@ -334,7 +346,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -342,27 +354,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.37",
+          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.50",
           "type": "Library"
         },
         {
@@ -370,27 +382,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-events-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-events-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -398,7 +410,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -410,39 +422,39 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-utils-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-utils-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-io-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-io-jvm:2.2.3",
           "type": "Library"
         }
       ]
@@ -487,19 +499,19 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: com.squareup:kotlinpoet-ksp:1.12.0",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: org.jetbrains:markdown:0.3.1",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-test:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-test:1.7.20",
+          "name": "Gradle: com.squareup:kotlinpoet-ksp:1.12.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
         {
@@ -507,7 +519,7 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.8.0",
           "type": "Library"
         },
         {
@@ -515,39 +527,35 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup:kotlinpoet:1.12.0",
+          "name": "Gradle: io.ktor:ktor-client-mock-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-mock-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.1.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -559,39 +567,15 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
           "type": "Library"
         },
         {
           "name": "Gradle: com.akuleshov7:ktoml-core-jvm:0.2.11",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-benchmark-runtime-jvm:0.4.5",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.kodein.di:kodein-di-jvm:7.15.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: io.github.z4kn4fein:semver-jvm:1.3.3",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
           "type": "Library"
         },
         {
@@ -603,11 +587,39 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-benchmark-runtime-jvm:0.4.5",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: org.jetbrains:markdown-jvm:0.3.1",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-test-junit:1.7.20",
+          "name": "Gradle: org.kodein.di:kodein-di-jvm:7.15.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: io.github.z4kn4fein:semver-jvm:1.3.3",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-test-junit:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup:kotlinpoet:1.12.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
           "type": "Library"
         },
         {
@@ -627,7 +639,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -635,27 +647,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.37",
+          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.50",
           "type": "Library"
         },
         {
@@ -663,31 +675,31 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-events-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-events-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -707,39 +719,39 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-utils-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-utils-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-io-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-io-jvm:2.2.3",
           "type": "Library"
         }
       ]
@@ -931,15 +943,15 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: org.jetbrains:markdown:0.3.1",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.8.0",
           "type": "Library"
         },
         {
@@ -947,39 +959,47 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup:kotlinpoet:1.12.0",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.1.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.2.3",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.2.3",
           "type": "Library"
         },
         {
           "name": "Gradle: org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.4.0-RC",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
           "type": "Library"
         },
         {
@@ -991,7 +1011,19 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: io.github.aakira:napier-jvm:2.6.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-cli-jvm:0.3.5",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: org.jetbrains.kotlinx:kotlinx-benchmark-runtime-jvm:0.4.5",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains:markdown-jvm:0.3.1",
           "type": "Library"
         },
         {
@@ -1003,31 +1035,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
+          "name": "Gradle: com.squareup:kotlinpoet:1.12.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
           "type": "Library"
         },
         {
-          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: io.github.aakira:napier-jvm:2.6.1",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-cli-jvm:0.3.5",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains:markdown-jvm:0.3.1",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
         {
@@ -1043,7 +1063,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1051,27 +1071,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.37",
+          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.50",
           "type": "Library"
         },
         {
@@ -1079,27 +1099,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-events-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-events-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -1107,7 +1127,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -1119,39 +1139,39 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-utils-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-utils-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-io-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-io-jvm:2.2.3",
           "type": "Library"
         }
       ]
@@ -1196,19 +1216,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: org.jetbrains:markdown:0.3.1",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-test:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-test:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.8.0",
           "type": "Library"
         },
         {
@@ -1216,35 +1236,39 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup:kotlinpoet:1.12.0",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.1.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.2.3",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -1252,39 +1276,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: io.ktor:ktor-client-mock-jvm:2.1.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: com.akuleshov7:ktoml-core-jvm:0.2.11",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-benchmark-runtime-jvm:0.4.5",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.kodein.di:kodein-di-jvm:7.15.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: com.squareup.okio:okio-fakefilesystem-jvm:3.2.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: io.github.z4kn4fein:semver-jvm:1.3.3",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: io.ktor:ktor-client-mock-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -1292,7 +1284,19 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.akuleshov7:ktoml-core-jvm:0.2.11",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: io.github.aakira:napier-jvm:2.6.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.okio:okio-fakefilesystem-jvm:3.2.0",
           "type": "Library"
         },
         {
@@ -1300,7 +1304,31 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-benchmark-runtime-jvm:0.4.5",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: org.jetbrains:markdown-jvm:0.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.kodein.di:kodein-di-jvm:7.15.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: io.github.z4kn4fein:semver-jvm:1.3.3",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup:kotlinpoet:1.12.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
         {
@@ -1312,39 +1340,39 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: org.jetbrains:annotations:13.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-test-junit:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-test-junit:1.7.20",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.2.1",
+          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.3.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1352,7 +1380,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.37",
+          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.50",
           "type": "Library"
         },
         {
@@ -1364,27 +1392,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-events-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-events-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -1396,27 +1424,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1424,15 +1452,15 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-utils-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-utils-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -1440,7 +1468,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-io-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-io-jvm:2.2.3",
           "type": "Library"
         }
       ]
@@ -1473,6 +1501,33 @@
       ]
     },
     {
+      "name": "cohesive.common.generatedByKspKotlinDesktop",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/common/build/generated/ksp/desktop/desktopMain/java",
+          "sourceFolders": []
+        },
+        {
+          "path": "file://$PROJECT_DIR$/common/build/generated/ksp/desktop/desktopMain/kotlin",
+          "sourceFolders": []
+        },
+        {
+          "path": "file://$PROJECT_DIR$/common/src/generatedByKspKotlinDesktop",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        }
+      ]
+    },
+    {
       "name": "cohesive.csp.test",
       "contentEntries": [
         {
@@ -1494,15 +1549,15 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
+          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
         {
@@ -1510,7 +1565,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
           "type": "Library"
         },
         {
@@ -1518,11 +1573,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
           "type": "Library"
         }
       ]
@@ -1556,15 +1611,15 @@
           "type": "Own sources"
         },
         {
-          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
+          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
         {
@@ -1572,7 +1627,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
           "type": "Library"
         },
         {
@@ -1580,11 +1635,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
           "type": "Library"
         }
       ]
@@ -1654,7 +1709,7 @@
           "type": "Module"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.common.generatedByKspKotlinDesktop",
           "type": "Module"
         },
         {
@@ -1662,7 +1717,11 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+          "name": "cohesive.common.commonMain",
+          "type": "Module"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
         {
@@ -1674,19 +1733,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1694,27 +1753,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
+          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.37",
+          "name": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.50",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1722,11 +1781,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -1734,15 +1793,15 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1754,7 +1813,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1762,7 +1821,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1770,11 +1829,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1786,11 +1845,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.37",
+          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.50",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1",
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
           "type": "Library"
         },
         {
@@ -1802,23 +1861,23 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1827,10 +1886,6 @@
         },
         {
           "name": "Gradle: org.jetbrains:markdown-jvm:0.3.1",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
           "type": "Library"
         },
         {
@@ -1846,27 +1901,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-events-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-events-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -1878,7 +1933,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1886,19 +1941,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-utils-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-utils-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-io-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-io-jvm:2.2.3",
           "type": "Library"
         }
       ]
@@ -1937,19 +1992,19 @@
           "type": "Module"
         },
         {
-          "name": "cohesive.common.commonMain",
-          "type": "Module"
-        },
-        {
           "name": "cohesive.common.desktopMain",
           "type": "Module"
         },
         {
+          "name": "cohesive.common.generatedByKspKotlinDesktop",
+          "type": "Module"
+        },
+        {
           "name": "cohesive.common.commonMain",
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
         {
@@ -1957,7 +2012,7 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
           "type": "Library"
         },
         {
@@ -1965,19 +2020,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1985,27 +2040,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
+          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.37",
+          "name": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.50",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.3.0",
           "type": "Library"
         },
         {
@@ -2017,23 +2072,23 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2045,7 +2100,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2053,7 +2108,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2061,7 +2116,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2069,7 +2124,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.37",
+          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.50",
           "type": "Library"
         },
         {
@@ -2077,11 +2132,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1",
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2093,19 +2148,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2114,10 +2169,6 @@
         },
         {
           "name": "Gradle: org.jetbrains:markdown-jvm:0.3.1",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
           "type": "Library"
         },
         {
@@ -2133,27 +2184,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-events-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-events-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -2165,7 +2216,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2173,19 +2224,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-utils-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-utils-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-io-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-io-jvm:2.2.3",
           "type": "Library"
         }
       ]
@@ -2212,7 +2263,7 @@
           "type": "Module"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.common.generatedByKspKotlinDesktop",
           "type": "Module"
         },
         {
@@ -2220,7 +2271,11 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+          "name": "cohesive.common.commonMain",
+          "type": "Module"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
         {
@@ -2232,19 +2287,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2252,27 +2307,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
+          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.37",
+          "name": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.50",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2280,11 +2335,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -2292,15 +2347,15 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2312,7 +2367,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2320,7 +2375,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2328,11 +2383,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2344,11 +2399,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.37",
+          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.50",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1",
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
           "type": "Library"
         },
         {
@@ -2360,23 +2415,23 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2385,10 +2440,6 @@
         },
         {
           "name": "Gradle: org.jetbrains:markdown-jvm:0.3.1",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
           "type": "Library"
         },
         {
@@ -2404,27 +2455,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-events-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-events-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -2436,7 +2487,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2444,19 +2495,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-utils-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-utils-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-io-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-io-jvm:2.2.3",
           "type": "Library"
         }
       ]
@@ -2495,7 +2546,7 @@
           "type": "Module"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.common.generatedByKspKotlinDesktop",
           "type": "Module"
         },
         {
@@ -2503,7 +2554,11 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+          "name": "cohesive.common.commonMain",
+          "type": "Module"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
         {
@@ -2511,15 +2566,15 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2527,19 +2582,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2547,19 +2602,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.7.20-1.0.8",
+          "name": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.37",
+          "name": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.50",
           "type": "Library"
         },
         {
@@ -2567,7 +2622,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2575,27 +2630,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-client-cio-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-client-core-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2607,7 +2662,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2615,7 +2670,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.37",
+          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.50",
           "type": "Library"
         },
         {
@@ -2623,11 +2678,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1",
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2635,7 +2690,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2643,7 +2698,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2655,11 +2710,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2668,10 +2723,6 @@
         },
         {
           "name": "Gradle: org.jetbrains:markdown-jvm:0.3.1",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
           "type": "Library"
         },
         {
@@ -2687,27 +2738,27 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-cio-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websockets-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-tls-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-events-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-events-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-websocket-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-http-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-http-jvm:2.2.3",
           "type": "Library"
         },
         {
@@ -2719,7 +2770,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2727,19 +2778,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-network-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-network-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-utils-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-utils-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-serialization-jvm:2.2.3",
           "type": "Library"
         },
         {
-          "name": "Gradle: io.ktor:ktor-io-jvm:2.1.0",
+          "name": "Gradle: io.ktor:ktor-io-jvm:2.2.3",
           "type": "Library"
         }
       ]
@@ -2785,27 +2836,31 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.web:web-core-js:klib:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.web:web-core-js:klib:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-js:klib:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-js:klib:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-js:klib:0.17.2",
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-js:klib:1.6.4",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-js:klib:1.6.1",
+          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-js:klib:0.17.3",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:atomicfu:1.6.21",
           "type": "Library"
         }
       ]
@@ -2848,27 +2903,31 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.web:web-core-js:klib:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.web:web-core-js:klib:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-js:klib:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-js:klib:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-js:klib:0.17.2",
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-js:klib:1.6.4",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-js:klib:1.6.1",
+          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-js:klib:0.17.3",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:atomicfu:1.6.21",
           "type": "Library"
         }
       ]
@@ -2891,11 +2950,7 @@
           "type": "Own sources"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.7.20",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
           "type": "Library"
         }
       ]
@@ -2922,11 +2977,7 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.7.20",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
           "type": "Library"
         }
       ]
@@ -2953,19 +3004,19 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
           "type": "Library"
         },
         {
@@ -2992,19 +3043,19 @@
           "type": "Own sources"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
           "type": "Library"
         },
         {
@@ -3016,6 +3067,18 @@
     {
       "name": "cohesive.plugin.desktop.cohesive-cohesive.test",
       "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/build/generated/ksp/test/java",
+          "sourceFolders": []
+        },
+        {
+          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/build/generated/ksp/test/kotlin",
+          "sourceFolders": []
+        },
+        {
+          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/src/generatedByKspTestKotlin",
+          "sourceFolders": []
+        },
         {
           "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/src/test",
           "sourceFolders": []
@@ -3035,19 +3098,19 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
           "type": "Library"
         },
         {
@@ -3059,6 +3122,18 @@
     {
       "name": "cohesive.plugin.desktop.cohesive-cohesive.main",
       "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/build/generated/ksp/main/java",
+          "sourceFolders": []
+        },
+        {
+          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/build/generated/ksp/main/kotlin",
+          "sourceFolders": []
+        },
+        {
+          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/src/generatedByKspKotlin",
+          "sourceFolders": []
+        },
         {
           "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/src/main",
           "sourceFolders": [
@@ -3084,11 +3159,15 @@
           "type": "Module"
         },
         {
+          "name": "cohesive.common.generatedByKspKotlinDesktop",
+          "type": "Module"
+        },
+        {
           "name": "cohesive.common.commonMain",
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
         {
@@ -3096,11 +3175,11 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
           "type": "Library"
         },
         {
@@ -3108,79 +3187,79 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-extended-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.material:material-icons-core-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-core-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-text-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.animation:animation-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.37",
+          "name": "Gradle: org.jetbrains.skiko:skiko-awt:0.7.50",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1",
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-graphics-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.2.1",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.3.0",
           "type": "Library"
         }
       ]
