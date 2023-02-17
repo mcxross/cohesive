@@ -1,7 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val pluginDirDesktop by extra { file("$projectDir/desktop/build/plugin/sec") }
-
 group
 
 "com.mcxross.cohesive"

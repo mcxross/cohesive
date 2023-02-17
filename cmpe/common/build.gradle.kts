@@ -4,6 +4,7 @@ val okioVersion: String by project
 val napierVersion: String by project
 
 plugins {
+  id("maven-publish")
   kotlin("multiplatform")
   id("org.jetbrains.kotlinx.benchmark") version "0.4.4"
   id("org.jetbrains.kotlin.plugin.allopen") version "1.8.0"
@@ -100,3 +101,11 @@ android {
 }
 
 benchmark { targets { register("commonBenchmark") } }
+
+publishing {
+  publications {
+    named<MavenPublication>("desktop") {
+      artifactId = "cohesive-desktop"
+    }
+  }
+}

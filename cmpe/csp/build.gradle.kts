@@ -2,6 +2,8 @@ val napierVersion: String by project
 val okioVersion: String by project
 
 plugins {
+  `java-library`
+  `maven-publish`
   kotlin("jvm")
   kotlin("plugin.serialization") version "1.8.0"
   id("org.jetbrains.dokka")
@@ -21,3 +23,20 @@ dependencies {
 }
 
 sourceSets.main { java.srcDirs("src/main/kotlin") }
+
+publishing {
+  publications {
+    create<MavenPublication>("maven") {
+      groupId = "com.mcxross.cohesive"
+      artifactId = "cohesive-csp"
+      from(components["java"])
+    }
+  }
+
+  repositories {
+    maven {
+      name = "GitHubPackages"
+      url = uri(layout.buildDirectory.dir("repo"))
+    }
+  }
+}
