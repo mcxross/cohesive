@@ -42,7 +42,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-local.properties
-chain
+cmpe/local.properties
+cmpe/chain
 /common/src/androidAndroidTestRelease/
 **/0x0

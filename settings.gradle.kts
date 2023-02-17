@@ -20,12 +20,14 @@ pluginManagement {
 rootProject.name = "cohesive"
 
 include(
-  ":android",
-  ":desktop",
-  ":common",
-  ":web",
-  ":csp",
-  ":plugin",
-  ":plugin:desktop",
-  ":plugin:desktop:cohesive-cohesive"
+  ":cmpe",
+  ":cmpe:android",
+  ":cmpe:desktop",
+  ":cmpe:common",
+  ":cmpe:web",
+  ":cmpe:csp",
+  ":cmpe:plugin",
+  ":cmpe:plugin:desktop",
+  ":cmpe:plugin:desktop:cohesive-cohesive",
+  ":seabed",
 )
