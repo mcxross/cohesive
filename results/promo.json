@@ -1,107 +1,443 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Obvious explicit type",
-  "severity": "High",
-  "comment": "Explicitly given type is redundant here",
-  "detailsInfo": "Reports local variables' explicitly given types which are obvious and thus redundant, like `val f: Foo = Foo()`.\n\n**Example:**\n\n\n      class Point(val x: Int, val y: Int)\n\n      fun foo() {\n          val t: Boolean = true\n          val p: Point = Point(1, 2)\n          val i: Int = 42\n      }\n\nAfter the quick-fix is applied:\n\n\n      class Point(val x: Int, val y: Int)\n\n      fun foo() {\n          val t = true\n          val p = Point(1, 2)\n          val i = 42\n      }\n",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'Image' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/widget/md/parser/Parser.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/widget/md/markup/Image.kt",
       "language": "kotlin",
-      "line": 30,
+      "line": 6,
+      "offset": 5,
+      "length": 5,
+      "code": {
+        "startLine": 4,
+        "length": 5,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun Image(\n  imageUrl: String,\n  isEnabled: Boolean,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "b9c60ee1d968e8dcb7f3aaf240e7ac301be219b5da4e441bd51c8c7d1033899e"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'EditorMap' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Editor.kt",
+      "language": "kotlin",
+      "line": 120,
+      "offset": 21,
+      "length": 9,
+      "code": {
+        "startLine": 118,
+        "length": 9,
+        "offset": 33,
+        "surroundingCode": "\n@Composable\ninternal expect fun EditorMap(\n  textLines: TextLines,\n  fontSize: TextUnit,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "caa11be7c6ce1c61ee081226126f01ba4dc4da0a220609ebdf220e2e4d417846"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'TextField' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Editor.kt",
+      "language": "kotlin",
+      "line": 163,
+      "offset": 12,
+      "length": 9,
+      "code": {
+        "startLine": 161,
+        "length": 9,
+        "offset": 24,
+        "surroundingCode": "\n@Composable\nexpect fun TextField(\n  text: String,\n  isCode: Boolean,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "b2ba2919036c7e3eafd4c936d306a0ebd573f554e585c7ea5cddc55ec030f4b5"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'EditorEmpty' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Editor.kt",
+      "language": "kotlin",
+      "line": 233,
+      "offset": 5,
+      "length": 11,
+      "code": {
+        "startLine": 231,
+        "length": 11,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun EditorEmpty(\n  text: String = \"No file opened\",\n) ="
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "ee44d186fc2831bed8edcae8d169250ef6a4bf0a1579feab4be74f836953319e"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'EditorTabs' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Editor.kt",
+      "language": "kotlin",
+      "line": 69,
+      "offset": 5,
+      "length": 10,
+      "code": {
+        "startLine": 67,
+        "length": 10,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun EditorTabs(\n  editorManager: EditorManager,\n) ="
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "5bc477e5896122f9944b462eba88872262ff95777d654c5510907f380a355728"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'LineNumber' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Editor.kt",
+      "language": "kotlin",
+      "line": 126,
+      "offset": 14,
+      "length": 10,
+      "code": {
+        "startLine": 124,
+        "length": 10,
+        "offset": 26,
+        "surroundingCode": "\n@Composable\ninternal fun LineNumber(\n  modifier: Modifier,\n  maxNum: String,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "08e733a9e22528b3842ae90ea1aeb520416e1c08cacc49b435a3ea993f0b7fab"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'Editor' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Editor.kt",
+      "language": "kotlin",
+      "line": 86,
+      "offset": 5,
+      "length": 6,
+      "code": {
+        "startLine": 84,
+        "length": 6,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun Editor(\n  model: EditorModel,\n  modifier: Modifier = Modifier,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "5c9d44503626cb864842c525dbbdcfa71d21e3aa99a5dc573c52955d02faf6d1"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'Number' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Editor.kt",
+      "language": "kotlin",
+      "line": 149,
       "offset": 13,
       "length": 6,
       "code": {
-        "startLine": 28,
+        "startLine": 147,
         "length": 6,
-        "offset": 78,
-        "surroundingCode": "\n  val contentBufferReader = BufferedReader(StringReader(string))\n  var line: String = \"\"\n  var isCodeBlock = false\n  val codeBlock = Code(\"\")"
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun Number(\n  number: String,\n  modifier: Modifier,"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "RedundantExplicitType"
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "FunctionName"
   },
-  "hash": "49a1f274cae9e62d55bb0db803974ab695405aaa638cc00b0fa7583d0b4d480b"
+  "hash": "61eb0e31c9ecf497e71b3d2946f9eed93f4004228c7c5347e412fcf2d552f74f"
 },{
   "tool": "Code Inspection",
   "category": "Naming conventions",
   "type": "Function naming convention",
   "severity": "Moderate",
-  "comment": "Function name 'WindowButton' should start with a lowercase letter",
+  "comment": "Function name 'EditorTabs' should start with a lowercase letter",
   "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Button.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Editor.kt",
       "language": "kotlin",
-      "line": 30,
+      "line": 42,
+      "offset": 5,
+      "length": 10,
+      "code": {
+        "startLine": 40,
+        "length": 10,
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun EditorTabs(\n  editorCompositeContainer: EditorCompositeContainer,\n  panelState: PanelState,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "f8673175bade537353c45f1c5d84552f1d729ab3e7f2fae119ba9434c6d69b31"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'SelectionToolbarAndHandles' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/CoreTextField.kt",
+      "language": "kotlin",
+      "line": 795,
+      "offset": 13,
+      "length": 26,
+      "code": {
+        "startLine": 793,
+        "length": 26,
+        "offset": 25,
+        "surroundingCode": "\n@Composable\nprivate fun SelectionToolbarAndHandles(manager: TextFieldSelectionManager, show: Boolean) {\n  if (show) {\n    with(manager) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "d13e310201ed30ec55317770dbe05c1d6d4624f6fed7b61656b025413cb596f6"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'CoreTextField' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/CoreTextField.kt",
+      "language": "kotlin",
+      "line": 172,
+      "offset": 14,
+      "length": 13,
+      "code": {
+        "startLine": 170,
+        "length": 13,
+        "offset": 66,
+        "surroundingCode": "@Composable\n@OptIn(InternalFoundationTextApi::class)\ninternal fun CoreTextField(\n  value: TextFieldValue,\n  onValueChange: (TextFieldValue) -> Unit,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "45476940f585485eb778eebfdf7130199fed71f0b1799979a4ad1905cd29836f"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'TextFieldCursorHandle' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/CoreTextField.kt",
+      "language": "kotlin",
+      "line": 836,
+      "offset": 14,
+      "length": 21,
+      "code": {
+        "startLine": 834,
+        "length": 21,
+        "offset": 26,
+        "surroundingCode": "\n@Composable\ninternal fun TextFieldCursorHandle(manager: TextFieldSelectionManager) {\n  val offset = manager.offsetMapping.originalToTransformed(manager.value.selection.start)\n  val observer = remember(manager) { manager.cursorDragObserver() }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "1fdaf4d4ba38a19b21e10200b2ae98c9daa6d193a23c869f183c4e14b9baddda"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'CoreTextFieldRootBox' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/CoreTextField.kt",
+      "language": "kotlin",
+      "line": 583,
+      "offset": 20,
+      "length": 20,
+      "code": {
+        "startLine": 581,
+        "length": 20,
+        "offset": 32,
+        "surroundingCode": "\n@Composable\nprivate inline fun CoreTextFieldRootBox(\n  modifier: Modifier,\n  manager: TextFieldSelectionManager,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "FunctionName"
+  },
+  "hash": "5b1eac72a1891273ed94b38a4f3caa9c8801aa15ed0d072a57b198f779775c5b"
+},{
+  "tool": "Code Inspection",
+  "category": "Naming conventions",
+  "type": "Function naming convention",
+  "severity": "Moderate",
+  "comment": "Function name 'EditorSimple' should start with a lowercase letter",
+  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/EditorSimple.kt",
+      "language": "kotlin",
+      "line": 12,
       "offset": 5,
       "length": 12,
       "code": {
-        "startLine": 28,
+        "startLine": 10,
         "length": 12,
-        "offset": 56,
-        "surroundingCode": "@OptIn(ExperimentalComposeUiApi::class)\n@Composable\nfun WindowButton(\n  onClick: () -> Unit,\n  modifier: Modifier = Modifier,"
+        "offset": 17,
+        "surroundingCode": "\n@Composable\nfun EditorSimple(\n  file: File,\n) {"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
+    "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "FunctionName"
   },
-  "hash": "3dcdbdb327560dce14ff8f84ce3343132ee56816b96694fe91f1ef28d225afd5"
+  "hash": "5b7b4e426f1dea1bdc649caba5477971a64cbb0723891d165204f18e5d89db92"
 },{
   "tool": "Code Inspection",
   "category": "Naming conventions",
   "type": "Function naming convention",
   "severity": "Moderate",
-  "comment": "Function name 'Card' should start with a lowercase letter",
+  "comment": "Function name 'CursorHandle' should start with a lowercase letter",
   "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Card.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/DesktopCursorHandle.kt",
       "language": "kotlin",
-      "line": 28,
-      "offset": 5,
-      "length": 4,
+      "line": 25,
+      "offset": 14,
+      "length": 12,
       "code": {
-        "startLine": 26,
-        "length": 4,
-        "offset": 20,
-        "surroundingCode": " */\n@Composable\nfun Card(\n  modifier: Modifier,\n  shape: Shape = RoundedCornerShape(15.dp),"
+        "startLine": 23,
+        "length": 12,
+        "offset": 55,
+        "surroundingCode": "@Composable\n@Suppress(\"UNUSED_PARAMETER\")\ninternal fun CursorHandle(\n  handlePosition: Offset,\n  modifier: Modifier,"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
+    "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "FunctionName"
   },
-  "hash": "6346be087d234a0a73303068869fc8f377d3dd0f3abf9e51af18e53191dabec3"
+  "hash": "64d1eccbeef723565b21a71dcea19c2110947b1ef40142d9f59f80f51cda0b37"
 },{
   "tool": "Code Inspection",
   "category": "Probable bugs",
   "type": "Unresolved reference in KDoc",
   "severity": "High",
-  "comment": "Cannot resolve symbol 'Extension'",
+  "comment": "Cannot resolve symbol 'KeyboardOptions'",
   "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/asm/ExtensionInfo.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/CoreTextField.kt",
       "language": "kotlin",
-      "line": 55,
-      "offset": 73,
-      "length": 9,
+      "line": 157,
+      "offset": 5,
+      "length": 15,
       "code": {
-        "startLine": 53,
-        "length": 9,
-        "offset": 181,
-        "surroundingCode": "     * @param className absolute class name\n     * @param classLoader class pluginLoader to access the class\n     * @return the [ExtensionInfo], if the class was annotated with an [Extension], otherwise null\n     */\n    fun load("
+        "startLine": 155,
+        "length": 15,
+        "offset": 185,
+        "surroundingCode": " * @param keyboardActions when the input service emits an IME action, the corresponding callback is\n * called. Note that this IME action may be different from what you specified in\n * [KeyboardOptions.imeAction].\n * @param enabled controls the enabled state of the text field. When `false`, the text field will be\n * neither editable nor focusable, the input of the text field will not be selectable"
       }
     }
   ],
@@ -109,27 +445,27 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "77c0a707bb6e7bab7aa70cf7e539f6d8bd372f3272b402c2449342399ab7b2e4"
+  "hash": "4b3f1039cb9e412cf8e5fbf1260942b24fd5f7dcb022e54e97282f993dd5da1d"
 },{
   "tool": "Code Inspection",
   "category": "Probable bugs",
   "type": "Unresolved reference in KDoc",
   "severity": "High",
-  "comment": "Cannot resolve symbol 'Extension'",
+  "comment": "Cannot resolve symbol 'imeAction'",
   "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/asm/ExtensionInfo.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/CoreTextField.kt",
       "language": "kotlin",
-      "line": 29,
-      "offset": 15,
+      "line": 157,
+      "offset": 21,
       "length": 9,
       "code": {
-        "startLine": 27,
+        "startLine": 155,
         "length": 9,
-        "offset": 21,
-        "surroundingCode": "\n  /**\n   * Get the [Extension.plugins] value, that was assigned to the extension.\n   *\n   * @return ordinal value"
+        "offset": 201,
+        "surroundingCode": " * @param keyboardActions when the input service emits an IME action, the corresponding callback is\n * called. Note that this IME action may be different from what you specified in\n * [KeyboardOptions.imeAction].\n * @param enabled controls the enabled state of the text field. When `false`, the text field will be\n * neither editable nor focusable, the input of the text field will not be selectable"
       }
     }
   ],
@@ -137,27 +473,27 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "502fcd058fe84bb46a996f5057485770f8f30464a8f43a13b6cd3c460c6c3784"
+  "hash": "a961e97e9ecf1be60e89189d76d0cde8135d85db9e5f22e1c66580ed9ccef6da"
 },{
   "tool": "Code Inspection",
   "category": "Probable bugs",
   "type": "Unresolved reference in KDoc",
   "severity": "High",
-  "comment": "Cannot resolve symbol 'plugins'",
+  "comment": "Cannot resolve symbol 'samples'",
   "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/asm/ExtensionInfo.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/InlineTextContent.kt",
       "language": "kotlin",
-      "line": 29,
-      "offset": 25,
+      "line": 71,
+      "offset": 40,
       "length": 7,
       "code": {
-        "startLine": 27,
+        "startLine": 69,
         "length": 7,
-        "offset": 31,
-        "surroundingCode": "\n  /**\n   * Get the [Extension.plugins] value, that was assigned to the extension.\n   *\n   * @return ordinal value"
+        "offset": 140,
+        "surroundingCode": " * [androidx.compose.ui.unit.Constraints] and passed through [androidx.compose.ui.layout.Layout].\n *\n * @sample androidx.compose.foundation.samples.InlineTextContentSample\n * @see BasicText\n * @see Placeholder"
       }
     }
   ],
@@ -165,27 +501,55 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "e68fa5136c3d6064de2df2a89c61a37c291e3d1029f9d80e2ac36086d769d6d3"
+  "hash": "ee44e79f041639aa45b5a99931a05d90c8861a9855e352acb301509d49c291a2"
 },{
   "tool": "Code Inspection",
   "category": "Probable bugs",
   "type": "Unresolved reference in KDoc",
   "severity": "High",
-  "comment": "Cannot resolve symbol 'Extension'",
+  "comment": "Cannot resolve symbol 'InlineTextContentSample'",
   "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/asm/ExtensionInfo.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/InlineTextContent.kt",
       "language": "kotlin",
-      "line": 22,
-      "offset": 15,
+      "line": 71,
+      "offset": 48,
+      "length": 23,
+      "code": {
+        "startLine": 69,
+        "length": 23,
+        "offset": 148,
+        "surroundingCode": " * [androidx.compose.ui.unit.Constraints] and passed through [androidx.compose.ui.layout.Layout].\n *\n * @sample androidx.compose.foundation.samples.InlineTextContentSample\n * @see BasicText\n * @see Placeholder"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KDocUnresolvedReference"
+  },
+  "hash": "c1165974cab273bbf379ea32266410bf2bfb986a4a353713f806c8006aa4ac7c"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Unresolved reference in KDoc",
+  "severity": "High",
+  "comment": "Cannot resolve symbol 'BasicText'",
+  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/InlineTextContent.kt",
+      "language": "kotlin",
+      "line": 72,
+      "offset": 9,
       "length": 9,
       "code": {
-        "startLine": 20,
+        "startLine": 70,
         "length": 9,
-        "offset": 21,
-        "surroundingCode": "\n  /**\n   * Get the [Extension.ordinal] value, that was assigned to the extension.\n   *\n   * @return ordinal value"
+        "offset": 82,
+        "surroundingCode": " *\n * @sample androidx.compose.foundation.samples.InlineTextContentSample\n * @see BasicText\n * @see Placeholder\n */"
       }
     }
   ],
@@ -193,27 +557,83 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "71dfaf5257f30fed064ef2b86ab5ed8a83a401bc7522ed21fe8814a1295dee60"
+  "hash": "f4c62f099dfe577f783fadb4a73131987bf879071d9cbd95f85409351d033f7c"
 },{
   "tool": "Code Inspection",
   "category": "Probable bugs",
   "type": "Unresolved reference in KDoc",
   "severity": "High",
-  "comment": "Cannot resolve symbol 'ordinal'",
+  "comment": "Cannot resolve symbol 'BasicText'",
   "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/asm/ExtensionInfo.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/InlineTextContent.kt",
       "language": "kotlin",
-      "line": 22,
-      "offset": 25,
+      "line": 33,
+      "offset": 32,
+      "length": 9,
+      "code": {
+        "startLine": 31,
+        "length": 9,
+        "offset": 129,
+        "surroundingCode": "/**\n * Used to insert composables into the text layout. This method can be used together with the\n * inlineContent parameter of [BasicText]. It will append the [alternateText] to this\n * [AnnotatedString] and also mark this range of text to be replaced by a composable.\n * [BasicText] will try to find an [InlineTextContent] in the map defined by inlineContent whose"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KDocUnresolvedReference"
+  },
+  "hash": "79c0f23381cc1b58d5df0771f9fa9663351119ed1eaa92b624b8ae419dd3a749"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Unresolved reference in KDoc",
+  "severity": "High",
+  "comment": "Cannot resolve symbol 'BasicText'",
+  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/InlineTextContent.kt",
+      "language": "kotlin",
+      "line": 35,
+      "offset": 5,
+      "length": 9,
+      "code": {
+        "startLine": 33,
+        "length": 9,
+        "offset": 176,
+        "surroundingCode": " * inlineContent parameter of [BasicText]. It will append the [alternateText] to this\n * [AnnotatedString] and also mark this range of text to be replaced by a composable.\n * [BasicText] will try to find an [InlineTextContent] in the map defined by inlineContent whose\n * key equals to [id], and it will use the [InlineTextContent.children] to replace this range of\n * text."
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KDocUnresolvedReference"
+  },
+  "hash": "822d4cb592c437c9ddce5509b1342e8af9412bc800ada8b2ab75a57362bad427"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Unresolved reference in KDoc",
+  "severity": "High",
+  "comment": "Cannot resolve symbol 'samples'",
+  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/InlineTextContent.kt",
+      "language": "kotlin",
+      "line": 39,
+      "offset": 40,
       "length": 7,
       "code": {
-        "startLine": 20,
+        "startLine": 37,
         "length": 7,
-        "offset": 31,
-        "surroundingCode": "\n  /**\n   * Get the [Extension.ordinal] value, that was assigned to the extension.\n   *\n   * @return ordinal value"
+        "offset": 51,
+        "surroundingCode": " * text.\n *\n * @sample androidx.compose.foundation.samples.InlineTextContentSample\n * @see InlineTextContent\n * @see BasicText"
       }
     }
   ],
@@ -221,27 +641,27 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "20591510d802b4e0b02230d15a650de18266853cb338e75dcb98291c746fc1b5"
+  "hash": "fb73475afd13a4381ab31beea276e4b0639ec13c95e77420949d65bf785f6e8e"
 },{
   "tool": "Code Inspection",
   "category": "Probable bugs",
   "type": "Unresolved reference in KDoc",
   "severity": "High",
-  "comment": "Cannot resolve symbol 'Extension'",
+  "comment": "Cannot resolve symbol 'InlineTextContentSample'",
   "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/asm/ExtensionInfo.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/InlineTextContent.kt",
       "language": "kotlin",
       "line": 39,
-      "offset": 15,
-      "length": 9,
+      "offset": 48,
+      "length": 23,
       "code": {
         "startLine": 37,
-        "length": 9,
-        "offset": 21,
-        "surroundingCode": "\n  /**\n   * Get the [Extension.points] value, that was assigned to the extension.\n   *\n   * @return ordinal value"
+        "length": 23,
+        "offset": 59,
+        "surroundingCode": " * text.\n *\n * @sample androidx.compose.foundation.samples.InlineTextContentSample\n * @see InlineTextContent\n * @see BasicText"
       }
     }
   ],
@@ -249,27 +669,27 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "dbbc61863fac6567dfe88a678d1cd57a4f3aa4c6ef976d47afe107d9f2016b3e"
+  "hash": "cee77733f94f7bb4e59c7b919a4d6cccb27d86bc9b2206ce5557b113dcfb14e5"
 },{
   "tool": "Code Inspection",
   "category": "Probable bugs",
   "type": "Unresolved reference in KDoc",
   "severity": "High",
-  "comment": "Cannot resolve symbol 'points'",
+  "comment": "Cannot resolve symbol 'BasicText'",
   "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/asm/ExtensionInfo.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/InlineTextContent.kt",
       "language": "kotlin",
-      "line": 39,
-      "offset": 25,
-      "length": 6,
+      "line": 41,
+      "offset": 9,
+      "length": 9,
       "code": {
-        "startLine": 37,
-        "length": 6,
-        "offset": 31,
-        "surroundingCode": "\n  /**\n   * Get the [Extension.points] value, that was assigned to the extension.\n   *\n   * @return ordinal value"
+        "startLine": 39,
+        "length": 9,
+        "offset": 105,
+        "surroundingCode": " * @sample androidx.compose.foundation.samples.InlineTextContentSample\n * @see InlineTextContent\n * @see BasicText\n *\n * @param id The id used to look up the [InlineTextContent], it is referred by the inlineContent"
       }
     }
   ],
@@ -277,27 +697,27 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "74be7217f0783622a549aa6b983c5e62094dcc150584208796709c9a55cad7e7"
+  "hash": "135d36a8f46bf18eca09d3ac0dd4f7204e17faf5b46fad497dbdecc04c2c8ba3"
 },{
   "tool": "Code Inspection",
   "category": "Probable bugs",
   "type": "Unresolved reference in KDoc",
   "severity": "High",
-  "comment": "Cannot resolve symbol 'JarPluginManager'",
+  "comment": "Cannot resolve symbol 'BasicText'",
   "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/DefaultPluginManager.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/InlineTextContent.kt",
       "language": "kotlin",
-      "line": 18,
-      "offset": 51,
-      "length": 16,
+      "line": 44,
+      "offset": 18,
+      "length": 9,
       "code": {
-        "startLine": 16,
-        "length": 16,
-        "offset": 113,
-        "surroundingCode": " * Default implementation of the [PluginManager] interface.\n *\n * In essence, it is a [ZipPluginManager] plus a [JarPluginManager]. So, it can load plugins from\n * jar and zip, simultaneous.\n */"
+        "startLine": 42,
+        "length": 9,
+        "offset": 117,
+        "surroundingCode": " *\n * @param id The id used to look up the [InlineTextContent], it is referred by the inlineContent\n * parameter of [BasicText] to replace the [alternateText] to the corresponding composable.\n * @param alternateText The text to be replaced by the inline content. It's displayed when\n * the inlineContent parameter of [BasicText] doesn't contain [id]."
       }
     }
   ],
@@ -305,111 +725,503 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "a1abb83bdfd170d9dd69ffc23f5d9bb12d261dedf1ead32df0a42d74c48500c5"
+  "hash": "2d21eacc3fe48a359df9be8bfe2b11c2c72302d87f39e99e3fce06af581cecf7"
 },{
   "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "severity": "Info",
-  "comment": "Function 'tipTarget' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "category": "Probable bugs",
+  "type": "Unresolved reference in KDoc",
+  "severity": "High",
+  "comment": "Cannot resolve symbol 'BasicText'",
+  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/widget/TipScaffold.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/text/InlineTextContent.kt",
       "language": "kotlin",
-      "line": 36,
-      "offset": 16,
+      "line": 46,
+      "offset": 36,
       "length": 9,
       "code": {
-        "startLine": 34,
+        "startLine": 44,
         "length": 9,
-        "offset": 86,
-        "surroundingCode": "\n  /** Modifier that marks Compose UI element as a target for [Tip] */\n  fun Modifier.tipTarget(\n    index: Int,\n    style: TipStyle = TipStyle.Default,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "MemberVisibilityCanBePrivate"
-  },
-  "hash": "3e87330728420b5bd4bb474b0cc0d398549f87c5ea112a2a6b24ec5d8f43da14"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "severity": "Info",
-  "comment": "Function 'isCheckForExtensionDependencies' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/AbstractExtensionFinder.kt",
-      "language": "kotlin",
-      "line": 247,
-      "offset": 7,
-      "length": 31,
-      "code": {
-        "startLine": 245,
-        "length": 31,
-        "offset": 98,
-        "surroundingCode": "   * @return true, if the extension finder checks extensions for its required plugins\n   */\n  fun isCheckForExtensionDependencies(): Boolean {\n    return java.lang.Boolean.TRUE == checkForExtensionDependencies\n  }"
+        "offset": 218,
+        "surroundingCode": " * parameter of [BasicText] to replace the [alternateText] to the corresponding composable.\n * @param alternateText The text to be replaced by the inline content. It's displayed when\n * the inlineContent parameter of [BasicText] doesn't contain [id].\n * Accessibility features will also use this text to describe the inline content.\n * @throws IllegalArgumentException if [alternateText] has zero length."
       }
     }
   ],
   "attributes": {
     "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "MemberVisibilityCanBePrivate"
+    "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "e1828acadf6284bc875ac965a5408c0725e84b956ebeff47cb63532a88648194"
+  "hash": "31664eb180733715a95f798b16ecd0e94c89e3cae11bb99547c333bc0f062747"
 },{
   "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "severity": "Info",
-  "comment": "Property 'checkForExtensionDependencies' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "category": "Probable bugs",
+  "type": "Unresolved reference in KDoc",
+  "severity": "High",
+  "comment": "Cannot resolve symbol 'compare'",
+  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/AbstractExtensionFinder.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/VersionManager.kt",
       "language": "kotlin",
-      "line": 16,
+      "line": 15,
+      "offset": 58,
+      "length": 7,
+      "code": {
+        "startLine": 13,
+        "length": 7,
+        "offset": 64,
+        "surroundingCode": "\n  /**\n   * Compare two versions. It's similar with [Comparator.compare].\n   *\n   * @param v1"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KDocUnresolvedReference"
+  },
+  "hash": "cf762da542a590b2706774faeb901b6aac4967134151f42b82b232241ceec3a9"
+},{
+  "tool": "Code Inspection",
+  "category": "Style issues",
+  "type": "'protected' visibility is effectively 'private' in a final class",
+  "severity": "Moderate",
+  "comment": "'protected' visibility is effectively 'private' in a final class",
+  "detailsInfo": "Reports `protected` visibility used inside of a `final` class. In such cases `protected` members are accessible only in the class itself, so they are effectively `private`.\n\n**Example:**\n\n\n      class FinalClass {\n          protected fun foo() {}\n      }\n\nAfter the quick-fix is applied:\n\n\n      class FinalClass {\n          private fun foo() {}\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/DevelopmentPluginRepository.kt",
+      "language": "kotlin",
+      "line": 20,
       "offset": 3,
       "length": 9,
       "code": {
-        "startLine": 14,
+        "startLine": 18,
         "length": 9,
-        "offset": 129,
-        "surroundingCode": "  // cache extension infos by class name\n  @Volatile protected lateinit var extensionInfos: MutableMap<String, ExtensionInfo?>\n  protected var checkForExtensionDependencies: Boolean? = null\n\n  /**"
+        "offset": 7,
+        "surroundingCode": "  }\n\n  protected fun createHiddenPluginFilter(): FileFilter {\n    val hiddenPluginFilter = OrFileFilter(HiddenFilter())\n"
       }
     }
   ],
   "attributes": {
     "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "MemberVisibilityCanBePrivate"
+    "inspectionName": "ProtectedInFinal"
   },
-  "hash": "9462ca79f079afcf03fe90514e5a88b5976b45a4aeb932b04f893d5fdbf095d1"
+  "hash": "da93f9ebcf5ad4b9f13b33644892a17b062263298ce77e9c1126ebc217f7177a"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
   "type": "Unused symbol",
   "severity": "High",
-  "comment": "Property \"currentIndex\" is never used",
+  "comment": "Function \"rubikFont1\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Fonts.kt",
       "language": "kotlin",
-      "line": 41,
+      "line": 99,
+      "offset": 7,
+      "length": 10,
+      "code": {
+        "startLine": 97,
+        "length": 10,
+        "offset": 21,
+        "surroundingCode": "\n  @Composable\n  fun rubikFont1() =\n    FontFamily(\n      Font("
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "c3aafe188474b0be9ca64dc52a5e1065ee6ca9a6290873470bfd19131719bd4a"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"isInternetAvailable\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/Network.kt",
+      "language": "kotlin",
+      "line": 22,
+      "offset": 12,
+      "length": 19,
+      "code": {
+        "startLine": 20,
+        "length": 19,
+        "offset": 47,
+        "surroundingCode": "val ktorHttpClient = HttpClient {}\n\nactual fun isInternetAvailable(): Boolean {\n  return runBlocking {\n    try {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "8314db396a16877b52547e01c466a381e3793569d4f5c893050aa9d9eef91649"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"loadXmlImageVector\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/Network.kt",
+      "language": "kotlin",
+      "line": 62,
+      "offset": 13,
+      "length": 18,
+      "code": {
+        "startLine": 60,
+        "length": 18,
+        "offset": 66,
+        "surroundingCode": "  urlStream(url).use { loadSvgPainter(it, density) }\n\nsuspend fun loadXmlImageVector(\n  url: String,\n  density: Density,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "fd5cc1a2abd71780779cce59fa560b4c0b6760ccf73b7d52fe391a3402a26bc5"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"loadSvgPainter\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/Network.kt",
+      "language": "kotlin",
+      "line": 56,
+      "offset": 13,
+      "length": 14,
+      "code": {
+        "startLine": 54,
+        "length": 14,
+        "offset": 53,
+        "surroundingCode": "  urlStream(url).use(::loadImageBitmap)\n\nsuspend fun loadSvgPainter(\n  url: String,\n  density: Density,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "294b8f38f76607f3c4b6bbdcb01221a5d3b0889d8bd9cd0fd3e9ec9ccb008a8d"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"deleteRecursively\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 105,
+      "offset": 5,
+      "length": 17,
+      "code": {
+        "startLine": 103,
+        "length": 17,
+        "offset": 74,
+        "surroundingCode": " * @param path the file or folder to delete specified as a [Path]\n */\nfun deleteRecursively(path: Path) {\n  FileSystem.SYSTEM.deleteRecursively(path)\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "56824f311e77ab63611755ab7e6859334c97505583e79a86dbf466db2f171f73"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"expandIfZip\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 230,
+      "offset": 5,
+      "length": 11,
+      "code": {
+        "startLine": 228,
+        "length": 11,
+        "offset": 7,
+        "surroundingCode": "}\n\nfun expandIfZip(zipFile: Path, destination: Path): Path {\n  if (!isZipFile(zipFile)) {\n    return zipFile"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "fa6a7f49ebd5338cb45b3d16b27cf81a7a882649fbb5a46d9dca779171746fdd"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"newInputStream\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 180,
+      "offset": 5,
+      "length": 14,
+      "code": {
+        "startLine": 178,
+        "length": 14,
+        "offset": 7,
+        "surroundingCode": "}\n\nfun newInputStream(path: String): InputStream {\n  return FileSystem.SYSTEM.source(path.toPath()).buffer().inputStream()\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "8f2cfae1f4bb31609e3480ae8f85b13fcf9c57acbbaf2216ca89c4e032bcadcd"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"notExists\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 32,
+      "offset": 5,
+      "length": 9,
+      "code": {
+        "startLine": 30,
+        "length": 9,
+        "offset": 7,
+        "surroundingCode": "}\n\nfun notExists(path: String): Boolean {\n  return !exists(path)\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "3f3915c5cced207c7d907800a14465a827ba4211f8b0da2f650a080f8161ada9"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"expandIfZipUnit\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 298,
+      "offset": 5,
+      "length": 15,
+      "code": {
+        "startLine": 296,
+        "length": 15,
+        "offset": 7,
+        "surroundingCode": "}\n\nfun expandIfZipUnit(zipFile: Path, destination: Path) {\n  if (!isZipFile(zipFile)) {\n    return"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "b5b416d141e7cea6cb47a1590d091aecf2ca96c7d0976e83fbda321832367c09"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"isFile\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 60,
+      "offset": 5,
+      "length": 6,
+      "code": {
+        "startLine": 58,
+        "length": 6,
+        "offset": 7,
+        "surroundingCode": "}\n\nfun isFile(path: String): Boolean {\n  return FileSystem.SYSTEM.metadata(path.toPath()).isRegularFile\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "612c174322ddd25259222d6ffdc3ceb86d5ac911741864d8954aa1ec1711e244"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"isNotDirectory\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 52,
+      "offset": 5,
+      "length": 14,
+      "code": {
+        "startLine": 50,
+        "length": 14,
+        "offset": 7,
+        "surroundingCode": "}\n\nfun isNotDirectory(path: String): Boolean {\n  return !isDirectory(path)\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "f55c2bccb32c0e18c9338ef574027bd0c43ae8d405e784778e34b559b8a12c8f"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"expandIfZip\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 188,
+      "offset": 5,
+      "length": 11,
+      "code": {
+        "startLine": 186,
+        "length": 11,
+        "offset": 7,
+        "surroundingCode": "}\n\nfun expandIfZip(zipFile: String, destination: String): Path {\n  if (!isZipFile(zipFile)) {\n    return zipFile.toPath()"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "6b36eb7a9d6b98b3e405894d62064f7cf42cb02c554094f0bbcdb3b1bdb05347"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"expandIfZipUnit\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 271,
+      "offset": 5,
+      "length": 15,
+      "code": {
+        "startLine": 269,
+        "length": 15,
+        "offset": 7,
+        "surroundingCode": "}\n\nfun expandIfZipUnit(zipFile: String, destination: String) {\n  if (!isZipFile(zipFile)) {\n    return"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "d79934eafaeb2f21683aaf9d8065fa06a8db3e860f51db8d92f3474aff7e7e10"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"delete\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 69,
+      "offset": 5,
+      "length": 6,
+      "code": {
+        "startLine": 67,
+        "length": 6,
+        "offset": 64,
+        "surroundingCode": " * @param path the path to delete specified as a string\n */\nfun delete(path: String) {\n  FileSystem.SYSTEM.delete(path.toPath())\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "832e35b5ac57a98bff071fc026f6fffce34e204ac5b21a98c929256e5bac19a0"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"lastModified\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
+      "language": "kotlin",
+      "line": 82,
       "offset": 5,
       "length": 12,
       "code": {
-        "startLine": 39,
+        "startLine": 80,
         "length": 12,
-        "offset": 100,
-        "surroundingCode": "var expanded: Boolean by mutableStateOf(false)\nvar expandNest: Boolean by mutableStateOf(false)\nvar currentIndex: Int by mutableStateOf(-1)\nvar depth: Int by mutableStateOf(1)\n"
+        "offset": 7,
+        "surroundingCode": "}\n\nfun lastModified(path: String): Long? {\n  return FileSystem.SYSTEM.metadata(path.toPath()).lastModifiedAtMillis\n}"
       }
     }
   ],
@@ -417,83 +1229,27 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "56177d3842b1ce52168fef09e8a8b1f3f426dbcca84b4d007713f62aff4f5e35"
+  "hash": "63065969bc020eaec375e4153f7d3ee6ae98c2ef96203e869f0b8ea33d59a756"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
   "type": "Unused symbol",
   "severity": "High",
-  "comment": "Property \"isExpanded\" is never used",
+  "comment": "Function \"isZipOrJarFile\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/common/frontend/utils/IO.kt",
       "language": "kotlin",
-      "line": 91,
-      "offset": 20,
-      "length": 10,
-      "code": {
-        "startLine": 89,
-        "length": 10,
-        "offset": 46,
-        "surroundingCode": "\n  sealed class ItemType {\n    class Nest(val isExpanded: Boolean, val canExpand: Boolean) : ItemType()\n    class Plain() : ItemType()\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "6bf71d3204610a62795e7351556e3e8097b83f5a89a150c2c8788cd0993320ad"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Property \"canExpand\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
-      "language": "kotlin",
-      "line": 91,
-      "offset": 45,
-      "length": 9,
-      "code": {
-        "startLine": 89,
-        "length": 9,
-        "offset": 71,
-        "surroundingCode": "\n  sealed class ItemType {\n    class Nest(val isExpanded: Boolean, val canExpand: Boolean) : ItemType()\n    class Plain() : ItemType()\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "99a525e14024f5e636fda5f50119dba435cb612eb2ad6d6bc309fafa59ad0f0e"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Property \"expandNest\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
-      "language": "kotlin",
-      "line": 40,
+      "line": 157,
       "offset": 5,
-      "length": 10,
+      "length": 14,
       "code": {
-        "startLine": 38,
-        "length": 10,
-        "offset": 52,
-        "surroundingCode": "\nvar expanded: Boolean by mutableStateOf(false)\nvar expandNest: Boolean by mutableStateOf(false)\nvar currentIndex: Int by mutableStateOf(-1)\nvar depth: Int by mutableStateOf(1)"
+        "startLine": 155,
+        "length": 14,
+        "offset": 59,
+        "surroundingCode": " * @return true if file ending in `.zip` or `.jar`\n */\nfun isZipOrJarFile(path: String): Boolean {\n  return isZipFile(path) || isJarFile(path)\n}"
       }
     }
   ],
@@ -501,117 +1257,173 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "8bad959469219cabaa9b4bde0db6ead72d2a02d0a3a6956cc227e6417d33415b"
+  "hash": "6070c6b6a0012797d4aa3f01aec2bae26f05ce083c57e579f90ffeb71d3e53fe"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
   "type": "Unused symbol",
   "severity": "High",
-  "comment": "Property \"PAD\" is never used",
+  "comment": "Function \"clear\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/ClassLoadingStrategy.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/ds/tree/TreeNode.kt",
       "language": "kotlin",
-      "line": 25,
-      "offset": 9,
-      "length": 3,
+      "line": 103,
+      "offset": 7,
+      "length": 5,
       "code": {
-        "startLine": 23,
-        "length": 3,
-        "offset": 66,
-        "surroundingCode": "\n    /** Plugin -> application(parent) -> dependencies */\n    val PAD = ClassLoadingStrategy(listOf(Source.PLUGIN, Source.APPLICATION, Source.DEPENDENCIES))\n\n    /** dependencies -> application(parent) -> Plugin */"
+        "startLine": 101,
+        "length": 5,
+        "offset": 71,
+        "surroundingCode": "   * Remove all children from root and every node in tree.\n   */\n  fun clear() {\n    _parent = null\n    _children.forEach { it.clear() }"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
+    "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "8f34f019b01e59c78d0440e6335bc775b314e72ff43858de35173daf62fce814"
+  "hash": "67e54e049e96a3b218eedf59cae739352e2dd93bf3613fbeb75cdf12abd9d4ed"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
   "type": "Unused symbol",
   "severity": "High",
-  "comment": "Property \"DAP\" is never used",
+  "comment": "Function \"addChild\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/ClassLoadingStrategy.kt",
-      "language": "kotlin",
-      "line": 28,
-      "offset": 9,
-      "length": 3,
-      "code": {
-        "startLine": 26,
-        "length": 3,
-        "offset": 66,
-        "surroundingCode": "\n    /** dependencies -> application(parent) -> Plugin */\n    val DAP = ClassLoadingStrategy(listOf(Source.DEPENDENCIES, Source.APPLICATION, Source.PLUGIN))\n\n    /** dependencies -> Plugin -> application(parent) */"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "331761b9bce8b11317af15ca23d312f9198c24535914803aa9261aa9cc61c2a0"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Property \"DPA\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/ClassLoadingStrategy.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/ds/tree/TreeNode.kt",
       "language": "kotlin",
       "line": 31,
-      "offset": 9,
-      "length": 3,
+      "offset": 7,
+      "length": 8,
       "code": {
         "startLine": 29,
-        "length": 3,
-        "offset": 66,
-        "surroundingCode": "\n    /** dependencies -> Plugin -> application(parent) */\n    val DPA = ClassLoadingStrategy(listOf(Source.DEPENDENCIES, Source.PLUGIN, Source.APPLICATION))\n\n    /** Plugin -> dependencies -> application(parent) */"
+        "length": 8,
+        "offset": 87,
+        "surroundingCode": "   * @param child A node which will be directly connected to current node.\n   */\n  fun addChild(\n    child: TreeNode<T>,\n  ) {"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
+    "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "877ea1eda2c80f467393be08a4975b983b6342274e37620fceed952e3644b56d"
+  "hash": "03e414c9aeca9da4da8b4df3918c4ea39491cbc428cf5a0f146d39ee78597d51"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
   "type": "Unused symbol",
   "severity": "High",
-  "comment": "Property \"ADP\" is never used",
+  "comment": "Function \"removeChild\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/ClassLoadingStrategy.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/ds/tree/TreeNode.kt",
       "language": "kotlin",
-      "line": 22,
-      "offset": 9,
-      "length": 3,
+      "line": 55,
+      "offset": 7,
+      "length": 11,
       "code": {
-        "startLine": 20,
-        "length": 3,
-        "offset": 66,
-        "surroundingCode": "\n    /** application(parent) -> dependencies -> Plugin */\n    val ADP = ClassLoadingStrategy(listOf(Source.APPLICATION, Source.DEPENDENCIES, Source.PLUGIN))\n\n    /** Plugin -> application(parent) -> dependencies */"
+        "startLine": 53,
+        "length": 11,
+        "offset": 118,
+        "surroundingCode": "   * @return `true` if the node has been successfully removed; `false` if it was not present in the tree.\n   */\n  fun removeChild(\n    child: TreeNode<T>,\n  ): Boolean {"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
+    "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "f5a68453236435b6e86034816393efdc1649960beccdfa43d2ae40213a514b55"
+  "hash": "18c9f1916d8fe66ba437e9c08edfa73bf3b57ae3e19536d240618ee882ef748a"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"nodeCount\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/ds/tree/TreeNode.kt",
+      "language": "kotlin",
+      "line": 68,
+      "offset": 7,
+      "length": 9,
+      "code": {
+        "startLine": 66,
+        "length": 9,
+        "offset": 59,
+        "surroundingCode": "   * @return All child and nested child count.\n   */\n  fun nodeCount(): Int {\n    if (_children.isEmpty())\n      return 0"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "54bd61d98c49cf2d59e79977714879c65fea854b4483f9f13bd4561515b65b6b"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"depth\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/ds/tree/TreeNode.kt",
+      "language": "kotlin",
+      "line": 89,
+      "offset": 7,
+      "length": 5,
+      "code": {
+        "startLine": 87,
+        "length": 5,
+        "offset": 73,
+        "surroundingCode": "   * @return The distance between current node and the root.\n   */\n  fun depth(): Int {\n    var depth = 0\n    var tempParent = parent"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "bb0c07792c6c6569c9bd026283cf6160604585c33dd40a2669515bd2db9ecd4c"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"prettyString\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/ds/tree/TreeNode.kt",
+      "language": "kotlin",
+      "line": 113,
+      "offset": 7,
+      "length": 12,
+      "code": {
+        "startLine": 111,
+        "length": 12,
+        "offset": 11,
+        "surroundingCode": "  }\n\n  fun prettyString(): String {\n    val stringBuilder = StringBuilder()\n    print(stringBuilder, \"\", \"\")"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "0779180d498f5106e34ecea8217692c49962425da5804facd36b44d5f7f682cc"
 }]}

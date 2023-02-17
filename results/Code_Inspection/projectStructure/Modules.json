@@ -1761,10 +1761,6 @@
           "type": "Module"
         },
         {
-          "name": "cohesive.cmpe.common.commonMain",
-          "type": "Module"
-        },
-        {
           "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
@@ -2308,10 +2304,6 @@
         },
         {
           "name": "cohesive.cmpe.common.generatedByKspKotlinDesktop",
-          "type": "Module"
-        },
-        {
-          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
