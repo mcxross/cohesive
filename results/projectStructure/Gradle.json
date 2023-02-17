@@ -2,6 +2,70 @@
   "gradleJvm": "#JAVA_HOME",
   "libraries": [
     {
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.8.0",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-js:1.8.0",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlin",
+      "artifactId": "kotlin-stdlib-js",
+      "version": "1.8.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.web:web-core-js:klib:1.3.0",
+      "gradleName": "org.jetbrains.compose.web:web-core-js:klib:1.3.0",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.web",
+      "artifactId": "web-core-js",
+      "version": "1.3.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.runtime:runtime-js:klib:1.3.0",
+      "gradleName": "org.jetbrains.compose.runtime:runtime-js:klib:1.3.0",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.runtime",
+      "artifactId": "runtime-js",
+      "version": "1.3.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.3.0",
+      "gradleName": "org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.3.0",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.web",
+      "artifactId": "internal-web-core-runtime-js",
+      "version": "1.3.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-js:klib:1.6.4",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-core-js:klib:1.6.4",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-coroutines-core-js",
+      "version": "1.6.4"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:atomicfu-js:klib:0.17.3",
+      "gradleName": "org.jetbrains.kotlinx:atomicfu-js:klib:0.17.3",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "atomicfu-js",
+      "version": "0.17.3"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlin:atomicfu:1.6.21",
+      "gradleName": "org.jetbrains.kotlin:atomicfu:1.6.21",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlin",
+      "artifactId": "atomicfu",
+      "version": "1.6.21"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
+      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlin",
+      "artifactId": "kotlin-stdlib-common",
+      "version": "1.8.0"
+    },
+    {
       "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
       "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
       "unresolved": false,
@@ -24,6 +88,14 @@
       "groupId": "org.jetbrains.kotlin",
       "artifactId": "kotlin-stdlib",
       "version": "1.8.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains:annotations:13.0",
+      "gradleName": "org.jetbrains:annotations:13.0",
+      "unresolved": false,
+      "groupId": "org.jetbrains",
+      "artifactId": "annotations",
+      "version": "13.0"
     },
     {
       "ideaName": "Gradle: org.jetbrains.compose.material:material-desktop:1.3.0",
@@ -64,22 +136,6 @@
       "groupId": "org.jetbrains.compose.runtime",
       "artifactId": "runtime-desktop",
       "version": "1.3.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.3.0",
-      "gradleName": "org.jetbrains.compose.desktop:desktop-jvm:1.3.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.desktop",
-      "artifactId": "desktop-jvm",
-      "version": "1.3.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains:annotations:13.0",
-      "gradleName": "org.jetbrains:annotations:13.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains",
-      "artifactId": "annotations",
-      "version": "13.0"
     },
     {
       "ideaName": "Gradle: org.jetbrains.compose.material:material-ripple-desktop:1.3.0",
@@ -210,30 +266,6 @@
       "version": "9.4"
     },
     {
-      "ideaName": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
-      "gradleName": "com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
-      "unresolved": false,
-      "groupId": "com.google.devtools.ksp",
-      "artifactId": "symbol-processing-api",
-      "version": "1.8.0-1.0.9"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.50",
-      "gradleName": "org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.50",
-      "unresolved": false,
-      "groupId": "org.jetbrains.skiko",
-      "artifactId": "skiko-awt-runtime-linux-x64",
-      "version": "0.7.50"
-    },
-    {
-      "ideaName": "Gradle: com.squareup:kotlinpoet:1.12.0",
-      "gradleName": "com.squareup:kotlinpoet:1.12.0",
-      "unresolved": false,
-      "groupId": "com.squareup",
-      "artifactId": "kotlinpoet",
-      "version": "1.12.0"
-    },
-    {
       "ideaName": "Gradle: io.ktor:ktor-client-cio-jvm:2.2.3",
       "gradleName": "io.ktor:ktor-client-cio-jvm:2.2.3",
       "unresolved": false,
@@ -256,6 +288,14 @@
       "groupId": "org.jetbrains.kotlinx",
       "artifactId": "kotlinx-serialization-json-jvm",
       "version": "1.4.0-RC"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
+      "unresolved": false,
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-datetime-jvm",
+      "version": "0.4.0"
     },
     {
       "ideaName": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
@@ -298,6 +338,14 @@
       "version": "0.4.5"
     },
     {
+      "ideaName": "Gradle: org.jetbrains:markdown-jvm:0.3.1",
+      "gradleName": "org.jetbrains:markdown-jvm:0.3.1",
+      "unresolved": false,
+      "groupId": "org.jetbrains",
+      "artifactId": "markdown-jvm",
+      "version": "0.3.1"
+    },
+    {
       "ideaName": "Gradle: org.kodein.di:kodein-di-jvm:7.15.0",
       "gradleName": "org.kodein.di:kodein-di-jvm:7.15.0",
       "unresolved": false,
@@ -314,20 +362,12 @@
       "version": "1.3.3"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
-      "gradleName": "org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
+      "ideaName": "Gradle: com.squareup:kotlinpoet:1.12.0",
+      "gradleName": "com.squareup:kotlinpoet:1.12.0",
       "unresolved": false,
-      "groupId": "org.jetbrains.kotlinx",
-      "artifactId": "kotlinx-datetime-jvm",
-      "version": "0.4.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains:markdown-jvm:0.3.1",
-      "gradleName": "org.jetbrains:markdown-jvm:0.3.1",
-      "unresolved": false,
-      "groupId": "org.jetbrains",
-      "artifactId": "markdown-jvm",
-      "version": "0.3.1"
+      "groupId": "com.squareup",
+      "artifactId": "kotlinpoet",
+      "version": "1.12.0"
     },
     {
       "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4",
@@ -344,14 +384,6 @@
       "groupId": "org.slf4j",
       "artifactId": "slf4j-api",
       "version": "1.7.36"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:1.6.4",
-      "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:1.6.4",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlinx",
-      "artifactId": "kotlinx-coroutines-slf4j",
-      "version": "1.6.4"
     },
     {
       "ideaName": "Gradle: io.ktor:ktor-http-cio-jvm:2.2.3",
@@ -418,22 +450,6 @@
       "version": "2.2.1-kotlin-1.7.20-RC"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
-      "gradleName": "org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.ui",
-      "artifactId": "ui-util-desktop",
-      "version": "1.3.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
-      "gradleName": "org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlinx",
-      "artifactId": "atomicfu-jvm",
-      "version": "0.17.2"
-    },
-    {
       "ideaName": "Gradle: io.ktor:ktor-network-jvm:2.2.3",
       "gradleName": "io.ktor:ktor-network-jvm:2.2.3",
       "unresolved": false,
@@ -466,68 +482,36 @@
       "version": "2.2.3"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
-      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
+      "ideaName": "Gradle: com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
+      "gradleName": "com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9",
       "unresolved": false,
-      "groupId": "org.jetbrains.kotlin",
-      "artifactId": "kotlin-stdlib-common",
-      "version": "1.8.0"
+      "groupId": "com.google.devtools.ksp",
+      "artifactId": "symbol-processing-api",
+      "version": "1.8.0-1.0.9"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-js:1.8.0",
-      "gradleName": "org.jetbrains.kotlin:kotlin-stdlib-js:1.8.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.kotlin",
-      "artifactId": "kotlin-stdlib-js",
-      "version": "1.8.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.web:web-core-js:klib:1.3.0",
-      "gradleName": "org.jetbrains.compose.web:web-core-js:klib:1.3.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.web",
-      "artifactId": "web-core-js",
-      "version": "1.3.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.runtime:runtime-js:klib:1.3.0",
-      "gradleName": "org.jetbrains.compose.runtime:runtime-js:klib:1.3.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.runtime",
-      "artifactId": "runtime-js",
-      "version": "1.3.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.3.0",
-      "gradleName": "org.jetbrains.compose.web:internal-web-core-runtime-js:klib:1.3.0",
-      "unresolved": false,
-      "groupId": "org.jetbrains.compose.web",
-      "artifactId": "internal-web-core-runtime-js",
-      "version": "1.3.0"
-    },
-    {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-js:klib:1.6.4",
-      "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-core-js:klib:1.6.4",
+      "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:1.6.4",
+      "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:1.6.4",
       "unresolved": false,
       "groupId": "org.jetbrains.kotlinx",
-      "artifactId": "kotlinx-coroutines-core-js",
+      "artifactId": "kotlinx-coroutines-slf4j",
       "version": "1.6.4"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:atomicfu-js:klib:0.17.3",
-      "gradleName": "org.jetbrains.kotlinx:atomicfu-js:klib:0.17.3",
+      "ideaName": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
+      "gradleName": "org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
       "unresolved": false,
-      "groupId": "org.jetbrains.kotlinx",
-      "artifactId": "atomicfu-js",
-      "version": "0.17.3"
+      "groupId": "org.jetbrains.compose.ui",
+      "artifactId": "ui-util-desktop",
+      "version": "1.3.0"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlin:atomicfu:1.6.21",
-      "gradleName": "org.jetbrains.kotlin:atomicfu:1.6.21",
+      "ideaName": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
+      "gradleName": "org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
       "unresolved": false,
-      "groupId": "org.jetbrains.kotlin",
-      "artifactId": "atomicfu",
-      "version": "1.6.21"
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "atomicfu-jvm",
+      "version": "0.17.2"
     },
     {
       "ideaName": "Gradle: org.jetbrains:markdown:0.3.1",
@@ -600,6 +584,22 @@
       "groupId": "org.hamcrest",
       "artifactId": "hamcrest-core",
       "version": "1.3"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.compose.desktop:desktop-jvm:1.3.0",
+      "gradleName": "org.jetbrains.compose.desktop:desktop-jvm:1.3.0",
+      "unresolved": false,
+      "groupId": "org.jetbrains.compose.desktop",
+      "artifactId": "desktop-jvm",
+      "version": "1.3.0"
+    },
+    {
+      "ideaName": "Gradle: org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.50",
+      "gradleName": "org.jetbrains.skiko:skiko-awt-runtime-linux-x64:0.7.50",
+      "unresolved": false,
+      "groupId": "org.jetbrains.skiko",
+      "artifactId": "skiko-awt-runtime-linux-x64",
+      "version": "0.7.50"
     }
   ]
 }

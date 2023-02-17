@@ -8,7 +8,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/PluginState.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/cps/PluginState.kt",
       "language": "kotlin",
       "line": 28,
       "offset": 7,
@@ -22,38 +22,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.common.desktopMain",
+    "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinCovariantEquals"
   },
-  "hash": "b5621b0941fea560fc96df4195826dca50365ab8ab49da689516a633d419d2fb"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "Unnecessary non-null assertion (!!) on a non-null receiver of type PlatformDropTargetModifier",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/WindowScaffold.kt",
-      "language": "kotlin",
-      "line": 45,
-      "offset": 47,
-      "length": 2,
-      "code": {
-        "startLine": 43,
-        "length": 2,
-        "offset": 103,
-        "surroundingCode": "      Surface(\n        modifier = modifier.fillMaxSize()\n          .then(Local.LocalScreen.current.pdtm!!),\n        contentColor = contentColorFor(MaterialTheme.colors.surface),\n      ) {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "7d0a021954440e9a5864009bb6a23993703e1e66a820454782c3947f37f633c0"
+  "hash": "d61bd4f17f23d4e6cbb798c87073081b1b98581514785051779ab2a6158cf38e"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -64,7 +36,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
       "language": "kotlin",
       "line": 177,
       "offset": 39,
@@ -78,10 +50,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.common.desktopMain",
+    "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinDeprecation"
   },
-  "hash": "f013751c9de1b4ff39c071a75ac3e8063a7ef1cd4e5dc8f06fe58083eba61349"
+  "hash": "05e185aac9de0eb219ab3cbaa58e068df577010a290044282f08488cc6e22cff"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -92,7 +64,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
       "language": "kotlin",
       "line": 29,
       "offset": 1,
@@ -106,10 +78,38 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.common.desktopMain",
+    "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinDeprecation"
   },
-  "hash": "1e4ddc98a0de3bebfff8376a794c3a233c453636a424fb02b9fb23966e54c9aa"
+  "hash": "51bd2c4d3347e177fd2c44b34e634dee5eab050df87ffcd3a10820cb17ac6591"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "Unnecessary non-null assertion (!!) on a non-null receiver of type PlatformDropTargetModifier",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/WindowScaffold.kt",
+      "language": "kotlin",
+      "line": 45,
+      "offset": 47,
+      "length": 2,
+      "code": {
+        "startLine": 43,
+        "length": 2,
+        "offset": 103,
+        "surroundingCode": "      Surface(\n        modifier = modifier.fillMaxSize()\n          .then(Local.LocalScreen.current.pdtm!!),\n        contentColor = contentColorFor(MaterialTheme.colors.surface),\n      ) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "ac7b6e7d11701d1ee2546a0945373b83d0ef8d89ca8c606a6b9d65aa4d4725da"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -120,147 +120,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 98,
-      "offset": 12,
-      "length": 17,
-      "code": {
-        "startLine": 96,
-        "length": 17,
-        "offset": 74,
-        "surroundingCode": "    awaitPointerEventScope {\n      val down = awaitFirstDown()\n      down.consumeDownChange()\n      pressScope.reset()\n      if (onPress !== NoPressGesture) launch {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "f52b3518a8ce8419c7cf9894abb4421e4f7d1b8ad411edb04a80a82eac3c5aed"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 115,
-      "offset": 22,
-      "length": 17,
-      "code": {
-        "startLine": 113,
-        "length": 17,
-        "offset": 91,
-        "surroundingCode": "          pressScope.cancel() // tap-up was canceled\n        } else {\n          upOrCancel.consumeDownChange()\n          pressScope.release()\n        }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "f3019a8745dd37233436b827d23fb976d63c2254397419979ec210f95166f0d7"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 146,
-      "offset": 28,
-      "length": 17,
-      "code": {
-        "startLine": 144,
-        "length": 17,
-        "offset": 124,
-        "surroundingCode": "                val secondUp = waitForUpOrCancellation()\n                if (secondUp != null) {\n                  secondUp.consumeDownChange()\n                  pressScope.release()\n                  onDoubleTap(secondUp.position)"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "70799d5e5571756a54851c4c10d6fc4f94db0ca41889cbd35dc11a835c2b4988"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "'positionChangeConsumed(): Boolean' is deprecated. Partial consumption has been deprecated. Use isConsumed instead",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 275,
-      "offset": 43,
-      "length": 22,
-      "code": {
-        "startLine": 273,
-        "length": 22,
-        "offset": 192,
-        "surroundingCode": "    // existing pointer event because it comes after the Main pass we checked above.\n    val consumeCheck = awaitPointerEvent(PointerEventPass.Final)\n    if (consumeCheck.changes.fastAny { it.positionChangeConsumed() }) {\n      return null\n    }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "c7a6736ea97da34f9c294744156e3318c503da4858fdd34f4f2b0e3f1b1928f0"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "'consumeAllChanges(): Unit' is deprecated. Use consume() instead",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 178,
-      "offset": 36,
-      "length": 17,
-      "code": {
-        "startLine": 176,
-        "length": 17,
-        "offset": 78,
-        "surroundingCode": "  do {\n    val event = awaitPointerEvent()\n    event.changes.fastForEach { it.consumeAllChanges() }\n  } while (event.changes.fastAny { it.pressed })\n}"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "eb0fddc8bef0041ee827772e792393b66fbc47f091bea2f58fd6dc4c9398374c"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
       "language": "kotlin",
       "line": 213,
       "offset": 47,
@@ -274,10 +134,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.common.desktopMain",
+    "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinDeprecation"
   },
-  "hash": "3a2a60c6d5af12371f489d6f008eee068be054748f2bded1ee04f5d7a3b78a3a"
+  "hash": "3949f8fff4e7e4fa6368425961e0705321d2040bf4df888f34a0144a0922ddd9"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -288,7 +148,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
       "language": "kotlin",
       "line": 223,
       "offset": 14,
@@ -302,10 +162,150 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.common.desktopMain",
+    "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinDeprecation"
   },
-  "hash": "3ec2eefec81a8bd1adf63ff5ec508694795b08f39bfe5a34cf5b0c96989b1f36"
+  "hash": "3e4d33f8067d1843c931d4a46b19d53b2cd3fcddb06dace668b46b9395ef373e"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'consumeAllChanges(): Unit' is deprecated. Use consume() instead",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 178,
+      "offset": 36,
+      "length": 17,
+      "code": {
+        "startLine": 176,
+        "length": 17,
+        "offset": 78,
+        "surroundingCode": "  do {\n    val event = awaitPointerEvent()\n    event.changes.fastForEach { it.consumeAllChanges() }\n  } while (event.changes.fastAny { it.pressed })\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "579ded1db9c657f08605061cd8a7712b8162361420abbde04b275b10f11c69fc"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 98,
+      "offset": 12,
+      "length": 17,
+      "code": {
+        "startLine": 96,
+        "length": 17,
+        "offset": 74,
+        "surroundingCode": "    awaitPointerEventScope {\n      val down = awaitFirstDown()\n      down.consumeDownChange()\n      pressScope.reset()\n      if (onPress !== NoPressGesture) launch {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "101e4b852fd6bb9265136414acb69a203b2dc713d56a10dd9dde6a085c92435a"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 115,
+      "offset": 22,
+      "length": 17,
+      "code": {
+        "startLine": 113,
+        "length": 17,
+        "offset": 91,
+        "surroundingCode": "          pressScope.cancel() // tap-up was canceled\n        } else {\n          upOrCancel.consumeDownChange()\n          pressScope.release()\n        }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "41961d6100882c5cf484e1b34189f0633ba473d9cc836c3f0e284ae1b40937ba"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 146,
+      "offset": 28,
+      "length": 17,
+      "code": {
+        "startLine": 144,
+        "length": 17,
+        "offset": 124,
+        "surroundingCode": "                val secondUp = waitForUpOrCancellation()\n                if (secondUp != null) {\n                  secondUp.consumeDownChange()\n                  pressScope.release()\n                  onDoubleTap(secondUp.position)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "3b9a5e7c8edc8a455574d5aa09d347fcb177fe2558e7a893a4aa235e647d6d37"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'positionChangeConsumed(): Boolean' is deprecated. Partial consumption has been deprecated. Use isConsumed instead",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 275,
+      "offset": 43,
+      "length": 22,
+      "code": {
+        "startLine": 273,
+        "length": 22,
+        "offset": 192,
+        "surroundingCode": "    // existing pointer event because it comes after the Main pass we checked above.\n    val consumeCheck = awaitPointerEvent(PointerEventPass.Final)\n    if (consumeCheck.changes.fastAny { it.positionChangeConsumed() }) {\n      return null\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "82d9e468876412f705090f215c0e8177d52a2247f21fce10d938c4b22fd2186b"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -316,7 +316,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
       "language": "kotlin",
       "line": 31,
       "offset": 1,
@@ -330,10 +330,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.common.desktopMain",
+    "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinDeprecation"
   },
-  "hash": "d9febefca6020f33c27b06160f3f02e834a9c3bcb1a8e42474800635cc025bbe"
+  "hash": "0370b282bd0c919e80e0c400b83aed79e33acec90fea813d25f229ce17292a22"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -344,7 +344,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
       "language": "kotlin",
       "line": 32,
       "offset": 1,
@@ -358,10 +358,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.common.desktopMain",
+    "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinDeprecation"
   },
-  "hash": "5cf0a3dba07f99a57e908a61e5f7238c4bb233b8de327ec72181529cca98fb47"
+  "hash": "be03d52d6f5b56f9631c5a29dccad53e1987693f5457d4043e7104f0dc7c77b1"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -372,7 +372,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/foundation/gestures/TapGestureDetector.kt",
       "language": "kotlin",
       "line": 34,
       "offset": 1,
@@ -386,38 +386,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.common.desktopMain",
+    "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinDeprecation"
   },
-  "hash": "7d1477b3e67d945e38959cc367a45c77e53dc22dc4870e8ae12ceba51c4790d2"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "Remove deprecated symbol import",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Mouse.kt",
-      "language": "kotlin",
-      "line": 8,
-      "offset": 1,
-      "length": 58,
-      "code": {
-        "startLine": 6,
-        "length": 58,
-        "offset": 111,
-        "surroundingCode": "import androidx.compose.ui.input.pointer.PointerIcon\nimport androidx.compose.ui.input.pointer.pointerHoverIcon\nimport androidx.compose.ui.input.pointer.pointerMoveFilter\nimport java.awt.Cursor\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "e83919f227a832b5f407990675b8c5f982d2b14442261bf126fba1b4b1aea508"
+  "hash": "7322cc4a790f29de6f8ae920aad1d101c45bd49a0e1a7a5aeb3351f61786b9cb"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -428,7 +400,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Mouse.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Mouse.kt",
       "language": "kotlin",
       "line": 16,
       "offset": 20,
@@ -442,10 +414,38 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.common.desktopMain",
+    "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinDeprecation"
   },
-  "hash": "79e743a1c1429ecdaeaa90e92f8ffe04c0e130374dde3e24683f0ed35f458744"
+  "hash": "81cc16bde9842bb9afd03c353ba5a523d9fb2c7ca02158b5d01a466d67e55200"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "Remove deprecated symbol import",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Mouse.kt",
+      "language": "kotlin",
+      "line": 8,
+      "offset": 1,
+      "length": 58,
+      "code": {
+        "startLine": 6,
+        "length": 58,
+        "offset": 111,
+        "surroundingCode": "import androidx.compose.ui.input.pointer.PointerIcon\nimport androidx.compose.ui.input.pointer.pointerHoverIcon\nimport androidx.compose.ui.input.pointer.pointerMoveFilter\nimport java.awt.Cursor\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "0abca89d435de536bde5b56ace84df931b4aaab364447f057ba6579f4bffb684"
 },{
   "tool": "Code Inspection",
   "category": "Probable bugs",
@@ -456,7 +456,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/com/mcxross/cohesive/mellow/Menu.kt",
       "language": "kotlin",
       "line": 92,
       "offset": 5,
@@ -470,262 +470,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.common.desktopMain",
+    "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "CanSealedSubClassBeObject"
   },
-  "hash": "4ee2702c6c493b2d9399125c664b5cd852e4679e6356971068d0d113230a9a5b"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'setMinSdk(java.lang.Integer)' is marked unstable with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 87,
-      "offset": 5,
-      "length": 6,
-      "code": {
-        "startLine": 85,
-        "length": 6,
-        "offset": 40,
-        "surroundingCode": "  compileSdk = 33\n  defaultConfig {\n    minSdk = 24\n    targetSdk = 33\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "cc86d02b09e31089a5c7efd2e51ba94b314eceada58ff73b7439bc7c9338bdde"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'setTargetSdk(java.lang.Integer)' is marked unstable with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 88,
-      "offset": 5,
-      "length": 9,
-      "code": {
-        "startLine": 86,
-        "length": 9,
-        "offset": 38,
-        "surroundingCode": "  defaultConfig {\n    minSdk = 24\n    targetSdk = 33\n  }\n  compileOptions {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "0ea38af4c05799f8dabaa1671912f35099a17e0bad61f1a8ab78aaa65d22837a"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'setSourceCompatibility(org.gradle.api.JavaVersion)' is marked unstable with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 91,
-      "offset": 5,
-      "length": 19,
-      "code": {
-        "startLine": 89,
-        "length": 19,
-        "offset": 27,
-        "surroundingCode": "  }\n  compileOptions {\n    sourceCompatibility = JavaVersion.VERSION_1_8\n    targetCompatibility = JavaVersion.VERSION_1_8\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "697d78e5523b38f91bb0a91ce4f6abf640fd9ea97ba314c55d773eaaea6a6bed"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'setTargetCompatibility(org.gradle.api.JavaVersion)' is marked unstable with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 92,
-      "offset": 5,
-      "length": 19,
-      "code": {
-        "startLine": 90,
-        "length": 19,
-        "offset": 73,
-        "surroundingCode": "  compileOptions {\n    sourceCompatibility = JavaVersion.VERSION_1_8\n    targetCompatibility = JavaVersion.VERSION_1_8\n  }\n  sourceSets {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "355430aaaaac7d6d8680c3f2c014711e308936b6c65ad0a0e42d41cc7356f34d"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'sourceSets(kotlin.jvm.functions.Function1,kotlin.Unit>)' is marked unstable with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 94,
-      "offset": 3,
-      "length": 10,
-      "code": {
-        "startLine": 92,
-        "length": 10,
-        "offset": 56,
-        "surroundingCode": "    targetCompatibility = JavaVersion.VERSION_1_8\n  }\n  sourceSets {\n    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "ae2bf9a411deb668e225992cde4985f107f0d4c0e174647c60e838873e92de5a"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'getManifest()' is declared in unstable 'com.android.build.api.dsl.AndroidSourceSet' marked with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 96,
-      "offset": 7,
-      "length": 8,
-      "code": {
-        "startLine": 94,
-        "length": 8,
-        "offset": 41,
-        "surroundingCode": "  sourceSets {\n    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n      res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n    }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "d67353c9f7547d3da57187d83a6ecb6c4d2c339eeab6845c37f2d09bff3e2967"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'srcFile(java.lang.Object)' is declared in unstable 'com.android.build.api.dsl.AndroidSourceFile' marked with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 96,
-      "offset": 16,
-      "length": 7,
-      "code": {
-        "startLine": 94,
-        "length": 7,
-        "offset": 50,
-        "surroundingCode": "  sourceSets {\n    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n      res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n    }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "1a04c6c2c6a50bc7b4797b419403638322a35ddd16a96279329668f2659cf8a0"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'getRes()' is declared in unstable 'com.android.build.api.dsl.AndroidSourceSet' marked with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 97,
-      "offset": 7,
-      "length": 3,
-      "code": {
-        "startLine": 95,
-        "length": 3,
-        "offset": 88,
-        "surroundingCode": "    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n      res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n    }\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "072b40b620ea077a6fe6174b964ffdd97acd136cf12792c5bc1630b9819123c0"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Unstable API Usage",
-  "severity": "High",
-  "comment": "'srcDirs(java.lang.Object...)' is declared in unstable 'com.android.build.api.dsl.AndroidSourceDirectorySet' marked with @Incubating",
-  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "common/build.gradle.kts",
-      "language": "kotlin",
-      "line": 97,
-      "offset": 11,
-      "length": 7,
-      "code": {
-        "startLine": 95,
-        "length": 7,
-        "offset": 92,
-        "surroundingCode": "    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n      res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n    }\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.common",
-    "inspectionName": "UnstableApiUsage"
-  },
-  "hash": "16e7ec853590eb1b6e03c34e3a237e4ed2134c0f85ef002fc4eb4c4128b34b8c"
+  "hash": "ef921ea77864d535c7d5a43cd631d585911869c42a1187b891b4ec8ca6c004a5"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -736,7 +484,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "android/build.gradle.kts",
+      "path": "cmpe/android/build.gradle.kts",
       "language": "kotlin",
       "line": 26,
       "offset": 5,
@@ -750,10 +498,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.android",
+    "module": "cohesive.cmpe.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "437eefdffb947346e7ef7c1bd6957ee951a20004c613c7d4e8b8cf2e456dd291"
+  "hash": "8f7363df8669fa8143dda088a010f5f14b488eb4abb0e4758356b12adc755c8c"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -764,7 +512,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "android/build.gradle.kts",
+      "path": "cmpe/android/build.gradle.kts",
       "language": "kotlin",
       "line": 27,
       "offset": 5,
@@ -778,10 +526,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.android",
+    "module": "cohesive.cmpe.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "41eb4c2b52499ac515cb3a0e31ee961556c795fd39d09af8bfb0a37ab24789b0"
+  "hash": "b85fcf7346fd5ae2e05461aaab8515b6c54b6dcedca23af1f836c85b695fb24b"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -792,7 +540,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "android/build.gradle.kts",
+      "path": "cmpe/android/build.gradle.kts",
       "language": "kotlin",
       "line": 28,
       "offset": 5,
@@ -806,10 +554,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.android",
+    "module": "cohesive.cmpe.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "81b12ff34f1803e10e694e018f42472acf888b6ace38e66352704a57da854104"
+  "hash": "c32865a85046535ae84ea9c0178ea973a4e3fe8f16c45907bbe3b92d4f3606d8"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -820,7 +568,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "android/build.gradle.kts",
+      "path": "cmpe/android/build.gradle.kts",
       "language": "kotlin",
       "line": 29,
       "offset": 5,
@@ -834,10 +582,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.android",
+    "module": "cohesive.cmpe.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "51c82b9afb97e8f17a0ecee90726beebaca5ee98610a7c8cc14fcbd5f57bf6cf"
+  "hash": "f672d9a8902b595344a6b770042098d55e758c875462da9e306c991c9857d7b1"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -848,7 +596,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "android/build.gradle.kts",
+      "path": "cmpe/android/build.gradle.kts",
       "language": "kotlin",
       "line": 30,
       "offset": 5,
@@ -862,10 +610,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.android",
+    "module": "cohesive.cmpe.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "11c8f0a1eb5d00dd030a5c05fa9a951093e1bebb2686df6d1cb7d9a9e1da2f8c"
+  "hash": "30a063a3f53d6aee1c92cc2ebf40235325de1f9c0fa32b0833fc697e9ff0015b"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -876,7 +624,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "android/build.gradle.kts",
+      "path": "cmpe/android/build.gradle.kts",
       "language": "kotlin",
       "line": 33,
       "offset": 5,
@@ -890,10 +638,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.android",
+    "module": "cohesive.cmpe.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "5786668959e523c38c99ac18368b0fd8d6e9f1ea03599d5b1fea208ae47cf271"
+  "hash": "70ec76ae766aac4d6a5a9647c9d555d16a491e6f5f30e9a37345e0f313511c29"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -904,7 +652,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "android/build.gradle.kts",
+      "path": "cmpe/android/build.gradle.kts",
       "language": "kotlin",
       "line": 34,
       "offset": 5,
@@ -918,10 +666,10 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.android",
+    "module": "cohesive.cmpe.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "e82ce994e89dc8856eed2b7f843875c6c15e6031e947fa699ea099ce51a3286c"
+  "hash": "6babbd4c2c5d33f8d1e591b95bb5c66e700019f2a6f5bdd6f2555fbf8f16ba62"
 },{
   "tool": "Code Inspection",
   "category": "JVM languages",
@@ -932,7 +680,7 @@
   "sources": [
     {
       "type": "file",
-      "path": "android/build.gradle.kts",
+      "path": "cmpe/android/build.gradle.kts",
       "language": "kotlin",
       "line": 36,
       "offset": 39,
@@ -946,8 +694,260 @@
     }
   ],
   "attributes": {
-    "module": "cohesive.android",
+    "module": "cohesive.cmpe.android",
     "inspectionName": "UnstableApiUsage"
   },
-  "hash": "c355b506b4a6f3bc5a27754caab4ed3b36d6bd39c69652c877dd0d067c09e02e"
+  "hash": "5caf268a36e0dcebf4caf7e3cf699b6215e6af0cae73959576ba0a9182a781ce"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'setMinSdk(java.lang.Integer)' is marked unstable with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 87,
+      "offset": 5,
+      "length": 6,
+      "code": {
+        "startLine": 85,
+        "length": 6,
+        "offset": 40,
+        "surroundingCode": "  compileSdk = 33\n  defaultConfig {\n    minSdk = 24\n    targetSdk = 33\n  }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "060d4d9e08b3cb3086dc4b028dbb598884a0543cd89d0c48672e8a09c8675fe5"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'setTargetSdk(java.lang.Integer)' is marked unstable with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 88,
+      "offset": 5,
+      "length": 9,
+      "code": {
+        "startLine": 86,
+        "length": 9,
+        "offset": 38,
+        "surroundingCode": "  defaultConfig {\n    minSdk = 24\n    targetSdk = 33\n  }\n  compileOptions {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "352e75b7e88efcc098f99a9bcd7db3ca2440a2ec3c61c7c6756e97b7eae3adad"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'setSourceCompatibility(org.gradle.api.JavaVersion)' is marked unstable with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 91,
+      "offset": 5,
+      "length": 19,
+      "code": {
+        "startLine": 89,
+        "length": 19,
+        "offset": 27,
+        "surroundingCode": "  }\n  compileOptions {\n    sourceCompatibility = JavaVersion.VERSION_1_8\n    targetCompatibility = JavaVersion.VERSION_1_8\n  }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "cd91dbd60fef089a089bbaa47ed4a8dccccf9a03be73c542e8ebee993c75f7b2"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'setTargetCompatibility(org.gradle.api.JavaVersion)' is marked unstable with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 92,
+      "offset": 5,
+      "length": 19,
+      "code": {
+        "startLine": 90,
+        "length": 19,
+        "offset": 73,
+        "surroundingCode": "  compileOptions {\n    sourceCompatibility = JavaVersion.VERSION_1_8\n    targetCompatibility = JavaVersion.VERSION_1_8\n  }\n  sourceSets {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "99a1c713413c8b5788f8e889d5c01f530ff28abcb599a96d0cd25eba9bc2044c"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'sourceSets(kotlin.jvm.functions.Function1,kotlin.Unit>)' is marked unstable with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 94,
+      "offset": 3,
+      "length": 10,
+      "code": {
+        "startLine": 92,
+        "length": 10,
+        "offset": 56,
+        "surroundingCode": "    targetCompatibility = JavaVersion.VERSION_1_8\n  }\n  sourceSets {\n    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "1c807b6364a35cf0b9049555fb4ac0188a2b3f87044481d24b385384398cca71"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'getManifest()' is declared in unstable 'com.android.build.api.dsl.AndroidSourceSet' marked with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 96,
+      "offset": 7,
+      "length": 8,
+      "code": {
+        "startLine": 94,
+        "length": 8,
+        "offset": 41,
+        "surroundingCode": "  sourceSets {\n    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n      res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "a076c5cede9ec4bebc4a264fc09f0cf2bf9ee8f1071203d2d3879973523118b7"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'srcFile(java.lang.Object)' is declared in unstable 'com.android.build.api.dsl.AndroidSourceFile' marked with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 96,
+      "offset": 16,
+      "length": 7,
+      "code": {
+        "startLine": 94,
+        "length": 7,
+        "offset": 50,
+        "surroundingCode": "  sourceSets {\n    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n      res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n    }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "95dcdee57492e806d9bd54f7f5f2d07543bef59aae5ccbf7146fb188437e65ba"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'getRes()' is declared in unstable 'com.android.build.api.dsl.AndroidSourceSet' marked with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 97,
+      "offset": 7,
+      "length": 3,
+      "code": {
+        "startLine": 95,
+        "length": 3,
+        "offset": 88,
+        "surroundingCode": "    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n      res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n    }\n  }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "bf52014d3de47d47de507b88fdba327112e7bcf54fcb5aa63e28309c5e6cd613"
+},{
+  "tool": "Code Inspection",
+  "category": "JVM languages",
+  "type": "Unstable API Usage",
+  "severity": "High",
+  "comment": "'srcDirs(java.lang.Object...)' is declared in unstable 'com.android.build.api.dsl.AndroidSourceDirectorySet' marked with @Incubating",
+  "detailsInfo": "Reports usages of an API marked with one of the annotations as unstable. Such an API may be changed or removed in future versions, breaking the code that uses it.\n\nThe annotations which are used to mark unstable APIs are shown in the list below.\n\nBy default, the inspection ignores usages of unstable APIs\nif their declarations are located in sources of the same project. In such cases it'll be possible to update the usages when you change APIs.\nHowever, it may be inconvenient if the project is big, so one can switch off the **Ignore API declared in this project** option to report\nthe usages of unstable APIs declared in both the project sources and libraries.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/build.gradle.kts",
+      "language": "kotlin",
+      "line": 97,
+      "offset": 11,
+      "length": 7,
+      "code": {
+        "startLine": 95,
+        "length": 7,
+        "offset": 92,
+        "surroundingCode": "    named(\"main\") {\n      manifest.srcFile(\"src/androidMain/AndroidManifest.xml\")\n      res.srcDirs(\"src/androidMain/res\", \"src/commonMain/resources\")\n    }\n  }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common",
+    "inspectionName": "UnstableApiUsage"
+  },
+  "hash": "dc44f945ba4d31207c85ebd18ae5a6954a2a849deadd23e1e66595795bf13892"
 }]}

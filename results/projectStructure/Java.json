@@ -5,147 +5,155 @@
       "languageLevel": 11
     },
     {
-      "name": "cohesive.android",
+      "name": "cohesive.cmpe",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.common",
+      "name": "cohesive.seabed",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.csp",
+      "name": "cohesive.cmpe.android",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.desktop",
+      "name": "cohesive.cmpe.common",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.plugin",
+      "name": "cohesive.cmpe.csp",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.web",
+      "name": "cohesive.cmpe.desktop",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.plugin.desktop",
+      "name": "cohesive.cmpe.plugin",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.plugin.desktop.cohesive-cohesive",
+      "name": "cohesive.cmpe.web",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.common.desktopMain",
+      "name": "cohesive.cmpe.plugin.desktop",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.common.desktopTest",
+      "name": "cohesive.cmpe.plugin.desktop.cohesive-cohesive",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.common.androidAndroidTestRelease",
+      "name": "cohesive.cmpe.common.desktopMain",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.common.androidBenchmark",
+      "name": "cohesive.cmpe.common.desktopTest",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.common.androidTestFixtures",
+      "name": "cohesive.cmpe.common.androidAndroidTestRelease",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.common.androidTestFixturesDebug",
+      "name": "cohesive.cmpe.common.androidBenchmark",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.common.androidTestFixturesRelease",
+      "name": "cohesive.cmpe.common.androidTestFixtures",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.common.commonBenchmark",
+      "name": "cohesive.cmpe.common.androidTestFixturesDebug",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.common.commonMain",
+      "name": "cohesive.cmpe.common.androidTestFixturesRelease",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.common.commonTest",
+      "name": "cohesive.cmpe.common.commonBenchmark",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.common.desktopBenchmark",
+      "name": "cohesive.cmpe.common.commonMain",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.common.generatedByKspKotlinDesktop",
+      "name": "cohesive.cmpe.common.commonTest",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.csp.test",
+      "name": "cohesive.cmpe.common.desktopBenchmark",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.csp.main",
+      "name": "cohesive.cmpe.common.generatedByKspKotlinDesktop",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.desktop.test",
+      "name": "cohesive.cmpe.csp.test",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.desktop.main",
+      "name": "cohesive.cmpe.csp.main",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.desktop.jvmMain",
+      "name": "cohesive.cmpe.desktop.test",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.desktop.jvmTest",
+      "name": "cohesive.cmpe.desktop.main",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.desktop.commonMain",
+      "name": "cohesive.cmpe.desktop.jvmMain",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.desktop.commonTest",
+      "name": "cohesive.cmpe.desktop.jvmTest",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.web.jsMain",
+      "name": "cohesive.cmpe.desktop.commonMain",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.web.jsTest",
+      "name": "cohesive.cmpe.desktop.commonTest",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.web.commonMain",
+      "name": "cohesive.cmpe.web.jsMain",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.web.commonTest",
+      "name": "cohesive.cmpe.web.jsTest",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.plugin.desktop.test",
+      "name": "cohesive.cmpe.web.commonMain",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.plugin.desktop.main",
+      "name": "cohesive.cmpe.web.commonTest",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.plugin.desktop.cohesive-cohesive.test",
+      "name": "cohesive.cmpe.plugin.desktop.test",
       "languageLevel": 11
     },
     {
-      "name": "cohesive.plugin.desktop.cohesive-cohesive.main",
+      "name": "cohesive.cmpe.plugin.desktop.main",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.cmpe.plugin.desktop.cohesive-cohesive.test",
+      "languageLevel": 11
+    },
+    {
+      "name": "cohesive.cmpe.plugin.desktop.cohesive-cohesive.main",
       "languageLevel": 11
     }
   ]

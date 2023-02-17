@@ -20,10 +20,10 @@
       ]
     },
     {
-      "name": "cohesive.android",
+      "name": "cohesive.cmpe",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/android",
+          "path": "file://$PROJECT_DIR$/cmpe",
           "sourceFolders": []
         }
       ],
@@ -39,10 +39,10 @@
       ]
     },
     {
-      "name": "cohesive.common",
+      "name": "cohesive.seabed",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/common",
+          "path": "file://$PROJECT_DIR$/seabed",
           "sourceFolders": []
         }
       ],
@@ -58,10 +58,10 @@
       ]
     },
     {
-      "name": "cohesive.csp",
+      "name": "cohesive.cmpe.android",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/csp",
+          "path": "file://$PROJECT_DIR$/cmpe/android",
           "sourceFolders": []
         }
       ],
@@ -77,10 +77,10 @@
       ]
     },
     {
-      "name": "cohesive.desktop",
+      "name": "cohesive.cmpe.common",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/desktop",
+          "path": "file://$PROJECT_DIR$/cmpe/common",
           "sourceFolders": []
         }
       ],
@@ -96,10 +96,10 @@
       ]
     },
     {
-      "name": "cohesive.plugin",
+      "name": "cohesive.cmpe.csp",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/plugin",
+          "path": "file://$PROJECT_DIR$/cmpe/csp",
           "sourceFolders": []
         }
       ],
@@ -115,10 +115,10 @@
       ]
     },
     {
-      "name": "cohesive.web",
+      "name": "cohesive.cmpe.desktop",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/web",
+          "path": "file://$PROJECT_DIR$/cmpe/desktop",
           "sourceFolders": []
         }
       ],
@@ -134,10 +134,10 @@
       ]
     },
     {
-      "name": "cohesive.plugin.desktop",
+      "name": "cohesive.cmpe.plugin",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/plugin/desktop",
+          "path": "file://$PROJECT_DIR$/cmpe/plugin",
           "sourceFolders": []
         }
       ],
@@ -153,10 +153,10 @@
       ]
     },
     {
-      "name": "cohesive.plugin.desktop.cohesive-cohesive",
+      "name": "cohesive.cmpe.web",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive",
+          "path": "file://$PROJECT_DIR$/cmpe/web",
           "sourceFolders": []
         }
       ],
@@ -172,28 +172,66 @@
       ]
     },
     {
-      "name": "cohesive.common.desktopMain",
+      "name": "cohesive.cmpe.plugin.desktop",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/common/src/desktopMain",
+          "path": "file://$PROJECT_DIR$/cmpe/plugin/desktop",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        }
+      ]
+    },
+    {
+      "name": "cohesive.cmpe.plugin.desktop.cohesive-cohesive",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/plugin/desktop/cohesive-cohesive",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        }
+      ]
+    },
+    {
+      "name": "cohesive.cmpe.common.desktopMain",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/desktopMain",
           "sourceFolders": [
             {
-              "path": "file://$PROJECT_DIR$/common/src/desktopMain/kotlin",
+              "path": "file://$PROJECT_DIR$/cmpe/common/src/desktopMain/kotlin",
               "type": "Source",
               "packagePrefix": ""
             },
             {
-              "path": "file://$PROJECT_DIR$/common/src/desktopMain/resources",
+              "path": "file://$PROJECT_DIR$/cmpe/common/src/desktopMain/resources",
               "type": "Resource",
               "packagePrefix": ""
             }
           ]
         },
         {
-          "path": "file://$PROJECT_DIR$/common/src/jvmMain",
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/jvmMain",
           "sourceFolders": [
             {
-              "path": "file://$PROJECT_DIR$/common/src/jvmMain/kotlin",
+              "path": "file://$PROJECT_DIR$/cmpe/common/src/jvmMain/kotlin",
               "type": "Source",
               "packagePrefix": ""
             }
@@ -210,11 +248,11 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.generatedByKspKotlinDesktop",
+          "name": "cohesive.cmpe.common.generatedByKspKotlinDesktop",
           "type": "Module"
         },
         {
@@ -230,7 +268,7 @@
           "type": "Library"
         },
         {
-          "name": "cohesive.csp.main",
+          "name": "cohesive.cmpe.csp.main",
           "type": "Module"
         },
         {
@@ -460,13 +498,13 @@
       ]
     },
     {
-      "name": "cohesive.common.desktopTest",
+      "name": "cohesive.cmpe.common.desktopTest",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/common/src/desktopTest",
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/desktopTest",
           "sourceFolders": [
             {
-              "path": "file://$PROJECT_DIR$/common/src/desktopTest/kotlin",
+              "path": "file://$PROJECT_DIR$/cmpe/common/src/desktopTest/kotlin",
               "type": "TestSource",
               "packagePrefix": ""
             }
@@ -483,19 +521,19 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.commonTest",
+          "name": "cohesive.cmpe.common.commonTest",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.desktopMain",
+          "name": "cohesive.cmpe.common.desktopMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.desktopMain",
+          "name": "cohesive.cmpe.common.desktopMain",
           "type": "Module"
         },
         {
@@ -515,7 +553,7 @@
           "type": "Library"
         },
         {
-          "name": "cohesive.csp.main",
+          "name": "cohesive.cmpe.csp.main",
           "type": "Module"
         },
         {
@@ -757,172 +795,178 @@
       ]
     },
     {
-      "name": "cohesive.common.androidAndroidTestRelease",
+      "name": "cohesive.cmpe.common.androidAndroidTestRelease",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/common/src/androidAndroidTestRelease",
-          "sourceFolders": []
-        },
-        {
-          "path": "file://$PROJECT_DIR$/common/src/androidTestRelease",
-          "sourceFolders": []
-        }
-      ],
-      "orderEntries": [
-        {
-          "name": "jbr-11",
-          "type": "SDK"
-        },
-        {
-          "name": "<Module source>",
-          "type": "Own sources"
-        },
-        {
-          "name": "cohesive.common.commonMain",
-          "type": "Module"
-        }
-      ]
-    },
-    {
-      "name": "cohesive.common.androidBenchmark",
-      "contentEntries": [
-        {
-          "path": "file://$PROJECT_DIR$/common/src/androidBenchmark",
-          "sourceFolders": []
-        }
-      ],
-      "orderEntries": [
-        {
-          "name": "jbr-11",
-          "type": "SDK"
-        },
-        {
-          "name": "<Module source>",
-          "type": "Own sources"
-        },
-        {
-          "name": "cohesive.common.commonMain",
-          "type": "Module"
-        }
-      ]
-    },
-    {
-      "name": "cohesive.common.androidTestFixtures",
-      "contentEntries": [
-        {
-          "path": "file://$PROJECT_DIR$/common/src/androidTestFixtures",
-          "sourceFolders": []
-        },
-        {
-          "path": "file://$PROJECT_DIR$/common/src/testFixtures",
-          "sourceFolders": []
-        }
-      ],
-      "orderEntries": [
-        {
-          "name": "jbr-11",
-          "type": "SDK"
-        },
-        {
-          "name": "<Module source>",
-          "type": "Own sources"
-        },
-        {
-          "name": "cohesive.common.commonMain",
-          "type": "Module"
-        }
-      ]
-    },
-    {
-      "name": "cohesive.common.androidTestFixturesDebug",
-      "contentEntries": [
-        {
-          "path": "file://$PROJECT_DIR$/common/src/androidTestFixturesDebug",
-          "sourceFolders": []
-        },
-        {
-          "path": "file://$PROJECT_DIR$/common/src/testFixturesDebug",
-          "sourceFolders": []
-        }
-      ],
-      "orderEntries": [
-        {
-          "name": "jbr-11",
-          "type": "SDK"
-        },
-        {
-          "name": "<Module source>",
-          "type": "Own sources"
-        },
-        {
-          "name": "cohesive.common.commonMain",
-          "type": "Module"
-        }
-      ]
-    },
-    {
-      "name": "cohesive.common.androidTestFixturesRelease",
-      "contentEntries": [
-        {
-          "path": "file://$PROJECT_DIR$/common/src/androidTestFixturesRelease",
-          "sourceFolders": []
-        },
-        {
-          "path": "file://$PROJECT_DIR$/common/src/testFixturesRelease",
-          "sourceFolders": []
-        }
-      ],
-      "orderEntries": [
-        {
-          "name": "jbr-11",
-          "type": "SDK"
-        },
-        {
-          "name": "<Module source>",
-          "type": "Own sources"
-        },
-        {
-          "name": "cohesive.common.commonMain",
-          "type": "Module"
-        }
-      ]
-    },
-    {
-      "name": "cohesive.common.commonBenchmark",
-      "contentEntries": [
-        {
-          "path": "file://$PROJECT_DIR$/common/src/commonBenchmark",
-          "sourceFolders": []
-        }
-      ],
-      "orderEntries": [
-        {
-          "name": "jbr-11",
-          "type": "SDK"
-        },
-        {
-          "name": "<Module source>",
-          "type": "Own sources"
-        },
-        {
-          "name": "cohesive.common.commonMain",
-          "type": "Module"
-        }
-      ]
-    },
-    {
-      "name": "cohesive.common.commonMain",
-      "contentEntries": [
-        {
-          "path": "file://$PROJECT_DIR$/common/src/commonMain",
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/androidAndroidTestRelease",
           "sourceFolders": [
             {
-              "path": "file://$PROJECT_DIR$/common/src/commonMain/kotlin",
+              "path": "file://$PROJECT_DIR$/cmpe/common/src/androidAndroidTestRelease/kotlin",
+              "type": "Source",
+              "packagePrefix": ""
+            }
+          ]
+        },
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/androidTestRelease",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        },
+        {
+          "name": "cohesive.cmpe.common.commonMain",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "name": "cohesive.cmpe.common.androidBenchmark",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/androidBenchmark",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        },
+        {
+          "name": "cohesive.cmpe.common.commonMain",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "name": "cohesive.cmpe.common.androidTestFixtures",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/androidTestFixtures",
+          "sourceFolders": []
+        },
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/testFixtures",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        },
+        {
+          "name": "cohesive.cmpe.common.commonMain",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "name": "cohesive.cmpe.common.androidTestFixturesDebug",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/androidTestFixturesDebug",
+          "sourceFolders": []
+        },
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/testFixturesDebug",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        },
+        {
+          "name": "cohesive.cmpe.common.commonMain",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "name": "cohesive.cmpe.common.androidTestFixturesRelease",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/androidTestFixturesRelease",
+          "sourceFolders": []
+        },
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/testFixturesRelease",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        },
+        {
+          "name": "cohesive.cmpe.common.commonMain",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "name": "cohesive.cmpe.common.commonBenchmark",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/commonBenchmark",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        },
+        {
+          "name": "cohesive.cmpe.common.commonMain",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "name": "cohesive.cmpe.common.commonMain",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/commonMain",
+          "sourceFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/cmpe/common/src/commonMain/kotlin",
               "type": "Source",
               "packagePrefix": ""
             },
             {
-              "path": "file://$PROJECT_DIR$/common/src/commonMain/resources",
+              "path": "file://$PROJECT_DIR$/cmpe/common/src/commonMain/resources",
               "type": "Resource",
               "packagePrefix": ""
             }
@@ -1177,13 +1221,13 @@
       ]
     },
     {
-      "name": "cohesive.common.commonTest",
+      "name": "cohesive.cmpe.common.commonTest",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/common/src/commonTest",
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/commonTest",
           "sourceFolders": [
             {
-              "path": "file://$PROJECT_DIR$/common/src/commonTest/kotlin",
+              "path": "file://$PROJECT_DIR$/cmpe/common/src/commonTest/kotlin",
               "type": "TestSource",
               "packagePrefix": ""
             }
@@ -1200,15 +1244,15 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.desktopMain",
+          "name": "cohesive.cmpe.common.desktopMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.desktopMain",
+          "name": "cohesive.cmpe.common.desktopMain",
           "type": "Module"
         },
         {
@@ -1474,10 +1518,10 @@
       ]
     },
     {
-      "name": "cohesive.common.desktopBenchmark",
+      "name": "cohesive.cmpe.common.desktopBenchmark",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/common/src/desktopBenchmark",
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/desktopBenchmark",
           "sourceFolders": []
         }
       ],
@@ -1491,28 +1535,28 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.desktopMain",
+          "name": "cohesive.cmpe.common.desktopMain",
           "type": "Module"
         }
       ]
     },
     {
-      "name": "cohesive.common.generatedByKspKotlinDesktop",
+      "name": "cohesive.cmpe.common.generatedByKspKotlinDesktop",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/common/build/generated/ksp/desktop/desktopMain/java",
+          "path": "file://$PROJECT_DIR$/cmpe/common/build/generated/ksp/desktop/desktopMain/java",
           "sourceFolders": []
         },
         {
-          "path": "file://$PROJECT_DIR$/common/build/generated/ksp/desktop/desktopMain/kotlin",
+          "path": "file://$PROJECT_DIR$/cmpe/common/build/generated/ksp/desktop/desktopMain/kotlin",
           "sourceFolders": []
         },
         {
-          "path": "file://$PROJECT_DIR$/common/src/generatedByKspKotlinDesktop",
+          "path": "file://$PROJECT_DIR$/cmpe/common/src/generatedByKspKotlinDesktop",
           "sourceFolders": []
         }
       ],
@@ -1528,10 +1572,10 @@
       ]
     },
     {
-      "name": "cohesive.csp.test",
+      "name": "cohesive.cmpe.csp.test",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/csp/src/test",
+          "path": "file://$PROJECT_DIR$/cmpe/csp/src/test",
           "sourceFolders": []
         }
       ],
@@ -1545,7 +1589,7 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.csp.main",
+          "name": "cohesive.cmpe.csp.main",
           "type": "Module"
         },
         {
@@ -1583,18 +1627,18 @@
       ]
     },
     {
-      "name": "cohesive.csp.main",
+      "name": "cohesive.cmpe.csp.main",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/csp/src/main",
+          "path": "file://$PROJECT_DIR$/cmpe/csp/src/main",
           "sourceFolders": [
             {
-              "path": "file://$PROJECT_DIR$/csp/src/main/kotlin",
+              "path": "file://$PROJECT_DIR$/cmpe/csp/src/main/kotlin",
               "type": "Source",
               "packagePrefix": ""
             },
             {
-              "path": "file://$PROJECT_DIR$/csp/src/main/resources",
+              "path": "file://$PROJECT_DIR$/cmpe/csp/src/main/resources",
               "type": "Resource",
               "packagePrefix": ""
             }
@@ -1645,7 +1689,7 @@
       ]
     },
     {
-      "name": "cohesive.desktop.test",
+      "name": "cohesive.cmpe.desktop.test",
       "contentEntries": [],
       "orderEntries": [
         {
@@ -1659,7 +1703,7 @@
       ]
     },
     {
-      "name": "cohesive.desktop.main",
+      "name": "cohesive.cmpe.desktop.main",
       "contentEntries": [],
       "orderEntries": [
         {
@@ -1673,18 +1717,18 @@
       ]
     },
     {
-      "name": "cohesive.desktop.jvmMain",
+      "name": "cohesive.cmpe.desktop.jvmMain",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/desktop/src/jvmMain",
+          "path": "file://$PROJECT_DIR$/cmpe/desktop/src/jvmMain",
           "sourceFolders": [
             {
-              "path": "file://$PROJECT_DIR$/desktop/src/jvmMain/kotlin",
+              "path": "file://$PROJECT_DIR$/cmpe/desktop/src/jvmMain/kotlin",
               "type": "Source",
               "packagePrefix": ""
             },
             {
-              "path": "file://$PROJECT_DIR$/desktop/src/jvmMain/resources",
+              "path": "file://$PROJECT_DIR$/cmpe/desktop/src/jvmMain/resources",
               "type": "Resource",
               "packagePrefix": ""
             }
@@ -1701,23 +1745,23 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.desktop.commonMain",
+          "name": "cohesive.cmpe.desktop.commonMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.desktopMain",
+          "name": "cohesive.cmpe.common.desktopMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.generatedByKspKotlinDesktop",
+          "name": "cohesive.cmpe.common.generatedByKspKotlinDesktop",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
@@ -1725,7 +1769,7 @@
           "type": "Library"
         },
         {
-          "name": "cohesive.csp.main",
+          "name": "cohesive.cmpe.csp.main",
           "type": "Module"
         },
         {
@@ -1959,10 +2003,10 @@
       ]
     },
     {
-      "name": "cohesive.desktop.jvmTest",
+      "name": "cohesive.cmpe.desktop.jvmTest",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/desktop/src/jvmTest",
+          "path": "file://$PROJECT_DIR$/cmpe/desktop/src/jvmTest",
           "sourceFolders": []
         }
       ],
@@ -1976,31 +2020,31 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.desktop.commonMain",
+          "name": "cohesive.cmpe.desktop.commonMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.desktop.commonTest",
+          "name": "cohesive.cmpe.desktop.commonTest",
           "type": "Module"
         },
         {
-          "name": "cohesive.desktop.jvmMain",
+          "name": "cohesive.cmpe.desktop.jvmMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.desktop.jvmMain",
+          "name": "cohesive.cmpe.desktop.jvmMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.desktopMain",
+          "name": "cohesive.cmpe.common.desktopMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.generatedByKspKotlinDesktop",
+          "name": "cohesive.cmpe.common.generatedByKspKotlinDesktop",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
@@ -2008,7 +2052,7 @@
           "type": "Library"
         },
         {
-          "name": "cohesive.csp.main",
+          "name": "cohesive.cmpe.csp.main",
           "type": "Module"
         },
         {
@@ -2242,10 +2286,10 @@
       ]
     },
     {
-      "name": "cohesive.desktop.commonMain",
+      "name": "cohesive.cmpe.desktop.commonMain",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/desktop/src/commonMain",
+          "path": "file://$PROJECT_DIR$/cmpe/desktop/src/commonMain",
           "sourceFolders": []
         }
       ],
@@ -2259,19 +2303,19 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.common.desktopMain",
+          "name": "cohesive.cmpe.common.desktopMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.generatedByKspKotlinDesktop",
+          "name": "cohesive.cmpe.common.generatedByKspKotlinDesktop",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
@@ -2279,7 +2323,7 @@
           "type": "Library"
         },
         {
-          "name": "cohesive.csp.main",
+          "name": "cohesive.cmpe.csp.main",
           "type": "Module"
         },
         {
@@ -2513,10 +2557,10 @@
       ]
     },
     {
-      "name": "cohesive.desktop.commonTest",
+      "name": "cohesive.cmpe.desktop.commonTest",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/desktop/src/commonTest",
+          "path": "file://$PROJECT_DIR$/cmpe/desktop/src/commonTest",
           "sourceFolders": []
         }
       ],
@@ -2530,31 +2574,31 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.desktop.commonMain",
+          "name": "cohesive.cmpe.desktop.commonMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.desktop.jvmMain",
+          "name": "cohesive.cmpe.desktop.jvmMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.desktop.jvmMain",
+          "name": "cohesive.cmpe.desktop.jvmMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.desktopMain",
+          "name": "cohesive.cmpe.common.desktopMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.generatedByKspKotlinDesktop",
+          "name": "cohesive.cmpe.common.generatedByKspKotlinDesktop",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
@@ -2562,7 +2606,7 @@
           "type": "Library"
         },
         {
-          "name": "cohesive.csp.main",
+          "name": "cohesive.cmpe.csp.main",
           "type": "Module"
         },
         {
@@ -2796,22 +2840,22 @@
       ]
     },
     {
-      "name": "cohesive.web.jsMain",
+      "name": "cohesive.cmpe.web.jsMain",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/web/build/externals/cohesive-web/src",
+          "path": "file://$PROJECT_DIR$/cmpe/web/build/externals/cohesive-web/src",
           "sourceFolders": []
         },
         {
-          "path": "file://$PROJECT_DIR$/web/src/jsMain",
+          "path": "file://$PROJECT_DIR$/cmpe/web/src/jsMain",
           "sourceFolders": [
             {
-              "path": "file://$PROJECT_DIR$/web/src/jsMain/kotlin",
+              "path": "file://$PROJECT_DIR$/cmpe/web/src/jsMain/kotlin",
               "type": "Source",
               "packagePrefix": ""
             },
             {
-              "path": "file://$PROJECT_DIR$/web/src/jsMain/resources",
+              "path": "file://$PROJECT_DIR$/cmpe/web/src/jsMain/resources",
               "type": "Source",
               "packagePrefix": ""
             }
@@ -2828,7 +2872,7 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.web.commonMain",
+          "name": "cohesive.cmpe.web.commonMain",
           "type": "Module"
         },
         {
@@ -2866,10 +2910,10 @@
       ]
     },
     {
-      "name": "cohesive.web.jsTest",
+      "name": "cohesive.cmpe.web.jsTest",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/web/src/jsTest",
+          "path": "file://$PROJECT_DIR$/cmpe/web/src/jsTest",
           "sourceFolders": []
         }
       ],
@@ -2883,19 +2927,19 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.web.commonMain",
+          "name": "cohesive.cmpe.web.commonMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.web.commonTest",
+          "name": "cohesive.cmpe.web.commonTest",
           "type": "Module"
         },
         {
-          "name": "cohesive.web.jsMain",
+          "name": "cohesive.cmpe.web.jsMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.web.jsMain",
+          "name": "cohesive.cmpe.web.jsMain",
           "type": "Module"
         },
         {
@@ -2933,10 +2977,10 @@
       ]
     },
     {
-      "name": "cohesive.web.commonMain",
+      "name": "cohesive.cmpe.web.commonMain",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/web/src/commonMain",
+          "path": "file://$PROJECT_DIR$/cmpe/web/src/commonMain",
           "sourceFolders": []
         }
       ],
@@ -2956,10 +3000,10 @@
       ]
     },
     {
-      "name": "cohesive.web.commonTest",
+      "name": "cohesive.cmpe.web.commonTest",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/web/src/commonTest",
+          "path": "file://$PROJECT_DIR$/cmpe/web/src/commonTest",
           "sourceFolders": []
         }
       ],
@@ -2973,7 +3017,7 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.web.commonMain",
+          "name": "cohesive.cmpe.web.commonMain",
           "type": "Module"
         },
         {
@@ -2983,10 +3027,10 @@
       ]
     },
     {
-      "name": "cohesive.plugin.desktop.test",
+      "name": "cohesive.cmpe.plugin.desktop.test",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/plugin/desktop/src/test",
+          "path": "file://$PROJECT_DIR$/cmpe/plugin/desktop/src/test",
           "sourceFolders": []
         }
       ],
@@ -3000,101 +3044,7 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.plugin.desktop.main",
-          "type": "Module"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains:annotations:13.0",
-          "type": "Library"
-        }
-      ]
-    },
-    {
-      "name": "cohesive.plugin.desktop.main",
-      "contentEntries": [
-        {
-          "path": "file://$PROJECT_DIR$/plugin/desktop/src/main",
-          "sourceFolders": []
-        }
-      ],
-      "orderEntries": [
-        {
-          "name": "jbr-11",
-          "type": "SDK"
-        },
-        {
-          "name": "<Module source>",
-          "type": "Own sources"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.jetbrains:annotations:13.0",
-          "type": "Library"
-        }
-      ]
-    },
-    {
-      "name": "cohesive.plugin.desktop.cohesive-cohesive.test",
-      "contentEntries": [
-        {
-          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/build/generated/ksp/test/java",
-          "sourceFolders": []
-        },
-        {
-          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/build/generated/ksp/test/kotlin",
-          "sourceFolders": []
-        },
-        {
-          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/src/generatedByKspTestKotlin",
-          "sourceFolders": []
-        },
-        {
-          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/src/test",
-          "sourceFolders": []
-        }
-      ],
-      "orderEntries": [
-        {
-          "name": "jbr-11",
-          "type": "SDK"
-        },
-        {
-          "name": "<Module source>",
-          "type": "Own sources"
-        },
-        {
-          "name": "cohesive.plugin.desktop.cohesive-cohesive.main",
+          "name": "cohesive.cmpe.plugin.desktop.main",
           "type": "Module"
         },
         {
@@ -3120,25 +3070,119 @@
       ]
     },
     {
-      "name": "cohesive.plugin.desktop.cohesive-cohesive.main",
+      "name": "cohesive.cmpe.plugin.desktop.main",
       "contentEntries": [
         {
-          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/build/generated/ksp/main/java",
+          "path": "file://$PROJECT_DIR$/cmpe/plugin/desktop/src/main",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains:annotations:13.0",
+          "type": "Library"
+        }
+      ]
+    },
+    {
+      "name": "cohesive.cmpe.plugin.desktop.cohesive-cohesive.test",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/plugin/desktop/cohesive-cohesive/build/generated/ksp/test/java",
           "sourceFolders": []
         },
         {
-          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/build/generated/ksp/main/kotlin",
+          "path": "file://$PROJECT_DIR$/cmpe/plugin/desktop/cohesive-cohesive/build/generated/ksp/test/kotlin",
           "sourceFolders": []
         },
         {
-          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/src/generatedByKspKotlin",
+          "path": "file://$PROJECT_DIR$/cmpe/plugin/desktop/cohesive-cohesive/src/generatedByKspTestKotlin",
           "sourceFolders": []
         },
         {
-          "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/src/main",
+          "path": "file://$PROJECT_DIR$/cmpe/plugin/desktop/cohesive-cohesive/src/test",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        },
+        {
+          "name": "cohesive.cmpe.plugin.desktop.cohesive-cohesive.main",
+          "type": "Module"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains:annotations:13.0",
+          "type": "Library"
+        }
+      ]
+    },
+    {
+      "name": "cohesive.cmpe.plugin.desktop.cohesive-cohesive.main",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/plugin/desktop/cohesive-cohesive/build/generated/ksp/main/java",
+          "sourceFolders": []
+        },
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/plugin/desktop/cohesive-cohesive/build/generated/ksp/main/kotlin",
+          "sourceFolders": []
+        },
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/plugin/desktop/cohesive-cohesive/src/generatedByKspKotlin",
+          "sourceFolders": []
+        },
+        {
+          "path": "file://$PROJECT_DIR$/cmpe/plugin/desktop/cohesive-cohesive/src/main",
           "sourceFolders": [
             {
-              "path": "file://$PROJECT_DIR$/plugin/desktop/cohesive-cohesive/src/main/kotlin",
+              "path": "file://$PROJECT_DIR$/cmpe/plugin/desktop/cohesive-cohesive/src/main/kotlin",
               "type": "Source",
               "packagePrefix": ""
             }
@@ -3155,15 +3199,15 @@
           "type": "Own sources"
         },
         {
-          "name": "cohesive.common.desktopMain",
+          "name": "cohesive.cmpe.common.desktopMain",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.generatedByKspKotlinDesktop",
+          "name": "cohesive.cmpe.common.generatedByKspKotlinDesktop",
           "type": "Module"
         },
         {
-          "name": "cohesive.common.commonMain",
+          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
@@ -3171,7 +3215,7 @@
           "type": "Library"
         },
         {
-          "name": "cohesive.csp.main",
+          "name": "cohesive.cmpe.csp.main",
           "type": "Module"
         },
         {
