@@ -88,23 +88,23 @@ class MainView : CohesiveView {
 
 ### Running Base Desktop Application
 ```
-./gradlew :desktop:run
+./gradlew :cmpe:desktop:run
 ```
 
 #### Building Base native desktop distribution
 ```
-./gradlew :desktop:package
-# outputs are written to desktop/build/compose/binaries
+./gradlew :cmpe:desktop:package
+# outputs are written to cmpe/desktop/build/compose/binaries
 ```
 
 ### Running Base Web Application
 ```
-./gradlew :web:jsBrowserRun
+./gradlew :cmpe:web:jsBrowserRun
 ```
 
 #### Distribute Base Web Application
 ```
-./gradlew :web:jsBrowserDistribution 
+./gradlew :cmpe:web:jsBrowserDistribution 
 # and then open index.html (build/distributions)
 ```
 
