@@ -36,13 +36,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.WindowPlacement
 import com.mcxross.cohesive.common.Local
-import com.mcxross.cohesive.common.ds.tree.tree
 import com.mcxross.cohesive.common.frontend.api.ui.view.CohesiveView
 import com.mcxross.cohesive.common.frontend.impl.ui.view.View
 import com.mcxross.cohesive.common.frontend.utils.WindowState
 import com.mcxross.cohesive.common.frontend.utils.isDirectory
 import com.mcxross.cohesive.csp.annotation.Cohesive
-import com.mcxross.cohesive.mellow.CMenuItem
 import com.mcxross.cohesive.mellow.Dialog
 import com.mcxross.cohesive.mellow.EditorComposite
 import com.mcxross.cohesive.mellow.EditorSimple
@@ -52,7 +50,8 @@ import com.mcxross.cohesive.mellow.FileTreeModel
 import com.mcxross.cohesive.mellow.HomeFolder
 import com.mcxross.cohesive.mellow.Menu
 import com.mcxross.cohesive.mellow.MenuInterface
-import com.mcxross.cohesive.mellow.MenuTree
+import com.mcxross.cohesive.mellow.MenuItem
+import com.mcxross.cohesive.mellow.SubMenu
 import com.mcxross.cohesive.mellow.TopBar
 import com.mcxross.cohesive.mellow.WindowButton
 import com.mcxross.cohesive.mellow.WindowScaffold
@@ -66,63 +65,48 @@ open class MainScreen {
   @Composable
   protected fun WindowListMenuButton() {
 
-    val root =
-      tree(CMenuItem(null, "")) {
-        child(CMenuItem(text = "New")) {
-          child(CMenuItem(text = "Project"))
-          child(CMenuItem(text = "Wallet"))
-        }
-
-        child(
-          CMenuItem(
-            icon = painterResource("menu-open_dark.svg"),
-            text = "Open",
-            menuInterface =
-              object : MenuInterface {
-                override fun onClick() {
-                  WindowState.isOpenDialogOpen = true
-                }
-
-                override fun onHover(onEnter: Boolean) {}
-              },
+    val menuBarItems = listOf(
+      Menu(
+        items = listOf(
+          MenuItem(
+            text = "New",
+            submenu = SubMenu(
+              items = listOf(
+                MenuItem(text = "Project"),
+                MenuItem(text = "Wallet"),
+              ),
+            ),
           ),
-        )
-
-        child(
-          CMenuItem(
-            text = "Switch Platform",
+          MenuItem(
+            icon = painterResource("menu-open_dark.svg"), text = "Open",
             menuInterface =
-              object : MenuInterface {
-                override fun onClick() {
-                  WindowState.isPreAvail = false
-                  WindowState.isStoreWindowOpen = true
-                }
+            object : MenuInterface {
+              override fun onClick() {
+                WindowState.isOpenDialogOpen = true
+              }
 
-                override fun onHover(onEnter: Boolean) {}
-              },
+              override fun onHover(onEnter: Boolean) {}
+            },
           ),
-        )
-
-        child(CMenuItem(text = "Open Recent"))
-        child(CMenuItem(text = "Settings"))
-        child(
-          CMenuItem(
+          MenuItem(text = "Save"),
+          MenuItem(text = "Save As"),
+          MenuItem(
             text = "Exit",
-            menuInterface =
-              object : MenuInterface {
-                override fun onClick() {
-                  WindowState.isMainWindowOpen = false
-                }
+            menuInterface = object : MenuInterface {
+              override fun onClick() {
+                WindowState.isMainWindowOpen = false
+              }
 
-                override fun onHover(onEnter: Boolean) {
-                  TODO("Not yet implemented")
-                }
-              },
+              override fun onHover(onEnter: Boolean) {
+                TODO("Not yet implemented")
+              }
+            },
           ),
-        )
-      }
+        ),
+      ),
+    )
 
-    Menu(MenuTree(root)) {}
+    Menu(model = menuBarItems) {}
   }
 
   @Composable
@@ -152,8 +136,8 @@ open class MainScreen {
           }
         },
         restoreIcon =
-          if (restore) painterResource("maximize_dark.svg")
-          else painterResource("restore_dark.svg"),
+        if (restore) painterResource("maximize_dark.svg")
+        else painterResource("restore_dark.svg"),
       ) {
         Text(
           "${cohesive.platform}  —",
@@ -183,10 +167,10 @@ open class MainScreen {
         modifier = Modifier.defaultMinSize(minWidth = 150.dp),
         border = BorderStroke(1.dp, MaterialTheme.colors.surface),
         colors =
-          ButtonDefaults.buttonColors(
-            backgroundColor = Color.Transparent,
-            contentColor = contentColorFor(MaterialTheme.colors.surface),
-          ),
+        ButtonDefaults.buttonColors(
+          backgroundColor = Color.Transparent,
+          contentColor = contentColorFor(MaterialTheme.colors.surface),
+        ),
         onClick = { expanded = !expanded },
       ) {
         Icon(
@@ -205,8 +189,8 @@ open class MainScreen {
         expanded = expanded,
         onDismissRequest = { expanded = false },
         modifier =
-          Modifier.defaultMinSize(minWidth = 150.dp)
-            .border(border = BorderStroke(2.dp, Color(0xFF4D5051)), shape = RectangleShape),
+        Modifier.defaultMinSize(minWidth = 150.dp)
+          .border(border = BorderStroke(2.dp, Color(0xFF4D5051)), shape = RectangleShape),
       ) {
         suggestions.forEach { label ->
           DropdownMenuItem(
