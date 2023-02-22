@@ -36,6 +36,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.WindowPlacement
 import com.mcxross.cohesive.common.Local
+import com.mcxross.cohesive.common.ds.tree.TreeNodeIterators
+import com.mcxross.cohesive.common.ds.tree.tree
 import com.mcxross.cohesive.common.frontend.api.ui.view.CohesiveView
 import com.mcxross.cohesive.common.frontend.impl.ui.view.View
 import com.mcxross.cohesive.common.frontend.utils.WindowState
@@ -49,9 +51,10 @@ import com.mcxross.cohesive.mellow.FileTree
 import com.mcxross.cohesive.mellow.FileTreeModel
 import com.mcxross.cohesive.mellow.HomeFolder
 import com.mcxross.cohesive.mellow.Menu
+import com.mcxross.cohesive.mellow.MenuContainer
 import com.mcxross.cohesive.mellow.MenuInterface
 import com.mcxross.cohesive.mellow.MenuItem
-import com.mcxross.cohesive.mellow.SubMenu
+import com.mcxross.cohesive.mellow.SubMenuContainer
 import com.mcxross.cohesive.mellow.TopBar
 import com.mcxross.cohesive.mellow.WindowButton
 import com.mcxross.cohesive.mellow.WindowScaffold
@@ -63,22 +66,23 @@ open class MainScreen {
   private lateinit var cohesive: Cohesive
 
   @Composable
-  protected fun WindowListMenuButton() {
-
-    val menuBarItems = listOf(
-      Menu(
-        items = listOf(
+  protected fun mainMenu(): MenuContainer =
+    MenuContainer(
+      icon = painterResource("listMenu_dark.svg"),
+      contentDescription = "Main Menu",
+      onClick = {},
+      menuTree = tree(MenuItem(text = "Root"), TreeNodeIterators.LevelOrder) {
+        child(MenuItem(text = "New")) {
+          child(MenuItem(text = "Project")) {
+            child(MenuItem(text = "Java"))
+            child(MenuItem(text = "Kotlin"))
+          }
+          child(MenuItem(text = "Wallet"))
+        }
+        child(
           MenuItem(
-            text = "New",
-            submenu = SubMenu(
-              items = listOf(
-                MenuItem(text = "Project"),
-                MenuItem(text = "Wallet"),
-              ),
-            ),
-          ),
-          MenuItem(
-            icon = painterResource("menu-open_dark.svg"), text = "Open",
+            icon = painterResource("menu-open_dark.svg"),
+            text = "Open",
             menuInterface =
             object : MenuInterface {
               override fun onClick() {
@@ -88,8 +92,11 @@ open class MainScreen {
               override fun onHover(onEnter: Boolean) {}
             },
           ),
-          MenuItem(text = "Save"),
-          MenuItem(text = "Save As"),
+        )
+        child(MenuItem(text = "Save"))
+        child(MenuItem(text = "Save As"))
+        child(MenuItem(text = "Restart"))
+        child(
           MenuItem(
             text = "Exit",
             menuInterface = object : MenuInterface {
@@ -102,12 +109,12 @@ open class MainScreen {
               }
             },
           ),
-        ),
-      ),
+        )
+      },
     )
 
-    Menu(model = menuBarItems) {}
-  }
+  @Composable
+  fun menus(): List<MenuContainer> = listOf(mainMenu())
 
   @Composable
   protected fun TitleMenuBar() {
@@ -132,7 +139,9 @@ open class MainScreen {
           Box(
             modifier = Modifier.offset(x = 5.dp).align(Alignment.CenterVertically),
           ) {
-            WindowListMenuButton()
+            menus().forEachIndexed { index, menu ->
+              Menu(index = index, menuContainer = menu) {}
+            }
           }
         },
         restoreIcon =

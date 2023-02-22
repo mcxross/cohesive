@@ -15,9 +15,11 @@ typealias ChildDeclaration<T> = ChildDeclarationInterface<T>.() -> Unit
 @JvmSynthetic
 inline fun <reified T> tree(
   root: T,
-  childDeclaration: ChildDeclaration<T>,
+  defaultIterator: TreeNodeIterators = TreeNodeIterators.PreOrder,
+  childDeclaration: ChildDeclaration<T>
 ): TreeNode<T> {
   val treeNode = TreeNode(root)
+  treeNode.defaultIterator = defaultIterator
   treeNode.childDeclaration()
   return treeNode
 }

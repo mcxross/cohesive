@@ -30,89 +30,50 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Popup
 import com.mcxross.cohesive.common.ds.tree.TreeNode
+import kotlinx.coroutines.launch
 
-var expanded: Boolean by mutableStateOf(false)
-var expandNest: Boolean by mutableStateOf(false)
-var currentIndex: Int by mutableStateOf(-1)
-var depth: Int by mutableStateOf(1)
 interface MenuInterface {
   fun onClick()
   fun onHover(onEnter: Boolean)
 }
 
-data class Menu(val icon: Painter? = null, val items: List<MenuItem>)
-data class SubMenu(val items: List<MenuItem>)
+data class MenuContainer(
+  val icon: Painter,
+  val contentDescription: String,
+  val onClick: () -> Unit = {},
+  val menuTree: TreeNode<MenuItem>
+)
+
+data class SubMenuContainer(val menuItems: List<MenuItem>)
 
 data class MenuItem(
   var icon: Painter? = null,
   var text: String,
   val menuInterface: MenuInterface? = null,
-  val submenu: SubMenu? = null,
+  private val subMenuContainer: SubMenuContainer? = null,
+  var position: Int = -1,
+  var isHovered: Boolean = false,
+  var onHover: (Boolean) -> Unit = {}
 )
 
-@Composable
-fun MenuCard(
-  content: @Composable () -> Unit,
-) {
-  Card(
-    modifier = Modifier.width(200.dp),
-    shape = RectangleShape,
-  ) {
-    Column {
-      content()
-    }
+class MenuState {
+  var menuItem by mutableStateOf<MenuItem?>(null)
+  var isPerformingOnEnterTask by mutableStateOf(false)
+  var isPerformingOnExitTask by mutableStateOf(false)
+  var expanded: Boolean by mutableStateOf(false)
+  var node: TreeNode<MenuItem>? by mutableStateOf(null)
+  var menuTree: TreeNode<MenuItem>? by mutableStateOf(null)
+
+  fun toggleMenu() {
+    expanded = !expanded
   }
 }
 
-@Composable
-fun Menu(model: List<Menu>, onClicked: () -> Unit) {
-  fun onClick() {
-    onClicked()
-    expanded = !expanded
-  }
-  Box {
-    WindowButton(
-      onClick = { onClick() },
-      icon = painterResource("listMenu_dark.svg"),
-      contentDescription = "Action List",
-      width = 40.dp,
-    )
-    if (expanded) {
-      Popup(
-        onDismissRequest = { expanded = false },
-        alignment = Alignment.TopStart,
-        offset = IntOffset(0, 46),
-        content = {
-          Row {
-            for (menu in model) {
-              MenuCard {
-                menu.items.forEachIndexed { index, item ->
-                  MenuItemView(index, item)
-                }
-              }
-              for (item in menu.items) {
-                if (item.submenu != null) {
-                  MenuCard {
-                    item.submenu.items.forEachIndexed { index, item ->
-                      MenuItemView(index, item)
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-      )
-    }
-  }
-}
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-private fun MenuItemView(index: Int, item: MenuItem) {
-  var isPerformingOnEnterTask by remember { mutableStateOf(true) }
-  var isPerformingOnExitTask by remember { mutableStateOf(true) }
-  val scope = rememberCoroutineScope()
+private fun MenuItemView(node: TreeNode<MenuItem>, menuState: MenuState) {
+  val menuItem = node.value
   DropdownMenuItem(
     contentPadding = PaddingValues(start = 10.dp, top = 0.dp, end = 0.dp, bottom = 0.dp),
     modifier = Modifier.height(24.dp).pointerMoveFilter(
@@ -120,47 +81,136 @@ private fun MenuItemView(index: Int, item: MenuItem) {
         true
       },
       onEnter = {
+        menuItem.onHover(true)
         true
       },
       onExit = {
+        menuItem.onHover(false)
         true
       },
     ),
     onClick = {
-      expanded = false
-      item.menuInterface?.onClick()
+      menuState.toggleMenu()
+      menuItem.menuInterface?.onClick()
     },
   ) {
+
+    val coroutineScope = rememberCoroutineScope()
+
+    menuItem.onHover = { onHover ->
+      menuState.node = node
+      menuState.menuItem = menuItem
+      menuState.menuItem?.isHovered = onHover
+      coroutineScope.launch {
+        menuState.isPerformingOnEnterTask = true
+        menuState.isPerformingOnExitTask = true
+      }
+    }
+
     Box(modifier = Modifier.fillMaxWidth().align(Alignment.CenterVertically)) {
       Row(
         modifier = Modifier.align(Alignment.CenterStart),
         horizontalArrangement = Arrangement.spacedBy(5.dp),
       ) {
 
-        if (item.icon !== null) {
+        if (menuItem.icon !== null) {
           Icon(
-            painter = item.icon!!,
+            painter = menuItem.icon!!,
             contentDescription = null,
             modifier = Modifier.height(13.dp).align(Alignment.CenterVertically),
           )
         }
         Text(
-          text = item.text,
+          text = menuItem.text,
           fontSize = 12.sp,
-          modifier = Modifier.padding(start = if (item.icon !== null) 0.dp else 17.dp)
+          modifier = Modifier.padding(start = if (menuItem.icon !== null) 0.dp else 17.dp)
             .align(Alignment.CenterVertically),
           maxLines = 1,
         )
       }
-      if (item.submenu !== null) {
+      if (node.nodeCount() > 0)
         Icon(
           painterResource("arrowExpand_dark.svg"),
           contentDescription = null,
           modifier = Modifier.align(Alignment.CenterEnd).padding(end = 10.dp).height(13.dp),
         )
-      }
-
     }
 
+  }
+
+}
+
+@Composable
+fun MenuCard(
+  content: @Composable () -> Unit,
+) = Card(
+  modifier = Modifier.width(200.dp),
+  shape = RectangleShape,
+) {
+  Column {
+    content()
+  }
+}
+
+@Composable
+fun SubMenu(menuState: MenuState) = Row {
+  if (menuState.node!!.nodeCount() > 0) {
+    for (i in 0 until menuState.node!!.depth()) {
+      MenuCard {
+        menuState.menuTree?.filter { it.depth() == i + 2 }
+          ?.forEach { node ->
+            MenuItemView(node, menuState)
+          }
+      }
+    }
+  } else {
+    for (i in 0 until menuState.node!!.depth() - 1) {
+      MenuCard {
+        menuState.menuTree?.filter { it.depth() == i + 2 }
+          ?.forEach { node ->
+            MenuItemView(node, menuState)
+          }
+      }
+    }
+  }
+}
+
+
+@Composable
+fun Menu(index: Int, menuContainer: MenuContainer, onClick: () -> Unit) = Box {
+
+  val menuState = remember { MenuState() }
+  menuState.menuTree = menuContainer.menuTree
+
+  val node = menuState.node
+
+  WindowButton(
+    onClick = {
+      onClick()
+      menuState.toggleMenu()
+    },
+    icon = menuContainer.icon,
+    contentDescription = menuContainer.contentDescription,
+    width = 40.dp,
+  )
+  if (menuState.expanded) {
+    Popup(
+      onDismissRequest = { menuState.toggleMenu() },
+      alignment = Alignment.TopStart,
+      offset = IntOffset(0, 47),
+    ) {
+      Row {
+        MenuCard {
+          menuContainer.menuTree.filter { it.depth() == 1 }.forEach {
+            MenuItemView(it, menuState)
+          }
+        }
+        if (node != null) {
+          if (node.value.isHovered) {
+            SubMenu(menuState = menuState)
+          }
+        }
+      }
+    }
   }
 }

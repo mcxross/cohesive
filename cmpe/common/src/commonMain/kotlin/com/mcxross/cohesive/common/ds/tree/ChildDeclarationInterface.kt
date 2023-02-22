@@ -2,7 +2,6 @@ package com.mcxross.cohesive.common.ds.tree
 
 import kotlin.jvm.JvmSynthetic
 
-
 interface ChildDeclarationInterface<T> {
 
   /**

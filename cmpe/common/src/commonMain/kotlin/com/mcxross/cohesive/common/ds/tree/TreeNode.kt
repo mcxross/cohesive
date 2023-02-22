@@ -1,11 +1,10 @@
 package com.mcxross.cohesive.common.ds.tree
 
+import com.github.adriankuta.datastructure.tree.PostOrderTreeIterator
+import com.mcxross.cohesive.common.ds.tree.TreeNodeIterators.*
 import kotlin.jvm.JvmSynthetic
 
-open class TreeNode<T>(
-  val value: T,
-) : Iterable<TreeNode<T>>,
-  ChildDeclarationInterface<T> {
+open class TreeNode<T>(val value: T) : Iterable<TreeNode<T>>, ChildDeclarationInterface<T> {
 
   private var _parent: TreeNode<T>? = null
 
@@ -24,25 +23,26 @@ open class TreeNode<T>(
     get() = _children
 
   /**
+   * Choose one of available iterators from [TreeNodeIterators]
+   */
+  var defaultIterator: TreeNodeIterators = PreOrder
+
+  /**
    * Add new child to current node or root.
    *
    * @param child A node which will be directly connected to current node.
    */
-  fun addChild(
-    child: TreeNode<T>,
-  ) {
+  fun addChild(child: TreeNode<T>) {
     child._parent = this
     _children.add(child)
   }
 
   @JvmSynthetic
-  override fun child(
-    value: T,
-    childDeclaration: ChildDeclaration<T>?,
-  ): TreeNode<T> {
+  override fun child(value: T, childDeclaration: ChildDeclaration<T>?): TreeNode<T> {
     val newChild = TreeNode(value)
     if (childDeclaration != null)
       newChild.childDeclaration()
+    newChild._parent = this
     _children.add(newChild)
     return newChild
   }
@@ -52,9 +52,7 @@ open class TreeNode<T>(
    *
    * @return `true` if the node has been successfully removed; `false` if it was not present in the tree.
    */
-  fun removeChild(
-    child: TreeNode<T>,
-  ): Boolean {
+  fun removeChild(child: TreeNode<T>): Boolean {
     println(child.value)
     val removed = child._parent?._children?.remove(child)
     child._parent = null
@@ -116,11 +114,7 @@ open class TreeNode<T>(
     return stringBuilder.toString()
   }
 
-  private fun print(
-    stringBuilder: StringBuilder,
-    prefix: String,
-    childrenPrefix: String,
-  ) {
+  private fun print(stringBuilder: StringBuilder, prefix: String, childrenPrefix: String) {
     stringBuilder.append(prefix)
     stringBuilder.append(value)
     stringBuilder.append('\n')
@@ -136,25 +130,11 @@ open class TreeNode<T>(
   }
 
   /**
-   * Tree is iterated by using `Pre-order Traversal Algorithm"
-   *  1. Check if the current node is empty or null.
-   *  2. Display the data part of the root (or current node).
-   *  3. Traverse the left subtree by recursively calling the pre-order function.
-   *  4. Traverse the right subtree by recursively calling the pre-order function.
-   * ```
-   * E.g.
-   *                    1
-   *                  / | \
-   *                 /  |   \
-   *               2    3     4
-   *              / \       / | \
-   *             5    6    7  8  9
-   *            /   / | \
-   *           10  11 12 13
-   *
-   * Output: 1 2 5 10 6 11 12 13 3 4 7 8 9
-   * ```
+   * You can change default iterator by changing [defaultIterator] property.
    */
-  override fun iterator(): Iterator<TreeNode<T>> =
-    PreOrderTreeIterator(this)
+  override fun iterator(): Iterator<TreeNode<T>> = when (defaultIterator) {
+    PreOrder -> PreOrderTreeIterator(this)
+    PostOrder -> PostOrderTreeIterator(this)
+    LevelOrder -> LevelOrderTreeIterator(this)
+  }
 }
