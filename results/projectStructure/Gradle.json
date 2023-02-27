@@ -362,6 +362,14 @@
       "version": "1.3.3"
     },
     {
+      "ideaName": "Gradle: org.reduxkotlin:redux-kotlin-threadsafe-jvm:0.6.0",
+      "gradleName": "org.reduxkotlin:redux-kotlin-threadsafe-jvm:0.6.0",
+      "unresolved": false,
+      "groupId": "org.reduxkotlin",
+      "artifactId": "redux-kotlin-threadsafe-jvm",
+      "version": "0.6.0"
+    },
+    {
       "ideaName": "Gradle: com.squareup:kotlinpoet:1.12.0",
       "gradleName": "com.squareup:kotlinpoet:1.12.0",
       "unresolved": false,
@@ -450,6 +458,14 @@
       "version": "2.2.1-kotlin-1.7.20-RC"
     },
     {
+      "ideaName": "Gradle: org.reduxkotlin:redux-kotlin-jvm:0.6.0",
+      "gradleName": "org.reduxkotlin:redux-kotlin-jvm:0.6.0",
+      "unresolved": false,
+      "groupId": "org.reduxkotlin",
+      "artifactId": "redux-kotlin-jvm",
+      "version": "0.6.0"
+    },
+    {
       "ideaName": "Gradle: io.ktor:ktor-network-jvm:2.2.3",
       "gradleName": "io.ktor:ktor-network-jvm:2.2.3",
       "unresolved": false,
@@ -506,12 +522,12 @@
       "version": "1.3.0"
     },
     {
-      "ideaName": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
-      "gradleName": "org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
+      "ideaName": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.19.0",
+      "gradleName": "org.jetbrains.kotlinx:atomicfu-jvm:0.19.0",
       "unresolved": false,
       "groupId": "org.jetbrains.kotlinx",
       "artifactId": "atomicfu-jvm",
-      "version": "0.17.2"
+      "version": "0.19.0"
     },
     {
       "ideaName": "Gradle: org.jetbrains:markdown:0.3.1",

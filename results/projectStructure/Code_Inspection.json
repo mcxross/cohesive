@@ -356,6 +356,10 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-threadsafe-jvm:0.6.0",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: com.squareup:kotlinpoet:1.12.0",
           "type": "Library"
         },
@@ -444,7 +448,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
+          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.19.0",
           "type": "Library"
         },
         {
@@ -457,6 +461,10 @@
         },
         {
           "name": "Gradle: org.kodein.type:kaverit-jvm:2.2.1-kotlin-1.7.20-RC",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-jvm:0.6.0",
           "type": "Library"
         },
         {
@@ -641,6 +649,10 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-threadsafe-jvm:0.6.0",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0",
           "type": "Library"
         },
@@ -741,7 +753,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
+          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.19.0",
           "type": "Library"
         },
         {
@@ -750,6 +762,10 @@
         },
         {
           "name": "Gradle: org.kodein.type:kaverit-jvm:2.2.1-kotlin-1.7.20-RC",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-jvm:0.6.0",
           "type": "Library"
         },
         {
@@ -1079,6 +1095,10 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-threadsafe-jvm:0.6.0",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: com.squareup:kotlinpoet:1.12.0",
           "type": "Library"
         },
@@ -1167,7 +1187,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
+          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.19.0",
           "type": "Library"
         },
         {
@@ -1180,6 +1200,10 @@
         },
         {
           "name": "Gradle: org.kodein.type:kaverit-jvm:2.2.1-kotlin-1.7.20-RC",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-jvm:0.6.0",
           "type": "Library"
         },
         {
@@ -1364,6 +1388,10 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-threadsafe-jvm:0.6.0",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: com.squareup:kotlinpoet:1.12.0",
           "type": "Library"
         },
@@ -1468,6 +1496,10 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-jvm:0.6.0",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: org.jetbrains.compose.runtime:runtime-saveable-desktop:1.3.0",
           "type": "Library"
         },
@@ -1476,11 +1508,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.3.0",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
+          "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1488,11 +1520,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.3.0",
+          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.19.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
+          "name": "Gradle: org.jetbrains.compose.foundation:foundation-layout-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -1761,10 +1793,6 @@
           "type": "Module"
         },
         {
-          "name": "cohesive.cmpe.common.commonMain",
-          "type": "Module"
-        },
-        {
           "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
           "type": "Library"
         },
@@ -1913,6 +1941,10 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-threadsafe-jvm:0.6.0",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.3.0",
           "type": "Library"
         },
@@ -1977,11 +2009,15 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-jvm:0.6.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
+          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.19.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2200,6 +2236,10 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-threadsafe-jvm:0.6.0",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: org.jetbrains.compose.ui:ui-geometry-desktop:1.3.0",
           "type": "Library"
         },
@@ -2260,11 +2300,15 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-jvm:0.6.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
+          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.19.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2308,10 +2352,6 @@
         },
         {
           "name": "cohesive.cmpe.common.generatedByKspKotlinDesktop",
-          "type": "Module"
-        },
-        {
-          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {
@@ -2467,6 +2507,10 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-threadsafe-jvm:0.6.0",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: org.jetbrains.compose.ui:ui-unit-desktop:1.3.0",
           "type": "Library"
         },
@@ -2531,11 +2575,15 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-jvm:0.6.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
+          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.19.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
           "type": "Library"
         },
         {
@@ -2762,6 +2810,10 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-threadsafe-jvm:0.6.0",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0",
           "type": "Library"
         },
@@ -2814,11 +2866,15 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
+          "name": "Gradle: org.reduxkotlin:redux-kotlin-jvm:0.6.0",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.17.2",
+          "name": "Gradle: org.jetbrains.kotlinx:atomicfu-jvm:0.19.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.compose.ui:ui-util-desktop:1.3.0",
           "type": "Library"
         },
         {
