@@ -23,7 +23,8 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.input.pointer.pointerMoveFilter
+import androidx.compose.ui.input.pointer.PointerEventType
+import androidx.compose.ui.input.pointer.onPointerEvent
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
@@ -76,19 +77,13 @@ private fun MenuItemView(node: TreeNode<MenuItem>, menuState: MenuState) {
   val menuItem = node.value
   DropdownMenuItem(
     contentPadding = PaddingValues(start = 10.dp, top = 0.dp, end = 0.dp, bottom = 0.dp),
-    modifier = Modifier.height(24.dp).pointerMoveFilter(
-      onMove = {
-        true
-      },
-      onEnter = {
-        menuItem.onHover(true)
-        true
-      },
-      onExit = {
-        menuItem.onHover(false)
-        true
-      },
-    ),
+    modifier = Modifier.height(24.dp).onPointerEvent(
+      PointerEventType.Move,
+    ) {}.onPointerEvent(PointerEventType.Enter) {
+      menuItem.onHover(true)
+    }.onPointerEvent(PointerEventType.Exit) {
+      menuItem.onHover(false)
+    },
     onClick = {
       menuState.toggleMenu()
       menuItem.menuInterface?.onClick()
@@ -107,7 +102,9 @@ private fun MenuItemView(node: TreeNode<MenuItem>, menuState: MenuState) {
       }
     }
 
-    Box(modifier = Modifier.fillMaxWidth().align(Alignment.CenterVertically)) {
+    Box(
+      modifier = Modifier.fillMaxWidth().align(Alignment.CenterVertically),
+    ) {
       Row(
         modifier = Modifier.align(Alignment.CenterStart),
         horizontalArrangement = Arrangement.spacedBy(5.dp),

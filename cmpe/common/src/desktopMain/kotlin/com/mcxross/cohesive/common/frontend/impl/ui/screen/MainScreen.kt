@@ -44,9 +44,7 @@ import com.mcxross.cohesive.common.frontend.utils.WindowState
 import com.mcxross.cohesive.common.frontend.utils.isDirectory
 import com.mcxross.cohesive.csp.annotation.Cohesive
 import com.mcxross.cohesive.mellow.Dialog
-import com.mcxross.cohesive.mellow.EditorComposite
-import com.mcxross.cohesive.mellow.EditorSimple
-import com.mcxross.cohesive.mellow.File
+import com.mcxross.cohesive.mellow.EditorEmpty
 import com.mcxross.cohesive.mellow.FileTree
 import com.mcxross.cohesive.mellow.FileTreeModel
 import com.mcxross.cohesive.mellow.HomeFolder
@@ -54,9 +52,8 @@ import com.mcxross.cohesive.mellow.Menu
 import com.mcxross.cohesive.mellow.MenuContainer
 import com.mcxross.cohesive.mellow.MenuInterface
 import com.mcxross.cohesive.mellow.MenuItem
-import com.mcxross.cohesive.mellow.SubMenuContainer
+import com.mcxross.cohesive.mellow.TabbedButtonIcon
 import com.mcxross.cohesive.mellow.TopBar
-import com.mcxross.cohesive.mellow.WindowButton
 import com.mcxross.cohesive.mellow.WindowScaffold
 import java.util.*
 
@@ -220,25 +217,42 @@ open class MainScreen {
 
   @Composable
   protected fun SwitchView() {
-    fun onClick() {
-      if (WindowState.view == View.EXPLORER) {
-        WindowState.view = View.WALLET
-      } else {
+
+    val (selected, setSelected) = remember {
+      mutableStateOf(0)
+    }
+
+    when (selected) {
+      0 -> {
         WindowState.view = View.EXPLORER
+      }
+
+      1 -> {
+        WindowState.view = View.WALLET
+      }
+
+      2 -> {
+        WindowState.view = View.EDITOR
       }
     }
 
-    WindowButton(
-      onClick = { onClick() },
-      icon = painterResource("switchView_dark.svg"),
-      contentDescription = "Switch View",
-      width = 40.dp,
-    )
+    Box(modifier = Modifier.offset(x = 10.dp).padding(top = 2.dp, bottom = 1.dp)) {
+      TabbedButtonIcon(
+        items = listOf(
+          Pair("icon/boxes.svg", "Explorer"),
+          Pair("icon/wallet.svg", "Wallet"),
+          Pair("icon/code.svg", "Editor"),
+        ),
+        selectedItemIndex = selected,
+        onClick = setSelected,
+      )
+    }
+
   }
 
   @Composable
   protected fun Editor() {
-    if ((WindowState.currentProjectFile as File).isDirectory) {
+    /*if ((WindowState.currentProjectFile as File).isDirectory) {
       EditorComposite(
         file = WindowState.currentProjectFile as File,
       )
@@ -246,7 +260,8 @@ open class MainScreen {
       EditorSimple(
         file = WindowState.currentProjectFile as File,
       )
-    }
+    }*/
+    EditorEmpty(text = "Drag and Drop Files to Open")
   }
 
   @Composable

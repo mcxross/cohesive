@@ -33,24 +33,24 @@ import androidx.compose.ui.window.WindowScope
 
 @Composable
 fun WindowScope.TopBar(
-    onClose: () -> Unit,
-    onRestore: () -> Unit,
-    onMinimize: () -> Unit,
-    modifier: Modifier = Modifier,
-    icon: Painter,
-    iconModifier: Modifier = Modifier,
-    iconDescription: String = "",
-    closeIcon: Painter = painterResource("close_dark.svg"),
-    closeIconModifier: Modifier = Modifier,
-    closeIconDescription: String = "Close window",
-    restoreIcon: Painter,
-    restoreIconModifier: Modifier = Modifier,
-    restoreIconDescription: String = "Restore Down, and Maximize window",
-    minimizeIcon: Painter = painterResource("minimize_dark.svg"),
-    minimizeIconModifier: Modifier = Modifier,
-    minimizeIconDescription: String = "Minimize window",
-    menuContent: @Composable (RowScope.() -> Unit)? = null,
-    content: @Composable (RowScope.() -> Unit)? = null,
+  onClose: () -> Unit,
+  onRestore: () -> Unit,
+  onMinimize: () -> Unit,
+  modifier: Modifier = Modifier,
+  icon: Painter,
+  iconModifier: Modifier = Modifier,
+  iconDescription: String = "",
+  closeIcon: Painter = painterResource("close_dark.svg"),
+  closeIconModifier: Modifier = Modifier,
+  closeIconDescription: String = "Close window",
+  restoreIcon: Painter,
+  restoreIconModifier: Modifier = Modifier,
+  restoreIconDescription: String = "Restore Down, and Maximize window",
+  minimizeIcon: Painter = painterResource("minimize_dark.svg"),
+  minimizeIconModifier: Modifier = Modifier,
+  minimizeIconDescription: String = "Minimize window",
+  menuContent: @Composable (RowScope.() -> Unit)? = null,
+  content: @Composable (RowScope.() -> Unit)? = null,
 ) = WindowDraggableArea {
   Column(
     modifier = modifier.fillMaxWidth().height(30.dp),
@@ -74,36 +74,32 @@ fun WindowScope.TopBar(
         }
       }
       Row(
-        modifier = Modifier.fillMaxHeight().wrapContentWidth(),
+        modifier = Modifier.fillMaxHeight(),
       ) {
         content?.let { it() }
       }
-      Box(
+      Row(
         modifier = Modifier.fillMaxHeight().width(162.dp),
       ) {
-        Row(
-          modifier = Modifier.fillMaxSize(),
-        ) {
-          WindowButton(
-            onClick = { onMinimize() },
-            modifier = minimizeIconModifier,
-            icon = minimizeIcon,
-            contentDescription = minimizeIconDescription,
-          )
-          WindowButton(
-            onClick = { onRestore() },
-            modifier = restoreIconModifier,
-            icon = restoreIcon,
-            contentDescription = restoreIconDescription,
-          )
-          WindowButton(
-            onClick = { onClose() },
-            modifier = closeIconModifier,
-            icon = closeIcon,
-            contentDescription = closeIconDescription,
-            onHoverColor = Color.Red,
-          )
-        }
+        WindowButton(
+          onClick = { onMinimize() },
+          modifier = minimizeIconModifier,
+          icon = minimizeIcon,
+          contentDescription = minimizeIconDescription,
+        )
+        WindowButton(
+          onClick = { onRestore() },
+          modifier = restoreIconModifier,
+          icon = restoreIcon,
+          contentDescription = restoreIconDescription,
+        )
+        WindowButton(
+          onClick = { onClose() },
+          modifier = closeIconModifier,
+          icon = closeIcon,
+          contentDescription = closeIconDescription,
+          onHoverColor = Color.Red,
+        )
       }
     }
   }
