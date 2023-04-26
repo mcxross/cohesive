@@ -34,6 +34,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.White
@@ -60,15 +62,20 @@ fun Button(
   iconModifier: Modifier = Modifier,
   enabled: Boolean = true,
   interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-  elevation: ButtonElevation? = ButtonDefaults.elevation(),
-  shape: Shape = RoundedCornerShape(12.dp),
-  border: BorderStroke? = null,
+  elevation: ButtonElevation? = ButtonDefaults.elevation(
+    defaultElevation = 0.dp,
+    hoveredElevation = 1.dp,
+  ),
+  shape: Shape = RoundedCornerShape(8.dp),
+  border: BorderStroke? = BorderStroke(
+    1.dp, MellowTheme.getColors().primaryVariant,
+  ),
   colors: ButtonColors = ButtonDefaults.buttonColors(),
   contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
   content: @Composable (RowScope.() -> Unit)? = null,
 ) = Button(
   onClick = onClick,
-  modifier = modifier.padding(2.dp),
+  modifier = modifier,
   enabled = enabled,
   interactionSource = interactionSource,
   elevation = elevation,
@@ -111,11 +118,14 @@ fun OutlinedButton(
   iconModifier: Modifier = Modifier,
   enabled: Boolean = true,
   interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-  elevation: ButtonElevation? = ButtonDefaults.elevation(),
-  shape: Shape = RoundedCornerShape(12.dp),
+  elevation: ButtonElevation? = ButtonDefaults.elevation(
+    defaultElevation = 0.dp,
+    hoveredElevation = 1.dp,
+  ),
+  shape: Shape = RoundedCornerShape(8.dp),
   border: BorderStroke? = ButtonDefaults.outlinedBorder,
   colors: ButtonColors = ButtonDefaults.outlinedButtonColors(),
-  contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
+  contentPadding: PaddingValues = PaddingValues(top = 2.dp, bottom = 2.dp),
   content: @Composable (RowScope.() -> Unit)? = null,
 ) = Button(
   onClick = onClick,

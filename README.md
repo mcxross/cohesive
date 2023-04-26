@@ -82,7 +82,11 @@ class MainView : CohesiveView {
         //TODO Your Ethereum Wallet implementation goes here
     }
 }
-```
+
+
+``` 
+More information can be got [here](https://mcxross.github.io/cohesive-doc/).
+
 
 ## Build locally
 
