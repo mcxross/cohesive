@@ -6,6 +6,192 @@
     "Sanity"
   ],
   "severity": "Critical",
+  "comment": "Actual property 'HomeFolder' has no corresponding expected declaration",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/androidAndroidTestRelease/kotlin/com/mcxross/cohesive/common/editor/platform/HomeFolder.kt",
+      "language": "kotlin",
+      "line": 5,
+      "offset": 12,
+      "length": 10,
+      "code": {
+        "startLine": 3,
+        "length": 10,
+        "offset": 52,
+        "surroundingCode": "import com.mcxross.cohesive.mellow.File\n\nactual val HomeFolder: File\n    get() = TODO(\"Not yet implemented\")"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.androidAndroidTestRelease",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "43a2d19c42f6eadd4a295cc6bc18ca5e27dfc2fefef228e1b64e5cbef89c0368"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: TODO",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/androidAndroidTestRelease/kotlin/com/mcxross/cohesive/common/editor/platform/HomeFolder.kt",
+      "language": "kotlin",
+      "line": 6,
+      "offset": 13,
+      "length": 4,
+      "code": {
+        "startLine": 4,
+        "length": 4,
+        "offset": 41,
+        "surroundingCode": "\nactual val HomeFolder: File\n    get() = TODO(\"Not yet implemented\")"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.androidAndroidTestRelease",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "5ede10c79603f917477294084233c93a31aa5631ea0b36204ace55d82dcc54d4"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'parseMarkdownContent' has no actual declaration in module cohesive.cmpe.common.androidBenchmark for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/widget/md/parser/Parser.kt",
+      "language": "kotlin",
+      "line": 8,
+      "offset": 12,
+      "length": 20,
+      "code": {
+        "startLine": 6,
+        "length": 20,
+        "offset": 48,
+        "surroundingCode": "import kotlinx.coroutines.flow.Flow\n\nexpect fun parseMarkdownContent(string: String): Flow<Element>\n\nopen class Parser : AbstractParser {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "466ceaf704a9dacc3de5418ef6c7fe86f928aae56dde2a2b0d93a9af180cb324"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'parseMarkdownContent' has no actual declaration in module cohesive.cmpe.common.commonBenchmark for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/impl/ui/widget/md/parser/Parser.kt",
+      "language": "kotlin",
+      "line": 8,
+      "offset": 12,
+      "length": 20,
+      "code": {
+        "startLine": 6,
+        "length": 20,
+        "offset": 48,
+        "surroundingCode": "import kotlinx.coroutines.flow.Flow\n\nexpect fun parseMarkdownContent(string: String): Flow<Element>\n\nopen class Parser : AbstractParser {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "f39bb20eb97064eebff4068abb8b3a9f0e5e21240ac009e01fff8f551df58a46"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'getDescriptor' has no actual declaration in module cohesive.cmpe.common.androidBenchmark for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/model/onnet/Descriptor.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 1,
+        "length": 13,
+        "offset": 69,
+        "surroundingCode": "package com.mcxross.cohesive.common.frontend.model.onnet\n\nexpect fun getDescriptor(): String\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "2714a6956deda21a1231cf9ae8374fd4617549b33639bef00c5f1381ca3ea509"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'getDescriptor' has no actual declaration in module cohesive.cmpe.common.commonBenchmark for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/model/onnet/Descriptor.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 1,
+        "length": 13,
+        "offset": 69,
+        "surroundingCode": "package com.mcxross.cohesive.common.frontend.model.onnet\n\nexpect fun getDescriptor(): String\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "143acd4c2e56236264cfdfac470a7635536c17cccaffc42b746af1aeb19925d5"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
   "comment": "Expected function 'VerticalScrollbar' has no actual declaration in module cohesive.cmpe.common.androidBenchmark for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
@@ -122,254 +308,6 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "4eefb9ba609e5537a659b7ce032b271072aa57a5767e6c3633ba32a664d819f0"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'runBlocking' has no actual declaration in module cohesive.cmpe.common.androidBenchmark for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/utils/Coroutines.kt",
-      "language": "kotlin",
-      "line": 7,
-      "offset": 16,
-      "length": 11,
-      "code": {
-        "startLine": 5,
-        "length": 11,
-        "offset": 63,
-        "surroundingCode": "import kotlin.coroutines.EmptyCoroutineContext\n\nexpect fun <T> runBlocking(\n  context: CoroutineContext = EmptyCoroutineContext,\n  block: suspend CoroutineScope.() -> T,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "7c90205c7cf12b18a4916801e47499775018414b7c16cee8be433491a6a862f1"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'runBlocking' has no actual declaration in module cohesive.cmpe.common.commonBenchmark for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/utils/Coroutines.kt",
-      "language": "kotlin",
-      "line": 7,
-      "offset": 16,
-      "length": 11,
-      "code": {
-        "startLine": 5,
-        "length": 11,
-        "offset": 63,
-        "surroundingCode": "import kotlin.coroutines.EmptyCoroutineContext\n\nexpect fun <T> runBlocking(\n  context: CoroutineContext = EmptyCoroutineContext,\n  block: suspend CoroutineScope.() -> T,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "f8ae3a74bffdb01addc2343876455fbb9ae6ee0f5ac42e2b6138aaa923032959"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'getDescriptor' has no actual declaration in module cohesive.cmpe.common.androidBenchmark for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/model/onnet/Descriptor.kt",
-      "language": "kotlin",
-      "line": 3,
-      "offset": 12,
-      "length": 13,
-      "code": {
-        "startLine": 1,
-        "length": 13,
-        "offset": 69,
-        "surroundingCode": "package com.mcxross.cohesive.common.frontend.model.onnet\n\nexpect fun getDescriptor(): String\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "2714a6956deda21a1231cf9ae8374fd4617549b33639bef00c5f1381ca3ea509"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'getDescriptor' has no actual declaration in module cohesive.cmpe.common.commonBenchmark for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/model/onnet/Descriptor.kt",
-      "language": "kotlin",
-      "line": 3,
-      "offset": 12,
-      "length": 13,
-      "code": {
-        "startLine": 1,
-        "length": 13,
-        "offset": 69,
-        "surroundingCode": "package com.mcxross.cohesive.common.frontend.model.onnet\n\nexpect fun getDescriptor(): String\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "143acd4c2e56236264cfdfac470a7635536c17cccaffc42b746af1aeb19925d5"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'pointerMoveFilter' has no actual declaration in module cohesive.cmpe.common.androidBenchmark for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Mouse.kt",
-      "language": "kotlin",
-      "line": 6,
-      "offset": 21,
-      "length": 17,
-      "code": {
-        "startLine": 4,
-        "length": 17,
-        "offset": 64,
-        "surroundingCode": "import androidx.compose.ui.geometry.Offset\n\nexpect fun Modifier.pointerMoveFilter(\n  onEnter: () -> Boolean = { true },\n  onExit: () -> Boolean = { true },"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "732b49254b15b52fccff6daa7afab122f45c0ce973c7d16a9c892996cfdd772c"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'pointerMoveFilter' has no actual declaration in module cohesive.cmpe.common.commonBenchmark for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Mouse.kt",
-      "language": "kotlin",
-      "line": 6,
-      "offset": 21,
-      "length": 17,
-      "code": {
-        "startLine": 4,
-        "length": 17,
-        "offset": 64,
-        "surroundingCode": "import androidx.compose.ui.geometry.Offset\n\nexpect fun Modifier.pointerMoveFilter(\n  onEnter: () -> Boolean = { true },\n  onExit: () -> Boolean = { true },"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "2e43408ea4b55e74565d0433b85c07a6ead6fae18947c684357f081020f31d3d"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'cursorForHorizontalResize' has no actual declaration in module cohesive.cmpe.common.androidBenchmark for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Mouse.kt",
-      "language": "kotlin",
-      "line": 12,
-      "offset": 21,
-      "length": 25,
-      "code": {
-        "startLine": 10,
-        "length": 25,
-        "offset": 33,
-        "surroundingCode": "): Modifier\n\nexpect fun Modifier.cursorForHorizontalResize(): Modifier\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "12d9135faaa5db7db969f20a3cfcb5a76df4363f1b2e9cf0f9adc19639d9a7e5"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected function 'cursorForHorizontalResize' has no actual declaration in module cohesive.cmpe.common.commonBenchmark for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/Mouse.kt",
-      "language": "kotlin",
-      "line": 12,
-      "offset": 21,
-      "length": 25,
-      "code": {
-        "startLine": 10,
-        "length": 25,
-        "offset": 33,
-        "surroundingCode": "): Modifier\n\nexpect fun Modifier.cursorForHorizontalResize(): Modifier\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "6b81d1603c6f54d08321e7c034efda38e77ac00c06833d9032d10b28b519e32a"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -502,91 +440,29 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Expected class 'PlatformDropTargetModifier' has no actual declaration in module cohesive.cmpe.common.androidBenchmark for JVM",
+  "comment": "Expected function 'isInternetAvailable' has no actual declaration in module cohesive.cmpe.common.androidBenchmark for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/DropTarget.kt",
-      "language": "kotlin",
-      "line": 59,
-      "offset": 14,
-      "length": 26,
-      "code": {
-        "startLine": 57,
-        "length": 26,
-        "offset": 18,
-        "surroundingCode": "  )\n\nexpect class PlatformDropTargetModifier : DropTargetModifier\n\nfun Modifier.dropTarget("
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "1be763b6092cf254d01f296bd20d0dd32edfd796b3d37df2c1a0aa1cf6ed082c"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expected class 'PlatformDropTargetModifier' has no actual declaration in module cohesive.cmpe.common.commonBenchmark for JVM",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/DropTarget.kt",
-      "language": "kotlin",
-      "line": 59,
-      "offset": 14,
-      "length": 26,
-      "code": {
-        "startLine": 57,
-        "length": 26,
-        "offset": 18,
-        "surroundingCode": "  )\n\nexpect class PlatformDropTargetModifier : DropTargetModifier\n\nfun Modifier.dropTarget("
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "d2f007fcf846baf10f158a2860ffe10c0475eab7523796a22de4c49bd2ff3ea5"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Actual property 'HomeFolder' has no corresponding expected declaration",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/androidAndroidTestRelease/kotlin/com/mcxross/cohesive/common/editor/platform/HomeFolder.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/utils/Network.kt",
       "language": "kotlin",
       "line": 5,
       "offset": 12,
-      "length": 10,
+      "length": 19,
       "code": {
         "startLine": 3,
-        "length": 10,
-        "offset": 52,
-        "surroundingCode": "import com.mcxross.cohesive.mellow.File\n\nactual val HomeFolder: File\n    get() = TODO(\"Not yet implemented\")"
+        "length": 19,
+        "offset": 36,
+        "surroundingCode": "import io.ktor.client.*\n\nexpect fun isInternetAvailable(): Boolean\nexpect fun getHTTPClient(): HttpClient"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.cmpe.common.androidAndroidTestRelease",
+    "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "43a2d19c42f6eadd4a295cc6bc18ca5e27dfc2fefef228e1b64e5cbef89c0368"
+  "hash": "fe8d46d3f2d41e25ea104fb021e4085193ff82eff7cf22fc70c062c32bc78e16"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -595,29 +471,91 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Unresolved reference: TODO",
+  "comment": "Expected function 'isInternetAvailable' has no actual declaration in module cohesive.cmpe.common.commonBenchmark for JVM",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/androidAndroidTestRelease/kotlin/com/mcxross/cohesive/common/editor/platform/HomeFolder.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/utils/Network.kt",
       "language": "kotlin",
-      "line": 6,
-      "offset": 13,
-      "length": 4,
+      "line": 5,
+      "offset": 12,
+      "length": 19,
       "code": {
-        "startLine": 4,
-        "length": 4,
-        "offset": 41,
-        "surroundingCode": "\nactual val HomeFolder: File\n    get() = TODO(\"Not yet implemented\")"
+        "startLine": 3,
+        "length": 19,
+        "offset": 36,
+        "surroundingCode": "import io.ktor.client.*\n\nexpect fun isInternetAvailable(): Boolean\nexpect fun getHTTPClient(): HttpClient"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.cmpe.common.androidAndroidTestRelease",
+    "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "5ede10c79603f917477294084233c93a31aa5631ea0b36204ace55d82dcc54d4"
+  "hash": "878fef5c0391fa95e0c9d925a3e20734a98e6d4a8de1bb347dfd474600ef5b8c"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'getHTTPClient' has no actual declaration in module cohesive.cmpe.common.androidBenchmark for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/utils/Network.kt",
+      "language": "kotlin",
+      "line": 6,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 4,
+        "length": 13,
+        "offset": 54,
+        "surroundingCode": "\nexpect fun isInternetAvailable(): Boolean\nexpect fun getHTTPClient(): HttpClient"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "a55bad3b8670b9a431c2fceb3ac862b53fd55b40daf0a02d102f112d0e64f997"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected function 'getHTTPClient' has no actual declaration in module cohesive.cmpe.common.commonBenchmark for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com/mcxross/cohesive/common/frontend/utils/Network.kt",
+      "language": "kotlin",
+      "line": 6,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 4,
+        "length": 13,
+        "offset": 54,
+        "surroundingCode": "\nexpect fun isInternetAvailable(): Boolean\nexpect fun getHTTPClient(): HttpClient"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "cb15d3601cd7a36736ae9c72c80e1965f3d32ce153356bfbcc14a4cde3670b64"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -680,4 +618,66 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "073690b4e00c8cca53fb45462cbf60ef6637e57b231db4ea205f3f6296203024"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected class 'PlatformDropTargetModifier' has no actual declaration in module cohesive.cmpe.common.androidBenchmark for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/DropTarget.kt",
+      "language": "kotlin",
+      "line": 59,
+      "offset": 14,
+      "length": 26,
+      "code": {
+        "startLine": 57,
+        "length": 26,
+        "offset": 18,
+        "surroundingCode": "  )\n\nexpect class PlatformDropTargetModifier : DropTargetModifier\n\nfun Modifier.dropTarget("
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "1be763b6092cf254d01f296bd20d0dd32edfd796b3d37df2c1a0aa1cf6ed082c"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Expected class 'PlatformDropTargetModifier' has no actual declaration in module cohesive.cmpe.common.commonBenchmark for JVM",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/com.mcxross.cohesive.mellow/DropTarget.kt",
+      "language": "kotlin",
+      "line": 59,
+      "offset": 14,
+      "length": 26,
+      "code": {
+        "startLine": 57,
+        "length": 26,
+        "offset": 18,
+        "surroundingCode": "  )\n\nexpect class PlatformDropTargetModifier : DropTargetModifier\n\nfun Modifier.dropTarget("
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "d2f007fcf846baf10f158a2860ffe10c0475eab7523796a22de4c49bd2ff3ea5"
 }]}
