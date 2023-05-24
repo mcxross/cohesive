@@ -48,7 +48,7 @@ constructor(
   override fun loadClass(className: String): Class<*> {
     synchronized(getClassLoadingLock(className)) {
       // first check whether it's a system class, delegate to the system pluginLoader
-      if (className.startsWith(JAVA_PACKAGE_PREFIX)) {
+      if (className.startsWith(JAVA_PACKAGE_PREFIX) || className.startsWith(KOTLIN_PACKAGE_PREFIX)) {
         return findSystemClass(className)
       }
       // if the class is part of the Plugin engine use parent class pluginLoader
@@ -198,6 +198,7 @@ constructor(
 
   companion object {
     private const val JAVA_PACKAGE_PREFIX = "java."
+    private const val KOTLIN_PACKAGE_PREFIX = "kotlin."
     private const val PLUGIN_PACKAGE_PREFIX = "com.mcxross.cohesive.cps."
   }
 }
