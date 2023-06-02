@@ -1,2 +1,2 @@
-com.mcxross.cohesive.csp.processor.CohesiveProcessorProvider
-com.mcxross.cohesive.csp.processor.ExtensionProcessorProvider
+xyz.mcxross.cohesive.csp.processor.CohesiveProcessorProvider
+xyz.mcxross.cohesive.csp.processor.ExtensionProcessorProvider

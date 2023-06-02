@@ -31,7 +31,7 @@ kotlin {
 
 compose.desktop {
   application {
-    mainClass = "com.mcxross.cohesive.desktop.MainKt"
+    mainClass = "xyz.mcxross.cohesive.desktop.MainKt"
     nativeDistributions {
       targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
       packageName = "cohesive"

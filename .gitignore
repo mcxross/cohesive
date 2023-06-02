@@ -36,10 +36,9 @@ bin/
 /dist/
 /nbdist/
 /.nb-gradle/
-
+**/local.properties
 ### VS Code ###
 .vscode/
-
 ### Mac OS ###
 .DS_Store
 cmpe/local.properties

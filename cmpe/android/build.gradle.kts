@@ -7,7 +7,7 @@ plugins {
 
 group
 
-"com.mcxross.cohesive"
+"xyz.mcxross.cohesive"
 
 version
 
@@ -23,7 +23,7 @@ dependencies {
 android {
   compileSdk = 33
   defaultConfig {
-    applicationId = "com.mcxross.cohesive.android"
+    applicationId = "xyz.mcxross.cohesive.android"
     minSdk = 24
     targetSdk = 33
     versionCode = 1
