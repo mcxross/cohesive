@@ -6,10 +6,10 @@ val napierVersion: String by project
 plugins {
   id("maven-publish")
   kotlin("multiplatform")
-  id("org.jetbrains.kotlinx.benchmark") version "0.4.4"
-  id("org.jetbrains.kotlin.plugin.allopen") version "1.8.0"
-  id("com.google.devtools.ksp") version "1.8.0-1.0.9"
-  kotlin("plugin.serialization") version "1.8.0"
+  id("org.jetbrains.kotlinx.benchmark")
+  id("org.jetbrains.kotlin.plugin.allopen")
+  id("com.google.devtools.ksp")
+  kotlin("plugin.serialization")
   id("org.jetbrains.compose")
   id("com.android.library")
   id("org.jetbrains.dokka")

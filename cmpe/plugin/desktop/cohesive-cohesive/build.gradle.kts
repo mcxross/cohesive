@@ -1,6 +1,6 @@
 plugins {
   id("org.jetbrains.compose")
-  id("com.google.devtools.ksp") version "1.8.0-1.0.9"
+  id("com.google.devtools.ksp")
 }
 
 dependencies {

@@ -1,7 +1,7 @@
 package com.mcxross.cohesive.mellow
 
 import androidx.compose.foundation.ScrollState
-import androidx.compose.foundation.ScrollbarAdapter
+import androidx.compose.foundation.v2.ScrollbarAdapter
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.rememberScrollbarAdapter
 import androidx.compose.runtime.Composable
