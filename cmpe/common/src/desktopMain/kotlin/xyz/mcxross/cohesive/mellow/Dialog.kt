@@ -1,5 +1,6 @@
 package xyz.mcxross.cohesive.mellow
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -55,6 +56,7 @@ private fun BottomBar(
     ) {
       Row(
         modifier = Modifier.fillMaxHeight().align(Alignment.CenterEnd),
+        horizontalArrangement = Arrangement.spacedBy(4.dp)
       ) {
         if (positiveText.isNotEmpty()) {
           Button(
