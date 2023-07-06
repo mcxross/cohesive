@@ -42,9 +42,13 @@ import xyz.mcxross.cohesive.common.frontend.api.ui.view.CohesiveView
 import xyz.mcxross.cohesive.common.frontend.impl.ui.view.View
 import xyz.mcxross.cohesive.common.frontend.utils.WindowState
 import xyz.mcxross.cohesive.common.frontend.utils.isDirectory
+import xyz.mcxross.cohesive.common.project.loadDirAsProject
+import xyz.mcxross.cohesive.common.utils.isBinaryFile
 import xyz.mcxross.cohesive.csp.annotation.Cohesive
 import xyz.mcxross.cohesive.mellow.Dialog
-import xyz.mcxross.cohesive.mellow.EditorEmpty
+import xyz.mcxross.cohesive.mellow.EditorComposite
+import xyz.mcxross.cohesive.mellow.EditorSimple
+import xyz.mcxross.cohesive.mellow.File
 import xyz.mcxross.cohesive.mellow.FileTree
 import xyz.mcxross.cohesive.mellow.FileTreeModel
 import xyz.mcxross.cohesive.mellow.HomeFolder
@@ -252,16 +256,22 @@ open class MainScreen {
 
   @Composable
   protected fun Editor() {
-    /*if ((WindowState.currentProjectFile as File).isDirectory) {
-      EditorComposite(
-        file = WindowState.currentProjectFile as File,
-      )
+    if ((WindowState.currentProjectFile as File).isDirectory) {
+      if (loadDirAsProject(java.io.File((WindowState.currentProjectFile as File).absolutePath))) {
+        EditorComposite(
+          file = WindowState.currentProjectFile as File,
+        )
+      } else {
+        // TODO Handle dir not loaded
+      }
     } else {
-      EditorSimple(
-        file = WindowState.currentProjectFile as File,
-      )
-    }*/
-    EditorEmpty(text = "Drag and Drop Files to Open")
+      if (!isBinaryFile(java.io.File((WindowState.currentProjectFile as File).absolutePath))) {
+        EditorSimple(
+          file = WindowState.currentProjectFile as File,
+        )
+      }
+    }
+    /*EditorEmpty(text = "Drag and Drop Files to Open")*/
   }
 
   @Composable
