@@ -7,12 +7,12 @@
     "vcs": {
       "sarifIdea": {
         "repositoryUri": "https://github.com/mcxross/cohesive",
-        "revisionId": "be630e050c060bc5155e7ef7a65e3bc909ec58d6",
+        "revisionId": "3dc231e61f3cbf443afebab1585ec714b32b8b25",
         "branch": "main"
       }
     },
     "deviceId": "200820300000000-49a7-80d1-6387-25a0083d4549",
-    "jobUrl": "https://github.com/mcxross/cohesive/actions/runs/5410896820",
+    "jobUrl": "https://github.com/mcxross/cohesive/actions/runs/5474047375",
     "repoUrl": "https://github.com/mcxross/cohesive"
   }
 }
