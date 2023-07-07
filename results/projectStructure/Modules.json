@@ -226,16 +226,6 @@
               "packagePrefix": ""
             }
           ]
-        },
-        {
-          "path": "file://$PROJECT_DIR$/cmpe/common/src/jvmMain",
-          "sourceFolders": [
-            {
-              "path": "file://$PROJECT_DIR$/cmpe/common/src/jvmMain/kotlin",
-              "type": "Source",
-              "packagePrefix": ""
-            }
-          ]
         }
       ],
       "orderEntries": [
@@ -1777,10 +1767,6 @@
           "type": "Module"
         },
         {
-          "name": "cohesive.cmpe.common.commonMain",
-          "type": "Module"
-        },
-        {
           "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20",
           "type": "Library"
         },
@@ -2344,10 +2330,6 @@
         },
         {
           "name": "cohesive.cmpe.common.generatedByKspKotlinDesktop",
-          "type": "Module"
-        },
-        {
-          "name": "cohesive.cmpe.common.commonMain",
           "type": "Module"
         },
         {

@@ -1,311 +1,31 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'TipText' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/frontend/impl/ui/widget/Tip.kt",
-      "language": "kotlin",
-      "line": 152,
-      "offset": 5,
-      "length": 7,
-      "code": {
-        "startLine": 150,
-        "length": 7,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun TipText(\n  currentTarget: TipTargets,\n  boundsInParent: Rect,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "68c820ff10097df26c51571f271047048d88b49aa6d6db4b6e76e5ac21ad2dde"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'TargetContent' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/frontend/impl/ui/widget/Tip.kt",
-      "language": "kotlin",
-      "line": 38,
-      "offset": 5,
-      "length": 13,
-      "code": {
-        "startLine": 36,
-        "length": 13,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun TargetContent(\n  target: TipTargets,\n  onTipCompleted: () -> Unit,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "4b0aa01ab3ac8f36a534a493407c4b2b6deb7b17f76e059e0208a65965ef70b6"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'Tip' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/frontend/impl/ui/widget/Tip.kt",
-      "language": "kotlin",
-      "line": 23,
-      "offset": 5,
-      "length": 3,
-      "code": {
-        "startLine": 21,
-        "length": 3,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun Tip(\n  state: TipState,\n  onShowCaseCompleted: () -> Unit,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "064b1912c1d2a63940e379ab1629a4e3883c98561981d19f6b2352edf75603df"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'TopBar' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/mellow/TopBar.kt",
-      "language": "kotlin",
-      "line": 35,
-      "offset": 17,
-      "length": 6,
-      "code": {
-        "startLine": 33,
-        "length": 6,
-        "offset": 29,
-        "surroundingCode": "\n@Composable\nfun WindowScope.TopBar(\n  onClose: () -> Unit,\n  onRestore: () -> Unit,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "2408b5313e04596658c02c6d70dec1a78c41c056f2e89a9c69657a771bfde9f6"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'TopMinBar' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/mellow/TopBar.kt",
-      "language": "kotlin",
-      "line": 110,
-      "offset": 5,
-      "length": 9,
-      "code": {
-        "startLine": 108,
-        "length": 9,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun TopMinBar(\n  onClose: () -> Unit,\n  modifier: Modifier,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "a59c9996ceca26d172e924f4992fd5cc1a8926c2b7aa5045d458bcc73a80791f"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'Dialog' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/mellow/Dialog.kt",
-      "language": "kotlin",
-      "line": 94,
-      "offset": 5,
-      "length": 6,
-      "code": {
-        "startLine": 92,
-        "length": 6,
-        "offset": 17,
-        "surroundingCode": "\n@Composable\nfun Dialog(\n  onClose: () -> Unit,\n  text: String,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "5684a26db98c63dd614e4196b12144c126d25f85564d5bfadd1f21e0e2c07e95"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'BottomBar' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/mellow/Dialog.kt",
-      "language": "kotlin",
-      "line": 40,
-      "offset": 13,
-      "length": 9,
-      "code": {
-        "startLine": 38,
-        "length": 9,
-        "offset": 25,
-        "surroundingCode": "\n@Composable\nprivate fun BottomBar(\n  modifier: Modifier,\n  negativeText: String,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "4d9ad92f270884836bd859aef274b6c640ec192e2205abbfcbe7d38bbf717ed9"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'Content' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/mellow/Dialog.kt",
-      "language": "kotlin",
-      "line": 30,
-      "offset": 13,
-      "length": 7,
-      "code": {
-        "startLine": 28,
-        "length": 7,
-        "offset": 25,
-        "surroundingCode": "\n@Composable\nprivate fun Content(\n  modifier: Modifier,\n  content: @Composable () -> Unit,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "333395380d460792a6fd4aa8c307a3a0c4e6704f98aef283834f712c28e2a472"
-},{
-  "tool": "Code Inspection",
-  "category": "Naming conventions",
-  "type": "Function naming convention",
-  "severity": "Moderate",
-  "comment": "Function name 'Code' should start with a lowercase letter",
-  "detailsInfo": "Reports function names that do not follow the recommended naming conventions.\n\n**Example:**\n\n\n      fun Foo() {}\n\nTo fix the problem change the name of the function to match the recommended naming conventions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/frontend/impl/ui/widget/md/markup/Code.kt",
-      "language": "kotlin",
-      "line": 25,
-      "offset": 5,
-      "length": 4,
-      "code": {
-        "startLine": 23,
-        "length": 4,
-        "offset": 51,
-        "surroundingCode": "@OptIn(ExperimentalUnitApi::class)\n@Composable\nfun Code(\n  text: String,\n  backgroundColor: Color,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "FunctionName"
-  },
-  "hash": "56303521dd9609aa7e26db1685746db9693b1e507ed6b45258774fdc36ad8ae1"
-},{
-  "tool": "Code Inspection",
   "category": "Probable bugs",
   "type": "Unresolved reference in KDoc",
   "severity": "High",
-  "comment": "Cannot resolve symbol 'metadata'",
+  "comment": "Cannot resolve symbol 'plugins'",
   "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/PluginManager.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/frontend/model/Platform.kt",
       "language": "kotlin",
-      "line": 40,
-      "offset": 72,
-      "length": 8,
-      "code": {
-        "startLine": 38,
-        "length": 8,
-        "offset": 119,
-        "surroundingCode": "   *\n   * @param pluginPath the plugin location\n   * @return the pluginId of the installed plugin as specified in its [metadata]\n   * [PluginDescriptor]\n   * @throws PluginRuntimeException if something goes wrong"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "KDocUnresolvedReference"
-  },
-  "hash": "cd8a7b37af4887b031f004312e85ca5915e1310a7efd64585ba8a86a38528431"
-},{
-  "tool": "Code Inspection",
-  "category": "Probable bugs",
-  "type": "Unresolved reference in KDoc",
-  "severity": "High",
-  "comment": "Cannot resolve symbol 'version'",
-  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/PluginManager.kt",
-      "language": "kotlin",
-      "line": 142,
-      "offset": 13,
+      "line": 9,
+      "offset": 14,
       "length": 7,
       "code": {
-        "startLine": 140,
+        "startLine": 7,
         "length": 7,
-        "offset": 37,
-        "surroundingCode": "   *\n   * @default 0.0.0\n   * @param version\n   */\n  var systemVersion: String"
+        "offset": 101,
+        "surroundingCode": " * @property k A list of Chain flavor.\n * @property v A list of Chain flavor URL paths.\n * @property plugins A list of Primary Plugins available(installed and non-installed).\n */\nobject Platform {"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
+    "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "3fd7f4fce7f1c8d4a26f561e4c06e1122a560322ad3422d6ce77a586c41bef37"
+  "hash": "05f9736df722420a28c7f5a8223f1ccf6118df266e8aa69cd93deaa999413f5e"
 },{
   "tool": "Code Inspection",
   "category": "Probable bugs",
@@ -316,16 +36,44 @@
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/mellow/DropTargetContainer.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/mellow/DropTarget.kt",
+      "language": "kotlin",
+      "line": 12,
+      "offset": 22,
+      "length": 6,
+      "code": {
+        "startLine": 10,
+        "length": 6,
+        "offset": 64,
+        "surroundingCode": " * Interface for receiving drag events.\n *\n * Original Author: [tunjid]\n *\n * Code attributed to [tunjid] as the original author."
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "KDocUnresolvedReference"
+  },
+  "hash": "a149c9ac7adf8a77eb36bb675be3604aaa20ae61af87cf4a454356cfdc0eba09"
+},{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Unresolved reference in KDoc",
+  "severity": "High",
+  "comment": "Cannot resolve symbol 'tunjid'",
+  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/mellow/DropTarget.kt",
       "language": "kotlin",
       "line": 14,
-      "offset": 22,
+      "offset": 24,
       "length": 6,
       "code": {
         "startLine": 12,
         "length": 6,
-        "offset": 26,
-        "surroundingCode": "\n/**\n * Original Author: [tunjid]\n *\n * Code attributed to [tunjid] as the original author."
+        "offset": 55,
+        "surroundingCode": " * Original Author: [tunjid]\n *\n * Code attributed to [tunjid] as the original author.\n */\ninterface DropTarget {"
       }
     }
   ],
@@ -333,111 +81,55 @@
     "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "ad011a41442abaf9ec8a5da35c0032d00012eb956e7894be40ed6f03635dbaa1"
+  "hash": "d2cbc492df0d2cf1255d983a6e176235ce63df87ee3b1f15e3c5fb0e078af370"
 },{
   "tool": "Code Inspection",
-  "category": "Probable bugs",
-  "type": "Unresolved reference in KDoc",
+  "category": "Redundant constructs",
+  "type": "Unused receiver parameter",
   "severity": "High",
-  "comment": "Cannot resolve symbol 'tunjid'",
-  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
+  "comment": "Receiver parameter is never used",
+  "detailsInfo": "Reports receiver parameter of extension functions and properties that is not used.\n\n**Remove redundant receiver parameter** can be used to amend the code automatically.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/mellow/DropTargetContainer.kt",
-      "language": "kotlin",
-      "line": 16,
-      "offset": 24,
-      "length": 6,
-      "code": {
-        "startLine": 14,
-        "length": 6,
-        "offset": 55,
-        "surroundingCode": " * Original Author: [tunjid]\n *\n * Code attributed to [tunjid] as the original author.\n */\ninternal val ModifierLocalDropTargetParent = modifierLocalOf<DropTargetParent?> { null }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KDocUnresolvedReference"
-  },
-  "hash": "c5897256e181ec34d4c67b23f9ca81619db5d6e210f60651456437d875fc095f"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "severity": "Info",
-  "comment": "Property 'pluginDescriptor' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/PluginClassLoader.kt",
-      "language": "kotlin",
-      "line": 20,
-      "offset": 7,
-      "length": 16,
-      "code": {
-        "startLine": 18,
-        "length": 16,
-        "offset": 55,
-        "surroundingCode": "constructor(\n  val pluginManager: PluginManager,\n  val pluginDescriptor: PluginDescriptor,\n  parent: ClassLoader?,\n  val parentFirst: Boolean = false,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "MemberVisibilityCanBePrivate"
-  },
-  "hash": "faeb34c92e392b7bfce216bc70b097fbfd99c5cf1a86cfae8a2affd73c9b3ba0"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "severity": "Info",
-  "comment": "Property 'parentFirst' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/PluginClassLoader.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/mellow/foundation/text/KeyEventHelpers.kt",
       "language": "kotlin",
       "line": 22,
-      "offset": 7,
-      "length": 11,
+      "offset": 14,
+      "length": 8,
       "code": {
         "startLine": 20,
-        "length": 11,
-        "offset": 72,
-        "surroundingCode": "  val pluginDescriptor: PluginDescriptor,\n  parent: ClassLoader?,\n  val parentFirst: Boolean = false,\n  val classLoadingStrategy: ClassLoadingStrategy =\n    if (parentFirst) ClassLoadingStrategy.APD else ClassLoadingStrategy.PDA,"
+        "length": 8,
+        "offset": 67,
+        "surroundingCode": "import org.jetbrains.skiko.orderEmojiAndSymbolsPopup\n\ninternal fun KeyEvent.cancelsTextSelection(): Boolean = false\n\ninternal fun showCharacterPalette() = orderEmojiAndSymbolsPopup()"
       }
     }
   ],
   "attributes": {
     "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "MemberVisibilityCanBePrivate"
+    "inspectionName": "UnusedReceiverParameter"
   },
-  "hash": "b798884e31746b7da85a5d10125723cb7ae2535e44d3a60265682ba163a9f368"
+  "hash": "f123e2d84648a16c7e8d969d08557239627e7ad2f8fa08ae8f4d319863352af8"
 },{
   "tool": "Code Inspection",
   "category": "Style issues",
   "type": "Class member can have 'private' visibility",
   "severity": "Info",
-  "comment": "Property 'classLoadingStrategy' could be private",
+  "comment": "Property 'enabledFilePath' could be private",
   "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/PluginClassLoader.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/DefaultPluginStatusProvider.kt",
       "language": "kotlin",
       "line": 23,
       "offset": 7,
-      "length": 20,
+      "length": 15,
       "code": {
         "startLine": 21,
-        "length": 20,
-        "offset": 66,
-        "surroundingCode": "  parent: ClassLoader?,\n  val parentFirst: Boolean = false,\n  val classLoadingStrategy: ClassLoadingStrategy =\n    if (parentFirst) ClassLoadingStrategy.APD else ClassLoadingStrategy.PDA,\n) : URLClassLoader(arrayOfNulls(0), parent) {"
+        "length": 15,
+        "offset": 20,
+        "surroundingCode": "      }\n    }\n  val enabledFilePath: Path\n    get() = getEnabledFilePath(pluginsRoot)\n  val disabledFilePath: Path"
       }
     }
   ],
@@ -445,167 +137,27 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "MemberVisibilityCanBePrivate"
   },
-  "hash": "f9b4d14153c2988319a4af51cb2df75e61874053e9dfb483b786ae4560ce56b9"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "'protected' visibility is effectively 'private' in a final class",
-  "severity": "Moderate",
-  "comment": "'protected' visibility is effectively 'private' in a final class",
-  "detailsInfo": "Reports `protected` visibility used inside of a `final` class. In such cases `protected` members are accessible only in the class itself, so they are effectively `private`.\n\n**Example:**\n\n\n      class FinalClass {\n          protected fun foo() {}\n      }\n\nAfter the quick-fix is applied:\n\n\n      class FinalClass {\n          private fun foo() {}\n      }\n",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/DefaultPluginRepository.kt",
-      "language": "kotlin",
-      "line": 46,
-      "offset": 3,
-      "length": 9,
-      "code": {
-        "startLine": 44,
-        "length": 9,
-        "offset": 7,
-        "surroundingCode": "  }\n\n  protected fun createHiddenPluginFilter(): FileFilter {\n    return OrFileFilter(HiddenFilter())\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "ProtectedInFinal"
-  },
-  "hash": "6194a91a8aa5b4123bda2dd9d6e42469e0d1fd14d0eadc56d11b03d641a35415"
+  "hash": "c1a3560297b3df7847bed5e6aa1607e235a6f217408aa1807094e4e2de43f744"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
   "type": "Unused symbol",
   "severity": "High",
-  "comment": "Function \"stopListening\" is never used",
+  "comment": "Function \"App\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/daemon/Directory.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/App.kt",
       "language": "kotlin",
-      "line": 68,
-      "offset": 7,
-      "length": 13,
-      "code": {
-        "startLine": 66,
-        "length": 13,
-        "offset": 11,
-        "surroundingCode": "  }\n\n  fun stopListening() {\n    running = false\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "6cd953df53d1e87d9f20b02fc51d11d62d1a1f353e06149810dfa4755e5b862c"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Function \"onModify\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/daemon/Directory.kt",
-      "language": "kotlin",
-      "line": 20,
-      "offset": 7,
-      "length": 8,
-      "code": {
-        "startLine": 18,
-        "length": 8,
-        "offset": 11,
-        "surroundingCode": "  }\n\n  fun onModify(callback: (String) -> Unit) {\n    onModifyCallback = callback\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "7b8513fbd95b8f690eb13fd65cf203975023acbc94429aa4365a39b90787ccb0"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Function \"onDelete\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/daemon/Directory.kt",
-      "language": "kotlin",
-      "line": 16,
-      "offset": 7,
-      "length": 8,
-      "code": {
-        "startLine": 14,
-        "length": 8,
-        "offset": 11,
-        "surroundingCode": "  }\n\n  fun onDelete(callback: (String) -> Unit) {\n    onDeleteCallback = callback\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "510df35ff7991f4959258b2025e6d2891cf1af0313b09e3f0cd3f7f36db7f8b6"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Property \"backgroundDarkLight\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/mellow/MellowTheme.kt",
-      "language": "kotlin",
-      "line": 30,
-      "offset": 9,
-      "length": 19,
-      "code": {
-        "startLine": 28,
-        "length": 19,
-        "offset": 126,
-        "surroundingCode": "    private val backgroundDark: Color = Color(0xFF2B2B2B)\n    private val onBackgroundDark: Color = Color(0xFFA9A9A9)\n    val backgroundDarkLight: Color = Color(0xFF4E5254)\n    private val surfaceDark: Color = Color(0xFF3C3F41)\n    private val onSurfaceDark: Color = Color(0xFFA9A9A9)"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "205d0bcbddf61928132e86b8019cff6c0d146dd6ffee6763fe2b6ac35071d5ff"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Function \"TipScaffold\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/frontend/impl/ui/widget/TipScaffold.kt",
-      "language": "kotlin",
-      "line": 10,
+      "line": 7,
       "offset": 5,
-      "length": 11,
+      "length": 3,
       "code": {
-        "startLine": 8,
-        "length": 11,
+        "startLine": 5,
+        "length": 3,
         "offset": 17,
-        "surroundingCode": "\n@Composable\nfun TipScaffold(\n  tip: Boolean,\n  onTip: () -> Unit,"
+        "surroundingCode": "\n@Composable\nfun App() {\n\n  Text(\"Cohesive\")"
       }
     }
   ],
@@ -613,35 +165,7 @@
     "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "04a7c13ce4c41f6aaf88e1808c9ca040a8e178b7419a4aadbd0ade371953790b"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Function \"tipTarget\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/frontend/impl/ui/widget/TipScaffold.kt",
-      "language": "kotlin",
-      "line": 36,
-      "offset": 16,
-      "length": 9,
-      "code": {
-        "startLine": 34,
-        "length": 9,
-        "offset": 86,
-        "surroundingCode": "\n  /** Modifier that marks Compose UI element as a target for [Tip] */\n  fun Modifier.tipTarget(\n    index: Int,\n    style: TipStyle = TipStyle.Default,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "16cfe5dc18358eb5fb7872f182c76c77e7758e3a179d925632dfe9b52c838ee8"
+  "hash": "7a21af41d742b41a021c3ac38dfddf51b7f88774646d10bcb1961dfb5d1da648"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
@@ -652,16 +176,16 @@
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/DevelopmentPluginRepository.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/JarPluginRepository.kt",
       "language": "kotlin",
-      "line": 14,
+      "line": 8,
       "offset": 3,
       "length": 11,
       "code": {
-        "startLine": 12,
+        "startLine": 6,
         "length": 11,
-        "offset": 49,
-        "surroundingCode": "\n  override var filter: FileFilter? = filter()\n  constructor(vararg pluginsRoots: Path) : this(mutableListOf<Path>(*pluginsRoots))\n\n  fun filter(): AndFileFilter {"
+        "offset": 112,
+        "surroundingCode": "class JarPluginRepository(pluginsRoots: List<Path>) :\n  BasePluginRepository(pluginsRoots, JarFileFilter()) {\n  constructor(vararg pluginsRoots: Path) : this(listOf<Path>(*pluginsRoots))\n}\n"
       }
     }
   ],
@@ -669,27 +193,55 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "a44da83ffb8d585fd9b12a10000ddcb9b8b6f83b2b88492fe00318a0d94cae6a"
+  "hash": "490198fa77fc1aa59cfa0b6e16a2c1ae0b56fb40cb117e77d29ed9f98bff1a37"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
   "type": "Unused symbol",
   "severity": "High",
-  "comment": "Class \"Horizontal\" is never used",
+  "comment": "Property \"IMAGE_TYPE\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/mellow/foundation/text/selection/SelectionMode.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/frontend/impl/ui/widget/MarkdownConfig.kt",
       "language": "kotlin",
-      "line": 53,
-      "offset": 3,
+      "line": 19,
+      "offset": 15,
       "length": 10,
       "code": {
-        "startLine": 51,
+        "startLine": 17,
         "length": 10,
-        "offset": 33,
-        "surroundingCode": "   * and the right rows.\n   */\n  Horizontal {\n    override fun compare(position: Offset, bounds: Rect): Int {\n      if (bounds.contains(position)) return 0"
+        "offset": 57,
+        "surroundingCode": "    const val CHECKBOX_COLOR = \"checkbox\"\n\n    const val IMAGE_TYPE = 1\n    const val LINK_TYPE = 2\n  }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "01758cf31b069cb8b551babb069376fc7ad5736c64b750ab7544173001bc8585"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Class \"UriConverter\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/mellow/UriConverter.kt",
+      "language": "kotlin",
+      "line": 8,
+      "offset": 14,
+      "length": 12,
+      "code": {
+        "startLine": 6,
+        "length": 12,
+        "offset": 41,
+        "surroundingCode": "import java.nio.file.Files\n\nactual class UriConverter {\n  actual fun toInput(uri: Uri): Input = when {\n    uri.path.startsWith(\"http\") -> TODO(\"unimplemented\")"
       }
     }
   ],
@@ -697,61 +249,61 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "1ceaeb4fd2c6b7011797916854d973672b10f4d99fc2ca61643e1f578a91e24e"
+  "hash": "2063e02a10ffe23d5ac86cb0094317ccc76f1cc1a5f02b821b6288626a33cea0"
 },{
   "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Might be 'const'",
-  "severity": "Moderate",
-  "comment": "Might be 'const'",
-  "detailsInfo": "Reports top-level `val` properties in objects that might be declared as `const` for better performance and Java interoperability.\n\n**Example:**\n\n\n      object A {\n          val foo = 1\n      }\n\nAfter the quick-fix is applied:\n\n\n      object A {\n          const val foo = 1\n      }\n",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Function \"toInput\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/mellow/foundation/text/UndoManager.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/mellow/UriConverter.kt",
       "language": "kotlin",
-      "line": 21,
+      "line": 9,
       "offset": 14,
-      "length": 25,
+      "length": 7,
       "code": {
-        "startLine": 19,
-        "length": 25,
-        "offset": 67,
-        "surroundingCode": "import androidx.compose.ui.text.input.TextFieldValue\n\ninternal val SNAPSHOTS_INTERVAL_MILLIS = 5000\n\n/**"
+        "startLine": 7,
+        "length": 7,
+        "offset": 42,
+        "surroundingCode": "\nactual class UriConverter {\n  actual fun toInput(uri: Uri): Input = when {\n    uri.path.startsWith(\"http\") -> TODO(\"unimplemented\")\n    else -> File(uri.path).inputStream().asInput()"
       }
     }
   ],
   "attributes": {
     "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "MayBeConstant"
+    "inspectionName": "UnusedSymbol"
   },
-  "hash": "6ea3d1c1a5c13519623a55171184ee7ebb3b5bafe582962f66e69dbf0248888f"
+  "hash": "1d9a2d3f3541712fe818eff6073c2f31a9f753249d22cfc9bc8618dd555a8fba"
 },{
   "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Might be 'const'",
-  "severity": "Moderate",
-  "comment": "Might be 'const'",
-  "detailsInfo": "Reports top-level `val` properties in objects that might be declared as `const` for better performance and Java interoperability.\n\n**Example:**\n\n\n      object A {\n          val foo = 1\n      }\n\nAfter the quick-fix is applied:\n\n\n      object A {\n          const val foo = 1\n      }\n",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Property \"Wallet\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/mellow/foundation/text/TouchMode.desktop.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/mellow/icon/regular/Wallet.kt",
       "language": "kotlin",
-      "line": 19,
-      "offset": 14,
-      "length": 13,
+      "line": 8,
+      "offset": 26,
+      "length": 6,
       "code": {
-        "startLine": 17,
-        "length": 13,
-        "offset": 66,
-        "surroundingCode": "package xyz.mcxross.cohesive.mellow.foundation.text\n\ninternal val isInTouchMode = false\n"
+        "startLine": 6,
+        "length": 6,
+        "offset": 77,
+        "surroundingCode": "import xyz.mcxross.cohesive.mellow.icon.mellowPath\n\npublic val Icons.Regular.Wallet: ImageVector\n  get() {\n    if (xyz.mcxross.cohesive.mellow.icon.regular._wallet != null) {"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "MayBeConstant"
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "UnusedSymbol"
   },
-  "hash": "901addb771487fe1c6eb8f4c311138a7a89f824a52ce4e6597e9f32cdeafa6e9"
+  "hash": "a0d758e889d2c506c3ef498389735b164f7b56332f4c8547825406d0e3f01662"
 }]}
