@@ -1,5 +1,6 @@
 package xyz.mcxross.cohesive.daemon
 
+import kotlinx.coroutines.coroutineScope
 import xyz.mcxross.cohesive.common.utils.Log
 import java.nio.file.*
 
@@ -22,7 +23,7 @@ class DirectoryListener(private val directoryPath: String) {
   }
 
   @Suppress("NewApi")
-  fun startListening() {
+  suspend fun startListening() = coroutineScope {
     val directory = Paths.get(directoryPath)
 
     if (!Files.exists(directory) || !Files.isDirectory(directory)) {
@@ -30,7 +31,12 @@ class DirectoryListener(private val directoryPath: String) {
     }
 
     val watchService = FileSystems.getDefault().newWatchService()
-    directory.register(watchService, StandardWatchEventKinds.ENTRY_CREATE)
+    directory.register(
+      watchService,
+      StandardWatchEventKinds.ENTRY_CREATE,
+      StandardWatchEventKinds.ENTRY_DELETE,
+      StandardWatchEventKinds.ENTRY_MODIFY,
+    )
 
     running = true
 

@@ -1,13 +1,22 @@
 package xyz.mcxross.cohesive.common.project
 
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import xyz.mcxross.cohesive.common.utils.Log
 import xyz.mcxross.cohesive.daemon.createCohesiveProjectListener
 import java.io.File
 
+@OptIn(DelicateCoroutinesApi::class)
 internal class Project(
-  val parentDir: File,
+  private val parentDir: File,
 ) {
+  val name: String
+    get() = parentDir.name
+  val root: File
+    get() = parentDir
 
-  val COHESIVE_PROJECT = ".cohesive"
+  private val COHESIVE_PROJECT = ".cohesive"
 
   var projectLoaded: Boolean = false
 
@@ -23,8 +32,16 @@ internal class Project(
       onCreate {
         //TODO handle new file created
       }
-      // TODO This runs on the main thread. Use coroutines to dispatch it
-      startListening()
+      onModify {
+        //TODO handle modify file
+      }
+      onDelete {
+        //TODO handle delete file
+      }
+      // TODO Use Structured Concurrency
+      GlobalScope.launch {
+        startListening()
+      }
     }
     projectLoaded = true
   }

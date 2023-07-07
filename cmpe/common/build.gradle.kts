@@ -54,7 +54,6 @@ kotlin {
     }
     val commonBenchmark by creating { dependsOn(commonMain) }
     val androidMain by getting {
-      kotlin.srcDirs("src/jvmMain/kotlin")
       dependencies {
         api("androidx.appcompat:appcompat:1.4.2")
         api("androidx.core:core-ktx:1.8.0")
@@ -65,7 +64,6 @@ kotlin {
     val androidTest by getting { dependencies { implementation("junit:junit:4.13.2") } }
     val androidBenchmark by creating { dependsOn(androidMain) }
     val desktopMain by getting {
-      kotlin.srcDirs("src/jvmMain/kotlin")
       dependencies {
         api(compose.preview)
         implementation(project(":cmpe:csp"))

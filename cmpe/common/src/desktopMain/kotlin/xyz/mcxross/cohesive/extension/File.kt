@@ -1,4 +1,4 @@
-package xyz.mcxross.cohesive.common.common.platform
+package xyz.mcxross.cohesive.extension
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
@@ -69,7 +69,7 @@ fun java.io.File.toProjectFile(): File =
       return object : TextLines {
         override val size
           get() = size
-        override var isCode : Boolean = name.endsWith(".kt", ignoreCase = true)
+        override var isCode: Boolean = name.endsWith(".kt", ignoreCase = true)
         override val text: State<String>
           get() {
             return if (byteBuffer.hasArray()) {
@@ -79,8 +79,8 @@ fun java.io.File.toProjectFile(): File =
                 mutableStateOf(
                   String(
                     ByteArray(byteBufferSize).also { byteBuffer.get(it) },
-                    StandardCharsets.UTF_8
-                  )
+                    StandardCharsets.UTF_8,
+                  ),
                 )
               } catch (e: Exception) {
                 mutableStateOf("")
@@ -143,7 +143,8 @@ private fun java.io.File.readLinePositions(
 
 /** Compact version of List<Int> (without unboxing Int and using IntArray under the hood) */
 private class IntList(initialCapacity: Int = 16) {
-  @Volatile private var array = IntArray(initialCapacity)
+  @Volatile
+  private var array = IntArray(initialCapacity)
 
   @Volatile
   var size: Int = 0
