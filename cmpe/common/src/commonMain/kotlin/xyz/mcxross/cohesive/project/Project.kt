@@ -1,14 +1,13 @@
-package xyz.mcxross.cohesive.common.project
+package xyz.mcxross.cohesive.project
 
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import xyz.mcxross.cohesive.common.utils.Log
 import xyz.mcxross.cohesive.daemon.createCohesiveProjectListener
-import java.io.File
+import xyz.mcxross.cohesive.mellow.File
 
 @OptIn(DelicateCoroutinesApi::class)
-internal class Project(
+class Project(
   private val parentDir: File,
 ) {
   val name: String
@@ -51,12 +50,12 @@ internal class Project(
   }
 
   private fun isCohesiveProject(): Boolean {
-    val cohesiveDir = File(parentDir, COHESIVE_PROJECT)
+    val cohesiveDir = java.io.File(parentDir.absolutePath, COHESIVE_PROJECT)
     return cohesiveDir.exists() && cohesiveDir.isDirectory
   }
 
   private fun makeCohesiveProject(): Boolean {
-    return File(parentDir, COHESIVE_PROJECT).mkdir()
+    return java.io.File(parentDir.absolutePath, COHESIVE_PROJECT).mkdir()
   }
 
   fun loadCohesiveProject() {
@@ -65,10 +64,11 @@ internal class Project(
 
 }
 
-fun loadDirAsProject(file: File): Boolean {
+fun loadDirAsProject(file: File): Pair<Boolean, Project?> {
   return if (file.isDirectory) {
-    Project(file).isLoaded()
+    val project = Project(file)
+    project.isLoaded() to project
   } else {
-    false
+    false to null
   }
 }

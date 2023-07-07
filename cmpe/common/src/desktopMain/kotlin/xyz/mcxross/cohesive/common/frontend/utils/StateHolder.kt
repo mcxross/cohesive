@@ -7,6 +7,7 @@ import androidx.compose.ui.window.WindowState
 import xyz.mcxross.cohesive.common.frontend.impl.ui.view.View
 import xyz.mcxross.cohesive.mellow.HomeFolder
 import kotlinx.serialization.Serializable
+import xyz.mcxross.cohesive.project.Project
 
 typealias WindowState = StatesHolder.Window
 
@@ -23,6 +24,7 @@ class StatesHolder {
     var isPreAvail: Boolean by mutableStateOf(false)
     var isDelayClose: Boolean by mutableStateOf(true)
     var currentProjectFile: Any? by mutableStateOf(HomeFolder.absolutePath)
+    var currentProject: Project? by mutableStateOf(null)
   }
 }
 

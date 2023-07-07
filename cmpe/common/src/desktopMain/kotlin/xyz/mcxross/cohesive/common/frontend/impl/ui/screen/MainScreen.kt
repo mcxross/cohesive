@@ -26,6 +26,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,7 +43,7 @@ import xyz.mcxross.cohesive.common.frontend.api.ui.view.CohesiveView
 import xyz.mcxross.cohesive.common.frontend.impl.ui.view.View
 import xyz.mcxross.cohesive.common.frontend.utils.WindowState
 import xyz.mcxross.cohesive.common.frontend.utils.isDirectory
-import xyz.mcxross.cohesive.common.project.loadDirAsProject
+import xyz.mcxross.cohesive.project.loadDirAsProject
 import xyz.mcxross.cohesive.common.utils.isBinaryFile
 import xyz.mcxross.cohesive.csp.annotation.Cohesive
 import xyz.mcxross.cohesive.mellow.Dialog
@@ -257,10 +258,15 @@ open class MainScreen {
   @Composable
   protected fun Editor() {
     if ((WindowState.currentProjectFile as File).isDirectory) {
-      if (loadDirAsProject(java.io.File((WindowState.currentProjectFile as File).absolutePath))) {
-        EditorComposite(
-          file = WindowState.currentProjectFile as File,
-        )
+      val pair by rememberUpdatedState(loadDirAsProject((WindowState.currentProjectFile as File)))
+      val (loaded, project) = pair
+      WindowState.currentProject = project
+      if (loaded) {
+        WindowState.currentProject?.let {
+          EditorComposite(
+            project = it,
+          )
+        }
       } else {
         // TODO Handle dir not loaded
       }

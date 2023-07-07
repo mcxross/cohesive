@@ -14,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
+import xyz.mcxross.cohesive.project.Project
 
 private operator fun TextUnit.minus(other: TextUnit) = (value - other.value).sp
 
@@ -21,8 +22,8 @@ private operator fun TextUnit.div(other: TextUnit) = value / other.value
 
 @Composable
 fun EditorComposite(
-    text: String = "Project",
-    file: File,
+  text: String = "Project",
+  project: Project,
 ) {
 
   val editorCompositeContainer = remember {
@@ -30,7 +31,7 @@ fun EditorComposite(
 
     EditorCompositeContainer(
       editorManager = editorManager,
-      fileTreeModel = FileTreeModel(file) { editorManager.open(it) },
+      fileTreeModel = FileTreeModel(project.root) { editorManager.open(it) },
     )
   }
 
@@ -41,9 +42,9 @@ fun EditorComposite(
       if (panelState.isExpanded) panelState.expandedSize else panelState.collapsedSize
     } else {
       animateDpAsState(
-          if (panelState.isExpanded) panelState.expandedSize else panelState.collapsedSize,
-          SpringSpec(stiffness = Spring.StiffnessLow),
-        )
+        if (panelState.isExpanded) panelState.expandedSize else panelState.collapsedSize,
+        SpringSpec(stiffness = Spring.StiffnessLow),
+      )
         .value
     }
 
