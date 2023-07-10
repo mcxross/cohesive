@@ -24,7 +24,7 @@ import xyz.mcxross.cohesive.common.frontend.impl.ui.widget.md.markup.MarkdownShi
 import xyz.mcxross.cohesive.common.frontend.impl.ui.widget.md.markup.MarkdownStyledTextComponent
 import xyz.mcxross.cohesive.common.frontend.impl.ui.widget.md.markup.Space
 import xyz.mcxross.cohesive.common.frontend.impl.ui.widget.md.markup.Text
-import xyz.mcxross.cohesive.mellow.VerticalScrollbar
+import xyz.mcxross.cohesive.designsystem.mellow.VerticalScrollbar
 import kotlinx.coroutines.launch
 import org.intellij.markdown.ast.ASTNode
 import org.intellij.markdown.flavours.commonmark.CommonMarkFlavourDescriptor

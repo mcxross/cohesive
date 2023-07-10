@@ -4,7 +4,7 @@ import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import xyz.mcxross.cohesive.daemon.createCohesiveProjectListener
-import xyz.mcxross.cohesive.mellow.File
+import xyz.mcxross.cohesive.designsystem.mellow.File
 
 @OptIn(DelicateCoroutinesApi::class)
 class Project(

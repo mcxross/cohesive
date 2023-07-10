@@ -4,8 +4,8 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import xyz.mcxross.cohesive.mellow.File
-import xyz.mcxross.cohesive.mellow.TextLines
+import xyz.mcxross.cohesive.designsystem.mellow.File
+import xyz.mcxross.cohesive.designsystem.mellow.TextLines
 import java.io.FileInputStream
 import java.io.IOException
 import java.io.RandomAccessFile

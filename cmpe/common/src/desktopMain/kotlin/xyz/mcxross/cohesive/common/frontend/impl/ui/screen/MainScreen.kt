@@ -46,20 +46,20 @@ import xyz.mcxross.cohesive.common.frontend.utils.isDirectory
 import xyz.mcxross.cohesive.project.loadDirAsProject
 import xyz.mcxross.cohesive.common.utils.isBinaryFile
 import xyz.mcxross.cohesive.csp.annotation.Cohesive
-import xyz.mcxross.cohesive.mellow.Dialog
-import xyz.mcxross.cohesive.mellow.EditorComposite
-import xyz.mcxross.cohesive.mellow.EditorSimple
-import xyz.mcxross.cohesive.mellow.File
-import xyz.mcxross.cohesive.mellow.FileTree
-import xyz.mcxross.cohesive.mellow.FileTreeModel
-import xyz.mcxross.cohesive.mellow.HomeFolder
-import xyz.mcxross.cohesive.mellow.Menu
-import xyz.mcxross.cohesive.mellow.MenuContainer
-import xyz.mcxross.cohesive.mellow.MenuInterface
-import xyz.mcxross.cohesive.mellow.MenuItem
-import xyz.mcxross.cohesive.mellow.TabbedButtonIcon
-import xyz.mcxross.cohesive.mellow.TopBar
-import xyz.mcxross.cohesive.mellow.WindowScaffold
+import xyz.mcxross.cohesive.designsystem.mellow.Dialog
+import xyz.mcxross.cohesive.designsystem.mellow.EditorComposite
+import xyz.mcxross.cohesive.designsystem.mellow.EditorSimple
+import xyz.mcxross.cohesive.designsystem.mellow.File
+import xyz.mcxross.cohesive.designsystem.mellow.FileTree
+import xyz.mcxross.cohesive.designsystem.mellow.FileTreeModel
+import xyz.mcxross.cohesive.designsystem.mellow.HomeFolder
+import xyz.mcxross.cohesive.designsystem.mellow.Menu
+import xyz.mcxross.cohesive.designsystem.mellow.MenuContainer
+import xyz.mcxross.cohesive.designsystem.mellow.MenuInterface
+import xyz.mcxross.cohesive.designsystem.mellow.MenuItem
+import xyz.mcxross.cohesive.designsystem.mellow.TabbedButtonIcon
+import xyz.mcxross.cohesive.designsystem.mellow.TopBar
+import xyz.mcxross.cohesive.designsystem.mellow.WindowScaffold
 import java.util.*
 
 open class MainScreen {

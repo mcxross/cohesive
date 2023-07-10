@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.window.WindowState
 import xyz.mcxross.cohesive.common.frontend.impl.ui.view.View
-import xyz.mcxross.cohesive.mellow.HomeFolder
+import xyz.mcxross.cohesive.designsystem.mellow.HomeFolder
 import kotlinx.serialization.Serializable
 import xyz.mcxross.cohesive.project.Project
 

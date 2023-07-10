@@ -22,7 +22,7 @@ import xyz.mcxross.cohesive.common.frontend.utils.WindowState
 import xyz.mcxross.cohesive.common.frontend.utils.getPreferredWindowSize
 import xyz.mcxross.cohesive.common.utils.Log.d
 import xyz.mcxross.cohesive.common.utils.splashScreenSize
-import xyz.mcxross.cohesive.mellow.PlatformDropTargetModifier
+import xyz.mcxross.cohesive.designsystem.mellow.PlatformDropTargetModifier
 
 @Composable
 fun BrewScreenCompositionLocal(

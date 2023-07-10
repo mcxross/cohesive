@@ -28,11 +28,11 @@ import xyz.mcxross.cohesive.common.frontend.model.SecondaryPlugin
 import xyz.mcxross.cohesive.common.frontend.model.isInstalled
 import xyz.mcxross.cohesive.common.frontend.utils.WindowState
 import xyz.mcxross.cohesive.common.frontend.utils.loadImageBitmap
-import xyz.mcxross.cohesive.mellow.*
+import xyz.mcxross.cohesive.designsystem.mellow.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import xyz.mcxross.cohesive.mellow.MellowTheme
+import xyz.mcxross.cohesive.designsystem.mellow.MellowTheme
 
 private var selectedPlatform by mutableStateOf("")
 private var showInstallDialog by mutableStateOf(false)
@@ -69,7 +69,7 @@ internal fun Platform(secondaryPlugin: SecondaryPlugin) {
           alignment = Alignment.BottomEnd,
         ),
     ) {
-      xyz.mcxross.cohesive.mellow.Card(
+      xyz.mcxross.cohesive.designsystem.mellow.Card(
         modifier =
         Modifier.border(
           width = if (selectedPlatform == id) 1.dp else 0.dp,
@@ -93,7 +93,7 @@ internal fun Platform(secondaryPlugin: SecondaryPlugin) {
         width = 100.dp,
         height = 100.dp,
       ) {
-        xyz.mcxross.cohesive.mellow.Image(
+        xyz.mcxross.cohesive.designsystem.mellow.Image(
           load = {
             loadImageBitmap(
               (Context.configuration.asSetFor?.cohesive?.repo) +
@@ -180,7 +180,7 @@ internal fun SkipButton(
     }
   }
 
-  xyz.mcxross.cohesive.mellow.OutlinedButton(
+  xyz.mcxross.cohesive.designsystem.mellow.OutlinedButton(
     onClick = {
       if (selectedPlatform.isEmpty()) {
         launchMainScreen()
@@ -280,7 +280,7 @@ fun StoreScreen() {
                       Row(
                         modifier = Modifier.fillMaxHeight().align(Alignment.CenterEnd),
                       ) {
-                        xyz.mcxross.cohesive.mellow.Button(
+                        xyz.mcxross.cohesive.designsystem.mellow.Button(
                           onClick = {
                             if (
                               Context.secondaryPlugins
@@ -293,7 +293,7 @@ fun StoreScreen() {
                           },
                           text = if (displayInstallError) "Retry" else "Install"
                         )
-                        xyz.mcxross.cohesive.mellow.Button(
+                        xyz.mcxross.cohesive.designsystem.mellow.Button(
                           onClick = {
                             displayInstallError = false
                             showInstallDialog = false

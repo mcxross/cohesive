@@ -10,7 +10,7 @@ import xyz.mcxross.cohesive.common.frontend.model.Platform
 import xyz.mcxross.cohesive.common.frontend.model.SecondaryPlugin
 import xyz.mcxross.cohesive.common.frontend.model.onnet.Descriptor
 import xyz.mcxross.cohesive.cps.PluginManager
-import xyz.mcxross.cohesive.mellow.PlatformDropTargetModifier
+import xyz.mcxross.cohesive.designsystem.mellow.PlatformDropTargetModifier
 
 object Local {
   var LocalScreen: ProvidableCompositionLocal<Screen> = staticCompositionLocalOf {
