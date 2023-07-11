@@ -1,7 +1,7 @@
 package xyz.mcxross.cohesive.cps
 
-import xyz.mcxross.cohesive.common.frontend.utils.exists
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.exists
+import xyz.mcxross.cohesive.utils.Log
 import xyz.mcxross.cohesive.cps.utils.FileUtils
 import java.io.File
 import okio.Path

@@ -1,6 +1,6 @@
 package xyz.mcxross.cohesive.cps.asm
 
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.Log
 import xyz.mcxross.cohesive.csp.annotation.Extension
 import org.objectweb.asm.AnnotationVisitor
 import org.objectweb.asm.ClassVisitor

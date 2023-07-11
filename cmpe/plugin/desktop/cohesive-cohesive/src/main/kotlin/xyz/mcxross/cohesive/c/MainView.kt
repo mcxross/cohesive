@@ -1,7 +1,7 @@
 package xyz.mcxross.cohesive.c
 
 import androidx.compose.runtime.Composable
-import xyz.mcxross.cohesive.common.frontend.api.ui.view.CohesiveView
+import xyz.mcxross.cohesive.ui.api.view.CohesiveView
 import xyz.mcxross.cohesive.csp.annotation.Cohesive
 import xyz.mcxross.cohesive.csp.annotation.Net
 

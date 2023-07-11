@@ -1,6 +1,6 @@
 package xyz.mcxross.cohesive.cps.asm
 
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.Log
 import org.objectweb.asm.ClassReader
 import java.io.IOException
 import java.util.*

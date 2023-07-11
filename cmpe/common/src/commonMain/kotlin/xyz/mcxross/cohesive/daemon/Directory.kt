@@ -1,7 +1,7 @@
 package xyz.mcxross.cohesive.daemon
 
 import kotlinx.coroutines.coroutineScope
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.Log
 import java.nio.file.*
 
 class DirectoryListener(private val directoryPath: String) {

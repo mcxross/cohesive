@@ -12,16 +12,16 @@ import androidx.compose.ui.res.useResource
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.WindowScope
-import xyz.mcxross.cohesive.common.Cohesive
-import xyz.mcxross.cohesive.common.Local.LocalScreen
-import xyz.mcxross.cohesive.common.Screen
-import xyz.mcxross.cohesive.common.frontend.impl.ui.screen.MainScreen
-import xyz.mcxross.cohesive.common.frontend.impl.ui.screen.StoreScreen
-import xyz.mcxross.cohesive.common.frontend.impl.ui.view.splash.SplashScreen
-import xyz.mcxross.cohesive.common.frontend.utils.WindowState
-import xyz.mcxross.cohesive.common.frontend.utils.getPreferredWindowSize
-import xyz.mcxross.cohesive.common.utils.Log.d
-import xyz.mcxross.cohesive.common.utils.splashScreenSize
+import xyz.mcxross.cohesive.Cohesive
+import xyz.mcxross.cohesive.state.Local.LocalScreen
+import xyz.mcxross.cohesive.model.Screen
+import xyz.mcxross.cohesive.ui.impl.screen.MainScreen
+import xyz.mcxross.cohesive.ui.impl.screen.StoreScreen
+import xyz.mcxross.cohesive.ui.impl.view.SplashScreen
+import xyz.mcxross.cohesive.state.WindowState
+import xyz.mcxross.cohesive.utils.getPreferredWindowSize
+import xyz.mcxross.cohesive.utils.Log.d
+import xyz.mcxross.cohesive.utils.splashScreenSize
 import xyz.mcxross.cohesive.designsystem.mellow.PlatformDropTargetModifier
 
 @Composable
@@ -39,17 +39,17 @@ fun BrewScreenCompositionLocal(
 /** This is where the magic happens, the main function is the entry point to the application. */
 fun main() =
   Cohesive.run {
-    if (xyz.mcxross.cohesive.common.Context.isLoadingResource) {
+    if (xyz.mcxross.cohesive.state.Context.isLoadingResource) {
       Window(
         onCloseRequest = ::exitApplication,
         undecorated = true,
         resizable = false,
         icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
         state =
-          androidx.compose.ui.window.WindowState(
-            position = WindowPosition.Aligned(Alignment.Center),
-            size = getPreferredWindowSize(splashScreenSize().width, splashScreenSize().height),
-          ),
+        androidx.compose.ui.window.WindowState(
+          position = WindowPosition.Aligned(Alignment.Center),
+          size = getPreferredWindowSize(splashScreenSize().width, splashScreenSize().height),
+        ),
       ) {
         SplashScreen()
       }
@@ -73,7 +73,7 @@ fun main() =
                   window = window,
                 )
               }
-            xyz.mcxross.cohesive.common.Context.pluginManager.getCohesiveView().let { View ->
+            xyz.mcxross.cohesive.state.Context.pluginManager.getCohesiveView().let { View ->
               BrewScreenCompositionLocal(
                 windowScope = this,
                 pdtm = dropParent,
@@ -101,8 +101,8 @@ fun main() =
             resizable = false,
             state =
             androidx.compose.ui.window.WindowState(
-                position = WindowPosition.Aligned(Alignment.Center),
-              ),
+              position = WindowPosition.Aligned(Alignment.Center),
+            ),
             icon = BitmapPainter(useResource("ic_launcher.png", ::loadImageBitmap)),
           ) {
             val density = LocalDensity.current.density

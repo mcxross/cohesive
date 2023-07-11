@@ -1,9 +1,9 @@
 package xyz.mcxross.cohesive.cps
 
-import xyz.mcxross.cohesive.common.frontend.api.ui.view.CohesiveView
-import xyz.mcxross.cohesive.common.frontend.utils.isNotDirectory
-import xyz.mcxross.cohesive.common.frontend.utils.notExists
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.ui.api.view.CohesiveView
+import xyz.mcxross.cohesive.utils.isNotDirectory
+import xyz.mcxross.cohesive.utils.notExists
+import xyz.mcxross.cohesive.utils.Log
 import java.io.Closeable
 import java.io.IOException
 import java.util.*

@@ -1,6 +1,6 @@
 package xyz.mcxross.cohesive.cps
 
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.Log
 
 /**
  * It's an implementation of [PluginStateListener] that writes all events to logger (DEBUG level).

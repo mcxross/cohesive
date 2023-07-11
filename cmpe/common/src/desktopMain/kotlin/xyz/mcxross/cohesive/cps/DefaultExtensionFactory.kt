@@ -1,6 +1,6 @@
 package xyz.mcxross.cohesive.cps
 
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.Log
 
 /** The default implementation for [ExtensionFactory]. It uses [Class.newInstance] method. */
 open class DefaultExtensionFactory : ExtensionFactory {

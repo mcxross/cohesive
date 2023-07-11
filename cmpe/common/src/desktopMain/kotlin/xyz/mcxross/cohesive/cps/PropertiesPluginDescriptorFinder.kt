@@ -1,12 +1,12 @@
 package xyz.mcxross.cohesive.cps
 
-import xyz.mcxross.cohesive.common.frontend.utils.exists
-import xyz.mcxross.cohesive.common.frontend.utils.isDir
-import xyz.mcxross.cohesive.common.frontend.utils.isDirectory
-import xyz.mcxross.cohesive.common.frontend.utils.isZipOrJarFile
-import xyz.mcxross.cohesive.common.frontend.utils.newInputStream
-import xyz.mcxross.cohesive.common.frontend.utils.notExists
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.exists
+import xyz.mcxross.cohesive.utils.isDir
+import xyz.mcxross.cohesive.utils.isDirectory
+import xyz.mcxross.cohesive.utils.isZipOrJarFile
+import xyz.mcxross.cohesive.utils.newInputStream
+import xyz.mcxross.cohesive.utils.notExists
+import xyz.mcxross.cohesive.utils.Log
 import xyz.mcxross.cohesive.cps.utils.FileUtils
 import xyz.mcxross.cohesive.cps.utils.isNotNullOrEmpty
 import java.io.IOException

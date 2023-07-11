@@ -2,7 +2,7 @@ package xyz.mcxross.cohesive.cps
 
 import com.akuleshov7.ktoml.Toml
 import com.akuleshov7.ktoml.TomlConfig
-import xyz.mcxross.cohesive.common.frontend.utils.readFileToStr
+import xyz.mcxross.cohesive.utils.readFileToStr
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.serializer

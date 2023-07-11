@@ -1,7 +1,7 @@
 package xyz.mcxross.cohesive.designsystem.mellow
 
 import androidx.compose.runtime.State
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.Log
 import kotlinx.coroutines.CoroutineScope
 
 class EditorModel(

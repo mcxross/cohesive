@@ -1,6 +1,6 @@
 package xyz.mcxross.cohesive.c
 
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.Log
 import xyz.mcxross.cohesive.cps.Plugin
 import xyz.mcxross.cohesive.cps.PluginWrapper
 

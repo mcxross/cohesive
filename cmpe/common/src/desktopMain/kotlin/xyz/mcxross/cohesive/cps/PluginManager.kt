@@ -1,6 +1,6 @@
 package xyz.mcxross.cohesive.cps
 
-import xyz.mcxross.cohesive.common.frontend.api.ui.view.CohesiveView
+import xyz.mcxross.cohesive.ui.api.view.CohesiveView
 import okio.Path
 
 /**

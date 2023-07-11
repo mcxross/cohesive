@@ -1,6 +1,6 @@
 package xyz.mcxross.cohesive.cps
 
-import xyz.mcxross.cohesive.common.frontend.utils.isDirectory
+import xyz.mcxross.cohesive.utils.isDirectory
 import okio.Path
 
 /** Load all information needed by a Plugin from [DefaultPluginClasspath]. */

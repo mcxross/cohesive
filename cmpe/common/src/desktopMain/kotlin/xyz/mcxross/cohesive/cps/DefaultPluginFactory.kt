@@ -1,6 +1,6 @@
 package xyz.mcxross.cohesive.cps
 
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.Log
 import java.lang.reflect.Modifier
 
 /** The default implementation for [PluginFactory]. It uses [Class.newInstance] method. */

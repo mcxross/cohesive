@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Popup
-import xyz.mcxross.cohesive.common.ds.tree.TreeNode
+import xyz.mcxross.cohesive.common.algo.ds.tree.TreeNode
 import kotlinx.coroutines.launch
 
 interface MenuInterface {

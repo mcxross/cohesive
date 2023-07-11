@@ -1,7 +1,7 @@
 package xyz.mcxross.cohesive.cps.utils
 
-import xyz.mcxross.cohesive.common.frontend.utils.deleteRecursively
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.deleteRecursively
+import xyz.mcxross.cohesive.utils.Log
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream

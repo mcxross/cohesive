@@ -13,7 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import xyz.mcxross.cohesive.common.frontend.utils.WindowState
+import xyz.mcxross.cohesive.state.WindowState
 import xyz.mcxross.cohesive.mellow.Button
 import xyz.mcxross.cohesive.mellow.Dialog
 import xyz.mcxross.cohesive.mellow.Toast

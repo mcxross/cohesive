@@ -1,7 +1,7 @@
 package xyz.mcxross.cohesive.cps
 
-import xyz.mcxross.cohesive.common.frontend.utils.exists
-import xyz.mcxross.cohesive.common.frontend.utils.isJarFile
+import xyz.mcxross.cohesive.utils.exists
+import xyz.mcxross.cohesive.utils.isJarFile
 import okio.Path
 
 class JarPluginLoader(var pluginManager: PluginManager) : PluginLoader {

@@ -1,6 +1,6 @@
 package xyz.mcxross.cohesive.cps
 
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.Log
 import xyz.mcxross.cohesive.cps.utils.AndFileFilter
 import xyz.mcxross.cohesive.cps.utils.DirectoryFileFilter
 import xyz.mcxross.cohesive.cps.utils.FileUtils

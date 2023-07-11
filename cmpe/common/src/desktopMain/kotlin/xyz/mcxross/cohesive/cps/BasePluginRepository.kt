@@ -1,6 +1,6 @@
 package xyz.mcxross.cohesive.cps
 
-import xyz.mcxross.cohesive.common.frontend.utils.delete
+import xyz.mcxross.cohesive.utils.delete
 import okio.IOException
 import okio.Path
 import okio.Path.Companion.toPath

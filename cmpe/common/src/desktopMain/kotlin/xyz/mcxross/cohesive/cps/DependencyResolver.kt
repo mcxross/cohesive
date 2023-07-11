@@ -1,6 +1,6 @@
 package xyz.mcxross.cohesive.cps
 
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.Log
 import xyz.mcxross.cohesive.cps.DependencyResolver.Result
 import xyz.mcxross.cohesive.cps.utils.DirectedGraph
 

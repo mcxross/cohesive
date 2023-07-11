@@ -15,7 +15,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
-import xyz.mcxross.cohesive.common.Local
+import xyz.mcxross.cohesive.state.Local
 
 object Toast {
   var model: ToastModel by mutableStateOf(ToastModel())

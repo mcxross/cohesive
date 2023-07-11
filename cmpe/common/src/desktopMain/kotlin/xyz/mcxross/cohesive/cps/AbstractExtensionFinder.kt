@@ -1,7 +1,7 @@
 package xyz.mcxross.cohesive.cps
 
-import xyz.mcxross.cohesive.common.frontend.api.ui.view.CohesiveView
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.ui.api.view.CohesiveView
+import xyz.mcxross.cohesive.utils.Log
 import xyz.mcxross.cohesive.cps.asm.ExtensionInfo
 import xyz.mcxross.cohesive.cps.utils.ClassUtils
 import xyz.mcxross.cohesive.csp.annotation.Extension

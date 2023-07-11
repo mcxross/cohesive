@@ -1,14 +1,14 @@
 package xyz.mcxross.cohesive.cps.utils
 
-import xyz.mcxross.cohesive.common.frontend.utils.delete
-import xyz.mcxross.cohesive.common.frontend.utils.exists
-import xyz.mcxross.cohesive.common.frontend.utils.isDirectory
-import xyz.mcxross.cohesive.common.frontend.utils.isZip
-import xyz.mcxross.cohesive.common.frontend.utils.isZipOrJarFile
-import xyz.mcxross.cohesive.common.frontend.utils.lastModified
-import xyz.mcxross.cohesive.common.frontend.utils.notExists
-import xyz.mcxross.cohesive.common.frontend.utils.toUri
-import xyz.mcxross.cohesive.common.utils.Log
+import xyz.mcxross.cohesive.utils.delete
+import xyz.mcxross.cohesive.utils.exists
+import xyz.mcxross.cohesive.utils.isDirectory
+import xyz.mcxross.cohesive.utils.isZip
+import xyz.mcxross.cohesive.utils.isZipOrJarFile
+import xyz.mcxross.cohesive.utils.lastModified
+import xyz.mcxross.cohesive.utils.notExists
+import xyz.mcxross.cohesive.utils.toUri
+import xyz.mcxross.cohesive.utils.Log
 import java.io.File
 import java.io.FileFilter
 import java.net.URI
