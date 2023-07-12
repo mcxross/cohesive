@@ -7,10 +7,13 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
+import xyz.mcxross.cohesive.ui.api.theme.Code
+import xyz.mcxross.cohesive.ui.api.theme.Theme
 
-object MellowTheme {
 
-  val code: Code = Code()
+object MellowTheme : Theme {
+
+  override val code: Code = Code()
 
   @Composable
   fun getColors(): androidx.compose.material.Colors {
@@ -53,13 +56,13 @@ object MellowTheme {
   }
 
   class Code(
-    val simple: SpanStyle = SpanStyle(Color(0xFFA9B7C6)),
-    val value: SpanStyle = SpanStyle(Color(0xFF6897BB)),
-    val keyword: SpanStyle = SpanStyle(Color(0xFFCC7832)),
-    val punctuation: SpanStyle = SpanStyle(Color(0xFFA1C17E)),
-    val annotation: SpanStyle = SpanStyle(Color(0xFFBBB529)),
-    val comment: SpanStyle = SpanStyle(Color(0xFF808080)),
-  )
+    override val simple: SpanStyle = SpanStyle(Color(0xFFA9B7C6)),
+    override val value: SpanStyle = SpanStyle(Color(0xFF6897BB)),
+    override val keyword: SpanStyle = SpanStyle(Color(0xFFCC7832)),
+    override val punctuation: SpanStyle = SpanStyle(Color(0xFFA1C17E)),
+    override val annotation: SpanStyle = SpanStyle(Color(0xFFBBB529)),
+    override val comment: SpanStyle = SpanStyle(Color(0xFF808080)),
+  ) : xyz.mcxross.cohesive.ui.api.theme.Code
 
   @Composable
   fun Theme(content: @Composable () -> Unit) {

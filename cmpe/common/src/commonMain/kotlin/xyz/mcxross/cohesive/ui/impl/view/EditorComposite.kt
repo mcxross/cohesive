@@ -1,4 +1,4 @@
-package xyz.mcxross.cohesive.designsystem.mellow
+package xyz.mcxross.cohesive.ui.impl.view
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.Spring
@@ -14,6 +14,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
+import xyz.mcxross.cohesive.core.editor.EditorCompositeContainer
+import xyz.mcxross.cohesive.core.editor.EditorManager
+import xyz.mcxross.cohesive.designsystem.mellow.FileTree
+import xyz.mcxross.cohesive.designsystem.mellow.FileTreeModel
+import xyz.mcxross.cohesive.designsystem.mellow.FileTreeTab
+import xyz.mcxross.cohesive.designsystem.mellow.PanelState
+import xyz.mcxross.cohesive.designsystem.mellow.ResizablePanel
+import xyz.mcxross.cohesive.designsystem.mellow.VerticalSplittable
 import xyz.mcxross.cohesive.project.Project
 
 private operator fun TextUnit.minus(other: TextUnit) = (value - other.value).sp

@@ -1,6 +1,6 @@
 @file:JvmName("MellowEditor")
 
-package xyz.mcxross.cohesive.designsystem.mellow
+package xyz.mcxross.cohesive.ui.impl.view
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -20,6 +20,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import xyz.mcxross.cohesive.designsystem.mellow.foundation.text.CoreTextField
 import kotlinx.coroutines.launch
+import xyz.mcxross.cohesive.designsystem.mellow.Fonts
+import xyz.mcxross.cohesive.designsystem.mellow.TextLines
 
 @Composable
 internal actual fun EditorMap(
@@ -84,7 +86,7 @@ internal actual fun EditorMap(
         }
       }
 
-      HorizontalScrollbar(
+      xyz.mcxross.cohesive.designsystem.mellow.HorizontalScrollbar(
         scrollState = textFieldHorizontalScrollState,
         modifier = Modifier.padding(start = 90.dp, end = 15.dp).align(Alignment.BottomStart),
       )
@@ -98,7 +100,7 @@ internal actual fun EditorMap(
         }
       }
 
-      VerticalScrollbar(
+      xyz.mcxross.cohesive.designsystem.mellow.VerticalScrollbar(
         modifier = Modifier.padding(end = 5.dp).align(Alignment.CenterEnd),
         scrollbarAdapter = scrollbarAdapter,
       )

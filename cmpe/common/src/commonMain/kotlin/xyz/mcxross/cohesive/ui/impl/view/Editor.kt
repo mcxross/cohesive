@@ -1,4 +1,4 @@
-package xyz.mcxross.cohesive.designsystem.mellow
+package xyz.mcxross.cohesive.ui.impl.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
@@ -37,11 +37,22 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import xyz.mcxross.cohesive.core.editor.EditorCompositeContainer
+import xyz.mcxross.cohesive.core.editor.EditorManager
+import xyz.mcxross.cohesive.core.editor.EditorModel
+import xyz.mcxross.cohesive.designsystem.mellow.Fonts
+import xyz.mcxross.cohesive.designsystem.mellow.MellowTheme
+import xyz.mcxross.cohesive.designsystem.mellow.PanelState
+import xyz.mcxross.cohesive.designsystem.mellow.Progress
+import xyz.mcxross.cohesive.designsystem.mellow.RectTab
+import xyz.mcxross.cohesive.designsystem.mellow.TextLines
+import xyz.mcxross.cohesive.designsystem.mellow.loadableScoped
+import xyz.mcxross.cohesive.ui.api.theme.Theme
 
 @Composable
 fun EditorTabs(
-    editorCompositeContainer: EditorCompositeContainer,
-    panelState: PanelState,
+  editorCompositeContainer: EditorCompositeContainer,
+  panelState: PanelState,
 ) =
   Row(
     modifier = Modifier.horizontalScroll(state = rememberScrollState()),
@@ -67,7 +78,7 @@ fun EditorTabs(
 
 @Composable
 fun EditorTabs(
-    editorManager: EditorManager,
+  editorManager: EditorManager,
 ) =
   Row(
     modifier = Modifier.horizontalScroll(state = rememberScrollState()),
@@ -84,10 +95,10 @@ fun EditorTabs(
 
 @Composable
 fun Editor(
-    model: EditorModel,
-    modifier: Modifier = Modifier,
-    fontSize: TextUnit = 13.sp,
-    maxLineSymbols: Int = 120,
+  model: EditorModel,
+  modifier: Modifier = Modifier,
+  fontSize: TextUnit = 13.sp,
+  maxLineSymbols: Int = 120,
 ) =
   key(model) {
     with(LocalDensity.current) {
@@ -102,10 +113,10 @@ fun Editor(
               EditorMap(textLines = textLines!!, fontSize = fontSize)
               Box(
                 modifier =
-                  Modifier.offset(x = fontSize.toDp() * 0.5f * maxLineSymbols)
-                    .width(1.dp)
-                    .fillMaxHeight()
-                    .background(MaterialTheme.colors.onSurface),
+                Modifier.offset(x = fontSize.toDp() * 0.5f * maxLineSymbols)
+                  .width(1.dp)
+                  .fillMaxHeight()
+                  .background(MaterialTheme.colors.onSurface),
               )
             }
           } else {
@@ -118,8 +129,8 @@ fun Editor(
 
 @Composable
 internal expect fun EditorMap(
-    textLines: TextLines,
-    fontSize: TextUnit,
+  textLines: TextLines,
+  fontSize: TextUnit,
 )
 
 @Composable
@@ -179,37 +190,33 @@ fun highlight(text: String, isCode: Boolean): AnnotatedString {
 
 fun codeString(
   str: String,
+  theme: Theme = MellowTheme // Default theme if not provided
 ) = buildAnnotatedString {
-  withStyle(MellowTheme.code.simple) {
+  withStyle(theme.code.simple) {
     val strFormatted = str.replace("\t", "    ")
     append(strFormatted)
-    addStyle(MellowTheme.code.punctuation, strFormatted, ":")
-    addStyle(MellowTheme.code.punctuation, strFormatted, "=")
-    addStyle(MellowTheme.code.punctuation, strFormatted, "\"")
-    addStyle(MellowTheme.code.punctuation, strFormatted, "[")
-    addStyle(MellowTheme.code.punctuation, strFormatted, "]")
-    addStyle(MellowTheme.code.punctuation, strFormatted, "{")
-    addStyle(MellowTheme.code.punctuation, strFormatted, "}")
-    addStyle(MellowTheme.code.punctuation, strFormatted, "(")
-    addStyle(MellowTheme.code.punctuation, strFormatted, ")")
-    addStyle(MellowTheme.code.punctuation, strFormatted, ",")
-    addStyle(MellowTheme.code.keyword, strFormatted, "fun ")
-    addStyle(MellowTheme.code.keyword, strFormatted, "val ")
-    addStyle(MellowTheme.code.keyword, strFormatted, "var ")
-    addStyle(MellowTheme.code.keyword, strFormatted, "private ")
-    addStyle(MellowTheme.code.keyword, strFormatted, "internal ")
-    addStyle(MellowTheme.code.keyword, strFormatted, "for ")
-    addStyle(MellowTheme.code.keyword, strFormatted, "expect ")
-    addStyle(MellowTheme.code.keyword, strFormatted, "actual ")
-    addStyle(MellowTheme.code.keyword, strFormatted, "import ")
-    addStyle(MellowTheme.code.keyword, strFormatted, "package ")
-    addStyle(MellowTheme.code.value, strFormatted, "true")
-    addStyle(MellowTheme.code.value, strFormatted, "false")
-    addStyle(MellowTheme.code.value, strFormatted, Regex("[0-9]*"))
-    addStyle(MellowTheme.code.annotation, strFormatted, Regex("^@[a-zA-Z_]*"))
-    addStyle(MellowTheme.code.comment, strFormatted, Regex("^\\s*//.*"))
+
+    val punctuationCharacters = listOf(":", "=", "\"", "[", "]", "{", "}", "(", ")", ",")
+    val keywords = listOf(
+      "fun", "val", "var", "private", "internal", "for",
+      "expect", "actual", "import", "package",
+    )
+
+    for (punctuation in punctuationCharacters) {
+      addStyle(theme.code.punctuation, strFormatted, punctuation)
+    }
+    for (keyword in keywords) {
+      addStyle(theme.code.keyword, strFormatted, keyword)
+    }
+
+    addStyle(theme.code.value, strFormatted, "true")
+    addStyle(theme.code.value, strFormatted, "false")
+    addStyle(theme.code.value, strFormatted, Regex("[0-9]*"))
+    addStyle(theme.code.annotation, strFormatted, Regex("^@[a-zA-Z_]*"))
+    addStyle(theme.code.comment, strFormatted, Regex("^\\s*//.*"))
   }
 }
+
 
 private fun AnnotatedString.Builder.addStyle(
   style: SpanStyle,

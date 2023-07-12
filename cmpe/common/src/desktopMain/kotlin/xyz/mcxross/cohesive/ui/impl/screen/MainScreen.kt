@@ -47,8 +47,8 @@ import xyz.mcxross.cohesive.project.loadDirAsProject
 import xyz.mcxross.cohesive.utils.isBinaryFile
 import xyz.mcxross.cohesive.csp.annotation.Cohesive
 import xyz.mcxross.cohesive.designsystem.mellow.Dialog
-import xyz.mcxross.cohesive.designsystem.mellow.EditorComposite
-import xyz.mcxross.cohesive.designsystem.mellow.EditorSimple
+import xyz.mcxross.cohesive.ui.impl.view.EditorComposite
+import xyz.mcxross.cohesive.ui.impl.view.EditorSimple
 import xyz.mcxross.cohesive.designsystem.mellow.File
 import xyz.mcxross.cohesive.designsystem.mellow.FileTree
 import xyz.mcxross.cohesive.designsystem.mellow.FileTreeModel

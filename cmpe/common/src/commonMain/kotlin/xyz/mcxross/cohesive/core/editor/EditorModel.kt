@@ -1,12 +1,15 @@
-package xyz.mcxross.cohesive.designsystem.mellow
+package xyz.mcxross.cohesive.core.editor
 
 import androidx.compose.runtime.State
 import xyz.mcxross.cohesive.utils.Log
 import kotlinx.coroutines.CoroutineScope
+import xyz.mcxross.cohesive.designsystem.mellow.EmptyTextLines
+import xyz.mcxross.cohesive.designsystem.mellow.File
+import xyz.mcxross.cohesive.designsystem.mellow.TextLines
 
 class EditorModel(
-    val file: File,
-    val lines: (backgroundScope: CoroutineScope) -> TextLines,
+  val file: File,
+  val lines: (backgroundScope: CoroutineScope) -> TextLines,
 ) {
   var close: (() -> Unit)? = null
   lateinit var selection: SingleSelection

@@ -1,6 +1,7 @@
-package xyz.mcxross.cohesive.designsystem.mellow
+package xyz.mcxross.cohesive.core.editor
 
 import androidx.compose.runtime.mutableStateListOf
+import xyz.mcxross.cohesive.designsystem.mellow.File
 
 class EditorManager {
   private val selection = SingleSelection()
