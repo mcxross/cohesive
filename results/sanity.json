@@ -509,6 +509,37 @@
       "type": "file",
       "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/utils/DebugAntilog.kt",
       "language": "kotlin",
+      "line": 15,
+      "offset": 1,
+      "length": 6,
+      "code": {
+        "startLine": 13,
+        "length": 6,
+        "offset": 27,
+        "surroundingCode": "\nactual class DebugAntilog\nactual constructor(private val defaultTag: String, private val handler: List<Handler>) : Antilog() {\n  actual constructor(defaultTag: String) : this(defaultTag, handler = listOf())\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "dae0aec870a42f23a33865cb2b1fbf3bb7798c16d963853aaef5bbb62c126b41"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/utils/DebugAntilog.kt",
+      "language": "kotlin",
       "line": 16,
       "offset": 3,
       "length": 6,
@@ -556,37 +587,6 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "00600d683331ea9b94d352c7b48fc64bba2134b1752173ba505cd61379ab6a22"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/utils/DebugAntilog.kt",
-      "language": "kotlin",
-      "line": 15,
-      "offset": 1,
-      "length": 6,
-      "code": {
-        "startLine": 13,
-        "length": 6,
-        "offset": 27,
-        "surroundingCode": "\nactual class DebugAntilog\nactual constructor(private val defaultTag: String, private val handler: List<Handler>) : Antilog() {\n  actual constructor(defaultTag: String) : this(defaultTag, handler = listOf())\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "dae0aec870a42f23a33865cb2b1fbf3bb7798c16d963853aaef5bbb62c126b41"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -726,37 +726,6 @@
       "type": "file",
       "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/utils/Network.kt",
       "language": "kotlin",
-      "line": 34,
-      "offset": 1,
-      "length": 6,
-      "code": {
-        "startLine": 32,
-        "length": 6,
-        "offset": 3,
-        "surroundingCode": "}\n\nactual fun getHTTPClient(): HttpClient = HttpClient(CIO) {\n  install(UserAgent) {\n    agent = \"Cohesive\""
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "f6379abe6d67ff6f71b8b8206e1c1bd5efb4b4ada03b1fe42e19d6fc550cf3d6"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/utils/Network.kt",
-      "language": "kotlin",
       "line": 22,
       "offset": 1,
       "length": 6,
@@ -773,6 +742,37 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "8d87ef3de89fa3b8d31b72e0146597c7baafdfce5911ee6edc2b3ffa516b022b"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/utils/Network.kt",
+      "language": "kotlin",
+      "line": 34,
+      "offset": 1,
+      "length": 6,
+      "code": {
+        "startLine": 32,
+        "length": 6,
+        "offset": 3,
+        "surroundingCode": "}\n\nactual fun getHTTPClient(): HttpClient = HttpClient(CIO) {\n  install(UserAgent) {\n    agent = \"Cohesive\""
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "f6379abe6d67ff6f71b8b8206e1c1bd5efb4b4ada03b1fe42e19d6fc550cf3d6"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -850,6 +850,37 @@
       "type": "file",
       "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/ui/impl/view/Editor.kt",
       "language": "kotlin",
+      "line": 27,
+      "offset": 10,
+      "length": 6,
+      "code": {
+        "startLine": 25,
+        "length": 6,
+        "offset": 22,
+        "surroundingCode": "\n@Composable\ninternal actual fun EditorMap(\n  textLines: TextLines,\n  fontSize: TextUnit,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "cc054283c62bc01c4f1ce8f8483de1d5915d47db403898c6dfd14ef26b8102ea"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/ui/impl/view/Editor.kt",
+      "language": "kotlin",
       "line": 111,
       "offset": 1,
       "length": 6,
@@ -879,16 +910,16 @@
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/ui/impl/view/Editor.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/Mouse.kt",
       "language": "kotlin",
-      "line": 27,
-      "offset": 10,
+      "line": 18,
+      "offset": 1,
       "length": 6,
       "code": {
-        "startLine": 25,
+        "startLine": 16,
         "length": 6,
-        "offset": 22,
-        "surroundingCode": "\n@Composable\ninternal actual fun EditorMap(\n  textLines: TextLines,\n  fontSize: TextUnit,"
+        "offset": 91,
+        "surroundingCode": "): Modifier = this.pointerMoveFilter(onEnter = onEnter, onExit = onExit, onMove = onMove)\n\nactual fun Modifier.cursorForHorizontalResize(): Modifier =\n  this.pointerHoverIcon(PointerIcon(Cursor(Cursor.E_RESIZE_CURSOR)))\n"
       }
     }
   ],
@@ -896,7 +927,7 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "cc054283c62bc01c4f1ce8f8483de1d5915d47db403898c6dfd14ef26b8102ea"
+  "hash": "8118002fa3b24a9ffd94bccddb8b84ba347f27618ad3c7e7627c4353b8bf5933"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -941,16 +972,16 @@
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/Mouse.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/UriConverter.kt",
       "language": "kotlin",
-      "line": 18,
+      "line": 8,
       "offset": 1,
       "length": 6,
       "code": {
-        "startLine": 16,
+        "startLine": 6,
         "length": 6,
-        "offset": 91,
-        "surroundingCode": "): Modifier = this.pointerMoveFilter(onEnter = onEnter, onExit = onExit, onMove = onMove)\n\nactual fun Modifier.cursorForHorizontalResize(): Modifier =\n  this.pointerHoverIcon(PointerIcon(Cursor(Cursor.E_RESIZE_CURSOR)))\n"
+        "offset": 28,
+        "surroundingCode": "import java.nio.file.Files\n\nactual class UriConverter {\n  actual fun toInput(uri: Uri): Input = when {\n    uri.path.startsWith(\"http\") -> TODO(\"unimplemented\")"
       }
     }
   ],
@@ -958,7 +989,7 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "8118002fa3b24a9ffd94bccddb8b84ba347f27618ad3c7e7627c4353b8bf5933"
+  "hash": "1971de6d59ee3a1a2684838282074c22c26ebd7c565d708de0c98f2b97fc567c"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -1021,37 +1052,6 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "8221e576f60b269bb70ad2715d4d895efec36b3c76b9308b799f259756727467"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/UriConverter.kt",
-      "language": "kotlin",
-      "line": 8,
-      "offset": 1,
-      "length": 6,
-      "code": {
-        "startLine": 6,
-        "length": 6,
-        "offset": 28,
-        "surroundingCode": "import java.nio.file.Files\n\nactual class UriConverter {\n  actual fun toInput(uri: Uri): Input = when {\n    uri.path.startsWith(\"http\") -> TODO(\"unimplemented\")"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "1971de6d59ee3a1a2684838282074c22c26ebd7c565d708de0c98f2b97fc567c"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -1315,37 +1315,6 @@
       "type": "file",
       "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/Scrollbar.kt",
       "language": "kotlin",
-      "line": 47,
-      "offset": 1,
-      "length": 6,
-      "code": {
-        "startLine": 45,
-        "length": 6,
-        "offset": 13,
-        "surroundingCode": "\n@Composable\nactual fun HorizontalScrollbar(\n  modifier: Modifier,\n  scrollState: LazyListState,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "e38dd0de56108c3b46ee7507dc069e22acfc96a6c1f741b00f2169659006ec53"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/Scrollbar.kt",
-      "language": "kotlin",
       "line": 38,
       "offset": 1,
       "length": 6,
@@ -1424,6 +1393,37 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "e3fe9fc08c224526044f4b09e28665b33e440580bfd3d9e5f5f726a97eac1cc5"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "The feature \"multi platform projects\" is experimental and should be enabled explicitly",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/Scrollbar.kt",
+      "language": "kotlin",
+      "line": 47,
+      "offset": 1,
+      "length": 6,
+      "code": {
+        "startLine": 45,
+        "length": 6,
+        "offset": 13,
+        "surroundingCode": "\n@Composable\nactual fun HorizontalScrollbar(\n  modifier: Modifier,\n  scrollState: LazyListState,"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "e38dd0de56108c3b46ee7507dc069e22acfc96a6c1f741b00f2169659006ec53"
 },{
   "tool": "Code Inspection",
   "category": "General",
