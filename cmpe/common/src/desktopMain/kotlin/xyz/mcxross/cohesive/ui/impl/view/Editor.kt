@@ -130,7 +130,7 @@ actual fun TextField(
 
   CoreTextField(
     value = textFieldValue,
-    onValueChange = { textFieldValue = it.copy(annotatedString = codeString(it.text)) },
+    onValueChange = { textFieldValue = it.copy(annotatedString = highlight(it.text, isCode)) },
     onScroll = onScroll,
     modifier = modifier.paddingFromBaseline(top = 0.dp, bottom = 12.dp).focusable(true),
     textStyle =
