@@ -31,118 +31,6 @@
   "category": "Migration",
   "type": "Usage of redundant or deprecated syntax or deprecated symbols",
   "severity": "High",
-  "comment": "'forEachGesture(suspend PointerInputScope.() -> Unit): Unit' is deprecated. Use awaitEachGesture instead. forEachGesture() can drop events between gestures.",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 95,
-      "offset": 3,
-      "length": 14,
-      "code": {
-        "startLine": 93,
-        "length": 14,
-        "offset": 68,
-        "surroundingCode": "  val pressScope = PressGestureScopeImpl(this@detectTapGestures)\n\n  forEachGesture {\n    awaitPointerEventScope {\n      val down = awaitFirstDown()"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "dcadec73f51bffc9c0843d73178443cb0d8ce763a0e2053d6f01e6c0eaaf71d7"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 98,
-      "offset": 12,
-      "length": 17,
-      "code": {
-        "startLine": 96,
-        "length": 17,
-        "offset": 74,
-        "surroundingCode": "    awaitPointerEventScope {\n      val down = awaitFirstDown()\n      down.consumeDownChange()\n      pressScope.reset()\n      if (onPress !== NoPressGesture) launch {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "495b4d6f138bb960981d73100abc2737cf13f5c00495d98482650b11bced9dce"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 115,
-      "offset": 22,
-      "length": 17,
-      "code": {
-        "startLine": 113,
-        "length": 17,
-        "offset": 91,
-        "surroundingCode": "          pressScope.cancel() // tap-up was canceled\n        } else {\n          upOrCancel.consumeDownChange()\n          pressScope.release()\n        }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "5d580bd138c872881a6b0530cb7cc2e36c73b4ce3276ce2c041f6934d6efd37b"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
-  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 146,
-      "offset": 28,
-      "length": 17,
-      "code": {
-        "startLine": 144,
-        "length": 17,
-        "offset": 124,
-        "surroundingCode": "                val secondUp = waitForUpOrCancellation()\n                if (secondUp != null) {\n                  secondUp.consumeDownChange()\n                  pressScope.release()\n                  onDoubleTap(secondUp.position)"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "c90186ca8b02ae77fb184933682d042128bd3af2bdf7d5adce429f21183c4f7f"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
   "comment": "Remove deprecated symbol import",
   "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
   "sources": [
@@ -255,6 +143,34 @@
   "category": "Migration",
   "type": "Usage of redundant or deprecated syntax or deprecated symbols",
   "severity": "High",
+  "comment": "'consumeAllChanges(): Unit' is deprecated. Use consume() instead",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 178,
+      "offset": 36,
+      "length": 17,
+      "code": {
+        "startLine": 176,
+        "length": 17,
+        "offset": 78,
+        "surroundingCode": "  do {\n    val event = awaitPointerEvent()\n    event.changes.fastForEach { it.consumeAllChanges() }\n  } while (event.changes.fastAny { it.pressed })\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "b2ab16f52fb22799d249a9bbdb2a6f07cec5ecc9b8718ee5c618fa7b03151c73"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
   "comment": "'forEachGesture(suspend PointerInputScope.() -> Unit): Unit' is deprecated. Use awaitEachGesture instead. forEachGesture() can drop events between gestures.",
   "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
   "sources": [
@@ -339,34 +255,6 @@
   "category": "Migration",
   "type": "Usage of redundant or deprecated syntax or deprecated symbols",
   "severity": "High",
-  "comment": "'consumeAllChanges(): Unit' is deprecated. Use consume() instead",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/gestures/TapGestureDetector.kt",
-      "language": "kotlin",
-      "line": 178,
-      "offset": 36,
-      "length": 17,
-      "code": {
-        "startLine": 176,
-        "length": 17,
-        "offset": 78,
-        "surroundingCode": "  do {\n    val event = awaitPointerEvent()\n    event.changes.fastForEach { it.consumeAllChanges() }\n  } while (event.changes.fastAny { it.pressed })\n}"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "b2ab16f52fb22799d249a9bbdb2a6f07cec5ecc9b8718ee5c618fa7b03151c73"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
   "comment": "'positionChangeConsumed(): Boolean' is deprecated. Partial consumption has been deprecated. Use isConsumed instead",
   "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
   "sources": [
@@ -395,21 +283,21 @@
   "category": "Migration",
   "type": "Usage of redundant or deprecated syntax or deprecated symbols",
   "severity": "High",
-  "comment": "Remove deprecated symbol import",
+  "comment": "'forEachGesture(suspend PointerInputScope.() -> Unit): Unit' is deprecated. Use awaitEachGesture instead. forEachGesture() can drop events between gestures.",
   "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/text/selection/SelectionManager.kt",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/gestures/TapGestureDetector.kt",
       "language": "kotlin",
-      "line": 20,
-      "offset": 1,
-      "length": 58,
+      "line": 95,
+      "offset": 3,
+      "length": 14,
       "code": {
-        "startLine": 18,
-        "length": 58,
-        "offset": 46,
-        "surroundingCode": "\nimport androidx.compose.foundation.focusable\nimport androidx.compose.foundation.gestures.forEachGesture\nimport androidx.compose.foundation.gestures.waitForUpOrCancellation\nimport androidx.compose.runtime.State"
+        "startLine": 93,
+        "length": 14,
+        "offset": 68,
+        "surroundingCode": "  val pressScope = PressGestureScopeImpl(this@detectTapGestures)\n\n  forEachGesture {\n    awaitPointerEventScope {\n      val down = awaitFirstDown()"
       }
     }
   ],
@@ -417,7 +305,91 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinDeprecation"
   },
-  "hash": "af8f011e92ddd9c997c48f344aef9f68320f17eb0d5b582ff1d1000ea1f83426"
+  "hash": "dcadec73f51bffc9c0843d73178443cb0d8ce763a0e2053d6f01e6c0eaaf71d7"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 98,
+      "offset": 12,
+      "length": 17,
+      "code": {
+        "startLine": 96,
+        "length": 17,
+        "offset": 74,
+        "surroundingCode": "    awaitPointerEventScope {\n      val down = awaitFirstDown()\n      down.consumeDownChange()\n      pressScope.reset()\n      if (onPress !== NoPressGesture) launch {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "495b4d6f138bb960981d73100abc2737cf13f5c00495d98482650b11bced9dce"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 115,
+      "offset": 22,
+      "length": 17,
+      "code": {
+        "startLine": 113,
+        "length": 17,
+        "offset": 91,
+        "surroundingCode": "          pressScope.cancel() // tap-up was canceled\n        } else {\n          upOrCancel.consumeDownChange()\n          pressScope.release()\n        }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "5d580bd138c872881a6b0530cb7cc2e36c73b4ce3276ce2c041f6934d6efd37b"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "'consumeDownChange(): Unit' is deprecated. Partial consumption has been deprecated. Use consume() instead.",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/gestures/TapGestureDetector.kt",
+      "language": "kotlin",
+      "line": 146,
+      "offset": 28,
+      "length": 17,
+      "code": {
+        "startLine": 144,
+        "length": 17,
+        "offset": 124,
+        "surroundingCode": "                val secondUp = waitForUpOrCancellation()\n                if (secondUp != null) {\n                  secondUp.consumeDownChange()\n                  pressScope.release()\n                  onDoubleTap(secondUp.position)"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "c90186ca8b02ae77fb184933682d042128bd3af2bdf7d5adce429f21183c4f7f"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -446,6 +418,34 @@
     "inspectionName": "KotlinDeprecation"
   },
   "hash": "eec84b957121504957f4f400ad905129d706d2f030c4382593545ead48542279"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "Remove deprecated symbol import",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/text/selection/SelectionManager.kt",
+      "language": "kotlin",
+      "line": 20,
+      "offset": 1,
+      "length": 58,
+      "code": {
+        "startLine": 18,
+        "length": 58,
+        "offset": 46,
+        "surroundingCode": "\nimport androidx.compose.foundation.focusable\nimport androidx.compose.foundation.gestures.forEachGesture\nimport androidx.compose.foundation.gestures.waitForUpOrCancellation\nimport androidx.compose.runtime.State"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "af8f011e92ddd9c997c48f344aef9f68320f17eb0d5b582ff1d1000ea1f83426"
 },{
   "tool": "Code Inspection",
   "category": "Migration",
@@ -1062,88 +1062,4 @@
     "inspectionName": "UnstableApiUsage"
   },
   "hash": "a2e2a49326c8bb3b661c00c99548bc8358396c6931493af5d5eb785dd078bcd8"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Possibly blocking call in non-blocking context",
-  "severity": "High",
-  "comment": "Possibly blocking call in non-blocking context could lead to thread starvation",
-  "detailsInfo": "Reports thread-blocking method calls in code fragments where threads should not be blocked.\n\n**Example (Project Reactor):**\n\n\n    Flux.just(\"1\").flatMap(f -> {\n        Flux<String> just = loadUsersFromDatabase();\n        just.toIterable(); // Error: blocking operator call in non-blocking scope\n        return just;\n      }\n    );\n\nConsider running blocking code [with a proper\nscheduler](https://projectreactor.io/docs/core/release/reference/#faq.wrap-blocking), for example `Schedulers.boundedElastic()`, or try to find an alternative non-blocking API.\n\n**Example (Kotlin Coroutines):**\n\n\n    suspend fun exampleFun() {\n        Thread.sleep(100); // Error: blocking method call inside suspend function\n    }\n\nConsider running blocking code [with a special dispatcher](https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html),\nfor example `Dispatchers.IO`, or try to find an alternative non-blocking API.\n\nConfigure the inspection:\n\n* In the **Blocking Annotations** list, specify annotations that mark thread-blocking methods.\n* In the **Non-Blocking Annotations** list, specify annotations that mark non-blocking methods.\n\nSpecified annotations can be used as [External Annotations](https://www.jetbrains.com/help/idea/external-annotations.html)",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/daemon/Directory.kt",
-      "language": "kotlin",
-      "line": 33,
-      "offset": 49,
-      "length": 15,
-      "code": {
-        "startLine": 31,
-        "length": 15,
-        "offset": 55,
-        "surroundingCode": "    }\n\n    val watchService = FileSystems.getDefault().newWatchService()\n    directory.register(\n      watchService,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "BlockingMethodInNonBlockingContext"
-  },
-  "hash": "23485c2b1d62eb6d054850da00d07e3b6d913a15e662aa6cf46ea20493ff06d7"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Possibly blocking call in non-blocking context",
-  "severity": "High",
-  "comment": "Possibly blocking call in non-blocking context could lead to thread starvation",
-  "detailsInfo": "Reports thread-blocking method calls in code fragments where threads should not be blocked.\n\n**Example (Project Reactor):**\n\n\n    Flux.just(\"1\").flatMap(f -> {\n        Flux<String> just = loadUsersFromDatabase();\n        just.toIterable(); // Error: blocking operator call in non-blocking scope\n        return just;\n      }\n    );\n\nConsider running blocking code [with a proper\nscheduler](https://projectreactor.io/docs/core/release/reference/#faq.wrap-blocking), for example `Schedulers.boundedElastic()`, or try to find an alternative non-blocking API.\n\n**Example (Kotlin Coroutines):**\n\n\n    suspend fun exampleFun() {\n        Thread.sleep(100); // Error: blocking method call inside suspend function\n    }\n\nConsider running blocking code [with a special dispatcher](https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html),\nfor example `Dispatchers.IO`, or try to find an alternative non-blocking API.\n\nConfigure the inspection:\n\n* In the **Blocking Annotations** list, specify annotations that mark thread-blocking methods.\n* In the **Non-Blocking Annotations** list, specify annotations that mark non-blocking methods.\n\nSpecified annotations can be used as [External Annotations](https://www.jetbrains.com/help/idea/external-annotations.html)",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/daemon/Directory.kt",
-      "language": "kotlin",
-      "line": 34,
-      "offset": 15,
-      "length": 8,
-      "code": {
-        "startLine": 32,
-        "length": 8,
-        "offset": 81,
-        "surroundingCode": "\n    val watchService = FileSystems.getDefault().newWatchService()\n    directory.register(\n      watchService,\n      StandardWatchEventKinds.ENTRY_CREATE,"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "BlockingMethodInNonBlockingContext"
-  },
-  "hash": "80c4ea40ece30c376196d10c5a005e40e802a2d2a48aa8898dd94d7745d21818"
-},{
-  "tool": "Code Inspection",
-  "category": "JVM languages",
-  "type": "Possibly blocking call in non-blocking context",
-  "severity": "High",
-  "comment": "Possibly blocking call in non-blocking context could lead to thread starvation",
-  "detailsInfo": "Reports thread-blocking method calls in code fragments where threads should not be blocked.\n\n**Example (Project Reactor):**\n\n\n    Flux.just(\"1\").flatMap(f -> {\n        Flux<String> just = loadUsersFromDatabase();\n        just.toIterable(); // Error: blocking operator call in non-blocking scope\n        return just;\n      }\n    );\n\nConsider running blocking code [with a proper\nscheduler](https://projectreactor.io/docs/core/release/reference/#faq.wrap-blocking), for example `Schedulers.boundedElastic()`, or try to find an alternative non-blocking API.\n\n**Example (Kotlin Coroutines):**\n\n\n    suspend fun exampleFun() {\n        Thread.sleep(100); // Error: blocking method call inside suspend function\n    }\n\nConsider running blocking code [with a special dispatcher](https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html),\nfor example `Dispatchers.IO`, or try to find an alternative non-blocking API.\n\nConfigure the inspection:\n\n* In the **Blocking Annotations** list, specify annotations that mark thread-blocking methods.\n* In the **Non-Blocking Annotations** list, specify annotations that mark non-blocking methods.\n\nSpecified annotations can be used as [External Annotations](https://www.jetbrains.com/help/idea/external-annotations.html)",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/daemon/Directory.kt",
-      "language": "kotlin",
-      "line": 46,
-      "offset": 40,
-      "length": 4,
-      "code": {
-        "startLine": 44,
-        "length": 4,
-        "offset": 62,
-        "surroundingCode": "\n    while (running) {\n      val key: WatchKey = watchService.take()\n\n      for (event in key.pollEvents()) {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "BlockingMethodInNonBlockingContext"
-  },
-  "hash": "95ff545e39353d13f18321325dac861f9c51aafc622d4a5acc98db60507255a4"
 }]}
