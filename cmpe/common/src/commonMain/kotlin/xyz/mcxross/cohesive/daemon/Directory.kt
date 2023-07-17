@@ -1,8 +1,18 @@
 package xyz.mcxross.cohesive.daemon
 
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import xyz.mcxross.cohesive.utils.Log
-import java.nio.file.*
+import java.nio.file.FileSystems
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
+import java.nio.file.StandardWatchEventKinds
+import java.nio.file.WatchKey
 
 class DirectoryListener(private val directoryPath: String) {
   private var running: Boolean = false
@@ -30,44 +40,62 @@ class DirectoryListener(private val directoryPath: String) {
       throw IllegalArgumentException("Invalid directory path: $directoryPath")
     }
 
+    running = true
+
+    Log.d { "Directory listener started. Listening for new files in $directoryPath and child dir(s)" }
+
+    watchDirectory(directory)
+
+  }
+
+  @OptIn(DelicateCoroutinesApi::class)
+  private fun watchDirectory(directory: Path) {
     val watchService = FileSystems.getDefault().newWatchService()
     directory.register(
       watchService,
       StandardWatchEventKinds.ENTRY_CREATE,
-      StandardWatchEventKinds.ENTRY_DELETE,
       StandardWatchEventKinds.ENTRY_MODIFY,
+      StandardWatchEventKinds.ENTRY_DELETE,
     )
 
-    running = true
+    val subDirs = Files.newDirectoryStream(directory) {
+      Files.isDirectory(it)
+    }
 
-    Log.d { "Directory listener started. Listening for new files in $directoryPath" }
+    subDirs.forEach {
+      GlobalScope.launch {
+        watchDirectory(it)
 
-    while (running) {
-      val key: WatchKey = watchService.take()
-
-      for (event in key.pollEvents()) {
-        val kind = event.kind()
-        val fileName = event.context() as Path
-
-        when (kind) {
-          StandardWatchEventKinds.ENTRY_CREATE -> {
-            val filePath = directory.resolve(fileName)
-            onCreateCallback?.invoke(filePath.toString())
+        while (running) {
+          val key: WatchKey = withContext(Dispatchers.IO) {
+            watchService.take()
           }
 
-          StandardWatchEventKinds.ENTRY_DELETE -> {
-            val filePath = directory.resolve(fileName)
-            onDeleteCallback?.invoke(filePath.toString())
+          for (event in key.pollEvents()) {
+            val kind = event.kind()
+            val fileName = event.context() as Path
+
+            when (kind) {
+              StandardWatchEventKinds.ENTRY_CREATE -> {
+                val filePath = directory.resolve(fileName)
+                onCreateCallback?.invoke(filePath.toString())
+              }
+
+              StandardWatchEventKinds.ENTRY_DELETE -> {
+                val filePath = directory.resolve(fileName)
+                onDeleteCallback?.invoke(filePath.toString())
+              }
+
+              StandardWatchEventKinds.ENTRY_MODIFY -> {
+                val filePath = directory.resolve(fileName)
+                onModifyCallback?.invoke(filePath.toString())
+              }
+            }
           }
 
-          StandardWatchEventKinds.ENTRY_MODIFY -> {
-            val filePath = directory.resolve(fileName)
-            onModifyCallback?.invoke(filePath.toString())
-          }
+          key.reset()
         }
       }
-
-      key.reset()
     }
   }
 

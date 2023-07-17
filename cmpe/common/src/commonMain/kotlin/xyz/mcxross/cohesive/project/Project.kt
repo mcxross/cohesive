@@ -5,6 +5,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import xyz.mcxross.cohesive.daemon.createCohesiveProjectListener
 import xyz.mcxross.cohesive.designsystem.mellow.File
+import xyz.mcxross.cohesive.utils.Log
 
 @OptIn(DelicateCoroutinesApi::class)
 class Project(
@@ -29,7 +30,7 @@ class Project(
 
     createCohesiveProjectListener(parentDir.absolutePath) {
       onCreate {
-        //TODO handle new file created
+        //TODO handle modify file
       }
       onModify {
         //TODO handle modify file
