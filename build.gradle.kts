@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 val pluginDirDesktop by extra { file("$projectDir/cmpe/desktop/build/plugin/sec") }
 
 group = "xyz.mcxross.cohesive"
-version = "0.1.0"
+version = "0.1.0-alpha"
 
 allprojects {
   repositories {

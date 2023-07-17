@@ -11,7 +11,7 @@ group
 
 version
 
-"1.0.0"
+"0.1.0-alpha"
 
 repositories { mavenCentral() }
 
@@ -27,7 +27,7 @@ android {
     minSdk = 24
     targetSdk = 33
     versionCode = 1
-    versionName = "1.0.0"
+    versionName = "0.1.0-alpha"
   }
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_1_8

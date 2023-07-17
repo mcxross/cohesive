@@ -17,7 +17,7 @@ plugins {
 
 group = "com.mcxross.cohesive"
 
-version = "0.1.0"
+version = "0.1.0-alpha"
 
 allOpen { annotation("org.openjdk.jmh.annotations.State") }
 
