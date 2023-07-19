@@ -9,7 +9,7 @@ plugins {
   id("org.jetbrains.dokka")
 }
 
-group = "com.mcxross.cohesive.csp"
+group = "xyz.mcxross.cohesive.csp"
 
 version = "0.1.0-alpha"
 

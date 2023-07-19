@@ -8,7 +8,7 @@ plugins {
   id("org.jetbrains.compose")
 }
 
-group = "com.mcxross.cohesive"
+group = "xyz.mcxross.cohesive"
 
 version = "0.1.0-alpha"
 
