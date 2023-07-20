@@ -14,26 +14,24 @@ class EditorManager {
 
   fun isActiveNonNull() = active != null
 
-  fun open(
-    file: File,
-  ) {
-    var activeEditorModel: EditorModel? = null
+  fun open(file: File) {
 
-    editorModels.forEach {
-      if (it.isSame(file.absolutePath)) {
-        activeEditorModel = it
-        activeEditorModel!!.selection = selection
-      }
-    }
-    if (activeEditorModel == null) {
-      activeEditorModel = createEditorModel(file)
-      activeEditorModel!!.selection = selection
-      activeEditorModel!!.close = { close(activeEditorModel!!) }
-      editorModels.add(activeEditorModel!!)
-    }
+    //TODO Check if file exists
 
-    activeEditorModel!!.activate()
+    val activeEditorModel = editorModels.firstOrNull { it.isSame(file.absolutePath) }
+
+    if (activeEditorModel != null) {
+      activeEditorModel.selection = selection
+      activeEditorModel.activate()
+    } else {
+      val newEditorModel = createEditorModel(file)
+      newEditorModel.selection = selection
+      newEditorModel.close = { close(newEditorModel) }
+      editorModels.add(newEditorModel)
+      newEditorModel.activate()
+    }
   }
+
 
   private fun close(
     editorModel: EditorModel,
