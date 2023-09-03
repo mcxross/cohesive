@@ -5,19 +5,19 @@ plugins {
   `java-library`
   `maven-publish`
   kotlin("jvm")
-  kotlin("plugin.serialization") version "1.8.0"
+  kotlin("plugin.serialization")
   id("org.jetbrains.dokka")
 }
 
 group = "xyz.mcxross.cohesive.csp"
 
-version = "0.1.0-alpha"
+version = "0.1.0-prealpha"
 
 repositories { mavenCentral() }
 
 dependencies {
   implementation(kotlin("stdlib"))
-  implementation("com.google.devtools.ksp:symbol-processing-api:1.8.0-1.0.9")
+  implementation("com.google.devtools.ksp:symbol-processing-api:1.9.0-1.0.13")
   implementation(kotlin("reflect"))
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 }

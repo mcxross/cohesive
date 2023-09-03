@@ -17,7 +17,7 @@ plugins {
 
 group = "xyz.mcxross.cohesive"
 
-version = "0.1.0-alpha"
+version = "0.1.0-prealpha"
 
 allOpen { annotation("org.openjdk.jmh.annotations.State") }
 
@@ -61,7 +61,7 @@ kotlin {
         implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
       }
     }
-    val androidTest by getting { dependencies { implementation("junit:junit:4.13.2") } }
+    val androidUnitTest by getting { dependencies { implementation("junit:junit:4.13.2") } }
     val androidBenchmark by creating { dependsOn(androidMain) }
     val desktopMain by getting {
       dependencies {

@@ -11,7 +11,7 @@ group
 
 version
 
-"0.1.0-alpha"
+"0.1.0-prealpha"
 
 repositories { mavenCentral() }
 
