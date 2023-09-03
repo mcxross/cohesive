@@ -53,23 +53,7 @@
       "languageLevel": 11
     },
     {
-      "name": "cohesive.cmpe.common.androidAndroidTestRelease",
-      "languageLevel": 11
-    },
-    {
       "name": "cohesive.cmpe.common.androidBenchmark",
-      "languageLevel": 11
-    },
-    {
-      "name": "cohesive.cmpe.common.androidTestFixtures",
-      "languageLevel": 11
-    },
-    {
-      "name": "cohesive.cmpe.common.androidTestFixturesDebug",
-      "languageLevel": 11
-    },
-    {
-      "name": "cohesive.cmpe.common.androidTestFixturesRelease",
       "languageLevel": 11
     },
     {
