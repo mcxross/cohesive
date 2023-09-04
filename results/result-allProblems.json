@@ -59,34 +59,6 @@
   "category": "Migration",
   "type": "Usage of redundant or deprecated syntax or deprecated symbols",
   "severity": "High",
-  "comment": "Remove deprecated symbol import",
-  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/text/selection/TextSelectionMouseDetector.kt",
-      "language": "kotlin",
-      "line": 20,
-      "offset": 1,
-      "length": 58,
-      "code": {
-        "startLine": 18,
-        "length": 58,
-        "offset": 50,
-        "surroundingCode": "\nimport androidx.compose.foundation.gestures.drag\nimport androidx.compose.foundation.gestures.forEachGesture\nimport androidx.compose.ui.geometry.Offset\nimport androidx.compose.ui.input.pointer.AwaitPointerEventScope"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "KotlinDeprecation"
-  },
-  "hash": "6a2481e9de29490b2871a757d3647ae79f189734c335515487e2ad00213bc85d"
-},{
-  "tool": "Code Inspection",
-  "category": "Migration",
-  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
-  "severity": "High",
   "comment": "'forEachGesture(suspend PointerInputScope.() -> Unit): Unit' is deprecated. Use awaitEachGesture instead. forEachGesture() can drop events between gestures.",
   "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
   "sources": [
@@ -110,6 +82,34 @@
     "inspectionName": "KotlinDeprecation"
   },
   "hash": "795115ea6dd1f361836732b64d86e71b40a4346eb96bbf1c9bd8719ea9924bca"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "Remove deprecated symbol import",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/text/selection/TextSelectionMouseDetector.kt",
+      "language": "kotlin",
+      "line": 20,
+      "offset": 1,
+      "length": 58,
+      "code": {
+        "startLine": 18,
+        "length": 58,
+        "offset": 50,
+        "surroundingCode": "\nimport androidx.compose.foundation.gestures.drag\nimport androidx.compose.foundation.gestures.forEachGesture\nimport androidx.compose.ui.geometry.Offset\nimport androidx.compose.ui.input.pointer.AwaitPointerEventScope"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "6a2481e9de29490b2871a757d3647ae79f189734c335515487e2ad00213bc85d"
 },{
   "tool": "Code Inspection",
   "category": "Migration",

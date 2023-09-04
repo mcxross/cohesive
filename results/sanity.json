@@ -6,68 +6,6 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Unresolved reference: require",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/utils/DirectedGraph.kt",
-      "language": "kotlin",
-      "line": 55,
-      "offset": 5,
-      "length": 7,
-      "code": {
-        "startLine": 53,
-        "length": 7,
-        "offset": 45,
-        "surroundingCode": "   */\n  fun removeEdge(from: V, to: V) {\n    require(containsVertex(from)) { \"Nonexistent vertex $from\" }\n    require(containsVertex(to)) { \"Nonexistent vertex $to\" }\n    neighbors[from]!!.remove(to)"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "e367476a742b92fba31eef2c68961709f9936d67d5facbd134c36087929c16c9"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Unresolved reference: require",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/utils/DirectedGraph.kt",
-      "language": "kotlin",
-      "line": 56,
-      "offset": 5,
-      "length": 7,
-      "code": {
-        "startLine": 54,
-        "length": 7,
-        "offset": 104,
-        "surroundingCode": "  fun removeEdge(from: V, to: V) {\n    require(containsVertex(from)) { \"Nonexistent vertex $from\" }\n    require(containsVertex(to)) { \"Nonexistent vertex $to\" }\n    neighbors[from]!!.remove(to)\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "efa108f040a07fa5033315e35b7e421ccb623075d60de3654183e8f9090d8d34"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
   "comment": "No set method providing array access",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
@@ -75,14 +13,14 @@
       "type": "file",
       "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/utils/DirectedGraph.kt",
       "language": "kotlin",
-      "line": 27,
-      "offset": 14,
+      "line": 111,
+      "offset": 15,
       "length": 1,
       "code": {
-        "startLine": 25,
+        "startLine": 109,
         "length": 1,
-        "offset": 32,
-        "surroundingCode": "      return\n    }\n    neighbors[vertex] = ArrayList()\n  }\n"
+        "offset": 117,
+        "surroundingCode": "      // \"remove\" vertex 'v' by updating its neighbors\n      neighbors[vertex]!!.forEach { neighbor ->\n        degree[neighbor] = degree[neighbor]!! - 1 // decrement in-degree\n        // remember any vertices that now have zero in-degree\n        if (degree[neighbor] == 0) {"
       }
     }
   ],
@@ -90,7 +28,7 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "b6538d1c93cde7a9735eee2682d4a78a03f3d1b2197fb9e9a3d27783d1108583"
+  "hash": "067f309a8a707de3e025bb010e2de1b76716269ada4780a74ff45ae7e1cb38f9"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -99,21 +37,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Unresolved reference: neighbors[vertex]",
+  "comment": "Unresolved reference: degree[neighbor]",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
       "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/utils/DirectedGraph.kt",
       "language": "kotlin",
-      "line": 27,
-      "offset": 14,
+      "line": 111,
+      "offset": 15,
       "length": 1,
       "code": {
-        "startLine": 25,
+        "startLine": 109,
         "length": 1,
-        "offset": 32,
-        "surroundingCode": "      return\n    }\n    neighbors[vertex] = ArrayList()\n  }\n"
+        "offset": 117,
+        "surroundingCode": "      // \"remove\" vertex 'v' by updating its neighbors\n      neighbors[vertex]!!.forEach { neighbor ->\n        degree[neighbor] = degree[neighbor]!! - 1 // decrement in-degree\n        // remember any vertices that now have zero in-degree\n        if (degree[neighbor] == 0) {"
       }
     }
   ],
@@ -121,7 +59,69 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "ba6df36c291c2ae8211441a04c09231442b4f172ff77b9d77cbdb6dd889fe479"
+  "hash": "943064b9619b6d61d683c622e342fc8815a162fae9095b9c954c6e2bcfc66221"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: degree[neighbor]",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/utils/DirectedGraph.kt",
+      "language": "kotlin",
+      "line": 111,
+      "offset": 24,
+      "length": 1,
+      "code": {
+        "startLine": 109,
+        "length": 1,
+        "offset": 126,
+        "surroundingCode": "      // \"remove\" vertex 'v' by updating its neighbors\n      neighbors[vertex]!!.forEach { neighbor ->\n        degree[neighbor] = degree[neighbor]!! - 1 // decrement in-degree\n        // remember any vertices that now have zero in-degree\n        if (degree[neighbor] == 0) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "1c257122305786c6442762c01a81580bc686e9586c5c74393f2b66b55c1491e9"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: emptyList",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/cps/utils/DirectedGraph.kt",
+      "language": "kotlin",
+      "line": 121,
+      "offset": 7,
+      "length": 9,
+      "code": {
+        "startLine": 119,
+        "length": 9,
+        "offset": 130,
+        "surroundingCode": "    // check that we have used the entire graph (if not, there was a cycle)\n    return if (result.size != neighbors.size) {\n      emptyList()\n    } else result\n  }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "719dc504b35417845202ad3c4b62e74ff270aadd64d94466f0be68383a760827"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -168,37 +168,6 @@
       "type": "file",
       "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/ChildDeclarationInterface.kt",
       "language": "kotlin",
-      "line": 3,
-      "offset": 19,
-      "length": 12,
-      "code": {
-        "startLine": 1,
-        "length": 12,
-        "offset": 68,
-        "surroundingCode": "package xyz.mcxross.cohesive.common.algo.ds.tree\n\nimport kotlin.jvm.JvmSynthetic\n\ninterface ChildDeclarationInterface<T> {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "bacb31fe65543e04cd5e94d27e6a972b0f646102ea0bae663f98bf2e3e5ae6d6"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Unresolved reference: JvmSynthetic",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/ChildDeclarationInterface.kt",
-      "language": "kotlin",
       "line": 22,
       "offset": 4,
       "length": 12,
@@ -223,29 +192,29 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Unresolved reference: Pair",
+  "comment": "Unresolved reference: JvmSynthetic",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/text/CoreText.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/ChildDeclarationInterface.kt",
       "language": "kotlin",
-      "line": 687,
-      "offset": 4,
-      "length": 4,
+      "line": 3,
+      "offset": 19,
+      "length": 12,
       "code": {
-        "startLine": 685,
-        "length": 4,
-        "offset": 76,
-        "surroundingCode": "  text: AnnotatedString,\n  inlineContent: Map<String, InlineTextContent>\n): Pair<List<PlaceholderRange>, List<InlineContentRange>> {\n  if (inlineContent.isEmpty()) {\n    return EmptyInlineContent"
+        "startLine": 1,
+        "length": 12,
+        "offset": 68,
+        "surroundingCode": "package xyz.mcxross.cohesive.common.algo.ds.tree\n\nimport kotlin.jvm.JvmSynthetic\n\ninterface ChildDeclarationInterface<T> {"
       }
     }
   ],
   "attributes": {
-    "module": "cohesive.cmpe.common.desktopMain",
+    "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "5391df94717f3a73a39756bf9bc2151ec7fd413d3f6ef77d2c1f38ab6a16e477"
+  "hash": "bacb31fe65543e04cd5e94d27e6a972b0f646102ea0bae663f98bf2e3e5ae6d6"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -254,21 +223,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Unresolved reference: mutableListOf",
+  "comment": "Unresolved reference: require",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
       "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/text/CoreText.kt",
       "language": "kotlin",
-      "line": 693,
-      "offset": 22,
-      "length": 13,
+      "line": 120,
+      "offset": 3,
+      "length": 7,
       "code": {
-        "startLine": 691,
-        "length": 13,
-        "offset": 117,
-        "surroundingCode": "  val inlineContentAnnotations = text.getStringAnnotations(INLINE_CONTENT_TAG, 0, text.length)\n\n  val placeholders = mutableListOf<AnnotatedString.Range<Placeholder>>()\n  val inlineComposables = mutableListOf<AnnotatedString.Range<@Composable (String) -> Unit>>()\n  inlineContentAnnotations.fastForEach { annotation ->"
+        "startLine": 118,
+        "length": 7,
+        "offset": 49,
+        "surroundingCode": "  onTextLayout: (TextLayoutResult) -> Unit\n) {\n  require(maxLines > 0) { \"maxLines should be greater than 0\" }\n\n  // selection registrar, if no SelectionContainer is added ambient value will be null"
       }
     }
   ],
@@ -276,7 +245,7 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "a3379f00263bd26ecfdf34c2fc6a872bea69a6a1fa6b07111944aa578e68b375"
+  "hash": "cd7ce646fd7e99afbec2d4957857f9e2083095e014589cc916f35f6006b21121"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -285,21 +254,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Unresolved reference: mutableListOf",
+  "comment": "Unresolved reference: let",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
       "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/text/CoreText.kt",
       "language": "kotlin",
-      "line": 694,
-      "offset": 27,
-      "length": 13,
+      "line": 549,
+      "offset": 34,
+      "length": 3,
       "code": {
-        "startLine": 692,
-        "length": 13,
-        "offset": 100,
-        "surroundingCode": "\n  val placeholders = mutableListOf<AnnotatedString.Range<Placeholder>>()\n  val inlineComposables = mutableListOf<AnnotatedString.Range<@Composable (String) -> Unit>>()\n  inlineContentAnnotations.fastForEach { annotation ->\n    inlineContent[annotation.item]?.let { inlineTextContent ->"
+        "startLine": 547,
+        "length": 3,
+        "offset": 126,
+        "surroundingCode": "\n      override fun onDrag(dragPosition: Offset, adjustment: SelectionAdjustment): Boolean {\n        state.layoutCoordinates?.let {\n          if (!it.isAttached) return false\n          if (!selectionRegistrar.hasSelection(state.selectableId)) return false"
       }
     }
   ],
@@ -307,7 +276,69 @@
     "module": "cohesive.cmpe.common.desktopMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "304b1f5892d28e50ec4fd5dfd3acc81d682b899339534cc4c4c5e4f6b27964cd"
+  "hash": "988b5ef42513d69db4513db955f13d8283911703dfde7f4442053d6ecd0e9691"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: isAttached",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/desktopMain/kotlin/xyz/mcxross/cohesive/designsystem/mellow/foundation/text/CoreText.kt",
+      "language": "kotlin",
+      "line": 550,
+      "offset": 19,
+      "length": 10,
+      "code": {
+        "startLine": 548,
+        "length": 10,
+        "offset": 149,
+        "surroundingCode": "      override fun onDrag(dragPosition: Offset, adjustment: SelectionAdjustment): Boolean {\n        state.layoutCoordinates?.let {\n          if (!it.isAttached) return false\n          if (!selectionRegistrar.hasSelection(state.selectableId)) return false\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.desktopMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "a91d555870129e096fa83537dbe58bf102283ab1e80c5c129008d511a4fb471f"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: ArrayDeque",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/PostOrderTreeIterator.kt",
+      "language": "kotlin",
+      "line": 23,
+      "offset": 23,
+      "length": 10,
+      "code": {
+        "startLine": 21,
+        "length": 10,
+        "offset": 99,
+        "surroundingCode": "class PostOrderTreeIterator<T>(root: TreeNode<T>) : Iterator<TreeNode<T>> {\n\n  private val stack = ArrayDeque<TreeNode<T>>()\n\n  init {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "a4c33224d1460a20663a112a504ba2ed137810584a8363bd1042f22b775a2eab"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -409,21 +440,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Unresolved reference: listOf",
+  "comment": "Unresolved reference: JvmSynthetic",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/PostOrderTreeIterator.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/TreeNodeExt.kt",
       "language": "kotlin",
-      "line": 38,
-      "offset": 25,
-      "length": 6,
+      "line": 15,
+      "offset": 2,
+      "length": 12,
       "code": {
-        "startLine": 36,
-        "length": 6,
-        "offset": 101,
-        "surroundingCode": "    val stack = ArrayDeque<TreeNode<T>>()\n    if (node.children.isEmpty()) {\n      return ArrayDeque(listOf(node))\n    }\n    node.children.forEach {"
+        "startLine": 13,
+        "length": 12,
+        "offset": 47,
+        "surroundingCode": " * @see [ChildDeclarationInterface.child]\n */\n@JvmSynthetic\ninline fun <reified T> tree(\n    root: T,"
       }
     }
   ],
@@ -431,7 +462,7 @@
     "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "b808f157f1a10e0ab7cd88474ae8e3f17810cd1ffa7827ceb08a8c46e25da16d"
+  "hash": "06b038707e3e825577b7f29bd30fb15e3e9b23493300cddd715ca529fa0761eb"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -471,21 +502,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Unresolved reference: JvmSynthetic",
+  "comment": "Unresolved reference: clear",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/TreeNodeExt.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/TreeNode.kt",
       "language": "kotlin",
-      "line": 15,
-      "offset": 2,
-      "length": 12,
+      "line": 102,
+      "offset": 28,
+      "length": 5,
       "code": {
-        "startLine": 13,
-        "length": 12,
-        "offset": 47,
-        "surroundingCode": " * @see [ChildDeclarationInterface.child]\n */\n@JvmSynthetic\ninline fun <reified T> tree(\n    root: T,"
+        "startLine": 100,
+        "length": 5,
+        "offset": 62,
+        "surroundingCode": "  fun clear() {\n    _parent = null\n    _children.forEach { it.clear() }\n    _children.clear()\n  }"
       }
     }
   ],
@@ -493,7 +524,7 @@
     "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "06b038707e3e825577b7f29bd30fb15e3e9b23493300cddd715ca529fa0761eb"
+  "hash": "06a2c42a2e3c29947ca94bbf1b2151f1407498e1b1462818fb24f50a983ce8da"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -502,21 +533,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Unresolved reference: println",
+  "comment": "Unresolved reference: mutableListOf",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
       "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/TreeNode.kt",
       "language": "kotlin",
-      "line": 55,
-      "offset": 5,
-      "length": 7,
+      "line": 16,
+      "offset": 27,
+      "length": 13,
       "code": {
-        "startLine": 53,
-        "length": 7,
-        "offset": 59,
-        "surroundingCode": "   */\n  fun removeChild(child: TreeNode<T>): Boolean {\n    println(child.value)\n    val removed = child._parent?._children?.remove(child)\n    child._parent = null"
+        "startLine": 14,
+        "length": 13,
+        "offset": 47,
+        "surroundingCode": "    get() = _parent\n\n  private val _children = mutableListOf<TreeNode<T>>()\n\n  /**"
       }
     }
   ],
@@ -524,7 +555,38 @@
     "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "16691811de24bb693a33fa0a185cc71cab25fcd7ac58bf28731159aa36f334bb"
+  "hash": "3c96fc142dd1340d77119d1bc87a3e16853e79b5f488311df4edacf2f5ed9020"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference: height",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/TreeNode.kt",
+      "language": "kotlin",
+      "line": 76,
+      "offset": 47,
+      "length": 6,
+      "code": {
+        "startLine": 74,
+        "length": 6,
+        "offset": 74,
+        "surroundingCode": "   */\n  fun height(): Int {\n    val childrenMaxDepth = _children.map { it.height() }\n      .maxOrNull()\n      ?: -1 // -1 because this method counts nodes, and edges are always one less then nodes."
+      }
+    }
+  ],
+  "attributes": {
+    "module": "cohesive.cmpe.common.commonMain",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "2c6f66f5372b568fa7610f11f41a3ed5b870121370bf2e8711d7fcf88b5f2b77"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -564,21 +626,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "Unresolved reference: JvmSynthetic",
+  "comment": "Expression expected, but a package name found",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
       "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/TreeNode.kt",
+      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/PreOrderTreeIterator.kt",
       "language": "kotlin",
-      "line": 4,
-      "offset": 19,
-      "length": 12,
+      "line": 35,
+      "offset": 32,
+      "length": 2,
       "code": {
-        "startLine": 2,
-        "length": 12,
-        "offset": 87,
-        "surroundingCode": "\nimport xyz.mcxross.cohesive.common.algo.ds.tree.TreeNodeIterators.*\nimport kotlin.jvm.JvmSynthetic\n\nopen class TreeNode<T>(val value: T) : Iterable<TreeNode<T>>, ChildDeclarationInterface<T> {"
+        "startLine": 33,
+        "length": 2,
+        "offset": 69,
+        "surroundingCode": "    node.children\n      .asReversed()\n      .forEach { stack.addLast(it) }\n    return node\n  }"
       }
     }
   ],
@@ -586,38 +648,7 @@
     "module": "cohesive.cmpe.common.commonMain",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "124d3363dea737be1bb1811f0010df08d655c3426a3d16867fb030c06cac9bac"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Unresolved reference: clear",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/TreeNode.kt",
-      "language": "kotlin",
-      "line": 102,
-      "offset": 28,
-      "length": 5,
-      "code": {
-        "startLine": 100,
-        "length": 5,
-        "offset": 62,
-        "surroundingCode": "  fun clear() {\n    _parent = null\n    _children.forEach { it.clear() }\n    _children.clear()\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "06a2c42a2e3c29947ca94bbf1b2151f1407498e1b1462818fb24f50a983ce8da"
+  "hash": "04efc5c7ddec143b3a780f05e84774efea35b75bbb4c71222327ee2cf5998c8d"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -649,37 +680,6 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "df931337d77d6c7f877a14e282c42786dab9dacf719fa54bb6841a5f557aa964"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "Sanity"
-  ],
-  "severity": "Critical",
-  "comment": "Expression expected, but a package name found",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "cmpe/common/src/commonMain/kotlin/xyz/mcxross/cohesive/common/algo/ds/tree/PreOrderTreeIterator.kt",
-      "language": "kotlin",
-      "line": 35,
-      "offset": 32,
-      "length": 2,
-      "code": {
-        "startLine": 33,
-        "length": 2,
-        "offset": 69,
-        "surroundingCode": "    node.children\n      .asReversed()\n      .forEach { stack.addLast(it) }\n    return node\n  }"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "cohesive.cmpe.common.commonMain",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "04efc5c7ddec143b3a780f05e84774efea35b75bbb4c71222327ee2cf5998c8d"
 },{
   "tool": "Code Inspection",
   "category": "General",
