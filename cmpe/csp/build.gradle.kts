@@ -27,7 +27,7 @@ sourceSets.main { java.srcDirs("src/main/kotlin") }
 publishing {
   publications {
     create<MavenPublication>("maven") {
-      groupId = "com.mcxross.cohesive"
+      groupId = "xyz.mcxross.cohesive"
       artifactId = "cohesive-csp"
       from(components["java"])
     }

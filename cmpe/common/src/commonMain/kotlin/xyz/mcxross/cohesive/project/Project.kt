@@ -28,7 +28,7 @@ class Project(
       loadCohesiveProject()
     }
 
-    createCohesiveProjectListener(parentDir.absolutePath) {
+    /*createCohesiveProjectListener(parentDir.absolutePath) {
       onCreate {
         //TODO handle modify file
       }
@@ -42,7 +42,7 @@ class Project(
       GlobalScope.launch {
         startListening()
       }
-    }
+    }*/
     projectLoaded = true
   }
 

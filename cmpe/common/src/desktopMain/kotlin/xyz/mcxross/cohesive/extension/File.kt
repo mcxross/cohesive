@@ -69,7 +69,7 @@ fun java.io.File.toProjectFile(): File =
       return object : TextLines {
         override val size
           get() = size
-        override var isCode: Boolean = name.endsWith(".kt", ignoreCase = true)
+        override var isCode: Boolean = name.endsWith(".move", ignoreCase = true)
         override val text: State<String>
           get() {
             return if (byteBuffer.hasArray()) {

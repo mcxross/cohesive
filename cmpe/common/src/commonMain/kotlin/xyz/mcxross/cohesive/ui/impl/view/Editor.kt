@@ -198,32 +198,87 @@ fun codeString(
 
     val punctuationCharacters = listOf(":", "=", "\"", "[", "]", "{", "}", "(", ")", ",")
     val keywords = listOf(
-      "fun", "val", "var", "private", "internal", "for",
-      "expect", "actual", "import", "package",
+      "script",
+      "module",
+      "self",
+      "const",
+      "native",
+      "public",
+      "public(friend)",
+      "internal",
+      "entry",
+      "fun",
+      "has",
+      "drop",
+      "key",
+      "store",
+      "acquires",
+      "struct",
+      "use",
+      "as",
+      "mut",
+      "copy",
+      "move",
+      "return",
+      "abort",
+      "break",
+      "continue",
+      "if",
+      "else",
+      "loop",
+      "while",
+      "let",
+      "phantom",
+      "spec",
     )
 
-    for (punctuation in punctuationCharacters) {
-      addStyle(theme.code.punctuation, strFormatted, punctuation)
-    }
-    for (keyword in keywords) {
-      addStyle(theme.code.keyword, strFormatted, keyword)
+
+    // Identify and store the ranges of all comments
+    val commentRanges = mutableListOf<IntRange>()
+    for (result in """^\s*//.*""".toRegex(RegexOption.MULTILINE).findAll(strFormatted)) {
+      commentRanges.add(result.range)
+      addStyle(theme.code.comment, result.range.first, result.range.last + 1) // Style the comment immediately
     }
 
-    addStyle(theme.code.value, strFormatted, "true")
-    addStyle(theme.code.value, strFormatted, "false")
-    addStyle(theme.code.value, strFormatted, Regex("[0-9]*"))
-    addStyle(theme.code.annotation, strFormatted, Regex("^@[a-zA-Z_]*"))
-    addStyle(theme.code.comment, strFormatted, Regex("^\\s*//.*"))
+    for (punctuation in punctuationCharacters) {
+      val matches = Regex.escape(punctuation).toRegex().findAll(strFormatted)
+      for (match in matches) {
+        if (!isInCommentRange(match.range.first, commentRanges)) {
+          addStyle(theme.code.punctuation, match.range.first, match.range.last + 1)
+        }
+      }
+    }
+
+    for (keyword in keywords) {
+      val matches = """\b$keyword\b""".toRegex().findAll(strFormatted)
+      for (match in matches) {
+        if (!isInCommentRange(match.range.first, commentRanges)) {
+          addStyle(theme.code.keyword, match.range.first, match.range.last + 1)
+        }
+      }
+    }
+    addStyle(theme.code.value, strFormatted, """\btrue\b""")
+    addStyle(theme.code.value, strFormatted, """\bfalse\b""")
+    addStyle(theme.code.value, strFormatted, """\b[0-9]+\b""")
+    addStyle(theme.code.annotation, strFormatted, """\b@[a-zA-Z_]+\b""")
   }
 }
 
+private fun isInCommentRange(index: Int, commentRanges: List<IntRange>): Boolean {
+  for (range in commentRanges) {
+    if (range.contains(index)) {
+      return true
+    }
+  }
+  return false
+}
 
 private fun AnnotatedString.Builder.addStyle(
   style: SpanStyle,
   text: String,
   regexp: String,
 ) {
-  addStyle(style, text, Regex.fromLiteral(regexp))
+  addStyle(style, text, Regex(regexp))
 }
 
 private fun AnnotatedString.Builder.addStyle(
@@ -235,6 +290,7 @@ private fun AnnotatedString.Builder.addStyle(
     addStyle(style, result.range.first, result.range.last + 1)
   }
 }
+
 
 @Composable
 fun EditorEmpty(
